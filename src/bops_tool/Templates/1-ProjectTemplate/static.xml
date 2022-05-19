@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<static>
+   <FolderName>.\InputData\029\pre\</FolderName>
+   <TrialName>static1</TrialName>
+   <Fcut>6</Fcut>
+   <JCcomputation>
+      <Joint>
+         <Name>Ankle</Name>
+         <Method>AJCMidPoint</Method>
+         <Input>
+            <MarkerNames>
+               <Marker>LMMAL</Marker>
+               <Marker>RMMAL</Marker>
+               <Marker>LLMAL</Marker>
+               <Marker>RLMAL</Marker>
+            </MarkerNames>
+         </Input>
+      </Joint>
+      <Joint>
+         <Name>Hip</Name>
+         <Method>HJCHarrington</Method>
+         <Input>
+            <MarkerNames>
+               <Marker>LASI</Marker>
+               <Marker>RASI</Marker>
+               <Marker>LSACR</Marker>
+               <Marker>RSACR</Marker>
+            </MarkerNames>
+         </Input>
+      </Joint>
+      <Joint>
+         <Name>Knee</Name>
+         <Method>KJCMidPoint</Method>
+         <Input>
+            <MarkerNames>
+               <Marker>LLFC</Marker>
+               <Marker>RLFC</Marker>
+               <Marker>LMFC</Marker>
+               <Marker>RMFC</Marker>
+            </MarkerNames>
+         </Input>
+      </Joint>
+   </JCcomputation>
+   <trcMarkers>FHD LBHD RBHD C7 T10 CLAV LSHO LUUPA LMUPA LDUPA LLEP LMEP LRAD LUL LRFIN RSHO RUPA1 RMUPA RDUPA RLEP RMEP RRAD RUL RUFIN LASI RASI USACR LSACR RSACR LTHI1 LTHI2 LTHI3 LTHI4 LLFC LMFC LTIB1 LTIB2 LTIB3 LTIB4 LLMAL LMMAL LHEE LMT1 LMT5 LMT2 RTHI RTHI2 RTHI3 RTHI4 RLFC RMFC RTIB1 RTIB2 RTIB3 RTIB4 RLMAL RMMAL RHEE RMT1 RMT2 RMT5</trcMarkers>
+</static>

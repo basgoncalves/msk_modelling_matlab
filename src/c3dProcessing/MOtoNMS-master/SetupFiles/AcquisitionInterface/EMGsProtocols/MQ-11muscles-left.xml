@@ -1,0 +1,17 @@
+   <EMGsProtocol>
+      <Name>MQ-11muscles</Name>
+      <MuscleList>
+		<Muscle>VL</Muscle>
+	    <Muscle>VM</Muscle>
+	    <Muscle>RF</Muscle>
+        <Muscle>AD</Muscle>
+        <Muscle>LG</Muscle>
+	    <Muscle>MG</Muscle>   
+	    <Muscle>BF</Muscle>
+		<Muscle>SM</Muscle>
+		<Muscle>GlutMax</Muscle>
+	    <Muscle>GlutMed</Muscle>
+        <Muscle>TFL</Muscle>
+	  </MuscleList>
+      <InstrumentedLeg>Left</InstrumentedLeg>
+   </EMGsProtocol>

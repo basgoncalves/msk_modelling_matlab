@@ -1,0 +1,80 @@
+<Marker name="r_fp_heel1">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_r</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.01 0 -0.05</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="r_fp_heel2">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_r</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0 0 0.03</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="r_fp_mt1">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_r</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.135 0 0.07</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="r_fp_mt2">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_r</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.205 0 -0.05</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="r_fp_toe">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_r</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.275 0 0.02</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="l_fp_heel1">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_l</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.01 0 0.05</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="l_fp_heel2">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_l</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0 0 -0.03</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="l_fp_mt1">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_l</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.135 0 -0.07</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="l_fp_mt2">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_l</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.205 0 0.05</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
+				<Marker name="l_fp_toe">
+					<!--Body segment in the model on which the marker resides.-->
+					<body>calcn_l</body>
+					<!--Location of a marker on the body segment.-->
+					<location> 0.275 0 -0.02</location>
+					<!--Flag (true or false) specifying whether or not a marker should be kept fixed in the marker placement step.  i.e. If false, the marker is allowed to move.-->
+					<fixed>true</fixed>
+				</Marker>
