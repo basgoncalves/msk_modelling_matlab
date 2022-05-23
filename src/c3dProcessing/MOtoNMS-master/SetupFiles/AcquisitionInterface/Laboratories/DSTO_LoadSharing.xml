@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Laboratory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>DSTO</Name>
+  <MotionCaptureSystem>Vicon</MotionCaptureSystem>
+  <CoordinateSystemOrientation>YZX</CoordinateSystemOrientation>
+  <NumberOfForcePlatforms>2</NumberOfForcePlatforms>
+  <ForcePlatformsList>
+    <ForcePlatform>
+      <ID>1</ID>
+      <Brand>AMTI</Brand>
+      <Type>2</Type>
+      <FrameRate>1000</FrameRate>
+      <FPtoGlobalRotations>
+        <Rot>
+          <Axis>Y</Axis>
+          <Degrees>180</Degrees>
+        </Rot>
+      </FPtoGlobalRotations>
+    </ForcePlatform>
+	<ForcePlatform>
+      <ID>2</ID>
+      <Brand>AMTI</Brand>
+      <Type>2</Type>
+      <FrameRate>1000</FrameRate>
+      <FPtoGlobalRotations>
+        <Rot>
+          <Axis>Y</Axis>
+          <Degrees>180</Degrees>
+        </Rot>
+      </FPtoGlobalRotations>
+    </ForcePlatform>
+  </ForcePlatformsList>
+</Laboratory>

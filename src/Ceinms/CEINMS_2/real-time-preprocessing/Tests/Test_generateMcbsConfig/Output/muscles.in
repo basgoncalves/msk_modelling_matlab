@@ -1,0 +1,34 @@
+add_brev_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+add_long_l	hip_flexion_l	ankle_angle_l
+add_mag1_l	hip_flexion_l
+add_mag2_l	hip_flexion_l
+add_mag3_l	hip_flexion_l
+bifemlh_l	hip_flexion_l	knee_flexion_l
+bifemsh_l	hip_flexion_l	knee_flexion_l
+glut_max1_l	hip_flexion_l
+glut_max2_l	hip_flexion_l
+glut_max3_l	hip_flexion_l
+glut_med1_l	hip_flexion_l
+glut_med2_l	hip_flexion_l
+glut_med3_l	hip_flexion_l
+glut_min1_l	hip_flexion_l
+glut_min2_l	hip_flexion_l
+glut_min3_l	hip_flexion_l
+grac_l	hip_flexion_l	knee_flexion_l
+iliacus_l	hip_flexion_l
+lat_gas_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+med_gas_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+per_brev_l	hip_flexion_l	ankle_angle_l
+per_long_l	hip_flexion_l	ankle_angle_l
+per_tert_l	hip_flexion_l	ankle_angle_l
+psoas_l	hip_flexion_l	ankle_angle_l
+rect_fem_l	hip_flexion_l	knee_flexion_l
+sar_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+semimem_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+semiten_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+soleus_l	hip_flexion_l	ankle_angle_l
+tfl_l	hip_flexion_l	knee_flexion_l
+tib_ant_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+vas_int_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+vas_lat_l	hip_flexion_l	knee_flexion_l	ankle_angle_l
+vas_med_l	hip_flexion_l	knee_flexion_l	ankle_angle_l

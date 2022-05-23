@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<OpenSimDocument Version="30000">
+	<AnalyzeTool name="Run_baseline1_actuationBG">
+		<defaults>
+			<CMC_Joint name="default">
+				<!--Flag (true or false) indicating whether or not a task is enabled.-->
+				<on>false</on>
+				<!--Weight with which a task is tracked relative to other tasks. To track a task more tightly, make the weight larger.-->
+				<weight> 1 1 1</weight>
+				<!--Name of body frame with respect to which a tracking objective is specified. The special name 'center_of_mass' refers to the system center of mass. This property is not used for tracking joint angles.-->
+				<wrt_body>-1</wrt_body>
+				<!--Name of body frame in which the tracking objectives are expressed.  This property is not used for tracking joint angles.-->
+				<express_body>-1</express_body>
+				<!--Array of 3 flags (each true or false) specifying whether a component of a task is active.  For example, tracking the trajectory of a point in space could have three components (x,y,z).  This allows each of those to be made active (true) or inactive (false).  A task for tracking a joint coordinate only has one component.-->
+				<active>false false false </active>
+				<!--Position error feedback gain (stiffness). To achieve critical damping of errors, choose kv = 2*sqrt(kp).-->
+				<kp> 1 1 1</kp>
+				<!--Velocity error feedback gain (damping). To achieve critical damping of errors, choose kv = 2*sqrt(kp).-->
+				<kv> 1 1 1</kv>
+				<!--Feedforward acceleration gain.  This is normally set to 1.0, so no gain.-->
+				<ka> 1 1 1</ka>
+				<!--Direction vector[3] for component 0 of a task. Joint tasks do not use this propery.-->
+				<r0> 0 0 0</r0>
+				<!--Direction vector[3] for component 1 of a task. Joint tasks do not use this property.-->
+				<r1> 0 0 0</r1>
+				<!--Direction vector[3] for component 2 of a task. Joint tasks do not use this property.-->
+				<r2> 0 0 0</r2>
+				<!--Name of the coordinate to be tracked.-->
+				<coordinate />
+				<!--Error limit on the tracking accuracy for this coordinate. If the tracking errors approach this limit, the weighting for this coordinate is increased. -->
+				<limit>0</limit>
+			</CMC_Joint>
+			<PointActuator name="default">
+				<!--Location of application point; in body frame unless point_is_global=true-->
+				<point>0 0 0</point>
+				<!--Force application direction; in body frame unless force_is_global=true.-->
+				<direction>-1 0 0</direction>
+			</PointActuator>
+			<TorqueActuator name="default">
+				<!--Fixed direction about which torque is applied, in Ground or body A frame depending on 'torque_is_global' property.-->
+				<axis>-1 -0 -0</axis>
+			</TorqueActuator>
+		</defaults>
+		<!--Name of the .osim file used to construct a model.-->
+		<model_file />
+		<!--Replace the model's force set with sets specified in <force_set_files>? If false, the force set is appended to.-->
+		<replace_force_set>false</replace_force_set>
+		<!--List of xml files used to construct an force set for the model.-->
+		<force_set_files> ../../residualReductionAnalysis/Run_baseline1/actuators_RAA.xml</force_set_files>
+		<!--Directory used for writing results.-->
+		<results_directory>../../residualReductionAnalysis/Run_baseline1</results_directory>
+		<!--Output precision.  It is 8 by default.-->
+		<output_precision>16</output_precision>
+		<!--Initial time for the simulation.-->
+		<initial_time>4.92500019</initial_time>
+		<!--Final time for the simulation.-->
+		<final_time>5.40500019</final_time>
+		<!--Flag indicating whether or not to compute equilibrium values for states other than the coordinates or speeds.  For example, equilibrium muscle fiber lengths or muscle forces.-->
+		<solve_for_equilibrium_for_auxiliary_states>false</solve_for_equilibrium_for_auxiliary_states>
+		<!--Maximum number of integrator steps.-->
+		<maximum_number_of_integrator_steps>20000</maximum_number_of_integrator_steps>
+		<!--Maximum integration step size.-->
+		<maximum_integrator_step_size>1</maximum_integrator_step_size>
+		<!--Minimum integration step size.-->
+		<minimum_integrator_step_size>1e-008</minimum_integrator_step_size>
+		<!--Integrator error tolerance. When the error is greater, the integrator step size is decreased.-->
+		<integrator_error_tolerance>1e-005</integrator_error_tolerance>
+		<!--Set of analyses to be run during the investigation.-->
+		<AnalysisSet name="Analyses">
+			<!--All properties of this object have their default values.-->
+		</AnalysisSet>
+		<!--Controller objects in the model.-->
+		<ControllerSet name="Controllers">
+			<!--All properties of this object have their default values.-->
+		</ControllerSet>
+		<!--XML file (.xml) containing the forces applied to the model as ExternalLoads.-->
+		<external_loads_file>../../inverseKinematics/Run_baseline1/grf.xml</external_loads_file>
+	</AnalyzeTool>
+</OpenSimDocument>

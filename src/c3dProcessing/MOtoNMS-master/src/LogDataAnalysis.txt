@@ -1,0 +1,8 @@
+
+motonms starting for participant PC008 / session1_barefoot - 04-Apr-2022 09:51:38
+motonms starting for participant PC008 / session1_barefoot - 04-Apr-2022 12:53:16
+motonms starting for participant PC008 / session1_barefoot - 04-Apr-2022 16:42:43
+motonms starting for participant PC008 / session1_barefoot - 04-Apr-2022 16:43:00
+c3d2mat starting for participant PC008 / session1_barefoot - 22-Apr-2022 19:51:36 finished at 22-Apr-2022 19:51:55 
+c3d2mat starting for participant PC008 / session2_barefoot - 22-Apr-2022 19:51:57 finished at 22-Apr-2022 19:54:23 
+motonms starting for participant PC008 / session2_barefoot - 22-Apr-2022 19:54:24
