@@ -42,7 +42,6 @@ RelFinalData_NoOutliers = multiRel (TotalData,description,'C-1');
 TotalData = TorqueDataAll.DataNewtons_NoOutliers;
 RelNewtons = multiRel (TotalData,description,'C-1');
 
-
 description = TorqueDataAll.LabelsValidity;
 TotalData = TorqueDataAll.Validity_NoOutliers;
 RelValidity = multiRel (TotalData,description,'C-1');
