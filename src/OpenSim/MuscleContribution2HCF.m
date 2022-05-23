@@ -79,7 +79,11 @@ ActStruct = struct;
 if ~exist([dirSO, lastMuscleInSet,'.sto'],'file')
     disp('')
     model2 = Model(dirModel);
+<<<<<<< HEAD
 %     model2.initSystem();
+=======
+    model2.initSystem();
+>>>>>>> 4b955226bf231f1b55600a441ce80bff9a0a0334
     
     % get actuators
     Actuators = importdata([dirSO  '_StaticOptimization_force.sto']);
@@ -152,9 +156,15 @@ JR.setName('InOnParentFrame');
 JR.setStartTime(motstorage.getFirstTime());
 JR.setEndTime(motstorage.getLastTime());
 JR.setForcesFileName([dirSO '_StaticOptimization_force.sto']);
+<<<<<<< HEAD
 joint_names_arr         = ArrayStr();
 apply_on_bodies_arr     = ArrayStr();
 express_in_frame_arr    = ArrayStr();
+=======
+joint_names_arr = ArrayStr();
+apply_on_bodies_arr = ArrayStr();
+express_in_frame_arr = ArrayStr();
+>>>>>>> 4b955226bf231f1b55600a441ce80bff9a0a0334
 
 jointset =  model.getJointSet();
 for ijoint = 1:jointset.getSize()
