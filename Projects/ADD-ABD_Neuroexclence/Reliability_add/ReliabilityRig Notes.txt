@@ -1,0 +1,74 @@
+Force Rig
+
+%% Convert Rig Force to torque and Separate Cmbined and Single plane contractions
+
+countSimpleRig = 1;
+countCombinedRig = 1;
+for nTrial = 1: length (indLabelsRig)
+    
+    if contains (indLabelsRig{nTrial},'_AB_') || ...
+            contains (indLabelsRig{nTrial},'_AD_')                                %if it is the ABD or ADD trial
+        
+        indTorqueRigSingle (countSimpleRig)= indForceRig (nTrial)*...
+            GT2AnkleRig;                                                   % multiply by GT to Ankle moment arm
+        indLabelsSingleRig {countSimpleRig} = indLabelsRig{nTrial};           % add lable to the lable variable
+        countSimpleRig = countSimpleRig +1;
+        
+    elseif  contains (indLabelsRig{nTrial},'EABER_') || ...
+            contains (indLabelsRig{nTrial},'EER_') ||...
+            contains (indLabelsRig{nTrial},'EAB_')                          % EABER, EER or EAB trials (combined contractions)
+        
+        indTorqueRigCombined (countCombinedRig) = indForceRig (nTrial)*...
+            GT2AnkleRig;                                                    % multiply by GT to Ankle moment arm
+        indLabelsCombinedRig {countCombinedRig} = indLabelsRig{nTrial};
+        countCombinedRig = countCombinedRig +1;
+        
+    elseif contains (indLabelsRig{nTrial},'_ER_') || ...
+            contains (indLabelsRig{nTrial},'_IR_')                           %if it is the ER or IR trial
+        
+        indTorqueRigSingle (countSimpleRig)= indForceRig (nTrial)*...
+            Patella2AnkleRig;                                                      % multiply by Patella to Ankle moment arm
+        indLabelsSingleRig {countSimpleRig} = indLabelsRig{nTrial};                % add lable to the lable variable
+        countSimpleRig = countSimpleRig +1;
+        
+    elseif contains (indLabelsRig{nTrial},'_F_') || ...
+            contains (indLabelsRig{nTrial},'_E_')                                  % if it is the EABER, EER or trial
+        
+        indTorqueRigSingle (countSimpleRig)= indForceRig (nTrial)* GT2KneeRig;     % multiply by GT to Knee moment arm
+        indLabelsSingleRig {countSimpleRig} = indLabelsRig{nTrial};                % add lable to the lable variable
+        countSimpleRig = countSimpleRig +1;
+        
+    end
+    
+    
+end
+
+clear countSimpleRig countCombinedRig nTrial labelsIndRig
+
+%% Convert Biodex torque to same moment arm as rig
+
+for nTrial = 1: length (indLabelsBiodex)
+    
+    if contains (indLabelsBiodex{nTrial},'AB') || ...
+            contains (indLabelsBiodex{nTrial},'AD')                           %if it is the ABD, ADD, EABER, EER or EAB trial
+        
+        indTorqueBiodex (nTrial)= indTorqueBiodex (nTrial)* ...
+            (GT2AnkleRig /GT2KneeBiodex);                                     % multiply by moment arm ratio Rig:Biodex
+        
+    elseif contains (indLabelsBiodex{nTrial},'ER') || ...
+            contains (indLabelsBiodex{nTrial},'IR')                           %if it is the ER or IR trial
+        
+        indTorqueBiodex (nTrial)= indTorqueBiodex (nTrial)*...
+            (Patella2AnkleRig / Patella2AnkleBiodex);                         % multiply by moment arm ratio Rig:Biodex
+        
+    elseif contains (indLabelsBiodex{nTrial},'F') || ...
+            contains (indLabelsBiodex{nTrial},'E')                            %if it is the Flexion or Extension trial
+        
+        indTorqueBiodex (nTrial)= indTorqueBiodex (nTrial)*...
+            (GT2KneeRig / GT2KneeBiodex);                                  % multiply by moment arm ratio Rig:Biodex
+    end
+end
+
+clear nTrial
+
+

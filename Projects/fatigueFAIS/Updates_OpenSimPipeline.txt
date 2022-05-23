@@ -1,0 +1,8 @@
+
+October, 29, 2019
+
+- Edit to the function ..\DataProcessing-master\src\c3dProcessing\findHeelStrike_Running_multiple.m
+Change the event names to match those from the c3d file (e.g HSright -> Right_Foot_Strike
+Updated DynamicElaborationsSetup_BG
+Updated Inverse_Kinematics_BG
+Updated InverseDynamics_FAI

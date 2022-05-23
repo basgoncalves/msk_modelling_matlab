@@ -1,0 +1,15 @@
+<EMGsProtocol>
+      <Name>DSTO-9Muscles</Name>
+      <MuscleList>
+		<Muscle>TA</Muscle>
+	    <Muscle>MG</Muscle>
+	    <Muscle>LG</Muscle>
+	    <Muscle>BF</Muscle>
+        <Muscle>VM</Muscle>
+        <Muscle>VL</Muscle>
+        <Muscle>RF</Muscle>
+        <Muscle>Sol</Muscle>
+        <Muscle>MH</Muscle>
+	  </MuscleList>
+      <InstrumentedLeg>Right</InstrumentedLeg>
+   </EMGsProtocol>

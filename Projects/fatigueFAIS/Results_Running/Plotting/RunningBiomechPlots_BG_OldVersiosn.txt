@@ -1,0 +1,241 @@
+
+% RunningBiomechPlots_BG
+
+
+smfai
+
+
+%generate the first subject
+folderParts = split(SubjectFoldersElaborated{1},filesep);
+Subject = folderParts{end};
+clear TrialNames
+
+for ff = 1:length(SubjectFoldersElaborated)
+    
+    OldSubject = Subject;
+    folderParts = split(SubjectFoldersElaborated{ff},filesep);
+    Subject = folderParts{end};
+    DirElaborated = strrep(DirElaborated,OldSubject,Subject);
+    
+    LRFAI           % load results results FAI
+    
+    
+    set(0,'DefaultAxesFontName', 'Arial')
+    TrialNames  = {'Run_baselineA1' 'RunL1'};
+    
+    AllNames = {'Run_baselineA1' 'Run_baselineB1' 'RunA1' 'RunB1' 'RunC1' 'RunD1' 'RunE1' 'RunF1' ...
+        'RunG1' 'RunH1' 'RunI1' 'RunJ1' 'RunK1' 'RunL1'};
+    SubjecTrialNames = findClosedText (Labels,TrialNames,AllNames);
+    
+    c3dData = btk_loadc3d([DirC3D filesep SubjecTrialNames{1} '.c3d']);
+    fs = c3dData.marker_data.Info.frequency;
+    
+    cMat = convertRGB([176, 104, 16;16, 157, 176;136, 16, 176;176, 16, 109;31, 28, 28]);  % color scheme 2 (Bas)
+    
+    
+    FS = 12;
+    Nyticks= 4;
+    Ncol = 5;   %number of columns in the figure
+    Nrow = 4;   % number of rows in the figure
+    %% Hip plots
+    Cols = find(contains(Labels,SubjecTrialNames));
+    PFig = figure;
+    fullscreenFig(1,0.75) % callback function
+    
+    [Angle, AngVel, Moment,Power,FootContact] =  plotNames_ind (Run,'hip_flexion',Cols);
+    N = size(Angle,2);
+    % kinematics
+    col = 2;
+    s1 = subplot (Nrow,Ncol,col);
+    p1 = plot(Angle,'LineWidth',3);
+    for ii = 1: length(p1)
+        p1(ii).Color = cMat(ii,:);
+    end
+    title (sprintf('Hip'),'FontWeight','Normal')
+    hold on
+    ylim([-3 3])
+    APP                                                             % arrange power plots (axis, labels, font size, vertical lines, ticks)
+    ylb.String = ('(-) Ext | Flex (+)');
+    xlabel('')
+    xticklabels('')
+    Pos = ylb.Position;
+    % left side text
+    % txt = sprintf('Kinematics \n (rad)');
+    % TextKin = text(Pos(1)*1.2,Pos(2),txt);
+    % set(TextKin,'Position', [Pos(1)*2.5,Pos(2)],'Rotation',0,...
+    %     'FontSize',FS,'HorizontalAlignment','right',...
+    %     'VerticalAlignment','middle', 'FontName', 'Times New Roman');
+    %
+    
+    % Angular velocity
+    s4 = subplot (Nrow,Ncol,Ncol+col);
+    p4 = plot (AngVel,'LineWidth',3);
+    for ii = 1: length(p4)
+        p4(ii).Color = cMat(ii,:);
+    end
+    hold on
+    ylim([-20 20])
+    APP                                                             % arrange power plots (axis, labels, font size, vertical lines, ticks)
+    ylb.String = ('(-) Ext | Flex (+)');
+    xlabel('');xticklabels('');
+    % left side text
+    % txt = sprintf('Angular velocity \n (rad/sec)');
+    % TextAngVel = text(Pos(1)*1.2,Pos(2),txt);
+    % set(TextAngVel,'Position', [Pos(1)*2,Pos(2)],'Rotation',0,...
+    %     'FontSize',FS,'HorizontalAlignment','right',...
+    %     'VerticalAlignment','middle', 'FontName', 'Times New Roman');
+    
+    % Moments
+    s7 = subplot (Nrow,Ncol,2*Ncol+col);
+    p7 = plot (Moment,'LineWidth',3);
+    for ii = 1: length(p1)
+        p7(ii).Color = cMat(ii,:);
+    end
+    hold on
+    ylim([-5 5])
+    APP                                                             % arrange power plots (axis, labels, font size, vertical lines, ticks)
+    ylb.String =('(-)Ext | Flex(+)');
+    xlabel('');xticklabels('');
+    % left side text
+    % txt = sprintf('Internal joint \n moment \n (Nm.kg^-^1)');
+    % TextAngVel = text(Pos(1)*1.2,Pos(2),txt);
+    % set(TextAngVel,'Position', [Pos(1)*2,Pos(2)],'Rotation',0,...
+    %     'FontSize',FS,'HorizontalAlignment','right',...
+    %     'VerticalAlignment','middle', 'FontName', 'Times New Roman');
+    
+    % Powers
+    s10 = subplot (Nrow,Ncol,3*Ncol+col);
+    p10 = plot (Power,'LineWidth',3);
+    for ii = 1: length(p1)
+        p10(ii).Color = cMat(ii,:);
+    end
+    hold on
+    ylim([-40 40])
+    APP                                                             % arrange power plots (axis, labels, font size, vertical lines, ticks)
+    ylb.String =('(-)abs | gen(+)');
+    % left side text
+    % txt = sprintf('Joint power \n (W.kg^-^1)');
+    % TextAngVel = text(Pos(1)*1.2,Pos(2),txt);
+    % set(TextAngVel,'Position', [Pos(1)*2,Pos(2)],'Rotation',0,...
+    %     'FontSize',FS,'HorizontalAlignment','right',...
+    %     'VerticalAlignment','middle', 'FontName', 'Times New Roman');
+    
+    %% Knee plots
+    [Angle, AngVel, Moment,Power,FootContact] =  plotNames_ind (Run,'knee',Cols);
+    N = size(Angle,2);
+    
+    % Knee Kinematics
+    s2 = subplot (4,3,2);
+    p2 = plot(Angle,'LineWidth',3);
+    for ii = 1: length(p1)
+        p2(ii).Color = cMat(ii,:);
+    end
+    title (sprintf('Knee'),'FontWeight','Normal')
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String = ('');
+    xlabel('')
+    
+    % Knee Angular velocity
+    s5 = subplot (4,3,5);
+    p5 = plot (AngVel,'LineWidth',3);
+    for ii = 1: length(p1)
+        p5(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String = ('');
+    xlabel('')
+    
+    % Knee Moments
+    
+    s8 = subplot (4,3,8);
+    p8 = plot (Moment,'LineWidth',3);
+    for ii = 1: length(p1)
+        p8(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String =('');
+    xlabel('')
+    
+    % Knee Powers
+    
+    s11 = subplot (4,3,11);
+    p11 = plot (Power,'LineWidth',3);
+    for ii = 1: length(p1)
+        p11(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String =('');
+    
+    %% Ankle plots
+    
+    [Angle, AngVel, Moment,Power,FootContact] =  plotNames_ind (Run,'ankle',Cols);
+    N = size(Angle,2);
+    
+    
+    % Kinematics
+    s3 = subplot (4,3,3);
+    p3 = plot(Angle,'LineWidth',3);
+    for ii = 1: length(p1)
+        p3(ii).Color = cMat(ii,:);
+    end
+    title (sprintf('Ankle'),'FontWeight','Normal')
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String = ('');
+    xlabel('')
+    
+    % Angular velocity
+    s6 = subplot (4,3,6);
+    p6 = plot (AngVel,'LineWidth',3);
+    for ii = 1: length(p1)
+        p6(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String = ('');
+    xlabel('')
+    
+    %  Moments
+    
+    s9 = subplot (4,3,9);
+    p9 = plot (Moment,'LineWidth',3);
+    for ii = 1: length(p1)
+        p9(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             % arrange power plots
+    ylb.String =('');
+    xlabel('')
+    
+    %  Powers
+    
+    s12 = subplot (4,3,12);
+    p12 = plot (Power,'LineWidth',3);
+    for ii = 1: length(p1)
+        p12(ii).Color = cMat(ii,:);
+    end
+    hold on
+    APP                                                             %arrange power plots
+    ylb.String =('');
+    fullscreenFig(0.9,0.9) % callback function
+    
+    %% legend
+    lg = legend ('Baseline','Last trial','Foot contact baseline','Foot contact last trial');
+    set (lg,'Position',[0.89,0.45,0.092,0.13],'Box','off')
+    % suptitle(sprintf('Participant %s', Subject),'FontName', 'Times New Roman')
+    
+    DirFigExtBiomech = [DirFigure filesep 'External_Biomechanics'];
+    mkdir(DirFigExtBiomech)
+    cd(DirFigExtBiomech)
+    
+    saveas(gca, sprintf('All Biomechanics %s.jpeg',Subject));
+    
+    
+end
+
+close all
+clear TrialNames

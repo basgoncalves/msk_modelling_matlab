@@ -1,0 +1,33 @@
+<OpenSimDocument Version="20001" xml_tb_version="3.1">
+  <AnalyzeTool name="RunA1">
+    <model_file>007_Rajagopal2015_FAI_rra3.osim</model_file>
+    <replace_force_set>false</replace_force_set>
+    <force_set_files>RRA_Actuators_FAI.xml</force_set_files>
+    <results_directory>.\IndAccPI_Results</results_directory>
+    <output_precision>20</output_precision>
+    <initial_time>1.265</initial_time>
+    <final_time>1.47</final_time>
+    <coordinates_file>IK.mot</coordinates_file>
+    <lowpass_cutoff_frequency_for_coordinates>7</lowpass_cutoff_frequency_for_coordinates>
+	<external_loads_file>grf.xml</external_loads_file>
+    <lowpass_cutoff_frequency_for_load_kinematics>7</lowpass_cutoff_frequency_for_load_kinematics>
+    <AnalysisSet name="Analyses">
+      <objects>
+        <IndAccPI name="IndAccPI">
+          <on>true</on>
+          <step_interval>1</step_interval>
+          <in_degrees>true</in_degrees>
+          <kinetics_file>RunE1.mot</kinetics_file>
+          <forces_file>SO_Results\RunE1_StaticOptimization_force.sto</forces_file>
+		  <force_threshold>15</force_threshold>
+          <weights>1000 100 10</weights>
+          <footpoint_markers>r_fp_heel1 r_fp_heel2 r_fp_mt1 r_fp_mt2 r_fp_toe l_fp_heel1 l_fp_heel2 l_fp_mt1 l_fp_mt2 l_fp_toe</footpoint_markers>
+		  <output_grf_contribution>2</output_grf_contribution>
+		  <compute_potentials_only>false</compute_potentials_only>
+		  <compute_segment_power_contributions>false</compute_segment_power_contributions>
+        </IndAccPI>
+      </objects>
+    </AnalysisSet>
+  </AnalyzeTool>
+</OpenSimDocument>
+

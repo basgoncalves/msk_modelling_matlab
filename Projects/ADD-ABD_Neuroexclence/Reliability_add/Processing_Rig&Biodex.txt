@@ -1,0 +1,28 @@
+[READ ME]
+
+When testin reliability of strenght measures follow these steps:
+
+1. Convert C3D2MAT and dat2mat
+
+2. Call function 'ForceRig' 
+
+    This function get the maximum torque for condition and the individual maximum for each trial
+
+3. Call 
+
+4. Call 'plotIntraCV.m'
+   
+    This funtion is used to calculate and plot the intra individual CV for a given data set.
+    The data set should be a NxM DOUBLE 
+
+    N (row) = each particpant
+    M (columns) = different trials paired per condition.
+
+    When calling 'plotIntraCV.m' :
+
+        1 - call 'CVtables.m' to create a table with the intra-individual CV 
+
+            1.1 - call 'orgCV' to organize the raw double into a 2xN Cell Matrix
+
+            1.2 - loop through every condition (each cell) and calls 'intraCV.m' to
+                  calculate the mean and CI of the intra-individual CV.
