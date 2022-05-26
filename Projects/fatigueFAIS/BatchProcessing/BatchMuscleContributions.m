@@ -4,7 +4,7 @@ function BatchMuscleContributions(Subjects)
 for ff = 1:length(Subjects)
     
     [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{ff});
-    CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
+%     CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
     
     files = dir(Dir.CEINMSsimulations); files(1:2) = [];
     if isempty(files); continue; end

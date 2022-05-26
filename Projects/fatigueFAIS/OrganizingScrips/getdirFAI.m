@@ -28,7 +28,7 @@ Dir.Results_JointWorkRS = [Dir.Results fp 'JointWork_RS'];              % paper 
 Dir.Results_RSFAI = [Dir.Results fp 'RS_FAIS'];                         % repeated sprints FAI
 Dir.Results_JCFFAI = [Dir.Results fp 'JCFFAI'];                         % joint contact forces in FAI
 
-PapersDir = [DirUp(Dir.Main,3) '4- Papers_Presentations_Abstracts\Papers'];             % paper Dirs
+PapersDir = [DirUp(Dir.Main,3) fp '4- Papers_Presentations_Abstracts\Papers'];             % paper Dirs
 Dir.Paper_RSFAI = [PapersDir fp 'Goncalves-RepeatedSprintsFAI'];                        % paper on repeated sprints in FAI
 Dir.Paper_JCFFAI = [PapersDir fp 'Goncalves-HipJointContactForcesDuringSprintingFAIS']; % paper on joint contact forces Running in FAI
 Dir.Paper_JCFFAI_cut = [PapersDir fp 'Goncalves-HCFCuttingFAIS'];                 % paper on joint contact forces cutting in FAI

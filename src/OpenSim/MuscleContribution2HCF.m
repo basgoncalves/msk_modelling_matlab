@@ -79,12 +79,8 @@ ActStruct = struct;
 if ~exist([dirSO, lastMuscleInSet,'.sto'],'file')
     disp('')
     model2 = Model(dirModel);
-<<<<<<< HEAD
 %     model2.initSystem();
-=======
-    model2.initSystem();
->>>>>>> 4b955226bf231f1b55600a441ce80bff9a0a0334
-    
+   
     % get actuators
     Actuators = importdata([dirSO  '_StaticOptimization_force.sto']);
     ActuatorsTime = Actuators.data(:,1);
@@ -156,15 +152,12 @@ JR.setName('InOnParentFrame');
 JR.setStartTime(motstorage.getFirstTime());
 JR.setEndTime(motstorage.getLastTime());
 JR.setForcesFileName([dirSO '_StaticOptimization_force.sto']);
-<<<<<<< HEAD
 joint_names_arr         = ArrayStr();
 apply_on_bodies_arr     = ArrayStr();
 express_in_frame_arr    = ArrayStr();
-=======
 joint_names_arr = ArrayStr();
 apply_on_bodies_arr = ArrayStr();
 express_in_frame_arr = ArrayStr();
->>>>>>> 4b955226bf231f1b55600a441ce80bff9a0a0334
 
 jointset =  model.getJointSet();
 for ijoint = 1:jointset.getSize()
@@ -206,6 +199,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 model2 = Model(dirModel);
 for imusc = 1: model2.getMuscles().getSize()
+    musc_name =  model2.getMuscles().get(imusc-1).getName();
     if ~isequal(muscles_of_interest,'all') && ~contains(char(musc_name),muscles_of_interest)
         continue
     end
@@ -238,13 +232,13 @@ if contains(char(musc_name),['_',leg]) && ~exist([dirSO, char(musc_name),'_InOnP
     end
     disp(char(musc_name))
     model.updForceSet().append(model2.getMuscles().get(musc_name));
-    model.initSystem();
+%     model.initSystem();
     
     JR.setForcesFileName([dirSO, char(musc_name), '.sto']);
     
     %model.addAnalysis(JR)
     model.updAnalysisSet().adoptAndAppend(JR);
-    model.initSystem();
+%     model.initSystem();
     
     analysis.setName(char(musc_name));
     analysis.setModel(model);

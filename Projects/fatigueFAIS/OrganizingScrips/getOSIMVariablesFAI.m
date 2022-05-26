@@ -17,8 +17,11 @@ else
     DynamicElabfiles = dir([DirUp(osimModelFilename,1) fp 'dynamicElaborations' fp]);
     DynamicElabfiles = DynamicElabfiles([DynamicElabfiles.isdir]);
     DynamicElabfiles(1:2) = []; DynamicElabfiles(contains({DynamicElabfiles.name},'maxemg'))=[];
-    EMGmot = importdata([DynamicElabfiles(3).folder fp DynamicElabfiles(3).name fp 'emg.mot']);
+    
+    try EMGmot = importdata([DynamicElabfiles(3).folder fp DynamicElabfiles(3).name fp 'emg.mot']);
     RecordedEMG = EMGmot.colheaders(2:end);
+    catch; RecordedEMG = [];
+    end
 end
     
 s = lower(testedLeg); 
