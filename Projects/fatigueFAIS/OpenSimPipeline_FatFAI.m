@@ -8,7 +8,7 @@
 %% Organise Data
 clear; clc; close all; fp = filesep;
 tmp = matlab.desktop.editor.getActive;
-pwd=DirUp(fileparts(tmp.Filename),3);
+pwd=fileparts(fileparts(fileparts(fileparts(tmp.Filename))));
 MasterDir=[pwd fp 'MSKmodelling']; 
 addpath(genpath(MasterDir));                                                                                        % rmpath(genpath(MasterDir)); 
 OsimDirDefine                                                                                                       % check if OpenSim is set up
@@ -40,7 +40,7 @@ ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-
 % BatchMA_FAI_BG(Subjects(1:end),n)
 % BatchCEINMS_FAI_BG(Subjects(41:end),n) % CEINMSTroubleshoot
 % BatchJRA_FAI_BG(Subjects(1:end),n)
-BatchMuscleContributions(Subjects(4:end))
+BatchMuscleContributions(Subjects(5:end))
 % BatchIAA_FAI_BG (Subjects(1:end),n)
 % BatchStaticOpt_FAI_BG(Subjects(1)) % not finished
 % Batch_PlotCEINMSresults(Subjects)
