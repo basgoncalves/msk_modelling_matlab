@@ -40,7 +40,7 @@ ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-
 % BatchMA_FAI_BG(Subjects(1:end),n)
 % BatchCEINMS_FAI_BG(Subjects(41:end),n) % CEINMSTroubleshoot
 % BatchJRA_FAI_BG(Subjects(1:end),n)
-BatchMuscleContributions(Subjects(5:end))
+BatchMuscleContributions(Subjects(1:end))
 % BatchIAA_FAI_BG (Subjects(1:end),n)
 % BatchStaticOpt_FAI_BG(Subjects(1)) % not finished
 % Batch_PlotCEINMSresults(Subjects)

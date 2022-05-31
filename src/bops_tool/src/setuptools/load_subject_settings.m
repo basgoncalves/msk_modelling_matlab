@@ -3,18 +3,24 @@
 function [subjectSettings] = load_subject_settings(subject,session,analysis)
 
 bops = load_setup_bops;
-if nargin < 1
+if ~exist('subject','var')
     subject = bops.current.subject;
+end
+
+if ~exist('session','var')
     session = bops.current.session;
+end
+
+if ~exist('analysis','var')
     analysis = bops.current.analysis;
-else
-    if ~isequal(bops.current.subject,subject) || ~isequal(bops.current.subject,session)
-        bops.current.subject    = subject;
-        bops.current.session    = session;
-        bops.current.analysis   = analysis;
-        Pref.StructItem         = false;
-        xml_write(bops.directories.setupbopsXML,bops,'bops',Pref);
-    end
+end
+
+if ~isequal(bops.current.subject,subject) || ~isequal(bops.current.subject,session)
+    bops.current.subject    = subject;
+    bops.current.session    = session;
+    bops.current.analysis   = analysis;
+    Pref.StructItem         = false;
+    xml_write(bops.directories.setupbopsXML,bops,'bops',Pref);
 end
 settingsfiledir = [bops.directories.ElaboratedData fp subject fp session fp 'settings.xml'];
 

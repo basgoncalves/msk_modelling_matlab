@@ -29,8 +29,6 @@ function runSO_BG(Dir, Temp, trialName)
 
 
 %%
-fp = filesep;
-
 import org.opensim.modeling.*
 
 osimFiles = getosimfilesFAI(Dir,trialName); 
@@ -43,17 +41,17 @@ adjustActuatorXML(osimFiles.SOactuators,n,n,n,500,500,500,100,500)
 
 SetupXML = xml_read(Temp.SOSetup);
 %Set the model
-SetupXML.AnalyzeTool.ATTRIBUTE.name = trialName;
-SetupXML.AnalyzeTool.model_file = osimFiles.SOmodel;
-SetupXML.AnalyzeTool.results_directory =  osimFiles.SO;
-SetupXML.AnalyzeTool.coordinates_file = osimFiles.SOkinematics;
-SetupXML.AnalyzeTool.external_loads_file =  osimFiles.SOexternal_loads_file;
-SetupXML.AnalyzeTool.force_set_files = osimFiles.SOactuators;
+SetupXML.AnalyzeTool.ATTRIBUTE.name         = trialName;
+SetupXML.AnalyzeTool.model_file             = osimFiles.SOmodel;
+SetupXML.AnalyzeTool.results_directory      = osimFiles.SO;
+SetupXML.AnalyzeTool.coordinates_file       = osimFiles.SOkinematics;
+SetupXML.AnalyzeTool.external_loads_file    = osimFiles.SOexternal_loads_file;
+SetupXML.AnalyzeTool.force_set_files        = osimFiles.SOactuators;
 % Get mot data to determine time range
 motData = load_sto_file(osimFiles.SOkinematics);
-SetupXML.AnalyzeTool.initial_time = motData.time(1);
-SetupXML.AnalyzeTool.final_time = motData.time(end);
-SetupXML.AnalyzeTool.output_precision = '4';
+SetupXML.AnalyzeTool.initial_time       = motData.time(1);
+SetupXML.AnalyzeTool.final_time         = motData.time(end);
+SetupXML.AnalyzeTool.output_precision   = '4';
 
 % filtering of coordinates
 if nargin ==8

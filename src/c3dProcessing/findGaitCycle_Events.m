@@ -56,7 +56,7 @@ for i = 1:Nforceplates
         leg{i} = {'-'};
     end
     
-    event_frames = DetermineEvent(event_frames,Fz_filtered,timeWindow,threshold_newotons,leg{i});
+%     event_frames = DetermineEvent(event_frames,Fz_filtered,timeWindow,threshold_newotons,leg{i});
     
 end
 
@@ -109,37 +109,37 @@ end
 
 GRF_Binary = (Fz_filtered>threshold_newotons);
 GRF_Binary(end+1:end+50) = 0;
-
-if length(find(GRF_Binary))>2
-    
-    if mean(PathHeelMarkerRy(find(GRF_Binary)))==0          % if marker data
-        OldPath = PathHeelMarkerRy;
-        PathHeelMarkerRy = PathToeMarkerRy;
-        PathToeMarkerRy = OldPath;
-    end
-    
-    if mean(PathHeelMarkerLy(find(GRF_Binary)))==0          % if marker data
-        OldPath = PathHeelMarkerLy;
-        PathHeelMarkerLy = PathToeMarkerLy;
-        PathToeMarkerLy = OldPath;
-    end
-    
-    % calculate horizontal velocity of marker
-    velocity_R = abs(mean(calcVelocity (PathHeelMarkerRy(find(GRF_Binary)),fs_Markers)));
-    velocity_L = abs(mean(calcVelocity (PathHeelMarkerLy(find(GRF_Binary)),fs_Markers)));
-    
-    if velocity_R > velocity_L                                                          %if right foot is moving faster
-        contact = find(GRF_Binary);
-        forceplateEvents(p).Left_Foot_Strike = contact(1);
-        forceplateEvents(p).Left_Foot_Off = contact(end);
-    elseif velocity_R < velocity_L                                                      %if left foot is moving faster
-        contact = find(GRF_Binary);
-        forceplateEvents(p).Right_Foot_Strike = contact(1);
-        forceplateEvents(p).Right_Foot_Off = contact(end);
-    end
-    
-else
-    forceplateEvents(p).Right_Foot_Strike = [];       %only need one empty cell to create empty column
-end
-
-
+% 
+% if length(find(GRF_Binary))>2
+%     
+%     if mean(PathHeelMarkerRy(find(GRF_Binary)))==0          % if marker data
+%         OldPath = PathHeelMarkerRy;
+%         PathHeelMarkerRy = PathToeMarkerRy;
+%         PathToeMarkerRy = OldPath;
+%     end
+%     
+%     if mean(PathHeelMarkerLy(find(GRF_Binary)))==0          % if marker data
+%         OldPath = PathHeelMarkerLy;
+%         PathHeelMarkerLy = PathToeMarkerLy;
+%         PathToeMarkerLy = OldPath;
+%     end
+%     
+%     % calculate horizontal velocity of marker
+%     velocity_R = abs(mean(calcVelocity (PathHeelMarkerRy(find(GRF_Binary)),fs_Markers)));
+%     velocity_L = abs(mean(calcVelocity (PathHeelMarkerLy(find(GRF_Binary)),fs_Markers)));
+%     
+%     if velocity_R > velocity_L                                                          %if right foot is moving faster
+%         contact = find(GRF_Binary);
+%         forceplateEvents(p).Left_Foot_Strike = contact(1);
+%         forceplateEvents(p).Left_Foot_Off = contact(end);
+%     elseif velocity_R < velocity_L                                                      %if left foot is moving faster
+%         contact = find(GRF_Binary);
+%         forceplateEvents(p).Right_Foot_Strike = contact(1);
+%         forceplateEvents(p).Right_Foot_Off = contact(end);
+%     end
+%     
+% else
+%     forceplateEvents(p).Right_Foot_Strike = [];       %only need one empty cell to create empty column
+% end
+% 
+% 

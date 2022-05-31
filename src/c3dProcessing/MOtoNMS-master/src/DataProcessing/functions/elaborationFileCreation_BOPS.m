@@ -33,6 +33,7 @@ function [] = elaborationFileCreation_BOPS(varargin)
 
 bops = load_setup_bops;
 subject = load_subject_settings;
+setupSubject;
 
 acquisitionInfo         =   xml_read([subject.directories.acquisitionXML]);
 oldElaboration          =   xml_read(bops.directories.templates.elaborationXML);
