@@ -12,4 +12,7 @@ leftFootMarkers         = newAcquisition.MarkersProtocol.leftFootMarkers;
 [StanceOnFP,event_frames] = findGaitCycle_Events(c3dFilePathAndName,'',rightFootMarkers,leftFootMarkers);
 
 
-[events,motionDirection] = findHeelStrike_Running_multiple(data, motionDirection
+[events,motionDirection] = findHeelStrike_Running_multiple(data, motionDirection)
+
+btkWriteAcquisition
+findHeelStrike_Running_multiple

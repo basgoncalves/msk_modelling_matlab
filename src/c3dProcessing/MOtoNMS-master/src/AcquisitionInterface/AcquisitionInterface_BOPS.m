@@ -37,6 +37,7 @@ function [] = AcquisitionInterface_BOPS
 
 bops    = load_setup_bops;
 subject = load_subject_settings;
+setupSubject;
 
 if bops.current.rerun == 0 && isfile(subject.directories.acquisitionXML)
     return 

@@ -1,6 +1,6 @@
 function BatchMuscleContributions(Subjects)
 
-
+memoryCheck('reset')
 for ff = 1:length(Subjects)
     
     [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{ff});
@@ -23,9 +23,16 @@ for ff = 1:length(Subjects)
     for ii = 1:length(trialList)
         trialName = trialList{ii};
         disp(trialName)
+        
+%         CreateMuscleActuatorFiles(Dir, trialName, leg, modelname,muscles_of_interest)
+        
         MuscleContribution2HCF(Dir, trialName, leg, modelname,muscles_of_interest)
+        memoryCheck
     end
+    
+    
 end
 
+memoryCheck('plot')
 cmdmsg('Muscle Contributions finished ')
 

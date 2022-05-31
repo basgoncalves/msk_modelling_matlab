@@ -1,11 +1,11 @@
 
-function Plot_Mean_CP
+function Plot_Mean_CP_ID
 
 fp = filesep;
 
 DirElaboratedData = uigetdir('select folder with elaborated session');                      % Escolher pasta session1_barefoot   
 cd(DirElaboratedData)
-dirIK = [DirElaboratedData fp 'inverseKinematics'];
+dirID = [DirElaboratedData fp 'inverseDynamics'];
 dirSession = [DirElaboratedData fp 'session_data'];
 [~,session_name] = DirUp(DirElaboratedData,1);
 [~,subject] = DirUp(DirElaboratedData,2);
@@ -21,7 +21,7 @@ col_finish  = contains(event_labels,'finish');
 
 events = events(2:end,:);                                                                                           % Tirar de comentário se já for a segunda vez a
 
-Trials = dir(dirIK);
+Trials = dir(dirID);
 nTrials = length(Trials);
 
 coor = {['hip_flexion'],['hip_adduction'],['hip_rotation'],['knee_angle'],['ankle_angle']};
@@ -37,7 +37,7 @@ trial_leg = {};
 for i = 3:nTrials
     
     trialName   = Trials(i).name;
-    trial_data  = load_sto_file([dirIK fp trialName fp 'IK.mot']);
+    trial_data  = load_sto_file([dirID fp trialName fp 'inverse_dynamics.sto']);
     
     row_trial = find(contains(events(:,col_trial),trialName));
     leg = events{row_trial,col_leg};
@@ -71,7 +71,7 @@ for i = 3:nTrials
     events{row_trial,col_start}  = round(t1,4);
     events{row_trial,col_finish} = round(t2,4);
     
-    coor_trial = strcat(coor,['_' leg]);
+    coor_trial = strcat(coor,['_' leg '_moment']);
     
     for c = 1:length(coor)
         data_column = trial_data.(coor_trial{c})(start:finish,1);
