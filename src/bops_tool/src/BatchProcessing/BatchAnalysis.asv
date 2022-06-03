@@ -254,7 +254,10 @@ for i = 1:length(trialList)
     
     root = 'OpenSimDocument';
     Pref.StructItem = false;
+    IK = ConvertLogicToString (IK)
     xml_write(osimFiles.IKsetup, IK, root,Pref);
+    
+   
     
     if rerun==0 && isfile(osimFiles.IKresults); continue; end
     import org.opensim.modeling.*
@@ -584,7 +587,6 @@ for i = 1:length(trialList)
 end
 function runBOPS_JRA
 %%
-
 function  [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles
 %%
 bops        = load_setup_bops;
