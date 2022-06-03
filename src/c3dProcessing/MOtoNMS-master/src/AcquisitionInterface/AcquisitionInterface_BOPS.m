@@ -137,7 +137,7 @@ sortedMarkers                                           = sort(markerSet);
 rewrite   = 0;
 if ~isfield(newAcquisition.MarkersProtocol,'motionDirectionMarkers') || ...                                         % if they don't exist select motion direction markers                                                                                                
         isempty (newAcquisition.MarkersProtocol.motionDirectionMarkers)
-    [indx,~] = listdlg('PromptString','Select markers to use in the mo','ListString',sortedMarkers );                                                      
+    [indx,~] = listdlg('PromptString','Select markers to use in the motion','ListString',sortedMarkers );                                                      
     motionDirectionMarkers = char(join(sortedMarkers (indx),' '));
     newAcquisition.MarkersProtocol.motionDirectionMarkers = motionDirectionMarkers;
     rewrite   = 1; 

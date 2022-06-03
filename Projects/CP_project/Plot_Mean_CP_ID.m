@@ -84,7 +84,7 @@ end
 
 % xlswrite(eventDir,events)
 
-ha = tight_subplotBG(1,3); % ha = handle axis
+ha = tight_subplotBG(1,5,0.05,0.05,0.1,[9 376 1904 432]); % ha = tight_subplotBG(Nh, Nw, gap, marg_h, marg_w,Size (ha = handle axis)
 
 nTrials = length(trialName_all);
 Colors = cell(nTrials,1);
@@ -92,30 +92,22 @@ Colors(contains(trial_leg,'r'),:) = {[1 0 0]};          % make colors for right 
 Colors(contains(trial_leg,'l'),:) = {[0 0 1]};          % make colors for left leg = blue
 Colors = flip(Colors);
 
-ha(1).Position = [0.03    0.05    0.2800    0.900];
-axes(ha(1))
-% plot(groupData.hip_flexion(:,contains(trial_leg,'l')))
-plot(groupData.hip_flexion)
-colorPlot (ha(1),Colors)  
-title('hip flexion')
-ylabel('angle (deg)')
-lg = legend(trialName_all);
-lg.Position = [0.75    0.1    0.1397    0.2];
+pos_x = [0.05:0.15:0.65];
+fld = fields(groupData);
+Titles = {'hip flexion (flexion+)','hip frontaal (adduction +)','hip transverse (internal +)','knee sagittal (flexion +)','ankle sagittal (dorsiflex +)'};
 
-ha(2).Position = [0.35    0.05    0.2800    0.900];
-axes(ha(2))
-plot(groupData.knee_angle)
-colorPlot (ha(2),Colors)  
-title('(- extension) knee flexion')
-ylabel('angle (deg)')
-
-ha(3).Position = [0.68    0.4    0.2800    0.5500];   % [xPosition yPosition xSize ySize]
-axes(ha(3))
-% plot(groupData.ankle_angle(:,contains(trial_leg,'l')))
-plot(groupData.ankle_angle)
-colorPlot (ha(3),Colors)  
-title('(- plantarflex)   ankle flexion    (dorsiflex +)')
-ylabel('angle (deg)')
+for i = 1:5
+    ha(i).Position = [pos_x(i) 0.05 0.12 0.9];
+    axes(ha(i))
+    plot(groupData.(fld{i}))
+    colorPlot (ha(i),Colors)
+    title(Titles{i})
+    if i == 1
+        ylabel('internal moment (Nm)')
+        lg = legend(trialName_all);
+        lg.Position = [0.82 0.2 0.14 0.2];
+    end
+end
 
 mmfn_inspect
 

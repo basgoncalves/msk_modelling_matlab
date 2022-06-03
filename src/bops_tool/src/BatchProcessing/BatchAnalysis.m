@@ -248,12 +248,18 @@ for i = 1:length(trialList)
             xmlMarkers(m).apply = 'true';
         end
     end
-    IK.InverseKinematicsTool.IKTaskSet.objects.IKMarkerTask= xmlMarkers;
+    IK.InverseKinematicsTool.IKTaskSet.objects.IKMarkerTask = xmlMarkers;
     
-    cd(trialAnalysisPath)                                                                                            % write xml and save gait cycle events
+    nComments = length(IK.InverseKinematicsTool.IKTaskSet.objects.IKCoordinateTask);                                    
+    for i = 1:nComments
+        IK.InverseKinematicsTool.IKTaskSet.objects.IKCoordinateTask(i).COMMENT = {};                                % delete comments so they XML looks more neat
+    end
+    
+    cd(trialAnalysisPath)                                                                                           % write xml and save gait cycle events
     
     root = 'OpenSimDocument';
     Pref.StructItem = false;
+    IK = ConvertLogicToString (IK);
     xml_write(osimFiles.IKsetup, IK, root,Pref);
     
     if rerun==0 && isfile(osimFiles.IKresults); continue; end
@@ -584,7 +590,6 @@ for i = 1:length(trialList)
 end
 function runBOPS_JRA
 %%
-
 function  [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles
 %%
 bops        = load_setup_bops;
