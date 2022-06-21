@@ -1,12 +1,20 @@
 
 function Plot_Mean_CP
 
-fp = filesep;
+currentDir = fileparts(mfilename('fullpath'));
 
-DirElaboratedData = uigetdir('select folder with elaborated session');                      % Escolher pasta session1_barefoot   
+try DirElaboratedData = char(importdata([currentDir fp 'previousDirElaboratedData.dat'])); catch;end                % check if there is a file with previously loaded data directory (to start from there)
+
+msg = 'select folder with elaborated session (e.g. ~\ElaboratedData\Subject1\Session1';
+DirElaboratedData = uigetdir(DirElaboratedData,msg);                                                                % Escolher pasta session1_barefoot   
+
+fileattrib([currentDir fp 'previousDirElaboratedData.dat'],'-h','','s')                                             % make .dat file visible so it can be loaded
+writematrix(DirElaboratedData,[currentDir fp 'previousDirElaboratedData.dat'])                                      % save new loaded directory in the file
+fileattrib([currentDir fp 'previousDirElaboratedData.dat'],'+h','','s')                                             % make file hidden (only for windows)
+
 cd(DirElaboratedData)
 dirIK = [DirElaboratedData fp 'inverseKinematics'];
-dirSession = [DirElaboratedData fp 'session_data'];
+
 [~,session_name] = DirUp(DirElaboratedData,1);
 [~,subject] = DirUp(DirElaboratedData,2);
 dirC3d = [DirUp(DirElaboratedData,3) fp 'InputData' fp subject fp session_name];
@@ -84,7 +92,7 @@ end
 
 % xlswrite(eventDir,events)
 
-ha = tight_subplotBG(1,3); % ha = handle axis
+ha = tight_subplotBG(1,5); % ha = handle axis
 
 nTrials = length(trialName_all);
 Colors = cell(nTrials,1);
@@ -94,10 +102,9 @@ Colors = flip(Colors);
 
 ha(1).Position = [0.03    0.05    0.2800    0.900];
 axes(ha(1))
-% plot(groupData.hip_flexion(:,contains(trial_leg,'l')))
 plot(groupData.hip_flexion)
 colorPlot (ha(1),Colors)  
-title('hip flexion')
+title('(extension -) hip sagittal (flexion +)')
 ylabel('angle (deg)')
 lg = legend(trialName_all);
 lg.Position = [0.75    0.1    0.1397    0.2];
@@ -106,16 +113,13 @@ ha(2).Position = [0.35    0.05    0.2800    0.900];
 axes(ha(2))
 plot(groupData.knee_angle)
 colorPlot (ha(2),Colors)  
-title('(- extension) knee flexion')
-ylabel('angle (deg)')
+title('(- extension) knee sagittal (flexion +)')
 
-ha(3).Position = [0.68    0.4    0.2800    0.5500];   % [xPosition yPosition xSize ySize]
+ha(3).Position = [0.68    0.4    0.2800    0.5500];                                                                 % [xPosition yPosition xSize ySize]
 axes(ha(3))
-% plot(groupData.ankle_angle(:,contains(trial_leg,'l')))
 plot(groupData.ankle_angle)
 colorPlot (ha(3),Colors)  
 title('(- plantarflex)   ankle flexion    (dorsiflex +)')
-ylabel('angle (deg)')
 
 mmfn_inspect
 

@@ -1,6 +1,3 @@
-%% Description - Basilio Goncalves (2020)
-% https://www.researchgate.net/profile/Basilio_Goncalves
-%
 % Assign directories of Matlab scripts and OpenSim instalation files
 %
 % Windows 10 search for "Advanced system settings" -> Environment Variables
@@ -13,12 +10,15 @@
 %   add  C:\OpenSim 3.3\sdk\Java\org-opensim-modeling.jar
 %   edit(fullfile(prefdir, 'javalibrarypath.txt'))
 %   add C:\OpenSim 3.3\bin (or equivalent)
+% 
+%   Basilio Goncalves (2020)
+%   https://www.researchgate.net/profile/Basilio_Goncalves
 %-------------------------------------------------------------------------
 
-%% OsimDirDefine
+%% OsimDirDefine_v4_3
 originalDir = cd;
 DirOpenSimMatlab='C:\OpenSim 4.3\Code\Matlab';
-addpath(genpath(DirOpenSimMatlab));
+addpath(genpath(fileparts(fileparts(DirOpenSimMatlab))));
 cd(DirOpenSimMatlab)
 import org.opensim.modeling.*
 if ~exist('org.opensim.modeling.Model')
@@ -30,13 +30,19 @@ if ~exist('org.opensim.modeling.Model')
         sprintf('For configuration follow the steps (example for openSim 3.3): \n '),...
         sprintf(' \n'),...
         sprintf('1. edit(fullfile(prefdir, ''javaclasspath.txt'')) \n'),...
-        sprintf('   add  "C:\\OpenSim 3.3\\sdk\\Java\\org-opensim-modeling.jar" \n'),...
+        sprintf('   add  "C:\\OpenSim 4.3\\sdk\\Java\\org-opensim-modeling.jar" \n'),...
         sprintf('2. edit(fullfile(prefdir, ''javalibrarypath.txt'')) \n '),...
-        sprintf('   add "C:\\OpenSim 3.3\\bin" (or equivalent) \n '),...
-        sprintf('3. go to "C:\\OpenSim 3.3\\Scripts\\Matlab" \n '),...
+        sprintf('   add "C:\\OpenSim 4.3\\bin" (or equivalent) \n '),...
+        sprintf('3. go to "C:\\OpenSim 4.3\\Code\\Matlab" \n '),...
         sprintf('   run "configureOpenSim.m" (MATLAB may need to be started in admin mode) \n ')])
+    
+    edit(fullfile(prefdir, 'javaclasspath.txt'))
+    edit(fullfile(prefdir, 'javalibrarypath.txt'))
 else
-    cmdmsg('OpenSim setup complete')
+    disp('OpenSim setup complete')
     cd(originalDir)
 end
+
+
+
 

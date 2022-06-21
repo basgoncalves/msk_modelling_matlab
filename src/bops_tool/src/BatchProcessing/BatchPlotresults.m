@@ -3,11 +3,16 @@ function BatchPlotresults
 %%
 bops = load_setup_bops;
 
-analyses = fields(bops.plotresults);
+if contains(bops.analysis_type.plot,'manual')
+    bops.analysis_type.plot = 'batch';
+    xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
+end
+
+analyses = fields(bops.plot_analysis);
 for a = 1:length(analyses)
     
     iAnalysis = analyses{a};
-    if bops.plotresults.(iAnalysis) == 0
+    if bops.plot_analysis.(iAnalysis) == 0
         continue;
     else
         fprintf('running %s ... \n',iAnalysis)
@@ -23,6 +28,7 @@ for a = 1:length(analyses)
             write_bops_log(['plot' iAnalysis],'start')
             
             fprintf('%s - %s \n',iSubject,iSession)
+            
             plotBOPS(iAnalysis)
             write_bops_log;
         end

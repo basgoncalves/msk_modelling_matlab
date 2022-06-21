@@ -3,7 +3,8 @@ function bops = load_setup_bops
 
 setupDir    = fileparts(mfilename('fullpath'));
 bopsDir     = fileparts(fileparts(setupDir));
-dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
+
+try dataDir = char(importdata([setupDir fp 'data_directory.dat'])); catch; end
 
 if ~isfolder(dataDir)
     dataDir = uigetdir(cd); 
@@ -11,13 +12,18 @@ if ~isfolder(dataDir)
 end
 
 setupfileDir = [dataDir fp 'bopsSettings.xml'];
-try bops = xml_read(setupfileDir); end                                                                              % load "setup.xml"
+try                                                                                                                 % load "setup.xml" 
+    Pref = struct;
+    Pref.StructItem = false;
+    Pref.CellItem = false;
+    bops = xml_read(setupfileDir,Pref); 
+end
 
 bops.directories.bops = bopsDir;
 bops.directories.mainData = dataDir;
 bops.directories.setupbopsXML = setupfileDir;
 
-try bops.subjects = cellstr(bops.subjects); end                                                                     % conver to cell if needed
-try bops.sessions = cellstr(bops.sessions); end
+try bops.subjects = cellstr(bops.subjects); catch; end                                                              % conver to cell if needed
+try bops.sessions = cellstr(bops.sessions); catch; end
 
 

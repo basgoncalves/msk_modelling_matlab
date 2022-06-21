@@ -47,7 +47,7 @@ model.initSystem();
 %run static optimisation to get actuators
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 cd(dirSO)
-SO_forcefile = [dirSO 'StaticOptimization_force.sto'] ;
+SO_forcefile = [dirSO '_StaticOptimization_force.sto'] ;
 if ~exist(SO_forcefile,'file')
     % setup
     SO = StaticOptimization();

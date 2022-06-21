@@ -1,6 +1,6 @@
 function setupdirFAI
 
-MasterDir=MasterSetup;
+MasterDir = MasterSetup;
 path_dataDir    = [MasterDir fp 'Projects\fatigueFAIS\data_directory.dat'];
 dataDir         = char(importdata(path_dataDir));
 if exist(dataDir,'dir')

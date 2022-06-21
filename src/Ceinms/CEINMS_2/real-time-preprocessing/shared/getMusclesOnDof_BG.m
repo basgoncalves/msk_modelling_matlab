@@ -20,34 +20,29 @@ function [ muscleList jointList] = getMusclesOnDof_BG( dofName, osimModel )
     jointList = {};
     for i = 0:osimMuscles.getSize()-1
         currentMuscleName = char(osimMuscles.get(i).getName());
-        if osimMuscles.get(i).get_isDisabled == 0 %skip if muscle is disabled
+        if osimMuscles.get(i).get_appliesForce() == 1                                                               % skip if muscle is disabled
             muscleCrossedJointSet = getJointsSpannedByMuscle(osimModel, currentMuscleName);
 
             for n_joint = 1:size(muscleCrossedJointSet,2)
-                % current joint
-                curr_joint = muscleCrossedJointSet{n_joint};
+                
+                curr_joint = muscleCrossedJointSet{n_joint};                                                        % current joint
 
-                % get CoordinateSet for the crossed joint
-                curr_joint_CoordinateSet = osimModel.getJointSet().get(curr_joint).getCoordinateSet();
+                curr_joint_CoordinateSet = osimModel.getJointSet().get(curr_joint).getCoordinateSet();              % get CoordinateSet for the crossed joint
 
                 % Initial estimation of the nr of Dof of the CoordinateSet for that
                 % joint before checking for locked and constraint dofs.
                 nDOF = osimModel.getJointSet().get(curr_joint).getCoordinateSet().getSize();
 
-                % skip welded joint and remove welded joint from muscleCrossedJointSet
-                if nDOF == 0;
-                    continue;
+                if nDOF == 0                                                                                        % skip welded joint and remove welded joint from muscleCrossedJointSet
+                    continue
                 end
 
-                % calculating effective dof for that joint
-                for n_coord = 0:nDOF-1
+                for n_coord = 0:nDOF-1                                                                              % calculating effective dof for that joint
 
-                    % get coordinate
-                    curr_coord = curr_joint_CoordinateSet.get(n_coord);
+                    curr_coord = curr_joint_CoordinateSet.get(n_coord);                                             % get coordinate
                     curr_coord_name = char(curr_coord.getName());
 
-                    % skip dof if locked
-                    if curr_coord.getLocked(currentState)
+                    if curr_coord.getLocked(currentState)                                                           % skip dof if locked
                         continue;
                     end
 

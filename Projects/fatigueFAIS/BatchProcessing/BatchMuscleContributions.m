@@ -24,12 +24,18 @@ for ff = 1:length(Subjects)
         trialName = trialList{ii};
         disp(trialName)
         
-%         CreateMuscleActuatorFiles(Dir, trialName, leg, modelname,muscles_of_interest)
+        CreateMuscleActuatorFiles(Dir, trialName, leg, modelname,muscles_of_interest)
+        intsegForce_JointReaction(Dir, trialName, leg, modelname)
         
-        MuscleContribution2HCF(Dir, trialName, leg, modelname,muscles_of_interest)
-        memoryCheck
+        for m = 1:length(muscles_of_interest)
+            musc_name = muscles_of_interest{m};
+            dirSO = [Dir.SO fp trialName fp];
+            if ~exist([dirSO, char(musc_name),'_InOnParentFrame_ReactionLoads.sto'],'file')
+                MuscleContribution2HCF(Dir, trialName, modelname,musc_name)
+            end
+        end
+        java.lang.System.gc()
     end
-    
     
 end
 

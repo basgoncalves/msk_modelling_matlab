@@ -4,19 +4,24 @@ bops         = load_setup_bops;
 subject      = load_subject_settings;
 SubjectInfo  = subject.subjectInfo;
 
+if ~exist('trialList','var') || isempty(trialList)
+    trialList = subject.trials.trialList;
+end
+
 if nargin < 1
     analyses = fields(bops.plotresults);
     [indx,~] = listdlg('PromptString','select the analysis to plot','ListString',analyses);                                              % select subjects                                                                                                
     analysis = analyses{indx};
 end
 
-if nargin < 2
-    trialList    = subject.trials.trialList;
+if contains(bops.analysis_type.plot, 'manual')
+    manualSelectionAnalyses(trialList,bops)
 end
 
 saveDir = [bops.directories.Results fp analysis fp SubjectInfo.ID fp bops.current.session];
 mkdir(saveDir)
 switch analysis
+    case 'summary';         plotSummary (trialList,saveDir) 
     case 'emg';             plotEMG (trialList,saveDir) 
     case 'ik';              plotIK (trialList,saveDir)
     case 'id';              plotID (trialList,saveDir)
@@ -31,6 +36,25 @@ switch analysis
     otherwise
 end
 
+
+function plotSummary (trialList,saveDir)
+%%
+bops = load_setup_bops;
+for g = 1:length(trialList)
+    trialName = [trialList{g}];
+    [trialDirs] = getdirosimfiles_BOPS(trialName);
+    
+    [ik,ik_labels] = LoadResults_BG(trialDirs.IKresults,[],[],0,0);
+    
+    [id,id_abels] = LoadResults_BG(trialDirs.IDresults,[],[],0,0);
+    
+end
+
+bops.plot_variables.ik = 'pelvis_tilt pelvis_list pelvis_rotation hip_adduction hip_rotation knee_angle ankle_angle';
+xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
+
+
+saveas(gcf,[saveDir fp trialName '.jpeg'])
 
 function plotIK (trialList,saveDir)
 %%
@@ -93,7 +117,6 @@ for g = 1:length(trialList)
     close all
 end
 winopen(saveDir)
-
 
 function plotEMG (trialList,saveDir)
 %%
@@ -201,9 +224,9 @@ end
 
 cmdmsg(['plot EMG done for ' SubjectInfo.ID])
 
-function plotFile(trialName,filename)
+function plotFile(trialName,filepath)
 %%
-[LinearEnv,Labels] = LoadResults_BG(filename,[],[],0,0);
+[LinearEnv,Labels] = LoadResults_BG(filepath,[],[],0,0);
 disp(trialName)
 if isempty(LinearEnv); return;  end
 
@@ -256,3 +279,16 @@ tight_subplot_ticks (ha,LastRow,FirstCol)
 
 mmfn_emg
 set(gcf, 'InvertHardcopy', 'off');
+
+function manualSelectionAnalyses(trialList,bops)
+%%
+
+for g = 1:length(trialList)
+    trialName = [trialList{g}];
+    [trialDirs] = getdirosimfiles_BOPS(trialName);
+
+    
+end
+
+ xml_write(bops.directories.bops,bops,'bops',bops.xmlPref);
+

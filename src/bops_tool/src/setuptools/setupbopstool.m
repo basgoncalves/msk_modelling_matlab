@@ -52,7 +52,6 @@ if ~isfolder([dataDir fp 'templates'])                                          
 end
 
 bops = load_setup_bops;
-
 og_bopsSetup = bops;                                                                                                % use the og to compare with the updated at the end of the fucntion
 cd(bops.directories.bops)    
 
@@ -115,7 +114,7 @@ Dir.templates.JRAsetup = [templateDir fp 'JCF_setup.xml'];                      
 Dir.templates.IAASetup = [templateDir fp 'IAA_setup.xml'];                                                          % induced acceleration analysis
                                                                                                        
 bops.directories = Dir;
-
+bops = ConvertLogicToString(bops);
 if ~isequal(og_bopsSetup,bops)                                                                                      % save new xml if original bops is different from the new one
     xml_write(Dir.setupbopsXML,bops,'bops',bops.xmlPref);
 end
