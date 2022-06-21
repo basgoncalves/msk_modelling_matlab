@@ -1,7 +1,6 @@
-% Before running this pipeline check the foolowing scripts and update
+% Before running this pipeline check the following scripts and update
 % directories, trial names and demographics
-%   getdirbops
-%   getDemographics
+%   setupbopstool
 %   getTrials
 %   CEINMSsetup
 %   ..\setuptools\bopsSetup.xml
@@ -35,20 +34,6 @@ BatchAnalysis
 BatchPlotresults
 checkEMGdata_simple (subject.directories.Input,bops.emg.Muscle,subject.trials.dynamicTrials)
 
-
-%%
-BatchC3D2MAT
-BatchMOtoNMS_FAI_BG
-BatchLinearScaling
-BatchIK_FAI_BG(Subjects,n)
-BatchID_FAI_BG (Subjects,n)
-BatchRRA_FAI_BG(Subjects([1]),n)
-BatchID_postRRA_BG(Subjects,n)
-BatchLucaOptimiser_FAI_BG(Subjects(1),n)
-BatchHandsfieldMuscleVolume_FAI_BG (Subjects(1:end))
-Batch_restoreOriginalMass(Subjects)
-BatchMA_FAI_BG(Subjects(1:end),n)
-BatchCEINMS_FAI_BG(Subjects(41:end),n) 
-BatchJRA_FAI_BG(Subjects(1:end),n)
+Plot_Mean_CP
 
 

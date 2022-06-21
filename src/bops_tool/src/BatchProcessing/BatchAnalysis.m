@@ -36,6 +36,7 @@ for a = 1:length(analyses)
                 case 'lucaoptimizer';runBOPS_LucaOptimizer
                 case 'handsfield';   runBOPS_Handsfield
                 case 'ma';           runBOPS_MA
+                case 'cmc';          runBOPS_CMC
                 case 'ceinms';       runBOPS_CEINMS
                 case 'so';           runBOPS_SO
                 case 'jra';          runBOPS_JRA
@@ -471,6 +472,51 @@ for i = 1:length(trialList)
     analyzeTool.run;
     
 end
+
+function runBOPS_CMC
+%%
+[bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;
+for i = 1:length(trialList)
+    
+    trialName = trialList{i};
+    TimeWindow = param.WindowsSelection.Events{i} ./ acq.VideoFrameRate;
+    
+    trialAnalysisPath = [subject.directories.CMC fp trialName];                                                      % DEFINE ANALYSIS PATH
+    mkdir(trialAnalysisPath);
+    cd(trialAnalysisPath)
+    
+    [osimFiles] = getdirosimfiles_BOPS(trialName,trialAnalysisPath);                                                % get directories of opensim files for this trial
+    
+    copyfile(bops.directories.templates.MASetup,osimFiles.MAsetup)
+    
+    import org.opensim.modeling.*
+    osimModel   = Model(osimFiles.MAmodel);
+    analyzeTool = AnalyzeTool(osimFiles.MAsetup);
+    
+    analyzeTool.setModel(osimModel);
+    analyzeTool.setModelFilename(osimModel.getDocumentFileName());
+    analyzeTool.setReplaceForceSet(false);
+    analyzeTool.setResultsDir(osimFiles.MA);
+    analyzeTool.setOutputPrecision(8)
+    analyzeTool.setInitialTime(TimeWindow(1));
+    analyzeTool.setFinalTime(TimeWindow(2));
+    analyzeTool.setSolveForEquilibrium(false)
+    analyzeTool.setMaximumNumberOfSteps(20000)
+    analyzeTool.setMaxDT(1)
+    analyzeTool.setMinDT(1e-008)
+    analyzeTool.setErrorTolerance(1e-005)
+    analyzeTool.setCoordinatesFileName(osimFiles.IKresults)
+    analyzeTool.setExternalLoadsFileName(osimFiles.IDgrfxml)
+    analyzeTool.print(osimFiles.MAsetup);
+    
+    if rerun==0 && isfile(osimFiles.MA_FiberLength); continue; end
+    
+    disp(trialName)
+    analyzeTool.run;
+    
+end
+
+
 function runBOPS_CEINMS
 %%
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                       % get needed info for the analyes

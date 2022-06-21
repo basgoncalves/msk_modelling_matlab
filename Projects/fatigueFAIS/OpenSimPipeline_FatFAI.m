@@ -1,22 +1,20 @@
-%% Basilio Goncalves 2020 PhD pipeline (Fatigue FAI)
-% Before running this pipeline check the foolowing scripts and update
-% directories, trial names and demographics
-%   getdirFAI
-%   getDemographicsFAI
-%   getTrialsFAI
-%   CEINMSsetup_FAI
-%% Organise Data
+% Basilio Goncalves 2020, Griffith University 
+
+%% Define paths and initiate MSK pipeline
 clear; clc; close all; fp = filesep;
 tmp = matlab.desktop.editor.getActive;
-pwd=fileparts(fileparts(fileparts(fileparts(tmp.Filename))));
-MasterDir=[pwd fp 'MSKmodelling']; 
+pwd = fileparts(fileparts(fileparts(fileparts(tmp.Filename))));
+MasterDir = [pwd fp 'MSKmodelling']; 
 addpath(genpath(MasterDir));                                                                                        % rmpath(genpath(MasterDir)); 
+cd(MasterDir)
+
+%% Organise Data
 OsimDirDefine                                                                                                       % check if OpenSim is set up
 setupdirFAI
 Dir=getdirFAI;                                                                                                      % EDIT THIS FUNCTION FOR a DIFFERENT PROJECT
-% schemer_import('.\schemes\darksteel.prf');                                                                          % change theme to dark mode (not needed but I prefer it myself)
+% schemer_import('.\schemes\darksteel.prf');                                                                        % change theme to dark mode (not needed but I prefer it myself)
 
-% Subjects
+%%  Subjects
 Studies = {'JointWork_RS' 'RS_FAI' 'JCFFAI' 'IAA' 'Walking' 'Cutting'};
 [Subjects,Groups,Weights,~] = splitGroupsFAI(Dir.Main,Studies{3});
 Subjects = Subjects(1:end);

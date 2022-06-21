@@ -8,10 +8,6 @@ subject     = load_subject_settings;
 Dir         = subject.directories;
 trialDirs   = struct;
 
-if nargin < 1
-    trialName = subject.trials.trialList{1};
-end
-
 trialDirs.c3d               = [Dir.Input fp  trialName '.c3d'];                                                     % elaborated data 
 trialDirs.externalforces    = [Dir.dynamicElaborations fp trialName fp 'grf.mot'];
 trialDirs.emg               = [Dir.dynamicElaborations fp trialName fp 'emg.mot'];
@@ -22,14 +18,15 @@ trialDirs.MassAdjustedModel             = [Dir.OSIM_RRA];
 trialDirs.LucaOptimisedModel            = [Dir.OSIM_LO];
 trialDirs.LucaOptimisedModelWithHans    = [Dir.OSIM_LO_HANS_originalMass];
 
-currentAnalysis = bops.current.analysis;                                                                            % define model to use for each type of analysis
+currentAnalysis                         = bops.current.analysis;
 try
-    modelToUse = bops.analyses_settings.(currentAnalysis).model;
+    
     trialDirs.modelToUse = trialDirs.LinearScaledModel;
 catch
     trialDirs.modelToUse = trialDirs.LinearScaledModel;
 end
 
+modelToUse = bops.analyses_settings.ik.model;
 trialDirs.IK            = [Dir.IK fp trialName];                                                                    % inverse kinematics
 trialDirs.IKcoordinates = [trialDirs.IK fp 'markers.trc'];
 trialDirs.IKresults     = [trialDirs.IK fp 'IK.mot'];
