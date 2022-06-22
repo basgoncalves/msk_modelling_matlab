@@ -487,32 +487,52 @@ for i = 1:length(trialList)
     
     [osimFiles] = getdirosimfiles_BOPS(trialName,trialAnalysisPath);                                                % get directories of opensim files for this trial
     
-    copyfile(bops.directories.templates.MASetup,osimFiles.MAsetup)
+    copyfile(bops.directories.templates.CMCSetup,osimFiles.CMCsetup)
+    copyfile(bops.directories.templates.CMCControls,osimFiles.CMCControlConstraints)
+    copyfile(osimFiles.RRAactuators,osimFiles.CMCactuators)
+    copyfile(osimFiles.RRAtasks,osimFiles.CMCtasks)
     
     import org.opensim.modeling.*
-    osimModel   = Model(osimFiles.MAmodel);
-    analyzeTool = AnalyzeTool(osimFiles.MAsetup);
+    osimModel   = Model(osimFiles.CMCmodel);
+    CMC = CMCTool();
     
-    analyzeTool.setModel(osimModel);
-    analyzeTool.setModelFilename(osimModel.getDocumentFileName());
-    analyzeTool.setReplaceForceSet(false);
-    analyzeTool.setResultsDir(osimFiles.MA);
-    analyzeTool.setOutputPrecision(8)
-    analyzeTool.setInitialTime(TimeWindow(1));
-    analyzeTool.setFinalTime(TimeWindow(2));
-    analyzeTool.setSolveForEquilibrium(false)
-    analyzeTool.setMaximumNumberOfSteps(20000)
-    analyzeTool.setMaxDT(1)
-    analyzeTool.setMinDT(1e-008)
-    analyzeTool.setErrorTolerance(1e-005)
-    analyzeTool.setCoordinatesFileName(osimFiles.IKresults)
-    analyzeTool.setExternalLoadsFileName(osimFiles.IDgrfxml)
-    analyzeTool.print(osimFiles.MAsetup);
+    CMC.setModel(osimModel);
+    CMC.setModelFilename(osimModel.getDocumentFileName());
+    CMC.setReplaceForceSet(false);
+    CMC.setResultsDir(osimFiles.CMCresults);
+    CMC.setOutputPrecision(8)
+    CMC.setInitialTime(TimeWindow(1));
+    CMC.setFinalTime(TimeWindow(2));
+    CMC.setSolveForEquilibrium(false)
+    CMC.setMaximumNumberOfSteps(20000)
+    CMC.setMaxDT(1)
+    CMC.setMinDT(1e-008)
+    CMC.setErrorTolerance(bops.analyses_settings.cmc.ErrorTolerance)
+    CMC.setConstraintsFileName(osimFiles.CMCControlConstraints)
+    CMC.setTaskSetFileName(osimFiles.CMCtasks)
+    CMC.setDesiredKinematicsFileName(osimFiles.CMCkinematics)
+    CMC.setSolveForEquilibrium(true)
+    CMC.setExternalLoadsFileName(osimFiles.IDgrfxml)
+    CMC.print(osimFiles.CMCsetup);
+    
+    CMC = xml_read(osimFiles.CMCsetup);
+    CMC.CMCTool.force_set_files =  osimFiles.CMCactuators;
+    
+    root = 'OpenSimDocument';
+    Pref.StructItem = false;
+    xml_write(osimFiles.CMCsetup, CMC, root,Pref);
+    
+    CMC = CMCTool(osimFiles.CMCsetup);
     
     if rerun==0 && isfile(osimFiles.MA_FiberLength); continue; end
     
     disp(trialName)
-    analyzeTool.run;
+    CMC.run;
+    if bops.osimVersion < 4
+    [~,log_mes] = dos(['id -S ' osimFiles.IDsetup],'-echo');                                                        % run analysis
+    disp([trialName ' ID Done.']);
+    else
+    end
     
 end
 

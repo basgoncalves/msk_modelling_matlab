@@ -8,9 +8,10 @@ if nargin < 1
 end
 
 allAnalysis = fields(bops.analyses);
+values = cell2mat(struct2cell(bops.analyses));
 
 if SelectAll == 0
-    [indx,~] = listdlg('PromptString','select analyses:','ListString',allAnalysis); 
+    indx = find(BopsCheckbox(allAnalysis,values));
 else
     indx = [];
 end

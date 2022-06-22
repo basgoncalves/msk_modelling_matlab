@@ -1,10 +1,12 @@
 % SubjectsToCopy (optional) = cell with the names of subjects. Default ==
 % all subjects in "bopsSettings.xml"
 % 
-function Visual3DtoMotoNMS (SubjectsToCopy)
+function Visual3DtoMotoNMS
 
 bops = load_setup_bops;
 files = dir(bops.directories.mainData);
+
+SubjectsToCopy = selectSubjects;
 
 idx_visual3d = find(contains({files.name}, 'visual3D'));
 if  idx_visual3d==0                                                                                                 % if visual3D folder does not exist
