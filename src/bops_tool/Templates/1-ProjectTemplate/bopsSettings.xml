@@ -7,10 +7,10 @@
       <analysis>ik</analysis>
       <rerun>[true]</rerun>
    </current>
-   <analysis_type>
+   <analysis_mode>
       <analyses>batch</analyses>
       <plot>batch</plot>
-   </analysis_type>
+   </analysis_mode>
    <analyses>
       <c3d2mat>[false]</c3d2mat>
       <acquisition>[false]</acquisition>
@@ -54,17 +54,17 @@
       <jra/>
    </plot_variables>
    <analyses_settings>
-	  <models>OSIM_LinearScaled OSIM_RRA OSIM_LO OSIM_LO_HANS OSIM_LO_HANS_originalMass</models>
+      <models>OSIM_LinearScaled OSIM_RRA OSIM_LO OSIM_LO_HANS OSIM_LO_HANS_originalMass</models>
       <ik>
-		 <model>OSIM_LinearScaled</model>
+         <model>OSIM_LinearScaled</model>
          <accuracy>1e-06</accuracy>
       </ik>
-	  <id>
-		 <model>OSIM_LinearScaled</model>
-      </if>
+      <id>
+         <model>OSIM_LinearScaled</model>
+      </id>
       <lucaoptimizer>
-		 <model>OSIM_LinearScaled</model>
-		 <target_model>OSIM_RRA</target_model>
+         <model>OSIM_LinearScaled</model>
+         <target_model>OSIM_RRA</target_model>
          <N_eval>10</N_eval>
       </lucaoptimizer>
       <ma>
@@ -73,7 +73,7 @@
       <so>
          <plotCoordinates/>
       </so>
-	  <cmc>
+      <cmc>
          <model>OSIM_LinearScaled</model>
       </cmc>
    </analyses_settings>

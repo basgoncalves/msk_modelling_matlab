@@ -20,7 +20,24 @@ fp = filesep;
 originalDir = cd;
 bops = load_setup_bops;
 osimVersionBops = num2str(bops.osimVersion);
-DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];                          
+                       
+answer = questdlg(['Do you want to use the current OpenSim version: ' osimVersionBops]);
+if contains(answer,'No')
+    FilesInC = cellstr(ls(['C:' fp ]));
+    OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
+    
+    InstalledVersions = (strrep(OpenSimFolders,'OpenSim ',''));
+    msg = 'These OpenSim versions are currently installed in "C:/", please seletect one';
+    
+    [indx,~] = listdlg('PromptString',msg,'ListString',InstalledVersions);                                                                                                                                            
+    osimVersionBops = InstalledVersions{indx};
+    
+    bops.osimVersion = str2double(osimVersionBops);
+    
+    xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
+end
+
+DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops]; 
 
 % NewPath = [getenv('PATH') [DirOpenSim fp 'bin' fp]];
 % setenv('PATH', NewPath);
@@ -49,8 +66,9 @@ changeTxt(fullfile(prefdir, 'javalibrarypath.txt'),[DirOpenSim fp 'bin']);
 if ~contains(installedOsimVersion(1:3),osimVersionBops)
     
     if checkAdminOn == 0    
-       msgbox(['Trying to configure OpenSim ' osimVersionBops '. Please run Matlab in Admin mode'])
-       return
+       msg = msgbox(['Trying to configure OpenSim ' osimVersionBops '. Please run Matlab in Admin mode']);
+       uiwait(msg)
+       error('OpenSim not configured, please restar matlab in admin mode and run "OsimDirDefine.m" ')
     else
        msg = msgbox(['Configure OpenSim ' osimVersionBops '. Please select the folder where opensim is installed']);
        uiwait(msg)
@@ -60,7 +78,11 @@ if ~contains(installedOsimVersion(1:3),osimVersionBops)
     
      msg = msgbox(['OpenSim ' osimVersionBops ' configured. Please add ' DirOpenSim fp 'bin to the System and Enviroment Path of Windows']);
      uiwait(msg)
-    
+     msg = msgbox(['Find instructions in ' fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide']);
+     uiwait(msg)
+     winopen([fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide'])
+     error(['OpenSim ' osimVersionBops ' has been configured but API will not work  util "' DirOpenSim fp 'bin" is added to the System and User Path of Windows' ])
+     
 elseif ~exist('org.opensim.modeling.Model')
     warning on
     warning ([sprintf('OpensSim %s is not configured \n ',osimVersionBops), ...

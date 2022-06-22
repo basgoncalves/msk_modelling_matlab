@@ -7,6 +7,12 @@ if nargin < 1
     SelectAll = 0;
 end
 
+answer = questdlg(['Do you want to select a new set of sessions? currently selected subjects: ' bops.sessions]);
+if contains(answer,'No')
+    selectedSessions = bops.sessions;
+    return 
+end
+
 subjects = bops.subjects;
 
 selectedSessions = {};

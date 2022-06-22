@@ -98,8 +98,11 @@ Dir.templates.RRASetup_actuation_analyze    = [templateDir fp 'RRA_setup_actuati
 
 Dir.templates.MASetup = [templateDir fp 'MA_setup.xml'];                                                            % muscle analysis
 
-Dir.templates.SOSetup       = [templateDir fp 'SO_setup.xml'];
+Dir.templates.SOSetup       = [templateDir fp 'SO_setup.xml'];                                                      % static optimization 
 Dir.templates.SOActuators   = [templateDir fp 'SO_actuators.xml'];
+
+Dir.templates.CMCSetup      = [templateDir fp 'CMC_setup.xml'];
+Dir.templates.CMCControls   = [templateDir fp 'CMC_ControlConstraints.xml'];
 
 Dir.templates.CEINMSuncalibratedmodel = [templateDir fp 'CEINMS_uncalibrated_RL.xml'];                              % CEINMS templates
 Dir.templates.CEINMScalibrationCfg = [templateDir fp 'CEINMS_calibrationCfg_RL.xml'];                                       
@@ -118,7 +121,7 @@ bops = ConvertLogicToString(bops);
 if ~isequal(og_bopsSetup,bops)                                                                                      % save new xml if original bops is different from the new one
     xml_write(Dir.setupbopsXML,bops,'bops',bops.xmlPref);
 end
-winopen(Dir.setupbopsXML)
+% winopen(Dir.setupbopsXML)
 
 
 

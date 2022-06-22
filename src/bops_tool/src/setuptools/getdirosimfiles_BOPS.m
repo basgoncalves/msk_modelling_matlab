@@ -31,6 +31,7 @@ catch
 end
 
 trialDirs.IK            = [Dir.IK fp trialName];                                                                    % inverse kinematics
+trialDirs.IKmodel       = subject.directories.(bops.analyses_settings.ik.model);
 trialDirs.IKcoordinates = [trialDirs.IK fp 'markers.trc'];
 trialDirs.IKresults     = [trialDirs.IK fp 'IK.mot'];
 trialDirs.IKsetup       = [trialDirs.IK fp 'setup_IK.xml'];
@@ -43,10 +44,10 @@ trialDirs.IDsetup           = [trialDirs.ID fp 'setup_ID.xml'];
 trialDirs.IDresults         = [trialDirs.ID fp 'inverse_dynamics.sto'];
 trialDirs.IDRRAresults      = [trialDirs.ID fp 'inverse_dynamics_RRA.sto'];
 
-trialDirs.MA        = [Dir.MA fp trialName];                                                                        % muscle analysis
-trialDirs.MAmodel   = subject.directories.(bops.MA.model);   % same for JRA and SO
-trialDirs.MAsetup   = [trialDirs.MA fp 'setup_MA.xml'];
-trialDirs.MAlog     = [trialDirs.MA fp 'out.log'];
+trialDirs.MA                = [Dir.MA fp trialName];                                                                % muscle analysis
+trialDirs.MAmodel           = subject.directories.(bops.analyses_settings.ma.model);   % same for JRA and SO
+trialDirs.MAsetup           = [trialDirs.MA fp 'setup_MA.xml'];
+trialDirs.MAlog             = [trialDirs.MA fp 'out.log'];
 trialDirs.MA_Length         = [trialDirs.MA fp '_MuscleAnalysis_Length.sto'];
 trialDirs.MA_FiberLength    = [trialDirs.MA fp '_MuscleAnalysis_FiberLength.sto'];
 trialDirs.MA_TendonLength   = [trialDirs.MA fp '_MuscleAnalysis_TendonLength.sto'];
@@ -94,15 +95,29 @@ trialDirs.IAAkinetics_file          = trialDirs.externalforces;
 trialDirs.IAAforcefile              = [trialDirs.IAA fp 'forcefile.sto'];
 trialDirs.IAAresults                = [trialDirs.SO fp trialName fp 'IndAccPI_Results'];
 
-trialDirs.CMC                       = [Dir.CMC fp trialName];                                                       % induced acceleration analysis
+trialDirs.CMC                       = [Dir.CMC fp trialName];                                                       % computed muscle control
 trialDirs.CMCmodel                  = trialDirs.MAmodel;
 trialDirs.CMCsetup                  = [trialDirs.CMC fp 'setup.xml'];
 trialDirs.CMCactuators              = [trialDirs.CMC fp 'actuators.xml'];
+trialDirs.CMCControlConstraints     = [trialDirs.CMC fp 'ControlConstraints.xml'];
 trialDirs.CMCexternal_loads_file    = trialDirs.IDgrfxml;
-trialDirs.IAAkinematics             = trialDirs.IKresults;
-trialDirs.IAAkinetics_file          = trialDirs.externalforces;
-trialDirs.IAAforcefile              = [trialDirs.IAA fp 'forcefile.sto'];
-trialDirs.IAAresults                = [trialDirs.SO fp trialName fp 'IndAccPI_Results'];
+trialDirs.CMCtasks                  = [trialDirs.CMC fp 'tasks.xml'];
+
+if contains(bops.analyses_settings.cmc.desired_kinematics_file,'ik','IgnoreCase',1)
+    trialDirs.CMCkinematics         = trialDirs.IKresults;
+elseif contains(bops.analyses_settings.cmc.desired_kinematics_file,'rra','IgnoreCase',1)
+    trialDirs.CMCkinematics         = trialDirs.RRAkinematics;
+else
+    warning on
+    warning('CMC kinematics not well defined in "bopsSettings.xml". Please use only "ik" or "rra"')
+end
+
+
+trialDirs.CMCresults                = [trialDirs.CMC fp 'Results'];
+trialDirs.CMCresults_name           = 'cmc';
+trialDirs.CMC_force                 = [trialDirs.CMCresults fp trialDirs.CMCresults_name '_Actuation_force.sto'];
+trialDirs.CMC_pErr                  = [trialDirs.CMCresults fp trialDirs.CMCresults_name '_pErr.sto'];
+trialDirs.CMC_pErr                  = [trialDirs.CMCresults fp trialDirs.CMCresults_name '_Kinematics_q.sto'];
 
 
 if nargin == 2                                                                                                      % if needed make paths relative

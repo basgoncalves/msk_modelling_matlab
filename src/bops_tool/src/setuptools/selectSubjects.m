@@ -3,6 +3,12 @@ function subjects = selectSubjects(SelectAll,msg)
 
 bops = load_setup_bops;
 
+answer = questdlg(['Do you want to select a new set of subjects? currently selected subjects: ' bops.subjects]);
+if contains(answer,'No')
+    subjects = bops.subjects;
+    return
+end
+
 subjects = table2struct(readtable([bops.directories.subjectInfoCSV]));
 
 if nargin < 1

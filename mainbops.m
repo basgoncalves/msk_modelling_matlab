@@ -8,32 +8,28 @@
 % Run whole script = F5
 
 % by Basilio Goncalves, basilio.goncalves7@gmail.com
-%% Setup
+function mainbops
 clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
 activeFile = matlab.desktop.editor.getActive;                                                                       % get dir of the current file
 bopsdir  = fileparts(activeFile.Filename);                                                                          
 addpath(genpath(bopsdir));                                                                                          % add current folder to MATLAB path
-bops = setupbopstool;                                                                                               % add "DataProcessing_master" pipeline
+setupbopstool;                                                                                                      % add "DataProcessing_master" pipeline
 OsimDirDefine                                                                                                       % check if OpenSim set up is correct
-% setupIK
-% schemer_import('.\schemes\darksteel.prf');                                                                        % change theme to dark mode (not needed but I prefer it myself)
 
-%% Move data from Visual3D structure to MOtoNMS friendly
-Subjects = selectSubjects; 
-Visual3DtoMotoNMS(Subjects)                                                                                     % use to move .c3ds automatically to the "InputFolder" 
+PipelineSteps = {'Convert Visual3D' 'Select subjects' 'Select Session' 'Select Analysis' ...
+    'Setup InverseKinematics' 'Batch Analysis' 'Plot results'};
+[OutValues,out] = BopsCheckbox(PipelineSteps,[],'Which elements of the pipeline do you want to edit?');             % Setup analysis 
 
-%% Setup analysis 
-Subjects = selectSubjects; 
-sessions = selectSession(0);
-selectedAnalysis = selectAnalysis;
+if any(contains(out,'Convert Visual3D'));            Visual3DtoMotoNMS;  end
+if any(contains(out,'Select subjects'));             selectSubjects;     end
+if any(contains(out,'Select Session'));              selectSession(0);   end
+if any(contains(out,'Select Analysis'));             selectAnalysis;     end
+if any(contains(out,'Setup InverseKinematics'));     setupIK;            end
 
-%%
-BatchAnalysis
+if any(contains(out,'Batch Analysis'));              BatchAnalysis;      end
 
-%%
-BatchPlotresults
-checkEMGdata_simple (subject.directories.Input,bops.emg.Muscle,subject.trials.dynamicTrials)
+if any(contains(out,'Plot results'));                BatchPlotresults;   end
 
-Plot_Mean_CP
+
 
 
