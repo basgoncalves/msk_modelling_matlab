@@ -101,8 +101,10 @@ Dir.templates.MASetup = [templateDir fp 'MA_setup.xml'];                        
 Dir.templates.SOSetup       = [templateDir fp 'SO_setup.xml'];                                                      % static optimization 
 Dir.templates.SOActuators   = [templateDir fp 'SO_actuators.xml'];
 
-Dir.templates.CMCSetup      = [templateDir fp 'CMC_setup.xml'];
+Dir.templates.CMCSetup      = [templateDir fp 'CMC_setup.xml'];                                                     % computed muscle control
 Dir.templates.CMCControls   = [templateDir fp 'CMC_ControlConstraints.xml'];
+Dir.templates.CMCtasks      = [templateDir fp 'CMC_tasks.xml'];
+Dir.templates.CMCactuators  = [templateDir fp 'CMC_actuators.xml'];
 
 Dir.templates.CEINMSuncalibratedmodel = [templateDir fp 'CEINMS_uncalibrated_RL.xml'];                              % CEINMS templates
 Dir.templates.CEINMScalibrationCfg = [templateDir fp 'CEINMS_calibrationCfg_RL.xml'];                                       
