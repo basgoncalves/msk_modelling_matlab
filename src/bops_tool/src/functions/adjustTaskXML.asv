@@ -34,9 +34,10 @@ XML = ConvertLogicToString(XML,'use_steps');
 XML = ConvertLogicToString(XML,'isDisabled');
 XML = ConvertLogicToString(XML,'point_is_global');
 XML = ConvertLogicToString(XML,'force_is_global');
-XML = ConvertLogicToString(XML,'torque_is_global');
-XML = ConvertLogicToString(XML,'show_axes');
-XML = ConvertLogicToString(XML,'show_axes');
+XML = ConvertLogicToString(XML,'isDisabled');
+XML = ConvertLogicToString(XML,'isDisabled');
+
+
 
 
 CMC_Joint = XML.CMC_TaskSet.objects.CMC_Joint;

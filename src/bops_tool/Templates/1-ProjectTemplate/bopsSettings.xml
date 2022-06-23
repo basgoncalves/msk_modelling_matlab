@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bops>
-   <osimVersion>4.3</osimVersion>
+   <osimVersion>3.3</osimVersion>
    <current>
       <subject>PC008</subject>
       <session>session1_barefoot</session>
-      <analysis>ik</analysis>
-      <rerun>[true]</rerun>
+      <analysis>cmc</analysis>
+      <rerun>[false]</rerun>
    </current>
    <analysis_mode>
       <analyses>batch</analyses>
@@ -16,20 +16,21 @@
       <acquisition>[false]</acquisition>
       <elaboration>[false]</elaboration>
       <scale>[false]</scale>
-      <ik>[true]</ik>
-      <id>[true]</id>
+      <ik>[false]</ik>
+      <id>[false]</id>
       <rra>[false]</rra>
       <id_postrra>[false]</id_postrra>
       <lucaoptimizer>[false]</lucaoptimizer>
       <handsfield>[false]</handsfield>
-      <ma>[true]</ma>
-      <cmc>[false]</cmc>
+      <ma>[false]</ma>
+      <cmc>[true]</cmc>
       <ceinms>[false]</ceinms>
       <so>[false]</so>
       <jra>[false]</jra>
    </analyses>
    <plot_analysis>
-      <summary>[true]</summary>
+      <summary_per_trial>[true]</summary_per_trial>
+	  <summary>[true]</summary>
       <ik>[false]</ik>
       <id>[true]</id>
       <rra>[false]</rra>
@@ -75,6 +76,8 @@
       </so>
       <cmc>
          <model>OSIM_LinearScaled</model>
+         <desired_kinematics_file>ik</desired_kinematics_file>
+         <ErrorTolerance>1e-05</ErrorTolerance>
       </cmc>
    </analyses_settings>
    <dataStructure>
@@ -148,6 +151,7 @@
    </emg>
    <subjects>
       <item>PC008</item>
+      <item>PC013</item>
    </subjects>
    <sessions>
       <item>session1_barefoot</item>
@@ -206,6 +210,8 @@
          <MASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\MA_setup.xml</MASetup>
          <SOSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\SO_setup.xml</SOSetup>
          <SOActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\SO_actuators.xml</SOActuators>
+         <CMCSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_setup.xml</CMCSetup>
+         <CMCControls>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_ControlConstraints.xml</CMCControls>
          <CEINMSuncalibratedmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
          <CEINMScalibrationCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
          <CEINMScalibrationCfg_HJCF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>
