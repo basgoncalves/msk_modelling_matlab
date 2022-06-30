@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <bops>
+   <osimVersion>3.3</osimVersion>
    <current>
       <subject>PC008</subject>
       <session>session1_barefoot</session>
-      <rerun>[true]</rerun>
+      <analysis>cmc</analysis>
+      <rerun>[false]</rerun>
    </current>
+   <analysis_mode>
+      <analyses>batch</analyses>
+      <plot>batch</plot>
+   </analysis_mode>
    <analyses>
-      <setupSubject>[false]</setupSubject>
       <c3d2mat>[false]</c3d2mat>
-      <motonms>[false]</motonms>
+      <acquisition>[false]</acquisition>
+      <elaboration>[false]</elaboration>
       <scale>[false]</scale>
       <ik>[false]</ik>
       <id>[false]</id>
@@ -16,13 +22,16 @@
       <id_postrra>[false]</id_postrra>
       <lucaoptimizer>[false]</lucaoptimizer>
       <handsfield>[false]</handsfield>
-      <ma>[true]</ma>
+      <ma>[false]</ma>
+      <cmc>[true]</cmc>
       <ceinms>[false]</ceinms>
       <so>[false]</so>
       <jra>[false]</jra>
    </analyses>
-   <plotresults>
-      <ik>[true]</ik>
+   <plot_analysis>
+      <summary_per_trial>[true]</summary_per_trial>
+	  <summary>[true]</summary>
+      <ik>[false]</ik>
       <id>[true]</id>
       <rra>[false]</rra>
       <id_postrra>[false]</id_postrra>
@@ -30,19 +39,47 @@
       <handsfield>[false]</handsfield>
       <ma>[false]</ma>
       <ceinms>[false]</ceinms>
-      <so>[false]</so>
+      <so>[true]</so>
       <jra>[false]</jra>
-   </plotresults>
-   <IK>
-      <accuracy>1e-06</accuracy>
-   </IK>
-   <lucaoptimizer>
-      <N_eval>10</N_eval>
-   </lucaoptimizer>
-   <MA>
-      <model>OSIM_LinearScaled</model>
-      <options>OSIM_LinearScaled OSIM_RRA OSIM_LO OSIM_LO_HANS OSIM_LO_HANS_originalMass</options>
-   </MA>
+   </plot_analysis>
+   <plot_variables>
+      <ik/>
+      <id/>
+      <rra/>
+      <id_postrra/>
+      <lucaoptimizer/>
+      <handsfield/>
+      <ma/>
+      <ceinms/>
+      <so/>
+      <jra/>
+   </plot_variables>
+   <analyses_settings>
+      <models>OSIM_LinearScaled OSIM_RRA OSIM_LO OSIM_LO_HANS OSIM_LO_HANS_originalMass</models>
+      <ik>
+         <model>OSIM_LinearScaled</model>
+         <accuracy>1e-06</accuracy>
+      </ik>
+      <id>
+         <model>OSIM_LinearScaled</model>
+      </id>
+      <lucaoptimizer>
+         <model>OSIM_LinearScaled</model>
+         <target_model>OSIM_RRA</target_model>
+         <N_eval>10</N_eval>
+      </lucaoptimizer>
+      <ma>
+         <model>OSIM_LinearScaled</model>
+      </ma>
+      <so>
+         <plotCoordinates/>
+      </so>
+      <cmc>
+         <model>OSIM_LinearScaled</model>
+         <desired_kinematics_file>ik</desired_kinematics_file>
+         <ErrorTolerance>1e-05</ErrorTolerance>
+      </cmc>
+   </analyses_settings>
    <dataStructure>
       <suffix>CPFMH</suffix>
       <OSIMModelName>gait2392_CAST_CP</OSIMModelName>
@@ -114,9 +151,12 @@
    </emg>
    <subjects>
       <item>PC008</item>
+      <item>PC013</item>
    </subjects>
    <sessions>
       <item>session1_barefoot</item>
+      <item>session2_barefoot</item>
+      <item>session3_barefoot</item>
    </sessions>
    <Trials>
       <Dynamic>GAIT</Dynamic>
@@ -142,43 +182,45 @@
       <CellItem>[false]</CellItem>
    </xmlPref>
    <directories>
-      <bops>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS</bops>
-	  <mainData>C:\Users\Bas\Documents\6-FMH\CP_project\Data</mainData>
-      <setupbopsXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\bopsSettings.xml</setupbopsXML>
-      <subjectInfoCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\subjectinfo.csv</subjectInfoCSV>
-      <eventsCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\events.csv</eventsCSV>
-      <modelsCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Models.csv</modelsCSV>
-      <masterProcessing>C:\Code\MATLAB\DataProcessing_master</masterProcessing>
-      <CEINMSexe>C:\Code\MATLAB\DataProcessing_master\src\Ceinms\CEINMS_2</CEINMSexe>
+      <bops>C:\Code\Git\MSKmodelling\src\bops_tool</bops>
+      <mainData>C:\Users\Bas\Documents\6-FMH\CP_project\Data</mainData>
+      <setupbopsXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\bopsSettings.xml</setupbopsXML>
+      <subjectInfoCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\subjectinfo.csv</subjectInfoCSV>
+      <eventsCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\events.csv</eventsCSV>
+      <modelsCSV>C:\Users\Bas\Documents\6-FMH\CP_project\Data\Models.csv</modelsCSV>
+      <masterProcessing>C:\Code\Git\MSKmodelling</masterProcessing>
+      <CEINMSexe>C:\Code\Git\MSKmodelling\src\Ceinms\CEINMS_2</CEINMSexe>
       <InputData>C:\Users\Bas\Documents\6-FMH\CP_project\Data\InputData</InputData>
       <ElaboratedData>C:\Users\Bas\Documents\6-FMH\CP_project\Data\ElaboratedData</ElaboratedData>
       <Results>C:\Users\Bas\Documents\6-FMH\CP_project\Data\Results</Results>
-      <templatesDir>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates</templatesDir>
+      <templatesDir>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates</templatesDir>
       <templates>
-         <acquisitionXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\acquisition.xml</acquisitionXML>
-         <elaborationXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\elaboration.xml</elaborationXML>
-         <Model>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\gait2392_CAST_CP.osim</Model>
-         <ScaleTool>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\ScaleTool.xml</ScaleTool>
-         <Static>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\static.xml</Static>
-         <IKSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\IK_setup.xml</IKSetup>
-         <IDSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\ID_setup.xml</IDSetup>
-         <GRF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\ID_externalForces_RL.xml</GRF>
-         <RRASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\RRA_setup.xml</RRASetup>
-         <RRAActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\RRA_actuators.xml</RRAActuators>
-         <RRATaks>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\RRA_tasks.xml</RRATaks>
-         <RRASetup_actuation_analyze>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\RRA_setup_actuation_analyze.xml</RRASetup_actuation_analyze>
-         <MASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\MA_setup.xml</MASetup>
-         <SOSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\SO_setup.xml</SOSetup>
-         <SOActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\SO_actuators.xml</SOActuators>
-         <CEINMSuncalibratedmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
-         <CEINMScalibrationCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
-         <CEINMScalibrationCfg_HJCF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>
-         <CEINMSexcitationGenerator>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_excitationGenerator.xml</CEINMSexcitationGenerator>
-         <CEINMSexecutionSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_executionSetup.xml</CEINMSexecutionSetup>
-         <CEINMSexecutionCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_executionCfg.xml</CEINMSexecutionCfg>
-         <CEINMScontactmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\CEINMS_contactOpenSimModel.xml</CEINMScontactmodel>
-         <JRAsetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\JCF_setup.xml</JRAsetup>
-         <IAASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\BOPS\Templates\IAA_setup.xml</IAASetup>
+         <acquisitionXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\acquisition.xml</acquisitionXML>
+         <elaborationXML>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\elaboration.xml</elaborationXML>
+         <Model>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\gait2392_CAST_CP.osim</Model>
+         <ScaleTool>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\ScaleTool.xml</ScaleTool>
+         <Static>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\static.xml</Static>
+         <IKSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\IK_setup.xml</IKSetup>
+         <IDSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\ID_setup.xml</IDSetup>
+         <GRF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\ID_externalForces_RL.xml</GRF>
+         <RRASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\RRA_setup.xml</RRASetup>
+         <RRAActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\RRA_actuators.xml</RRAActuators>
+         <RRATaks>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\RRA_tasks.xml</RRATaks>
+         <RRASetup_actuation_analyze>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\RRA_setup_actuation_analyze.xml</RRASetup_actuation_analyze>
+         <MASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\MA_setup.xml</MASetup>
+         <SOSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\SO_setup.xml</SOSetup>
+         <SOActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\SO_actuators.xml</SOActuators>
+         <CMCSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_setup.xml</CMCSetup>
+         <CMCControls>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_ControlConstraints.xml</CMCControls>
+         <CEINMSuncalibratedmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
+         <CEINMScalibrationCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
+         <CEINMScalibrationCfg_HJCF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>
+         <CEINMSexcitationGenerator>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_excitationGenerator.xml</CEINMSexcitationGenerator>
+         <CEINMSexecutionSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_executionSetup.xml</CEINMSexecutionSetup>
+         <CEINMSexecutionCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_executionCfg.xml</CEINMSexecutionCfg>
+         <CEINMScontactmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_contactOpenSimModel.xml</CEINMScontactmodel>
+         <JRAsetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\JCF_setup.xml</JRAsetup>
+         <IAASetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\IAA_setup.xml</IAASetup>
       </templates>
    </directories>
 </bops>
