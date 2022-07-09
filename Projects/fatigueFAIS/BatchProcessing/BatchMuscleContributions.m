@@ -4,7 +4,7 @@ memoryCheck('reset')
 for ff = 1:length(Subjects)
     
     [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{ff});
-%     CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
+    %     CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
     
     files = dir(Dir.CEINMSsimulations); files(1:2) = [];
     if isempty(files); continue; end
@@ -13,13 +13,13 @@ for ff = 1:length(Subjects)
     
     modelname = Dir.OSIM_LO_HANS_originalMass;
     
-    % find muscles used in CEINMS
-    leg = lower(SubjectInfo.TestedLeg);
+    leg = lower(SubjectInfo.TestedLeg);                                                                             % find muscles used in CEINMS
     s = getOSIMVariablesFAI(upper(leg),modelname);
     muscles_of_interest = strcat(s.muscles_of_interest.All,['_' leg]);
     
     disp(SubjectInfo.ID)
-    trialList = Trials.CEINMS;   
+    trialList = Trials.CEINMS;
+    trialList = trialList(contains(trialList,'Run'));
     for ii = 1:length(trialList)
         trialName = trialList{ii};
         disp(trialName)
@@ -31,10 +31,14 @@ for ff = 1:length(Subjects)
             musc_name = muscles_of_interest{m};
             dirSO = [Dir.SO fp trialName fp];
             if ~exist([dirSO, char(musc_name),'_InOnParentFrame_ReactionLoads.sto'],'file')
-                MuscleContribution2HCF(Dir, trialName, modelname,musc_name)
+                
+                dirIK = [Dir.IK fp trialName fp 'IK.mot' ];
+                dirSO =  [Dir.SO fp trialName fp];
+                dirExternalLoadsXML = [Dir.ID fp trialName fp 'grf.xml'];
+                
+                MuscleContribution2HCF(dirIK,dirSO,dirExternalLoadsXML, trialName, modelname,musc_name)
             end
         end
-        java.lang.System.gc()
     end
     
 end

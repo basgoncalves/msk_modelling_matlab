@@ -19,6 +19,9 @@
 % constraints applied to the coordinates. Eg the patella is considered as a
 % joint, although in LLLM and Arnold's model it does not have independent
 % coordinates.
+%
+%
+% adapted by Basilio Goncalves to work for OpenSim 4.0 and after
 %__________________________________________________________________________
 
 
@@ -71,23 +74,39 @@ end
 % OSJointName is found or the proximal body is reached as parent body.
 DistalBodyName = muscleAttachBodies{end};
 bodyName = DistalBodyName;
-ProximalBodyName= muscleAttachBodies{1};
+ProximalBodyName = muscleAttachBodies{1};
 body =  BodySet.get(DistalBodyName);
 spannedJointNameOld = '';
 n_spanJoint = 1;
 n_spanJointNoDof = 1;
 NoDofjointNameSet = [];
 jointNameSet = [];
+jointSet = osimModel.getJointSet;
+Njoints = jointSet.getSize();
 while ~strcmp(bodyName,ProximalBodyName)
     try
-        spannedJoint = body.getJoint();
+        try
+            spannedJoint = body.getJoint();                                             % opensim 3.
+        catch
+            for i = 0:Njoints
+                if contains(char(jointSet.get(i).getChildFrame),bodyName)
+                    spannedJoint = jointSet.get(i);                                     % opensim 4.
+                    break
+                end
+            end
+        end
+            
         spannedJointName = char(spannedJoint.getName());
 
         if strcmp(spannedJointName, spannedJointNameOld)
             body =  spannedJoint.getParentBody();
             spannedJointNameOld = spannedJointName;
         else
-            if spannedJoint.getCoordinateSet().getSize()~=0
+            try Ncoordinates = spannedJoint.getCoordinateSet().getSize();              % opensim 3.
+            catch Ncoordinates = spannedJoint.numCoordinates();                        % opensim 4.
+            end
+            
+            if  Ncoordinates ~= 0
                 jointNameSet{n_spanJoint} =  spannedJointName;
                 n_spanJoint = n_spanJoint+1;
             else
@@ -95,14 +114,19 @@ while ~strcmp(bodyName,ProximalBodyName)
                 n_spanJointNoDof = n_spanJointNoDof+1;
             end
             spannedJointNameOld = spannedJointName;
-            body =  spannedJoint.getParentBody();
+            try 
+                body = spannedJoint.getParentBody();                             % opensim 3.
+                bodyName = char(body.getName());
+            catch
+                body =  spannedJoint.getParentFrame();
+                bodyName = strrep(char(body.getName()),'_offset','');               % opensim 4.
+            end 
         end
     catch e
         disp(e.message)
         warning(['Problems encountered in ' bodyName ' body part while checking ' OSMuscleName ' muscle'])
         break
     end
-    bodyName = char(body.getName());
 end
 
 if isempty(jointNameSet)

@@ -66,8 +66,6 @@ compareWeightScaleVSStaticGRF(Subjects)
 rraWeigthComparison(Subjects)
 MomentArmCheck_FAI_compare_withOGmodel
 
-Plot_Muscle_Contributions_to_HCF
-
 %% Mean biomehcanical data for mechanical work running paper (paper 2)
 PHD_Paper2_results
 
@@ -99,3 +97,47 @@ Batch_StrengthReport_FAI(Subjects)
 Dir.LiteratureData=[MasterDir fp 'src\LiteratureData\DigitizedData'];
 cd(Dir.LiteratureData);DigitizedData = csv2Mat_LiteratureData;
 cd([Dir.Paper_JCFFAI fp 'Results']);
+
+%% Random code!!!
+M=[];SD=[];
+sig = [65:70];
+M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
+M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
+M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
+
+SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
+SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
+SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
+SD = SD-M;
+M
+mean(SD)
+
+% anterior FAIS VS CAM (1 VS 2)
+
+M=[];SD=[];
+sig = [15:25];
+M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
+M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
+M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
+
+SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
+SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
+SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
+SD = SD-M;
+M
+mean(SD)
+
+% anterior FAIS VS CONTROL (1 VS 3)
+
+M=[];SD=[];
+sig = [70:81];
+M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
+M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
+M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
+
+SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
+SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
+SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
+SD = SD-M;
+M
+mean(SD)

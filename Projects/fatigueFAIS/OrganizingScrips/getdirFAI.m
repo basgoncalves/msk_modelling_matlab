@@ -82,7 +82,6 @@ Dir.Results_CEINMS = [Dir.Results fp 'CEINMS' fp SubjectInfo.ID];
 Dir.Results_JRA = [Dir.Results fp 'JRA' fp SubjectInfo.ID];
 Dir.Results_StOpt = [Dir.Results fp 'StaticOpt' fp SubjectInfo.ID];
 
-
 warning off
 F = fields(Dir); 
 F(contains(F,'Input'))=[];
