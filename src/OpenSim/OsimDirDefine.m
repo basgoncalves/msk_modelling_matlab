@@ -15,13 +15,22 @@
 %-------------------------------------------------------------------------
 
 %% OsimDirDefine
-function OsimDirDefine
+function OsimDirDefine(CheckOsimVersion)
 fp = filesep;
 originalDir = cd;
 bops = load_setup_bops;
 osimVersionBops = num2str(bops.osimVersion);
-                       
-answer = questdlg(['Do you want to use the current OpenSim version: ' osimVersionBops]);
+    
+if nargin < 1
+   CheckOsimVersion = 0; 
+end
+
+if CheckOsimVersion==0
+    answer = questdlg(['Do you want to use the current OpenSim version: ' osimVersionBops]);
+else
+    answer = 'Yes';
+end
+
 if contains(answer,'No')
     FilesInC = cellstr(ls(['C:' fp ]));
     OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
@@ -45,7 +54,13 @@ DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
 if contains(DirOpenSim,'OpenSim 3.')
     DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
 elseif contains(DirOpenSim,'OpenSim 4.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Code\Matlab'];
+    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
+    
+    if ~isfolder(DirOpenSimMatlab)
+       msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');  
+       uiwait(msg)
+    end
+    
 end
 
 addpath(genpath(DirOpenSimMatlab));

@@ -76,7 +76,7 @@ end
 % run JRA for each muscle in CEINMS to get contribution to each joint
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if ~exist([dirSO, lastMuscleInSet,'.sto'],'file')
-    disp('')
+    disp('creating Muscle Actuator Files ...')
     model2 = Model(dirModel);
 %     model2.initSystem();
     % get actuators
@@ -96,14 +96,14 @@ if ~exist([dirSO, lastMuscleInSet,'.sto'],'file')
     % add 1 muscle back to model
     for imusc = 1:model2.getMuscles().getSize()
         musc_name =  model2.getMuscles().get(imusc-1).getName();
-        disp(char(musc_name))
         
         if ~isequal(muscles_of_interest,'all') && ~contains(char(musc_name),muscles_of_interest)
             continue
         end
-        
+       
         % change actuator file such that 1 muscle in model
         if contains(char(musc_name),['_',leg]) && ~exist([dirSO, char(musc_name),'.sto'],'file')
+            disp(char(musc_name))
             ActuatorsDataNew = ActuatorsData;
             joints_spanned = getJointsSpannedByMuscle(model2, musc_name);
             

@@ -3,8 +3,6 @@
 % Ceseracciu, February 2015
 % email: claudio.pizzolato@griffithuni.edu.au
 % DO NOT REDISTRIBUTE WITHOUT PERMISSION
-%
-% % adapted by Basilio Goncalves to work for OpenSim 4.0 and after
 %__________________________________________________________________________
 %
 
@@ -57,7 +55,7 @@ function [ muscleList, jointList] = getMusclesOnDof_BG( dofName, osimModel )
                 for n_coord = 0:nDOF-1                                                                              % calculating effective dof for that joint
 
                     try curr_coord = curr_joint_CoordinateSet.get(n_coord);                                             % get coordinate
-                    catch; curr_coord = curr_joint_CoordinateSet.get_coordinates(n_coord);
+                    catch; curr_coord = curr_joint_CoordinateSet.get_(n_coord);
                     end
                     curr_coord_name = char(curr_coord.getName());
 

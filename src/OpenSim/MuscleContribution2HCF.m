@@ -1,10 +1,8 @@
-function MuscleContribution2HCF(dirFolders, trialName, modelname,musc_name)
+function MuscleContribution2HCF(dirIK,dirSO,dirExternalLoadsXML, trialName, modelname,musc_name)
 import org.opensim.modeling.*
 
 dirModel = [modelname];
-dirIK = [dirFolders.IK fp trialName fp 'IK.mot' ];
-dirSO =  [dirFolders.SO fp trialName fp];
-dirExternalLoadsXML = [dirFolders.ID fp trialName fp 'grf.xml'];
+
 
 if ~exist(dirSO,'dir')                                                                                              % see whether directory exist, otherwise create it
     mkdir(dirSO)
@@ -27,7 +25,6 @@ for icoord = 1:coordinateSet.getSize()
     model.addForce(coord_actuator);
 end
 % model.initSystem();
-
 joint_names_arr = ArrayStr();
 apply_on_bodies_arr = ArrayStr();
 express_in_frame_arr = ArrayStr();
@@ -52,6 +49,7 @@ JR.setInFrame(express_in_frame_arr);
 model.updAnalysisSet().adoptAndAppend(JR);
 % model.initSystem();
 
+
 %run JRA
 analysis = AnalyzeTool(model);
 analysis.setModel(model);
@@ -71,23 +69,22 @@ analysis.setName('intsegForce');
 model2 = Model(dirModel);
 
 
-if model.updForceSet().getSize() > model.getCoordinateSet().getSize()                                           % remove previous added muscle
+if model.updForceSet().getSize() > model.getCoordinateSet().getSize()                                               % remove previous added muscle
     model.updForceSet().remove(model.getCoordinateSet().getSize());
 end
 disp(musc_name)
-model.updForceSet().append(model2.getMuscles().get(musc_name));
+model.updForceSet().cloneAndAppend(model2.getMuscles().get(musc_name));                             % https://github.com/opensim-org/opensim-core/issues/432
+
 %     model.initSystem();
 JR.setForcesFileName([dirSO, char(musc_name), '.sto']);
 
 model.addAnalysis(JR)
 model.updAnalysisSet().adoptAndAppend(JR);
-%     model.initSystem();
+model.initSystem();
 
 analysis.setName(char(musc_name));
 analysis.setModel(model);
 analysis.run();
 
-
-java.lang.System.gc()
 
 

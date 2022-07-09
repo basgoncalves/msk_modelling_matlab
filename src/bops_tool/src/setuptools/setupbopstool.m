@@ -7,13 +7,20 @@
 %
 % by Basilio Goncalves, basilio.goncalves7@gmail.com
 
-function [bops] = setupbopstool
+function [bops] = setupbopstool(UseCurrentSessitngs)
 
 setupDir    = fileparts(mfilename('fullpath'));
 dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
 templateDir = [fileparts(fileparts(setupDir)) fp 'Templates'];
-if isfolder(dataDir)
+
+if nargin < 1
+   UseCurrentSessitngs = 0; 
+end
+
+if isfolder(dataDir) && UseCurrentSessitngs == 0
     answer = questdlg(sprintf('do you want to use data directory: \n %s',dataDir));
+else
+    answer = 'Yes';
 end
 
 if ~isfolder(dataDir) || isequal(answer,'No')                                                                       % check data folder
