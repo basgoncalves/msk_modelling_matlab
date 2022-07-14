@@ -76,6 +76,8 @@ trialDirs.SOkinematics = trialDirs.IKresults;
 trialDirs.SOforceResults = [trialDirs.SO fp trialName '_StaticOptimization_force.sto'];
 trialDirs.SOactivationResults = [trialDirs.SO fp trialName '_StaticOptimization_activation.sto'];
 
+trialDirs.MC =[Dir.MC fp trialName];
+
 trialDirs.IAA =[Dir.IAA fp trialName];
 trialDirs.IAAmodel = trialDirs.MAmodel;
 trialDirs.IAAsetup = [trialDirs.IAA fp 'setup.xml'];

@@ -27,8 +27,9 @@ Dir.Results_OptimalGamma = [Dir.Results fp 'CEINMS' fp 'OptimalGammas'];
 Dir.Results_JointWorkRS = [Dir.Results fp 'JointWork_RS'];              % paper on repeated sprints healthy
 Dir.Results_RSFAI = [Dir.Results fp 'RS_FAIS'];                         % repeated sprints FAI
 Dir.Results_JCFFAI = [Dir.Results fp 'JCFFAI'];                         % joint contact forces in FAI
+Dir.Results_Cont2HCF = [Dir.Results fp 'Muscle_Contributions2HCF'];     % muscle contributions to joint contact forces
 
-PapersDir = [DirUp(Dir.Main,3) fp '4- Papers_Presentations_Abstracts\Papers'];             % paper Dirs
+PapersDir = [DirUp(Dir.Main,2) fp '4- Papers_Presentations_Abstracts\Papers'];             % paper Dirs
 Dir.Paper_RSFAI = [PapersDir fp 'Goncalves-RepeatedSprintsFAI'];                        % paper on repeated sprints in FAI
 Dir.Paper_JCFFAI = [PapersDir fp 'Goncalves-HipJointContactForcesDuringSprintingFAIS']; % paper on joint contact forces Running in FAI
 Dir.Paper_JCFFAI_cut = [PapersDir fp 'Goncalves-HCFCuttingFAIS'];                 % paper on joint contact forces cutting in FAI
@@ -42,10 +43,6 @@ if nargin<4 || isempty(OSIMModelName); OSIMModelName='Rajagopal2015';end        
 if nargin<5 || isempty(WalkingCalibration); WalkingCalibration = 0; end        
 
 Dir.Input = [Dir.Main fp 'InputData' fp Subject fp sessionName];
-if ~isfolder([Dir.Input])
-    cmdmsg([Dir.Input ' does not exist,check data folder name or update "getdirFAI.m" ']); % check if the folder and sessions exist
-end
-
 Dir.CEINMSexePath = [MasterDir fp 'src\Ceinms\CEINMS_2'];
 
 SubjectInfo = getDemographicsFAI(Dir.Main,Subject); 
@@ -66,6 +63,7 @@ Dir.RRA = [Dir.Elaborated fp 'residualReductionAnalysis'];
 Dir.MA = [Dir.Elaborated fp 'muscleAnalysis']; 
 Dir.IAA = [Dir.Elaborated fp 'inducedAccelerationAnalysis']; 
 Dir.SO = [Dir.Elaborated fp 'StaticOpt']; 
+Dir.MC = [Dir.Elaborated fp 'MuscleContributions2HCF']; 
 Dir.JRA = [Dir.Elaborated fp 'JointReactionAnalysis']; 
 % CEINMS
 Dir.CEINMS = [Dir.Elaborated fp 'ceinms']; 
@@ -122,6 +120,7 @@ Temp.IAASetup = [DirTemplateXML fp 'InducedAccelerationAnalysis' fp 'IAA_Setup' 
 Temp.SOSetup = [DirTemplateXML fp 'StaticOptimization' fp 'SO_Setup'  suffix '.xml'];
 Temp.SOActuators = [DirTemplateXML fp 'StaticOptimization' fp 'SO_Actuators'  suffix '.xml'];
 Temp.JRAsetup = [DirTemplateXML fp 'JCFProcessing' fp 'Setup_JCFAnalyze'  suffix '.xml'];
+Temp.MCsetup = [DirTemplateXML fp 'MuscleContributions2JCF' fp 'Setup'  suffix '.xml'];
 
 Temp.CEINMSuncalibratedmodel = [DirTemplateXML fp 'CEINMS' fp 'uncalibrated_RL' suffix '.xml'];
 Temp.CEINMScfgCalibration = [DirTemplateXML fp 'CEINMS' fp 'calibrationCfg_RL' suffix '.xml'];

@@ -39,6 +39,7 @@ S.muscles_of_interest.Hamstrings    = {['bflh'],['bfsh'],['semimem'],['semiten']
 S.muscles_of_interest.Gmax          = {['glmax1'],['glmax2'],['glmax3']};
 S.muscles_of_interest.Gmed          = {['glmed1'],['glmed2'],['glmed3']};
 S.muscles_of_interest.Gmin          = {['glmin1'],['glmin2'],['glmin3']};
+% S.muscles_of_interest.HipFlex       = {['recfem'],['sart'],['tfl']}; 
 S.muscles_of_interest.RecFem        = {['recfem']};
 S.muscles_of_interest.TFL           = {['tfl']};
 S.muscles_of_interest.Adductors     = {['addbrev'],['addlong'],['addmagDist'],['addmagIsch'],['addmagMid'],['addmagProx'],['grac']};
@@ -47,9 +48,11 @@ S.muscles_of_interest.Gastroc       = {['gaslat'],['gasmed']};
 S.muscles_of_interest.Soleus        = {['soleus']};
 S.muscles_of_interest.Tibilais      = {['tibant']};
 
-S.muscles_of_interest.All       ={['addbrev'],['addlong'],['addmagDist'],['addmagIsch'],['addmagMid'],['addmagProx'],...
-    ['grac'],['bflh'],['semimem'],['semiten'],['glmax1'],['glmax2'],['glmax3'],['glmed1'],['glmed2'],['glmed3'],...
-    ['glmin1'],['glmin2'],['glmin3'],['iliacus'],['psoas'],['recfem'],['sart'],['soleus'],['tfl'],['tibant'],['vasint'],['vaslat'],['vasmed']};
+fld = fields(S.muscles_of_interest);
+S.muscles_of_interest.All = {};
+for ifld = 1:length(fld)
+    S.muscles_of_interest.All = [S.muscles_of_interest.All S.muscles_of_interest.(fld{ifld})];
+end
 
 S.CEINMS_muscles = {['vasmed_' s];['vaslat_' s];['recfem_' s];['grac_' s];['tibant_' s];...
 ['addlong_' s];['semiten_' s];['bflh_' s];['gasmed_' s];['gaslat_' s];['tfl_' s];['glmax1_' s];['glmax2_' s];['glmax3_' s]};

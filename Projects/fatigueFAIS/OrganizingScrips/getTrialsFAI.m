@@ -81,3 +81,6 @@ if ~isempty(idx); Trials.MaxEMG=[Trials.MaxEMG Trials.CEINMScalibration]; end
 Trials.CEINMS = getDirNames(Dir.CEINMSsimulations);
 Trials.CEINMS = Trials.CEINMS(contains(Trials.CEINMS,Trials.Dynamic));
 
+
+Trials.MuscleContributions2HCF = Trials.CEINMS(contains(Trials.CEINMS,'Run'));
+

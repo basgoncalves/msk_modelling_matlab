@@ -26,7 +26,7 @@ elseif contains(Task,'cut')
     TrialList = {'CutTested1','CutTested2','CutOposite1','CutOposite2'};
     savedir = [Dir.Results_JCFFAI fp 'CEINMSbackupResults_cut.mat'];            % directory to save data in
 end
-[CEINMSData,JointWork,ST,Error,BestGammaPerTrial] = importCEINMSResults(Subjects,TrialList,update,ReRunSubjects,savedir);
+[CEINMSData,JointWork,ST,Error,BestGammaPerTrial] = Convert_HCF_results2Mat(Subjects,TrialList,update,ReRunSubjects,savedir);
 
 %participant groups
 CEINMSData.participantsGroups =[];
@@ -104,20 +104,33 @@ VariableNames = Demographics(1,:);VariableNames{2} = 'ExcelRow';
 Demographics = cell2table(Demographics(2:end,:));
 Demographics.Properties.VariableNames = VariableNames;
 
+flds = fields(CEINMSData);
+CEINMSData.units = struct;
+for ifld = flds'
+    CEINMSData.units.(ifld{1}) = '';
+end
+CEINMSData.units.AdjustedEmgs           = 'ratio to max emg';
+CEINMSData.units.ankle_angle            = 'metre';
+CEINMSData.units.knee_angle             = 'metre';
+CEINMSData.units.hip_adduction          = 'metre';
+CEINMSData.units.hip_flexion            = 'metre';
+CEINMSData.units.hip_rotation           = 'metre';
+CEINMSData.units.CEINMSmuscles          = 'names';
+CEINMSData.units.CEINMSmuscles_perDOF   = 'names ';
+CEINMSData.units.ContactForces          = 'metre';
 
 cd(Dir.Results_JCFFAI)
 if contains(Task,'run')
-    save CEINMSdata CEINMSData JointWork Error Groups Weights Subjects BestGammaPerTrial ST Demographics
-    DataDir = [Dir.Results_JCFFAI fp 'CEINMSdata.mat'];
+    save Paper4results CEINMSData JointWork Error Groups Weights Subjects BestGammaPerTrial ST Demographics
+    DataDir = [Dir.Results_JCFFAI fp 'Paper4results.mat'];
     copyfile(DataDir,[Dir.Paper_JCFFAI fp 'Results']);
     cd([Dir.Paper_JCFFAI fp 'Results'])
 elseif contains(Task,'cut')
-    save CEINMSdata_cutting CEINMSData JointWork Error Groups Weights Subjects BestGammaPerTrial ST Demographics
-    DataDir = [Dir.Results_JCFFAI fp 'CEINMSdata_cutting.mat'];
+    save Paper4results_cutting CEINMSData JointWork Error Groups Weights Subjects BestGammaPerTrial ST Demographics
+    DataDir = [Dir.Results_JCFFAI fp 'Paper4results_cutting.mat'];
     copyfile(DataDir,[Dir.Paper_JCFFAI_cut fp 'Results']);
     cd([Dir.Paper_JCFFAI_cut fp 'Results'])
 end
-
 
 
 cmdmsg(['Mat data saved in ' Dir.Results_JCFFAI '  and copied to ' Dir.Paper_JCFFAI fp 'Results'])

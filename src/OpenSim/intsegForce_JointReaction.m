@@ -1,15 +1,9 @@
-function intsegForce_JointReaction(dirFolders, trialname, leg, modelname)
+function intsegForce_JointReaction(dirIK,dirMC,dirExternalLoadsXML,dirModel,leg)
 
 import org.opensim.modeling.*
 
-dirModel = [modelname];
-dirIK = [dirFolders.IK fp trialname fp 'IK.mot' ];
-dirSO =  [dirFolders.SO fp trialname fp];
-dirExternalLoadsXML = [dirFolders.ID fp trialname fp 'grf.xml'];
-dirMA = [dirFolders.MA fp trialname,'\'];
-
-if ~exist(dirSO,'dir')                                                   % see whether directory exist, otherwise create it
-    mkdir(dirSO)
+if ~exist(dirMC,'dir')                                                   % see whether directory exist, otherwise create it
+    mkdir(dirMC)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,11 +18,12 @@ if leg == 'r'
     lastMuscleInSet(end) = leg;
 end
 
-JRA_intseg_forcefile = [dirSO 'intsegForce_InOnParentFrame_ReactionLoads.sto'] ;
+JRA_intseg_forcefile = [dirMC 'intsegForce_InOnParentFrame_ReactionLoads.sto'] ;
 if exist(JRA_intseg_forcefile,'file')
    return
 end    
 
+disp('Calculating intersegmental reaction forces...')
 motstorage = Storage(dirIK);
 
 model.updForceSet().clearAndDestroy() ;
@@ -44,14 +39,14 @@ for icoord = 1:coordinateSet.getSize()
     coord_actuator.setMinControl(-100000);
     model.addForce(coord_actuator);
 end
-% model.initSystem();
+model.initSystem();
 
 % setup JRA
 JR = JointReaction();
 JR.setName('InOnParentFrame');
 JR.setStartTime(motstorage.getFirstTime());
 JR.setEndTime(motstorage.getLastTime());
-JR.setForcesFileName([dirSO '_StaticOptimization_force.sto']);
+JR.setForcesFileName([dirMC '_StaticOptimization_force.sto']);
 
 joint_names_arr = ArrayStr();
 apply_on_bodies_arr = ArrayStr();
@@ -69,7 +64,7 @@ JR.setJointNames(joint_names_arr);
 JR.setOnBody(apply_on_bodies_arr);
 JR.setInFrame(express_in_frame_arr);
 model.updAnalysisSet().adoptAndAppend(JR);
-% model.initSystem();
+model.initSystem();
 
 %run JRA
 analysis = AnalyzeTool(model);
@@ -81,7 +76,7 @@ analysis.setLowpassCutoffFrequency(6);
 analysis.setCoordinatesFileName(dirIK);
 analysis.setExternalLoadsFileName(dirExternalLoadsXML);
 analysis.setLoadModelAndInput(1);
-analysis.setResultsDir(JRA_intseg_forcefile);
+analysis.setResultsDir(dirMC);
 analysis.setName('intsegForce');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

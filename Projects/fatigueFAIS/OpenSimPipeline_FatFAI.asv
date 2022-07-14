@@ -21,7 +21,7 @@ Subjects = Subjects(1:end);
 % Subjects = {'009' '021' '028' '044'};
 
 ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-run trials(default) / 2 = do not re-run trials
-
+%% 
 % checkThroughFolders
 % BatchC3D2MAT_FAI_BG(Subjects)
 % CheckSubjects = BatchMOtoNMS_FAI_BG(Subjects);
@@ -37,7 +37,7 @@ ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-
 % BatchMA_FAI_BG(Subjects(1:end),n)
 % BatchCEINMS_FAI_BG(Subjects(41:end),n) % CEINMSTroubleshoot
 % BatchJRA_FAI_BG(Subjects(1:end),n)
-BatchMuscleContributions(Subjects(44:end))
+ BatchMuscleContributions(Subjects(1:end))
 % BatchIAA_FAI_BG (Subjects(1:end),n)
 % BatchStaticOpt_FAI_BG(Subjects(1)) % not finished
 % Batch_PlotCEINMSresults(Subjects)
@@ -66,6 +66,9 @@ compareWeightScaleVSStaticGRF(Subjects)
 rraWeigthComparison(Subjects)
 MomentArmCheck_FAI_compare_withOGmodel
 
+MatFile_Muscle_Contributions_to_HCF
+Plot_Individual_MuscleContributions
+
 %% Mean biomehcanical data for mechanical work running paper (paper 2)
 PHD_Paper2_results
 
@@ -88,6 +91,9 @@ Dir=getdirFAI;
 Subjects=splitGroupsFAI(Dir.Main,'JCFFAI');
 update={'MuscleVariables' 'MomentArms' 'ContactForces' 'externalBiomech' 'SpatioTemporal'}; 
 PHD_JCF_FAIS_results(update([1]),Subjects(1:end),'cut')
+
+copifile([Dir.Results_Cont2HCF fp 'results.mat'],[])
+
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS_cut
 
 %% Strength report figures
@@ -97,47 +103,3 @@ Batch_StrengthReport_FAI(Subjects)
 Dir.LiteratureData=[MasterDir fp 'src\LiteratureData\DigitizedData'];
 cd(Dir.LiteratureData);DigitizedData = csv2Mat_LiteratureData;
 cd([Dir.Paper_JCFFAI fp 'Results']);
-
-%% Random code!!!
-M=[];SD=[];
-sig = [65:70];
-M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
-M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
-M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
-
-SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
-SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
-SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
-SD = SD-M;
-M
-mean(SD)
-
-% anterior FAIS VS CAM (1 VS 2)
-
-M=[];SD=[];
-sig = [15:25];
-M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
-M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
-M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
-
-SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
-SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
-SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
-SD = SD-M;
-M
-mean(SD)
-
-% anterior FAIS VS CONTROL (1 VS 3)
-
-M=[];SD=[];
-sig = [70:81];
-M(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS(sig,2));
-M(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM(sig,2));
-M(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control(sig,2));
-
-SD(1) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_FAIS_upperSD(sig,2));
-SD(2) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_CAM_upperSD(sig,2));
-SD(3) = mean(DigitizedData.Catelli2021FrontActLiving.Anterior_control_upperSD(sig,2));
-SD = SD-M;
-M
-mean(SD)
