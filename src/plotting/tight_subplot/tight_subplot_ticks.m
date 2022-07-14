@@ -1,8 +1,8 @@
 function tight_subplot_ticks (ha,xt,yt)
 % tight_subplot_ticks adds xticklabels and yticklables to the assigned
 % subplots in "ha" (if xt OR yt == 0, add labels to all subplots)
-%
-% tight_subplot_ticks (xt,yt)
+% xt = index of subplots to add xticks to
+% yt = index of subplots to add yticks to
 %
 % see also tight_subplotBG
 

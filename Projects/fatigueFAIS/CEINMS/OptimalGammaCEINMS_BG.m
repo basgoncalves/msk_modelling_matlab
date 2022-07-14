@@ -22,8 +22,10 @@ fp = filesep;
 if exist([SimulationDir fp 'OptimalSettings.mat'])
     load([SimulationDir fp 'OptimalSettings.mat'])
     
-    if ~contains(OptimalSettings.Dir(1:3),Dir.Main(1:3))  % replace the location of the file with the current main dir
-        OptimalSettings.Dir(1:3) = Dir.Main(1:3);
+    if ~contains(OptimalSettings.Dir(1:3),Dir.Main(1:3))                                                            % replace the location of the file with the current main dir
+        [~,trialName] = fileparts(SimulationDir);
+        idx = strfind(OptimalSettings.Dir,trialName)+length(trialName)+1;                                           % find the index of the last character of trialName + 1 to include '/' 
+        OptimalSettings.Dir = [SimulationDir fp OptimalSettings.Dir(idx:end)];
     end
     OptimalSettings.Activations = [OptimalSettings.Dir fp 'Activations.sto'];
     OptimalSettings.AdjustedEmgs = [OptimalSettings.Dir fp 'AdjustedEmgs.sto'];
@@ -136,7 +138,7 @@ close all
         catch
             out = NaN;
         end
-    end
+    
 
 
-end
+

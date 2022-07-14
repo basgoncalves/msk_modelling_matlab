@@ -1,4 +1,4 @@
-function [trialType,trialNumber] = getTrialType(trialName)
+function [trialType,trialNumber] = getTrialType(trialName,sep)
 %Extract type without repetition number
 %TrialName should be composed by Type + Repetition number
 
@@ -38,7 +38,13 @@ nRep{9}='9';
 ind=[];
 
 for i=1:length(nRep)
-    c=strfind(trialName,nRep{i});
+    if exist('sep','var')
+        idx_sep = strfind(trialName,sep);
+        trialName_after_sep = trialName(idx_sep:end);
+        c = strfind(trialName_after_sep,nRep{i}) + idx_sep-1;
+    else
+        c = strfind(trialName,nRep{i});
+    end
     ind=[ind c];
 end
 
@@ -48,6 +54,9 @@ if isempty(ind)==0
     
     trialType = trialName(1:indsort(1)-1);
     trialNumber = trialName(indsort(1));
+    if exist('sep','var')
+        trialType = strrep(trialType,sep,'');
+    end
     
 else
     trialType = trialName;

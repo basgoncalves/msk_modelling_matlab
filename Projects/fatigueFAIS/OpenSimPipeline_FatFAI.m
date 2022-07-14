@@ -21,7 +21,7 @@ Subjects = Subjects(1:end);
 % Subjects = {'009' '021' '028' '044'};
 
 ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-run trials(default) / 2 = do not re-run trials
-
+%% 
 % checkThroughFolders
 % BatchC3D2MAT_FAI_BG(Subjects)
 % CheckSubjects = BatchMOtoNMS_FAI_BG(Subjects);
@@ -37,7 +37,7 @@ ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-
 % BatchMA_FAI_BG(Subjects(1:end),n)
 % BatchCEINMS_FAI_BG(Subjects(41:end),n) % CEINMSTroubleshoot
 % BatchJRA_FAI_BG(Subjects(1:end),n)
-BatchMuscleContributions(Subjects(44:end))
+ BatchMuscleContributions(Subjects(1:end))
 % BatchIAA_FAI_BG (Subjects(1:end),n)
 % BatchStaticOpt_FAI_BG(Subjects(1)) % not finished
 % Batch_PlotCEINMSresults(Subjects)
@@ -66,7 +66,6 @@ compareWeightScaleVSStaticGRF(Subjects)
 rraWeigthComparison(Subjects)
 MomentArmCheck_FAI_compare_withOGmodel
 
-Plot_Muscle_Contributions_to_HCF
 
 %% Mean biomehcanical data for mechanical work running paper (paper 2)
 PHD_Paper2_results
@@ -90,7 +89,11 @@ Dir=getdirFAI;
 Subjects=splitGroupsFAI(Dir.Main,'JCFFAI');
 update={'MuscleVariables' 'MomentArms' 'ContactForces' 'externalBiomech' 'SpatioTemporal'}; 
 PHD_JCF_FAIS_results(update([1]),Subjects(1:end),'cut')
+MatFile_Muscle_Contributions_to_HCF
+
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS_cut
+
+
 
 %% Strength report figures
 Batch_StrengthReport_FAI(Subjects)

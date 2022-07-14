@@ -18,7 +18,7 @@
 %   BestGamma = best gamma and errors per trial
 %-------------------------------------------------------------------------
 % NOTE - you may need to change the names of the motions and muslces
-function [G,W,ST,E,BestGamma] = importCEINMSResults(Subjects,TrialList,update,ReRunSubjects,savedir)
+function [G,W,ST,E,BestGamma] = Convert_HCF_results2Mat(Subjects,TrialList,update,ReRunSubjects,savedir)
 %% base setup
 % Set up group struct for angles, mometns and EMG and work struct (Motions, muscles and work to extract)
 fp = filesep;
@@ -28,15 +28,15 @@ fp = filesep;
 
 %% Loop through each participant
 if ~contains(update,'none')
-    for Subj = 1:length(Subjects)    % loop through all participants
+    for isubj = 1:length(Subjects)    % loop through all participants
         %%   Set-up participant
         
-        if nargin>3 && ~contains(Subjects(Subj),ReRunSubjects); continue; end        % check subjects to re run or not
+        if nargin>3 && ~contains(Subjects(isubj),ReRunSubjects); continue; end        % check subjects to re run or not
         
-        [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{Subj});
+        [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{isubj});
         CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
         
-        G.participants{Subj} = SubjectInfo.ID; ST.participants{Subj} = SubjectInfo.ID;
+        G.participants{isubj} = SubjectInfo.ID; ST.participants{isubj} = SubjectInfo.ID;
         
         if ~exist([Dir.CEINMSsimulations])||length(Trials.CEINMS)<1;continue;end
         
@@ -51,18 +51,18 @@ if ~contains(update,'none')
         
         % get trial names all with same format (some trials have different names)
         Strials = getstrials(Trials.CEINMS,SubjectInfo.TestedLeg);
-        if contains(Strials,TrialList)==0
+        if contains(Strials,TrialList) == 0
             fprintf(['participant ' SubjectInfo.ID ' does not contain any of trials:' strjoin(TrialList) '\n'])
             continue
         end
         %% loop through all trials in the list and store data in struct
-        for tt = 1:length(Trials.CEINMS)
+        for itrial = 1:length(Trials.CEINMS)
             %% Setup-trial info
-            trialName = Trials.CEINMS{tt};
+            trialName = Trials.CEINMS{itrial};
             [TimeWindow, FramesWindow,FootContact] = TimeWindow_FatFAIS(Dir,trialName);
             SimulationDir = [Dir.CEINMSsimulations fp trialName];
             
-            if length(dir(SimulationDir))<3 || ~contains(Strials{tt},TrialList);   continue;   end
+            if length(dir(SimulationDir))<3 || ~contains(Strials{itrial},TrialList);   continue;   end
             warning off
             
             disp([trialName '...'])
@@ -82,44 +82,44 @@ if ~contains(update,'none')
             
             %% Muscle Variables
             if ~exist('update') || any(contains(update,'MuscleVariables'))
-                BestGamma(Subj).Participant = (['s' SubjectInfo.ID]);
-                BestGamma(Subj).trialName = trialName;
-                BestGamma(Subj).Alpha = BestItr.Alpha;
-                BestGamma(Subj).Beta = BestItr.Beta;
-                BestGamma(Subj).Gamma = BestItr.Gamma;
+                BestGamma(isubj).Participant = (['s' SubjectInfo.ID]);
+                BestGamma(isubj).trialName = trialName;
+                BestGamma(isubj).Alpha = BestItr.Alpha;
+                BestGamma(isubj).Beta = BestItr.Beta;
+                BestGamma(isubj).Gamma = BestItr.Gamma;
                 
                 % add the error to the structure
                 [RMSE,R2,~] = CEINMS_errors(trialDirs.emg,trialDirs.IDRRAresults,BestItrDir,CEINMSSettings.excitationGeneratorFilename,CEINMSSettings.exeCfg,S.DOFmuscles);
                 ncols = length(G.CEINMSmuscles);
-                E.EMGrmse.(Strials{tt})(Subj,1:ncols) = RMSE.exc.All;
-                E.EMGrmse_Relative.(Strials{tt})(Subj,1:ncols) = RMSE.excPerRange.All;
-                E.EMGr2.(Strials{tt})(Subj,1:ncols) = R2.exc.All;
+                E.EMGrmse.(Strials{itrial})(isubj,1:ncols) = RMSE.exc.All;
+                E.EMGrmse_Relative.(Strials{itrial})(isubj,1:ncols) = RMSE.excPerRange.All;
+                E.EMGr2.(Strials{itrial})(isubj,1:ncols) = R2.exc.All;
                 
-                for e = 1:length(dofList.ERR)
-                    E.MOMrmse.(Strials{tt})(Subj,e) = RMSE.mom.(dofList.CEINMS{e});
-                    E.MOMrmse_Relative.(Strials{tt})(Subj,e) = RMSE.momPerRange.(dofList.CEINMS{e});
-                    E.MOMr2.(Strials{tt})(Subj,e) = R2.mom.(dofList.CEINMS{e});
+                for ierr = 1:length(dofList.ERR)
+                    E.MOMrmse.(Strials{itrial})(isubj,ierr) = RMSE.mom.(dofList.CEINMS{ierr});
+                    E.MOMrmse_Relative.(Strials{itrial})(isubj,ierr) = RMSE.momPerRange.(dofList.CEINMS{ierr});
+                    E.MOMr2.(Strials{itrial})(isubj,ierr) = R2.mom.(dofList.CEINMS{ierr});
                 end
                 
                 muscleList = strcat(G.CEINMSmuscles,['_' lower(SubjectInfo.TestedLeg)]);  % load muscle parameters
                 MuscleVariables = fields(OutVar.muscle)';
-                for mv = 1:length(MuscleVariables)
-                    [Results,~] = LoadResults_BG([BestItrDir fp MuscleVariables{mv} '.sto'],TimeWindow,muscleList,0);
-                    G = SortData(G,MuscleVariables{mv},Results,Strials{tt},G.CEINMSmuscles,Subj);
+                for ivar = 1:length(MuscleVariables)
+                    [Results,~] = LoadResults_BG([BestItrDir fp MuscleVariables{ivar} '.sto'],TimeWindow,muscleList,0);
+                    G = SortData(G,MuscleVariables{ivar},Results,Strials{itrial},G.CEINMSmuscles,isubj);
                 end
                 EMGinputs_unique = unique(G.EMGinputs(~cellfun('isempty',G.EMGinputs)))';
                 [Results,Labels] = LoadResults_BG([trialDirs.emg],TimeWindow,EMGinputs_unique,0);
                 
                 Results(:,[5:6]) =[]; Labels(:,[5:6]) =[]; % delete repeated Gmax and Gmed
-                G = SortData(G,'MeasuredEMG',Results,Strials{tt},EMGinputs_unique,Subj);
+                G = SortData(G,'MeasuredEMG',Results,Strials{itrial},EMGinputs_unique,isubj);
                 
             end
             
             %% load moment arms
             if ~exist('update') || any(contains(update,'MomentArms'))
-                for ii = 1:length(dofList.MomArm)
-                    [MomArm,~] = LoadResults_BG ([trialDirs.MA fp '_MuscleAnalysis_MomentArm_' dofList.MomArm{ii} '_' lower(SubjectInfo.TestedLeg) '.sto'],TimeWindow,muscleList,0);
-                    G = SortData(G,dofList.MomArm{ii},MomArm,Strials{tt},G.CEINMSmuscles,Subj);
+                for imomArm = 1:length(dofList.MomArm)
+                    [MomArm,~] = LoadResults_BG ([trialDirs.MA fp '_MuscleAnalysis_MomentArm_' dofList.MomArm{imomArm} '_' lower(SubjectInfo.TestedLeg) '.sto'],TimeWindow,muscleList,0);
+                    G = SortData(G,dofList.MomArm{imomArm},MomArm,Strials{itrial},G.CEINMSmuscles,isubj);
                 end
             end
             
@@ -127,10 +127,10 @@ if ~contains(update,'none')
             if ~exist('update') || any(contains(update,'ContactForces'))
                 [~,NormContactForces,NormContactForceRate,PosImpulse,NegImpulse,Labels] = importJCF(trialDirs.JRAresults,TimeWindow,LabelsCF,SubjectInfo.TestedLeg);
                 
-                G = SortData(G,'ContactForces',NormContactForces,Strials{tt},{OutVar.JCF.ContactForces},Subj);
-                G = SortData(G,'ContactForcesRate',NormContactForceRate,Strials{tt},{OutVar.JCF.ContactForces},Subj);
-                G = SortData(G,'PosImpulseCF',PosImpulse,Strials{tt},{OutVar.JCF.ContactForces},Subj);
-                G = SortData(G,'NegImpulseCF',NegImpulse,Strials{tt},{OutVar.JCF.ContactForces},Subj);
+                G = SortData(G,'ContactForces',NormContactForces,Strials{itrial},{OutVar.JCF.ContactForces},isubj);
+                G = SortData(G,'ContactForcesRate',NormContactForceRate,Strials{itrial},{OutVar.JCF.ContactForces},isubj);
+                G = SortData(G,'PosImpulseCF',PosImpulse,Strials{itrial},{OutVar.JCF.ContactForces},isubj);
+                G = SortData(G,'NegImpulseCF',NegImpulse,Strials{itrial},{OutVar.JCF.ContactForces},isubj);
             end
             
             %% load external biomechanics
@@ -148,14 +148,14 @@ if ~contains(update,'none')
                 if contains(SubjectInfo.TestedLeg,'L')&& any(contains(Ext.coordinates,'lumbar_bending'))
                     idx = find(contains(Ext.coordinates,'lumbar_bending')); IK(:,idx)=-IK(:,idx); end
                 
-                G = SortData(G,'IK',IK,Strials{tt},dofList.IK,Subj);
-                G = SortData(G,'ID',ID,Strials{tt},dofList.IK,Subj);
-                G = SortData(G,'ID_ceinms',ID_ceinms,Strials{tt},S.dofsimple,Subj);
+                G = SortData(G,'IK',IK,Strials{itrial},dofList.IK,isubj);
+                G = SortData(G,'ID',ID,Strials{itrial},dofList.IK,isubj);
+                G = SortData(G,'ID_ceinms',ID_ceinms,Strials{itrial},S.dofsimple,isubj);
                 
                 if ~contains(trialName,'walking','IgnoreCase',1)
                     [Work,JointPowerTimeNorm,~,~] = jointworkcalc (Dir,SubjectInfo,Trials,trialName,Ext.coordinates',Ext.moments','RRA');
-                    G = SortData(G,'Powers',JointPowerTimeNorm,Strials{tt},dofList.IK,Subj);
-                    W = SortData_work(W,Work,Strials{tt},fields(W)',Subj);
+                    G = SortData(G,'Powers',JointPowerTimeNorm,Strials{itrial},dofList.IK,isubj);
+                    W = SortData_work(W,Work,Strials{itrial},fields(W)',isubj);
                 end
             end
             
@@ -176,21 +176,21 @@ if ~contains(update,'none')
                 MLvelocity = calcVelocity (IK_pelvis(:,4),fs);
                 MLAcc = calcAcc (IK_pelvis(:,4),fs)./100;
                 
-                G.GRF.AP.(Strials{tt})(1:101,Subj)= sum(APgrf,2);
-                G.GRF.ML.(Strials{tt})(1:101,Subj)= sum(MLgrf,2);
-                G.GRF.V.(Strials{tt})(1:101,Subj)= sum(Vgrf,2);
-                ST.VmeanAP.(Strials{tt})(Subj)= mean(Horizontalvelocity);
-                ST.AmeanAP.(Strials{tt})(Subj)= mean(HorizontalAcc);
-                ST.VmeanML.(Strials{tt})(Subj)= mean(MLvelocity);
-                ST.AmeanML.(Strials{tt})(Subj)= mean(MLAcc);
-                ST.StepTime.(Strials{tt})(Subj) = TimeWindow(2)-TimeWindow(1);
+                G.GRF.AP.(Strials{itrial})(1:101,isubj)= sum(APgrf,2);
+                G.GRF.ML.(Strials{itrial})(1:101,isubj)= sum(MLgrf,2);
+                G.GRF.V.(Strials{itrial})(1:101,isubj)= sum(Vgrf,2);
+                ST.VmeanAP.(Strials{itrial})(isubj)= mean(Horizontalvelocity);
+                ST.AmeanAP.(Strials{itrial})(isubj)= mean(HorizontalAcc);
+                ST.VmeanML.(Strials{itrial})(isubj)= mean(MLvelocity);
+                ST.AmeanML.(Strials{itrial})(isubj)= mean(MLAcc);
+                ST.StepTime.(Strials{itrial})(isubj) = TimeWindow(2)-TimeWindow(1);
                 [SL,SF] = GetStepLength(trialDirs.c3d,TimeWindow,'MT',SubjectInfo.TestedLeg);
-                ST.StepLength.(Strials{tt})(Subj) = SL;
-                ST.StepFreq.(Strials{tt})(Subj) = SF;
+                ST.StepLength.(Strials{itrial})(isubj) = SL;
+                ST.StepFreq.(Strials{itrial})(isubj) = SF;
                 
                 if contains(trialName,Trials.RunStraight)
-                    ST.ContactTime.(Strials{tt})(Subj) = TimeWindow(2)-FootContact.time;
-                    [~,ST.FC_percentage.(Strials{tt})(Subj)] = min(abs(IK_pelvis(:,1)-FootContact.time));
+                    ST.ContactTime.(Strials{itrial})(isubj) = TimeWindow(2)-FootContact.time;
+                    [~,ST.FC_percentage.(Strials{itrial})(isubj)] = min(abs(IK_pelvis(:,1)-FootContact.time));
                 end
             end
             
@@ -210,8 +210,7 @@ end
 %%   ==============================================================================================================  %
 %%   ================================================ CALLBACK FUCNTIONS ==========================================  %
 %%   ==============================================================================================================  %
-function [G,W,ST,E,BestGamma,dofList,OutVar,savedir] = setupStructure (Subjects,TrialList,update,ReRunSubjects,savedir)
-%% setupStructure
+function [G,W,ST,E,BestGamma,dofList,OutVar,savedir] = setupStructure(Subjects,TrialList,update,ReRunSubjects,savedir)% setupStructure
 fp = filesep;
 [Dir,Temp,SubjectInfo,~] = getdirFAI(Subjects{1});
 CEINMSSettings = CEINMSsetup_FAI(Dir,Temp,SubjectInfo);
@@ -283,8 +282,7 @@ end
 E.muscleNames = CEINMSmuscles';
 E.dofNames = dofList.ERR;
 
-function [G,W,ST,E] =  ResultsStruct(G,W,ST,E,TrialList,OutVar,WorkVar,STVar,ErrVar,Ncols,Nrows,ReRunCols)
-%% create the resuls sruct for G(group data), W(work data), ST(spatiotemporal data) and E(error data)
+function [G,W,ST,E] = ResultsStruct(G,W,ST,E,TrialList,OutVar,WorkVar,STVar,ErrVar,Ncols,Nrows,ReRunCols)           % create the resuls sruct for G(group data), W(work data), ST(spatiotemporal data) and E(error data)
 
 if nargin==12; cols = ReRunCols; else; cols = 1:Ncols; end
 
@@ -341,8 +339,7 @@ if ~isempty(fields(ErrVar))
     end
 end
 
-function G = SortData(G,fld,Data,trialName,motionsG,col)
-%% Sort data
+function G = SortData(G,fld,Data,trialName,motionsG,col)                                                            % Sort data
 for k = 1:size(Data,2)
     if ~isfield(G.(fld).(motionsG{k}),[trialName])
         G.(fld).(motionsG{k}).([trialName])=[];
@@ -351,8 +348,7 @@ for k = 1:size(Data,2)
     
 end
 
-function [G] = MeanBaselineJCF (G,varargin)
-%% findMeanBaselineJCF
+function [G] = MeanBaselineJCF (G,varargin)                                                                         % findMeanBaselineJCF
 N = length(G.participants);
 for col = 1:N
     if nargin ==1
@@ -362,8 +358,7 @@ for col = 1:N
     end
 end
 
-function G = updateGroup (G,col)
-%% organise group data
+function G = updateGroup (G,col)                                                                                    % organise group data
 Pram = fields(G);           % get paramters
 Pram (contains(Pram,{'participants' 'CEINMSmuscles' 'EMGinputs' 'CEINMSmuslces_perDOF'}))=[]; % delete the Parms
 
@@ -397,8 +392,7 @@ for paramIdx = 1:length(Pram)
     end
 end
 
-function G = updateGroup_ST (G,col)
-%% organise group data
+function G = updateGroup_ST (G,col)                                                                                 % organise group data
 Pram = fields(G);           % get paramters
 Pram (contains(Pram,{'participants' 'CEINMSmuscles' 'EMGinputs' 'CEINMSmuslces_perDOF'}))=[]; % delete the Parms
 for paramIdx = 1:length(Pram)
@@ -428,8 +422,7 @@ for paramIdx = 1:length(Pram)
     end
 end
 
-function MeanValues = MeanAcrossTrials(S,TrialName,col)
-%% mean per participant acrsoss trials
+function MeanValues = MeanAcrossTrials(S,TrialName,col)                                                             % mean per participant acrsoss trials
 FullTrialList = fields(S);
 TrialListToAverage = FullTrialList(startsWith(FullTrialList,TrialName));
 Nrows = length(S.(TrialListToAverage{1})(:,col));
