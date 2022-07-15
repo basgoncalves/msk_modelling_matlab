@@ -144,9 +144,9 @@ Dir = getdirFAI;
 cd(Dir.Results_JCFFAI)
 load('Paper4results.mat')
 CEINMSData.MuscleContributions_ap = contributions2HCF.hip_x;
-CEINMSData.MuscleContributions_vert = contributions2HCF.hip_x;
-CEINMSData.MuscleContributions_ml = contributions2HCF.hip_x;
-CEINMSData.MuscleContributions_resultant = contributions2HCF.hip_x;
+CEINMSData.MuscleContributions_vert = contributions2HCF.hip_y;
+CEINMSData.MuscleContributions_ml = contributions2HCF.hip_z;
+CEINMSData.MuscleContributions_resultant = contributions2HCF.hip_resultant;
 
 save Paper4results CEINMSData JointWork Error Groups Weights Subjects BestGammaPerTrial ST Demographics
 DataDir = [Dir.Results_JCFFAI fp 'Paper4results.mat'];

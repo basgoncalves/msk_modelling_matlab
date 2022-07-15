@@ -2,7 +2,7 @@ function Plot_MuscleContributions_Average
 
 Dir = getdirFAI;
 cd(Dir.Results_Cont2HCF)
-load([Dir.Results_Cont2HCF fp 'results.mat']);
+load([Dir.Results_JCFFAI fp 'Paper4results.mat']);
 load([Dir.Results_JCFFAI fp 'CEINMSdata.mat']);
 
 savedir = ([Dir.Results_JCFFAI fp 'MuscleContributions_Plots']);

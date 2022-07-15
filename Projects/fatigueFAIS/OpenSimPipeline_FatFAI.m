@@ -90,7 +90,6 @@ Subjects=splitGroupsFAI(Dir.Main,'JCFFAI');
 update={'MuscleVariables' 'MomentArms' 'ContactForces' 'externalBiomech' 'SpatioTemporal'}; 
 PHD_JCF_FAIS_results(update([1]),Subjects(1:end),'cut')
 MatFile_Muscle_Contributions_to_HCF
-
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS_cut
 
 
