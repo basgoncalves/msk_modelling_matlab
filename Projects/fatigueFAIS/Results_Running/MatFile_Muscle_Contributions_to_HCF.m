@@ -60,7 +60,7 @@ for isub = 1:length(Subjects)
             z = TimeNorm(force_data.([header_name 'z']),fs);
             resultant = sum3Dvector(x,y,z);
             
-            if contains(leg,'l')
+            if contains(leg,'l')                                                                                    % flip medio-lateral contributions
                 z = -z;
             end
             

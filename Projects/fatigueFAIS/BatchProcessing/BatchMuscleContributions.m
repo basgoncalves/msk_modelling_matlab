@@ -57,9 +57,7 @@ for isubj = 1:length(Subjects)
             musc_name = muscles_of_interest{imusc};
             if ~exist([dirMC, char(musc_name),'_InOnParentFrame_ReactionLoads.sto'],'file')
             disp([musc_name])
-            MuscleContribution2HCF(dirIK,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML);           % calculate muscle contributions to joint forces
-            %                 hip_x = ['hip_' leg '_on_pelvis_in_pelvis_fx'];
-            %                 cont2HCF(:,imusc) = muscle_contributions.hip_l_on_pelvis_in_pelvis_fx;
+            MuscleContribution2HCF(dirIK,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML);                    % calculate muscle contributions to joint forces
             end
         end
     end
