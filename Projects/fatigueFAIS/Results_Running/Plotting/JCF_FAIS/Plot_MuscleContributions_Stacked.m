@@ -7,27 +7,7 @@ load([Dir.Results_JCFFAI fp 'Paper4results.mat']);
 savedir = ([Dir.Results_JCFFAI]);
 if ~exist(savedir); mkdir(savedir); end
 
-muscleGroups = struct;
-
-muscleGroups.Iliopsoas     = {['iliacus'],['psoas']};
-muscleGroups.RecFem        = {['recfem']};
-muscleGroups.TFL           = {['tfl']};
-
-muscleGroups.Hamstrings    = {['bflh'],['bfsh'],['semimem'],['semiten']};
-muscleGroups.Gmax          = {['glmax1'],['glmax2'],['glmax3']};
-muscleGroups.Gmed          = {['glmed1'],['glmed2'],['glmed3']};
-muscleGroups.Gmin          = {['glmin1'],['glmin2'],['glmin3']};
-
-muscleGroups.Adductors     = {['addbrev'],['addlong'],['addmagDist'],['addmagIsch'],['addmagMid'],['addmagProx'],['grac']};
-
-muscleGroups.Vasti         = {['vasint'],['vaslat'],['vasmed']};
-
-muscleGroups.Gastroc       = {['gaslat'],['gasmed']};
-muscleGroups.Soleus        = {['soleus']};
-
-muscleGroups.Tibilais      = {['tibant']};
-
-muscleGroupsNames  = fields(muscleGroups);
+[muscleGroups,muscleGroupsNames] = get_muscle_groups;
 
 muscleNames = fields(CEINMSData.MuscleContributions_ap);
 n_musc = length(muscleNames);
@@ -57,7 +37,8 @@ FaceAlpha = [0.8,0.6,0.4,0.8,0.6,0.4,0.2,0.8,0.8,0.8,0.6,0.8];
 Colors = flip(Colors);
 FaceAlpha = flip(FaceAlpha);
 
-[ha, ~,FirstCol,LastRow,~] = tight_subplotBG(1,4,[0.05 0.05], 0.05, [0.05 0.1],[0.0177 0.4185 0.9417 0.4037]);
+[ha, ~,FirstCol,LastRow,~] = tight_subplotBG(1,4,[0.05 0.05], 0.15, [0.05 0.1],[0.02 0.33 0.94 0.52]);              % all in same line
+% [ha, ~,FirstCol,LastRow,~] = tight_subplotBG(4,0,[0.05 0.05], 0.1, [0.05 0.1],0.95);                               % 2x2
 
 for iforce = 1:length(force_directions)
     curr_force = force_directions{iforce};
@@ -86,7 +67,7 @@ for iforce = 1:length(force_directions)
         ha(iforce).Children(imusc_group).FaceAlpha = FaceAlpha(imusc_group);
     end
   
-    
+    ha(iforce).FontSize = 14;                                                                                            % define FontSize
     title(title_names{iforce})
     if any(iforce==FirstCol) && ~any(iforce==LastRow)
         ylabel('Contribution to HCF (N)')
