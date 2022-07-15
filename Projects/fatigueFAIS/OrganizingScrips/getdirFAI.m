@@ -27,7 +27,6 @@ Dir.Results_OptimalGamma = [Dir.Results fp 'CEINMS' fp 'OptimalGammas'];
 Dir.Results_JointWorkRS = [Dir.Results fp 'JointWork_RS'];              % paper on repeated sprints healthy
 Dir.Results_RSFAI = [Dir.Results fp 'RS_FAIS'];                         % repeated sprints FAI
 Dir.Results_JCFFAI = [Dir.Results fp 'JCFFAI'];                         % joint contact forces in FAI
-Dir.Results_Cont2HCF = [Dir.Results fp 'Muscle_Contributions2HCF'];     % muscle contributions to joint contact forces
 
 PapersDir = [DirUp(Dir.Main,2) fp '4- Papers_Presentations_Abstracts\Papers'];             % paper Dirs
 Dir.Paper_RSFAI = [PapersDir fp 'Goncalves-RepeatedSprintsFAI'];                        % paper on repeated sprints in FAI
