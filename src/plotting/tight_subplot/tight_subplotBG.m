@@ -71,10 +71,12 @@ ha = ha(:);
 
 if nargin<6 || length(Size)==1 && Size == 0 || length(Size)==1 && Size > 1
     set(gcf,'units','normalized','outerposition',[0 0.05 1 0.95])
-elseif length(Size)<4 && Size>0 
+elseif length(Size)<3 && Size>0 
     dimensions = [1*Size 0.95*Size];
     origin = (0 +(1-dimensions))/2;
     set(gcf,'units','normalized','outerposition',[origin dimensions])
+elseif length(Size)==4 && ~any(Size>1) 
+    set(gcf,'units','normalized','outerposition',[Size])
 else
     set(gcf, 'Position', Size); 
 end

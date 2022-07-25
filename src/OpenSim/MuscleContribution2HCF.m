@@ -1,7 +1,9 @@
-function muscle_contributions = MuscleContribution2HCF(dirIK,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML)
+function muscle_contributions = MuscleContribution2HCF(dirIK_mot,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML)
 import org.opensim.modeling.*
 
-ik = load_sto_file(dirIK);
+plotData = 1;
+
+ik = load_sto_file(dirIK_mot);
 initial_time = round(ik.time(1),3);
 final_time = round(ik.time(end),3);
 
@@ -15,7 +17,7 @@ XML.AnalyzeTool.initial_time = num2str(initial_time);
 XML.AnalyzeTool.final_time = num2str(final_time);
 XML.AnalyzeTool.results_directory = relativepath(results_directory,results_directory);
 XML.AnalyzeTool.external_loads_file = relativepath(dirExternalLoadsXML,results_directory);
-XML.AnalyzeTool.coordinates_file = relativepath(dirIK,results_directory);
+XML.AnalyzeTool.coordinates_file = relativepath(dirIK_mot,results_directory);
 XML.AnalyzeTool.replace_force_set = 'false';
 
 XML.AnalyzeTool.AnalysisSet.objects.JointReaction.COMMENT = {};
@@ -38,9 +40,10 @@ cd(results_directory)
 logFileOut=[results_directory fp 'out.log'];% Save the log file in a Log folder for each trial
 dos(['analyze -S ' setupXML ' > ' logFileOut]);
 
-if nargout > 0
+if nargout > 0 
     muscle_contributions = load_sto_file([dirMC char(musc_name) '_InOnParentFrame_ReactionLoads.sto']);
 end
+
 % JCF = load_sto_file(['C:\Users\Bas\Documents\3-PhD\MocapData\ElaboratedData\009\pre\JointReactionAnalysis\Run_baseline1\JCF_JointReaction_ReactionLoads.sto']);
 % figure; hold on
 % plot(muscle_contributions.hip_r_on_pelvis_in_pelvis_fx)

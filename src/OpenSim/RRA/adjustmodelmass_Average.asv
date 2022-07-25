@@ -39,7 +39,8 @@ for ii = 1:length(TrialList)
     RRA_Log{ii} = OutLogDir;
     resid(:,ii) = residuals;
     Adj(:,ii) = m;
-    %         if abs(m) > 30                                                                                        % remove large mass adjustments
+    
+    %         if abs(m) > 4                                                                                        % remove large mass adjustments
     %             RRA_Log{ii} ={};
     %             resid(:,ii) = 0;
     %             continue

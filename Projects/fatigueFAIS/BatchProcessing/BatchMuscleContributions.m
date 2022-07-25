@@ -1,9 +1,11 @@
 function BatchMuscleContributions(Subjects)
 
+plotData = 1;
 % memoryCheck('reset')
 for isubj = 1:length(Subjects)
     
-    [Dir,Temp,SubjectInfo,Trials] = getdirFAI(Subjects{isubj});
+    curr_subj = Subjects{isubj};
+    [Dir,Temp,SubjectInfo,Trials] = getdirFAI(curr_subj);
     
     files = dir(Dir.CEINMSsimulations); files(1:2) = [];
     if isempty(files); continue; end
@@ -27,13 +29,12 @@ for isubj = 1:length(Subjects)
         trialName = trialList{itrial};
         disp(trialName)
         
-        dirIK = [Dir.IK fp trialName fp 'IK.mot' ];
+        dirIK_mot = [Dir.IK fp trialName fp 'IK.mot' ];
         dirMC = [Dir.MC fp trialName fp];
         
         if ~exist(dirMC,'dir'); mkdir(dirMC); end
         
         dirExternalLoadsXML = [Dir.ID fp trialName fp 'grf.xml'];
-        dirMA = [Dir.MA fp trialName fp];
         dirCEINMS = [Dir.CEINMSsimulations fp trialName];
         setupXML = [dirMC 'setup_JRA.xml'];
         
@@ -41,7 +42,6 @@ for isubj = 1:length(Subjects)
         copyfile(Temp.MCsetup,setupXML)
         
         CEINMSdir = OptimalGammaCEINMS_BG(Dir, dirCEINMS, SubjectInfo);                                            % get muscle force file from CEINMS
-        muscle_force_file = CEINMSdir.MuscleForces;
         CEINMS_trialDir = CEINMSdir.Dir;
         
         all_forces_file = [dirMC 'all_muscles.sto'];
@@ -49,15 +49,26 @@ for isubj = 1:length(Subjects)
         
         JRAforcefile(CEINMS_trialDir,osimFiles,all_forces_file)                                                     % calculate the reserve actuators for each joint
         
+        GenericStaticOptimisation(dirIK_mot,dirMC,dirExternalLoadsXML, leg, dirModel)
+        
         CreateMuscleActuatorFiles(dirMC, all_forces_file, all_muscles, muscles_of_interest)                         % create actuator files (i.e. force files with only one muscle force set to 1N)
         
-%         intsegForce_JointReaction(dirIK,dirMC,dirExternalLoadsXML,dirModel,leg)                                   % calaulate intersegmental raction forces with no muscle forces
+%         intsegForce_JointReaction(dirIK_mot,dirMC,dirExternalLoadsXML,dirModel,leg)                                   % calaulate intersegmental raction forces with no muscle forces
         disp('Calculate muscle contributions to JCF')
         for imusc = 1:length(muscles_of_interest)
             musc_name = muscles_of_interest{imusc};
-            if ~exist([dirMC, char(musc_name),'_InOnParentFrame_ReactionLoads.sto'],'file')
+            muscle_JCF_file = [dirMC musc_name '_InOnParentFrame_ReactionLoads.sto'];
+            if ~exist(muscle_JCF_file,'file')
             disp([musc_name])
-            MuscleContribution2HCF(dirIK,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML);                    % calculate muscle contributions to joint forces
+            MuscleContribution2HCF(dirIK_mot,dirMC,dirExternalLoadsXML,dirModel,musc_name,setupXML);                    % calculate muscle contributions to joint forces
+            
+            if plotData == 1
+               JCF_file = [Dir.JRA fp trialName fp 'JCF_JointReaction_ReactionLoads.sto'];
+               saveDir = ([Dir.Results_JCFFAI fp 'PerTrial' fp curr_subj fp trialName]);
+               contact_force_var = ['hip_' leg '_on_pelvis_in_pelvis'];
+               Plot_MuscleContributions_Individual_trial(muscle_JCF_file,JCF_file,contact_force_var,saveDir)
+            end
+            
             end
         end
     end
