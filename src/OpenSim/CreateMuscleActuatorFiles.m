@@ -5,23 +5,27 @@ function CreateMuscleActuatorFiles(dirMC,all_forces_file,all_muscles,muscles_of_
 disp('creating actuator files for single muscles ...')
 cd(dirMC)
 all_forces = load_sto_file(all_forces_file);
-Nmuscles = length(all_muscles);
+% force_names = all_muscles;
 
-for imusc = 1:Nmuscles
-    curr_musc = all_muscles{imusc};
+force_names = fields(all_forces);
+Nactuators = length(force_names);
+
+for imusc = 1:Nactuators
+    curr_musc = force_names{imusc};
     if ~contains(curr_musc,muscles_of_interest)
        continue
     end
-    single_muscle = all_forces;
-    for imusc_to_zero = 1:Nmuscles
+    single_muscle_actuator = all_forces;
+    for iforce_to_zero = 1:Nactuators
         
-        if imusc_to_zero == imusc
+        if iforce_to_zero == imusc
             continue
         else
-            muscle_to_zero = all_muscles{imusc_to_zero};
-            single_muscle.(muscle_to_zero)(:,1) = 0;
+%             muscle_to_zero = force_names{imusc_to_zero};
+            actuator_to_zero = force_names{iforce_to_zero};
+            single_muscle_actuator.(actuator_to_zero)(:,1) = 0;
         end
     end
     resultsDir = [dirMC curr_musc '.sto'];
-    write_sto_file_SO(single_muscle, resultsDir);
+    write_sto_file_SO(single_muscle_actuator, resultsDir);
 end
