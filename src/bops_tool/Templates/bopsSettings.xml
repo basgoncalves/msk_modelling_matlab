@@ -4,8 +4,8 @@
    <current>
       <subject>PC008</subject>
       <session>session1_barefoot</session>
-      <analysis>cmc</analysis>
-      <rerun>[false]</rerun>
+      <analysis>rra</analysis>
+      <rerun>[true]</rerun>
    </current>
    <analysis_mode>
       <analyses>batch</analyses>
@@ -18,19 +18,19 @@
       <scale>[false]</scale>
       <ik>[false]</ik>
       <id>[false]</id>
-      <rra>[false]</rra>
+      <rra>[true]</rra>
       <id_postrra>[false]</id_postrra>
       <lucaoptimizer>[false]</lucaoptimizer>
       <handsfield>[false]</handsfield>
       <ma>[false]</ma>
-      <cmc>[true]</cmc>
+      <cmc>[false]</cmc>
       <ceinms>[false]</ceinms>
       <so>[false]</so>
       <jra>[false]</jra>
    </analyses>
    <plot_analysis>
       <summary_per_trial>[true]</summary_per_trial>
-	  <summary>[true]</summary>
+      <summary>[true]</summary>
       <ik>[false]</ik>
       <id>[true]</id>
       <rra>[false]</rra>
@@ -78,7 +78,12 @@
          <model>OSIM_LinearScaled</model>
          <desired_kinematics_file>ik</desired_kinematics_file>
          <ErrorTolerance>1e-05</ErrorTolerance>
+         <step_interval>1</step_interval>
+         <cmc_time_window>0.001</cmc_time_window>
       </cmc>
+	  <jra>
+         <joint_names>all<joint_names/>
+      </jra>
    </analyses_settings>
    <dataStructure>
       <suffix>CPFMH</suffix>
@@ -212,6 +217,8 @@
          <SOActuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\SO_actuators.xml</SOActuators>
          <CMCSetup>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_setup.xml</CMCSetup>
          <CMCControls>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_ControlConstraints.xml</CMCControls>
+         <CMCtasks>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_tasks.xml</CMCtasks>
+         <CMCactuators>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CMC_actuators.xml</CMCactuators>
          <CEINMSuncalibratedmodel>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
          <CEINMScalibrationCfg>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
          <CEINMScalibrationCfg_HJCF>C:\Users\Bas\Documents\6-FMH\CP_project\Data\templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>

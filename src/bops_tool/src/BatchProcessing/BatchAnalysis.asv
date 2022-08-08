@@ -663,14 +663,16 @@ for i = 1:length(trialList)
     trialName = trialList{i};
     TimeWindow = param.WindowsSelection.Events{i} ./ acq.VideoFrameRate;
     
-    trialAnalysisPath = [subject.directories.JRA fp trialName];                                                     % DEFINE ANALYSIS PATH
+    trialAnalysisPath = [subject.directories.JRA fp trialName];                                                      % DEFINE ANALYSIS PATH
     mkdir(trialAnalysisPath);
     cd(trialAnalysisPath)
     
     [osimFiles] = getdirosimfiles_BOPS(trialName,trialAnalysisPath);                                                % get directories of opensim files for this trial
     
-    setupFile=[results_directory fp 'setup_JCF.xml']; 
-    copyfile(bops.directories.templates.JRASetup,setupFile)                                                         % print JCF setup file
+    copyfile(bops.directories.templates.MASetup,osimFiles.MAsetup)
+    
+    
+    setupFile=[results_directory fp 'setup_JCF.xml']; copyfile(JCFTemplateXml,setupFile) %Print JCF setup file
     
     XML = xml_read(setupFile);
     XML.AnalyzeTool.COMMENT = {};
@@ -678,12 +680,12 @@ for i = 1:length(trialList)
     XML.AnalyzeTool.model_file = relativepath(osimModel,results_directory);
     XML.AnalyzeTool.initial_time = num2str(initial_time);
     XML.AnalyzeTool.final_time = num2str(final_time);
-    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.start_time = num2str(TimeWindow(1));
-    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.end_time = num2str(TimeWindow(2));
+    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.start_time = num2str(initial_time);
+    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.end_time = num2str(final_time);
     XML.AnalyzeTool.AnalysisSet.objects.JointReaction.step_interval = 1;
     XML.AnalyzeTool.AnalysisSet.objects.JointReaction.in_degrees = 'true';
     XML.AnalyzeTool.AnalysisSet.objects.JointReaction.forces_file = relativepath(muscleForcesRelFileName,results_directory);
-    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.joint_names = bops.analyses_settings.jra.joint_names;
+    XML.AnalyzeTool.AnalysisSet.objects.JointReaction.joint_names = joint_names;
     XML.AnalyzeTool.AnalysisSet.objects.JointReaction.apply_on_bodies = 'parent';
     XML.AnalyzeTool.AnalysisSet.objects.JointReaction.express_in_frame = 'parent';
     XML.AnalyzeTool.results_directory = relativepath(results_directory,results_directory);
