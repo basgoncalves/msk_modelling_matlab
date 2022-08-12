@@ -698,8 +698,13 @@ for i = 1:length(trialList)
     %Run JCF
     cd(results_directory)
     outputDir = [results_directory fp 'JCF_JointReaction_ReactionLoads.sto'];
-    dos(['analyze -S ' setupFile ' > ' logFileOut]);
     
+    if bops.osimVersion < 4
+        dos(['analyze -S ' setupFile ' > ' logFileOut]);                                                         % run analysis
+    else
+        dos(['opensim-analyze run-tool ' setupFile],'-echo')
+    end
+    disp([trialName ' JRA Done.']);
     
 end
 

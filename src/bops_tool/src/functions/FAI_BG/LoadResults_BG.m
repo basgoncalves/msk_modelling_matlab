@@ -3,14 +3,12 @@
 % Load results from "OpenSimPipeline_FatFAI" and time normalise data
 %-------------------------------------------------------------------------
 %INPUT
-%   DataDir = [char] directory of the results for one trial
-%       e.g. = 'E:\3-PhD\Data\MocapData\ElaboratedData\subject\session\IK\Trial\IK.mot'
-%   TimeWindow = time window (in seconds) to crop the data
-%   FieldsOfInterest = [N,1]cell vector with the names of the fields to be
-%   extracted from Data
-%   MatchWholeWord = 1 for "yes" (default) or other for "no";
-%   Nomralise (optional) =  1 for "yes" (default) or other for "no";
-%   ConvertToStruct (optional) = 1 for "yes" or 0 for "no" (default) 
+%   DataDir                         = [char] directory of the results for one trial e.g. = 'E:\3-PhD\Data\MocapData\ElaboratedData\subject\session\IK\Trial\IK.mot'
+%   TimeWindow (OPTIONAL)           = time window (in seconds) to crop the data
+%   FieldsOfInterest (OPTIONAL)     = [N,1]cell vector with the names of the fields to be extracted from Data
+%   MatchWholeWord (OPTIONAL)       = 1 for "yes" (default) or other for "no";
+%   Nomralise (OPTIONAL)            = 1 for "yes" (default) or other for "no";
+%   ConvertToStruct (OPTIONAL)      = 1 for "yes" or 0 for "no" (default) 
 %-------------------------------------------------------------------------
 %OUTPUT
 %   results = time normalised data within target time window
@@ -23,6 +21,11 @@
 function [OrderedResults,OrderedLabels] = LoadResults_BG (DataDir,TimeWindow,FieldsOfInterest,MatchWholeWord,Normalise,ConvertToStruct)
 
 warning off
+
+if ~exist('DataDir') 
+   [filename,pathname] = uigetfile('*.*',cd); 
+   DataDir = [pathname filename];
+end
 
 try Data = importdata(DataDir);
 catch 
