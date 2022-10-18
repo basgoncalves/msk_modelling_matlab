@@ -136,6 +136,8 @@ settings.trials.dynamicTrials   = trialList(contains(trialList,bops.Trials.Dynam
 settings.trials.staticTrials    = trialList(contains(trialList,bops.Trials.Static));
 settings.trials.maxEMGTrials    = trialList(contains(trialList,bops.Trials.MaxEMG));
 
+settings.trials.CEINMScalibration = trialList;
+
 
 if isfile(directories.sessionSettings)                                                                              % check if xml file already exists
     og_settings = xml_read(directories.sessionSettings);
