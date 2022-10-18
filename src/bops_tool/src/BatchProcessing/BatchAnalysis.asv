@@ -549,7 +549,6 @@ Temp                = bops.directories.templates;
 CEINMSSettings      = subject.ceinms;
 SubjectInfo         = subject.subjectInfo;
 trialListXML        = generateTrialsXml(Dir,CEINMSSettings,subject.trials.dynamicTrials,1);                         % create xml files | last argument 1 = write the xml 0 = do not write xml
-Trials              = subject.trials;
 
 generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo ,trialListXML)
 if ~exist(CEINMSSettings.outputSubjectFilename,'file')

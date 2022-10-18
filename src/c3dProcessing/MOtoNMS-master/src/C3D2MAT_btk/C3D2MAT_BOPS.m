@@ -39,7 +39,6 @@
 function []=C3D2MAT_BOPS
 %% Selection of input data
 subject = load_subject_settings;
-setupSubject;
 
 TrialList = subject.trials.trialList;                                                                                     % select trials
 SubjectFolder = subject.directories.Input;                                                                          % select input data dir
