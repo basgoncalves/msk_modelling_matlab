@@ -82,7 +82,7 @@
          <cmc_time_window>0.001</cmc_time_window>
       </cmc>
 	  <jra>
-         <joint_names>all<joint_names/>
+         <joint_names>all</joint_names>
       </jra>
    </analyses_settings>
    <dataStructure>

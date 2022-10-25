@@ -7,13 +7,17 @@ function tight_subplot_ticks (ha,xt,yt)
 % see also tight_subplotBG
 
 N = length(ha);
-for i = 1:length(ha)
+for i = 1:N
     axes(ha(i));
     if any(xt==i) || any(xt==0)
         xticklabels(xticks)
+    else 
+        xticklabels('')
     end
     
     if any(yt==i) || any(yt==0)
         yticklabels(yticks)
+    else 
+        yticklabels('')
     end
 end

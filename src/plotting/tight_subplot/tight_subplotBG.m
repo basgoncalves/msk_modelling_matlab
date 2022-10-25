@@ -29,8 +29,16 @@ function [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(Nh, Nw, gap, marg_
 % Edited by Basilio Goncalves (2021) 
 % see also: numSubplots
 
-if Nw==0;RemoveSubPlots=1; LastPlot=Nh; [N,]=numSubplots(Nh); Nh=N(1);Nw=N(2);
-else; RemoveSubPlots=0; LastPlot=Nh*Nw;end
+if nargin < 2 || Nw==0
+    RemoveSubPlots  = 1; 
+    LastPlot        = Nh; 
+    [N,]            = numSubplots(Nh); 
+    Nh              = N(1);
+    Nw              = N(2);
+else 
+    RemoveSubPlots  = 0;
+    LastPlot        = Nh*Nw;
+end
 
 
 if nargin<3 || isempty(gap); gap = .04; end
