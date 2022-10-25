@@ -4,10 +4,10 @@
 %   getTrials
 %   CEINMSsetup
 %   ..\setuptools\bopsSetup.xml
-% Run section = CTRL + ENTER
-% Run whole script = F5
+% 
+% MatlabAppearance_BG
 
-% by Basilio Goncalves, basilio.goncalves7@gmail.com
+% by Basilio Goncalves, basilio.goncalves7@gmail.com, https://github.com/basgoncalves
 function mainbops
 clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
 activeFile = matlab.desktop.editor.getActive;                                                                       % get dir of the current file

@@ -102,6 +102,18 @@ directories.OSIM_LO                     = strrep(directories.OSIM_LinearScaled,'
 directories.OSIM_LO_HANS                = strrep(directories.OSIM_LinearScaled,'.osim','_rra_opt_N10_hans.osim');
 directories.OSIM_LO_HANS_originalMass   = strrep(directories.OSIM_LinearScaled,'.osim','_originalMass_opt_N10_hans.osim');
 
+RRA_trials                              = cellstr(ls(directories.RRA)); RRA_trials(1:2) = [];
+
+for iTrial = 1:length(RRA_trials)
+    directories.OSIM_RRA_PerTrial(iTrial).TrialName = RRA_trials{iTrial};
+    
+    modeldir = [directories.RRA fp RRA_trials{iTrial} fp 'Results_Final' fp subject '_linearScalled_MIMF_FINAL.osim'];
+    if exist(modeldir,'file')
+        directories.OSIM_RRA_PerTrial(iTrial).ModelDir  = modeldir;
+    else
+        directories.OSIM_RRA_PerTrial(iTrial).ModelDir  = '';
+    end
+end
 %% CEINMS settings
 s = lower(subjectInfo.InstrumentedSide);
 
