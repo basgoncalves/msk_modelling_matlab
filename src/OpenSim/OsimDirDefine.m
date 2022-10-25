@@ -127,7 +127,12 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function isNewText = changeTxt(path,txt)
 
-original_txt = char(importdata(path));
+try
+    original_txt = char(importdata(path));
+catch
+    writematrix([],path);
+    original_txt = char(importdata(path));
+end
 
 isNewText = zeros(1,size(original_txt,1));
 if length(isNewText) < 1
@@ -147,9 +152,9 @@ if isNewText == 1
     writematrix(txt,path)
 end
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Change text in the java paths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function isAdmin = checkAdminOn
 
 isAdmin = System.Security.Principal.WindowsPrincipal(...
-        System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
-        System.Security.Principal.WindowsBuiltInRole.Administrator);
+    System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
+    System.Security.Principal.WindowsBuiltInRole.Administrator);

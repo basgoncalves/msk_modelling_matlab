@@ -26,7 +26,7 @@ for a = 1:length(analyses)
             
             switch iAnalysis
                 case 'subjectSetup'; setupSubject;
-                case 'c3d2mat';      C3D2MAT_BOPS                                                     % convert files from .c3d to .mat files (see ..ElaboratedData\dynamicElaboration)
+                case 'c3d2mat';      C3D2MAT_BOPS                                                                   % convert files from .c3d to .mat files (see ..ElaboratedData\dynamicElaboration)
                 case 'acquisition';  AcquisitionInterface_BOPS
                 case 'elaboration';  runElaboration_BOPS
                 case 'scale';        runScale                                                                       % Linear scale model based on marker data
@@ -168,6 +168,7 @@ marker_file = Scale.ScaleTool.MarkerPlacer.marker_file;
 output_marker_file = Scale.ScaleTool.MarkerPlacer.output_marker_file;
 
 [TSE,RMSE,MaxError] = plotMarkerErrStatic(outlog,setupScaleXML,marker_file,output_marker_file);
+
 function StaticInterface_BOPS
 
 bops = load_setup_bops;
@@ -211,6 +212,7 @@ end
 xml_write([subject.directories.staticXML],staticXML,'static',Pref);
 
 disp('Static interface complete')
+
 function runBOPS_IK
 
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                       % get needed info for the analyes
@@ -271,6 +273,7 @@ for i = 1:length(trialList)
 end
 
 cmdmsg('IK finished')
+
 function runBOPS_ID
 
 import org.opensim.modeling.*
@@ -337,6 +340,7 @@ for i = 10:length(trialList)
 end
 
 cmdmsg(['ID finished: ' bops.current.subject ' - ' bops.current.session])
+
 function runBOPS_RRA
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                       % get needed info for the analyes
 
@@ -409,6 +413,7 @@ out_model   = subject.directories.OSIM_RRA;
 adjustmodelmass_Average(dirRRA,in_model,out_model,trialList);
 
 cmdmsg(['RRA finished: ' bops.current.subject ' - ' bops.current.session])
+
 function runBOPS_LucaOptimizer
 
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                       % get needed info for the analyes
@@ -422,8 +427,8 @@ N_eval              = bops.lucaoptimizer.N_eval;
 LucaOptimizer_BG(reference_model,target_model,N_eval)
 
 cmdmsg(['LucaOptimizer finished: ' bops.current.subject ' - ' bops.current.session])
+
 function runBOPS_Handsfield
-%%
 [~,subject,~,~,~,~,rerun] = loadSetupFiles;                                                                          % get needed info for the analyes
 if ~isfile(subject.directories.OSIM_LO_HANS) || rerun == 1; return; end
 in_model    = subject.directories.OSIM_LO;
@@ -432,8 +437,8 @@ mass        = subject.subjectInfo.Mass_kg;
 height      = subject.subjectInfo.Height_cm/100;
 
 scaleStrengthHandsfiedReg(in_model,out_model,mass,height)
+
 function runBOPS_MA
-%%
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;
 for i = 1:length(trialList)
     
@@ -474,6 +479,7 @@ for i = 1:length(trialList)
     analyzeTool.run;
     
 end
+
 function runBOPS_CMC
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;
 for i = 1:length(trialList)
@@ -540,6 +546,7 @@ for i = 1:length(trialList)
     end
     
 end
+
 function runBOPS_CEINMS
 
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                     % get needed info for the analyes
@@ -562,6 +569,8 @@ if ~exist(CEINMSSettings.outputSubjectFilename,'file')
     end
     
     dofListCell = split(CEINMSSettings.dofList ,' ')';
+
+    osim_model = 
     convertOsimToSubjectXml(SubjectInfo.ID,CEINMSSettings.osimModelFilename,dofListCell,CEINMSSettings.subjectFilename, Temp.CEINMSuncalibratedmodel)
     AddDannyTendon(CEINMSSettings.subjectFilename)
     AddContactModel(Dir,Temp,CEINMSSettings)
@@ -573,14 +582,14 @@ if ~exist(CEINMSSettings.outputSubjectFilename,'file')
     
     
     cd(Dir.CEINMScalibration);
-    [~,log] = dos([Dir.CEINMSexePath fp 'CEINMScalibrate -S ' CEINMSSettings.calibrationSetup]);                % run CEINMS calibration
+    [~,log] = dos([Dir.CEINMSexePath fp 'CEINMScalibrate -S ' CEINMSSettings.calibrationSetup]);                    % run CEINMS calibration
     cmdmsg(['CEINMS calibration complete for ' SubjectInfo.ID])
     
     CheckCalibratedValues(CEINMSSettings.outputSubjectFilename,CEINMSSettings.subjectFilename,SubjectInfo.InstrumentedSide)
     updateLogAnalysis(Dir,'CEINMS Calibration',SubjectInfo,'end')
 end
 
-if WalkingCalibration==1; trialList = [Trials.Walking];                                                         % CEINMS execution (EMG assisted)
+if WalkingCalibration==1; trialList = [Trials.Walking];                                                             % CEINMS execution (EMG assisted)
 else; trialList = [Trials.MA]; end
 
 CalibratedSubjectRelativePaths(CEINMSSettings.subjectFilename,Dir.OSIM_LO)
@@ -588,8 +597,8 @@ CalibratedSubjectRelativePaths(CEINMSSettings.outputSubjectFilename,Dir.OSIM_LO)
 %     CEINMSStaticOpt_BG (Dir,CEINMSSettings,SubjectInfo,trialList) % for static Opt
 
 if Logic==1 || ~exist(CEINMSSettings.excitationGeneratorFilename2ndCal)
-    RedoSecondCalibration(Dir); % reset the folders as if to match end of first calibration (comment if not needed)
-    CEINMSSettings=CEINMSdoubleCalibration_BG(Dir,CEINMSSettings,SubjectInfo,Trials.CEINMScalibration);  % second calibration
+    RedoSecondCalibration(Dir);                                                                                     % reset the folders as if to match end of first calibration (comment if not needed)
+    CEINMSSettings=CEINMSdoubleCalibration_BG(Dir,CEINMSSettings,SubjectInfo,Trials.CEINMScalibration);             % second calibration
 end
 idx = find(contains(trialList,'walking')| contains(trialList,'baseline')&contains(trialList,'1'));
 
@@ -600,8 +609,9 @@ else
 end
 
 trialList=trialList([idx]);
-%     RedoExecutions(Dir)     % reset the simulations folder (comment if not needed)
+%     RedoExecutions(Dir)                                                                                           % reset the simulations folder (comment if not needed)
 CEINMSmultipleTrials_BG(Dir,CEINMSSettings,SubjectInfo,trialList(1:end),Logic)
+
 function runBOPS_SO
 import org.opensim.modeling.*
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;
@@ -657,6 +667,7 @@ for i = 1:length(trialList)
     cd(osimFiles.SO)
     dos(['analyze -S ',osimFiles.SOsetup]);                                                                         % run static optimization tool in OpenSim
 end
+
 function runBOPS_JRA
 
 [bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;
@@ -702,7 +713,7 @@ for i = 1:length(trialList)
     outputDir = [results_directory fp 'JCF_JointReaction_ReactionLoads.sto'];
     
     if bops.osimVersion < 4
-        dos(['analyze -S ' setupFile ' > ' logFileOut]);                                                         % run analysis
+        dos(['analyze -S ' setupFile ' > ' logFileOut]);                                                            % run analysis
     else
         dos(['opensim-analyze run-tool ' setupFile],'-echo')
     end
@@ -719,8 +730,8 @@ trialList   = split(elab.Trials,' ')';                                          
 param       = parametersGeneration(elab);                                                                           % get parameters from elaboration XML
 rerun       = bops.current.rerun;
 
-function outputTrialList = generateTrialsXml(Dir,CEINMSSettings,trialList,PrintXML)
-%% select only the trials that have been completely processed
+function outputTrialList = generateTrialsXml(Dir,CEINMSSettings,trialList,PrintXML)                                 % select only the trials that have been completely processed                                
+
 mkdir(Dir.CEINMStrials); %outputDir
 outputTrialList ={};
 disp('Generating Trial XML files ...')
@@ -757,7 +768,7 @@ end
 disp('Trial XML files generated')
 
 function generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo,trialList)
-%%
+
 if ~exist(CEINMSSettings.excitationGeneratorFilename)
     copyfile(Temp.CEINMSexcitationGenerator,CEINMSSettings.excitationGeneratorFilename)
 end
@@ -789,7 +800,7 @@ end
 disp('CEINMS files created - time for CALIBRATIOOOOOOON')
 
 function [quality,Adjusted,Synt] = createExcitationGenerator_FAIS(Dir,CEINMSSettings,SubjectInfo)
-%%
+
 load ([Dir.Elaborated fp 'BadTrials.mat'])
 
 quality  = mean(cell2mat(BadTrials),2); % calculate the mean accross trials

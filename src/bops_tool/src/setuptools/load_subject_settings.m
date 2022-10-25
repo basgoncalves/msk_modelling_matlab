@@ -24,11 +24,11 @@ if ~isequal(bops.current.subject,subject) || ~isequal(bops.current.subject,sessi
 end
 settingsfiledir = [bops.directories.ElaboratedData fp subject fp session fp 'settings.xml'];
 
-if isfile(settingsfiledir)
-    subjectSettings = xml_read(settingsfiledir);
+if isfile(settingsfiledir)                                                                                          % if subject xml file exists
+    subjectSettings = xml_read(settingsfiledir);                                                                    % load file 
 else
     warning on
-    warning ('subject settings does not exist. Creating file now...')
-    subjectSettings = setupSubject(subject,session);
+    warning ('subject settings does not exist. Creating file now...')                       
+    subjectSettings = setupSubject(subject,session);                                                                % if NOT create it from scratch 
 end
 
