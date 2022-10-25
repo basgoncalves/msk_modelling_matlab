@@ -28,7 +28,7 @@ mainDataDir = bops.directories.mainData;                                        
 
 directories.Input = [mainDataDir fp 'InputData' fp subject fp session];
 
-directories.Elaborated = [mainDataDir fp 'ElaboratedData' fp subject fp session];                               % elaboration: c3D to mat / osim formats
+directories.Elaborated = [mainDataDir fp 'ElaboratedData' fp subject fp session];                                   % elaboration: c3D to mat / osim formats
 directories.StrengthData = [directories.Elaborated fp 'StrengthData']; 
 directories.sessionData = [directories.Elaborated fp 'sessionData']; 
 directories.dynamicElaborations = [directories.Elaborated fp 'dynamicElaborations']; 

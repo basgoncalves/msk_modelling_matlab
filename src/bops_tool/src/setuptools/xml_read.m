@@ -137,10 +137,10 @@ else         % we assume xmlfile is a filename
       try
         DOMnode = xmlread(xmlfile);
       catch ME
-        error('Failed to read XML file %s: \n%s',xmlfile, getReport(ME));
+        error('Failed to read XML file %s: \n%s',xmlfile, getReport(ME))
       end
     catch %#ok<CTCH> catch for mablab versions prior to 7.5
-      error('Failed to read XML file %s\n',xmlfile);
+      error('Failed to read XML file %s\n',xmlfile, getReport(ME));
     end
   end
 end

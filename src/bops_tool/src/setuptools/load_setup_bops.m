@@ -7,17 +7,17 @@ bopsDir     = fileparts(fileparts(setupDir));
 try dataDir = char(importdata([setupDir fp 'data_directory.dat'])); catch; end
 
 if ~isfolder(dataDir)
-    dataDir = uigetdir(cd); 
+    dataDir = uigetdir(cd);
     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
 end
 
 setupfileDir = [dataDir fp 'bopsSettings.xml'];
-try                                                                                                                 % load "setup.xml" 
-    Pref = struct;
-    Pref.StructItem = false;
-    Pref.CellItem = false;
-    bops = xml_read(setupfileDir,Pref); 
-end
+
+Pref = struct;
+Pref.StructItem = false;
+Pref.CellItem = false;
+bops = xml_read(setupfileDir,Pref);                                                                                 % load "setup.xml"
+
 
 bops.directories.bops = bopsDir;
 bops.directories.mainData = dataDir;
