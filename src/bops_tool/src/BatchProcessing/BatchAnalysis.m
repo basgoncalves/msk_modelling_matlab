@@ -478,6 +478,9 @@ for i = 1:length(trialList)
     disp(trialName)
     analyzeTool.run;
 
+    % if "analyzeTool.run" does not work use the line below
+    %     [~,log_mes] = dos(['analyze -S ' osimFiles.MAsetup],'-echo');
+
 end
 
 function runBOPS_CMC
@@ -558,28 +561,34 @@ SubjectInfo         = subject.subjectInfo;
 trialListXML        = generateTrialsXml(Dir,CEINMSSettings,subject.trials.dynamicTrials,1);                         % create xml files | last argument 1 = write the xml 0 = do not write xml
 Trials              = subject.trials;
 
+osim_model                      = CEINMSSettings.osimModelFilename;
+template_model_ceinms           = Temp.CEINMSuncalibratedmodel;
+unclaibrated_model              = CEINMSSettings.subjectFilename;
+claibrated_model                = CEINMSSettings.outputSubjectFilename;
+template_contactModel           = Temp.CEINMScontactmodel;
+contactModel                    = CEINMSSettings.contactModel;
+dofListCell                     = split(CEINMSSettings.dofList ,' ')';
+
 generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo ,trialListXML)
-if ~exist(CEINMSSettings.outputSubjectFilename,'file')
-    if ~exist(CEINMSSettings.subjectFilename)
-        copyfile(Temp.CEINMSuncalibratedmodel,CEINMSSettings.subjectFilename)
+
+if ~exist(claibrated_model,'file')
+    if ~exist(unclaibrated_model)
+        copyfile(template_model_ceinms,unclaibrated_model)
     end
 
     if ~contains(Trials.CEINMScalibration,Trials.MA) || ~contains(Trials.CEINMScalibration,Trials.IK)
         cmdmsg('trial does have muscle analysis / inverse dynamics, skiping CEINMS calibration')
     end
 
-    dofListCell = split(CEINMSSettings.dofList ,' ')';
+    convertOsimToSubjectXml(SubjectInfo.ID,osim_model,dofListCell,unclaibrated_model_ceinms,template_model_ceinms)  % convert openSim model to XML file format to be used in CEINMS
+    AddAthleteValues_AchilesTendon(unclaibrated_model_ceinms)                                                       % add propüerties of achiles tendon defined for athletic popiulations based on
+    AddContactModel(osim_model,unclaibrated_model,claibrated_model,template_contactModel,contactModel)              % add contact model XMl to uncalibrated and (if needed) calibrated model
 
-    osim_model = CEINMSSettings.osimModelFilename;
-    convertOsimToSubjectXml(SubjectInfo.ID,CEINMSSettings.osimModelFilename,dofListCell,CEINMSSettings.subjectFilename, Temp.CEINMSuncalibratedmodel)
-    AddDannyTendon(CEINMSSettings.subjectFilename)
-    AddContactModel(Dir,Temp,CEINMSSettings)
     generateCalibrationSetup_BG(Dir,CEINMSSettings);
     generateCalibrationCfg(Dir,CEINMSSettings, Temp,trialListXML,Trials.CEINMScalibration);
 
     updateLogAnalysis(Dir,'CEINMS Calibration',SubjectInfo,'start')
     disp(['CEINMS calibration running for ' SubjectInfo.ID ' ...'])
-
 
     cd(Dir.CEINMScalibration);
     [~,log] = dos([Dir.CEINMSexePath fp 'CEINMScalibrate -S ' CEINMSSettings.calibrationSetup]);                    % run CEINMS calibration
@@ -852,73 +861,21 @@ disp(['EMGS signals not used'; allMuscles(quality>0)])
 disp(' ')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% InspectEMG_bops %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function InspectEMG_bops(Subjects)
 
-fp = filesep;
-bops = load_setup_bops;
-subject_settings = setupSubject;
-
-trialList       = subject_settings.trials.dynamicTrials;
-muscle_names    = bops.emg.Muscle; 
-n_emg = length(muscle_names);
-n_trials = length(trialList);
-
-filename = [subject_settings.directories.dynamicElaborations fp 'emg_check.xlsx'];
-if ~exist(filename)
-    emg_check                           = cell(n_trials+1,n_emg+1);                                                 % create a matrix with all EMGs and trials
-    emg_check(2:n_trials+1,1)           = trialList;
-    emg_check(1,2:n_emg+1)              = muscle_names;
-    emg_check(2:n_trials+1,2:n_emg+1)   = {1};                                                                      % assign all the values to 1 (Good)
-
-    writecell(emg_check,filename);                                                                                  % save file 
-else
-    emg_check = readcell(filename);
-end
-
-for iTrial = 1:length(trialList)
-
-    trialName   = trialList{iTrial};
-    [osimFiles] = getdirosimfiles_BOPS(trialName);                                                                  % get directories of opensim files for this trial
-
-    check_values    =  logical(cell2mat(emg_check(iTrial+1,2:end))')
-
-    emg_data        = load_sto_file(osimFiles.emg);
-    channel_names   = fields(emg_data);
-    emg_data        = struct2array(emg_data);
-    nChannels       = length(channel_names);
-    
-    [ax, ~,FirstCol,LastRow,~] = tight_subplotBG (nChannels-1);
-
-    for iEMG = 2:nChannels
-        plot(ax(iEMG-1),emg_data(:,iEMG))
-        title(ax(iEMG-1),channel_names(iEMG))
-    end
-    mmfn_inspect
-    tight_subplot_ticks(ax,LastRow,FirstCol)
-
-    fig = uifigure;
-    cbx = uicheckbox(fig, 'Text',muscle_names,...
-                  'Value', 1,...
-                  'Position',[150 50 102 15]);
-
-
-end
-% 
-% 
 %     [Dir,Temp,SubjectInfo,Trials] = getdirFAI(SubjectFoldersInputData{ff});
 %     saveDir = [Dir.Results fp 'RunningEMG' fp SubjectInfo.ID];
 %     mkdir(saveDir)
-% 
+%
 %     if isempty(Trials.Isometrics_pre) || isempty(Trials.Isometrics_post) || isempty(fields(SubjectInfo))
 %         continue
 %     end
 %     updateLogAnalysis(Dir,'Inspect EMG ',SubjectInfo,'start')
-% 
+%
 %     EMGmuscles = {'        VM','        VL','        RF','       GRA',...
 %         '        TA','   ADDLONG','   SEMIMEM','      BFLH','        GM',...
 %         '        GL','       TFL','   GLUTMAX' '   GLUTMED' '      PIRI'...
 %         '    OBTINT'  '        QF'}; %
-% 
+%
 %     MuscleLabels = {'Voltage.1-VM','Voltage.2-VL','Voltage.3-RF',...
 %         'Voltage.4-GRA','Voltage.5-TA','Voltage.6-AL','Voltage.7-ST',...
 %         'Voltage.8-BF','Voltage.9-MG','Voltage.10-LG','Voltage.11-TFL',...
@@ -926,14 +883,14 @@ end
 %         'Voltage.15-OI-intra','Voltage.16-QF-intra'};
 %     MaxEMG = importdata([Dir.dynamicElaborations fp 'maxemg' fp 'maxemg.txt']);
 %     % Plot individual trials
-% 
+%
 %     TrialsToPlot = Trials.RunStraight(contains(Trials.RunStraight,Trials.ID));
 %     for g = 1:length(TrialsToPlot)
 %         trialName = [TrialsToPlot{g}];
 %         [LinearEnv,Labels] = LoadResults_BG ([Dir.dynamicElaborations fp trialName fp 'emg.mot'],...
 %             [],['time' EMGmuscles],0,0);
 %         time = LinearEnv(:,1);    LinearEnv(:,1) = []; Labels(:,1) = [];
-% 
+%
 %         load([Dir.sessionData fp trialName fp 'AnalogData.mat']);
 %         time = time - AnalogData.FirstFrame/AnalogData.Rate*10; % in case the data has been cropped
 %         time(time<0.001)=[]; % remove any data smaller than 1 frame (1/framerate)
@@ -943,7 +900,7 @@ end
 %         figure
 %         [ha, pos] = tight_subplot(4,4,0.05,0.05,0.08);
 %         set(gcf, 'Position', [107 76 1728 895]);
-% 
+%
 %         for ii = 1:size(LinearEnv,2)
 %             axes(ha(ii)); hold on
 %             yyaxis left
@@ -971,17 +928,17 @@ end
 %         saveas(gcf,[saveDir fp trialName '.jpeg'])
 %         close all
 %     end
-% 
+%
 %     % plot the max trial
 %     figure
 %     [ha, pos] = tight_subplot(4,4,0.05,0.05,0.08);
 %     set(gcf, 'Position', [107 76 1728 895]);
 %     for ii = 1:size(LinearEnv,2)
 %         trialName = MaxEMG.textdata{ii+1,3};
-% 
+%
 %         load([Dir.sessionData fp trialName fp 'AnalogData.mat']);
 %         [HighPassEMG,~] = findData(AnalogData.RawData,AnalogData.Labels,MuscleLabels,1);
-% 
+%
 %         axes(ha(ii)); hold on
 %         plot(HighPassEMG(:,ii))
 %         ylabel('mV')
@@ -998,9 +955,9 @@ end
 %     saveas(gcf,[saveDir fp 'MaxEMGTrial.jpeg'])
 %     close all
 %     updateLogAnalysis(Dir,'Inspect EMG running',SubjectInfo,'end')
-% 
+%
 %     % plot EMG per muslce group
-% 
+%
 %     for m = 1:length(MuscleLabels)
 %         TrialsToPlot = Trials.MaxEMG;
 %         n = ceil(sqrt(length(TrialsToPlot)));
@@ -1009,7 +966,7 @@ end
 %             trialName = [TrialsToPlot{g}];
 %             load([Dir.sessionData fp trialName fp 'AnalogData.mat']);
 %             [HighPassEMG,Label] = findData(AnalogData.RawData,AnalogData.Labels,MuscleLabels{m},1);
-% 
+%
 %             axes(ha(g)); hold on
 %             plot(HighPassEMG)
 %             ylabel('mV')
@@ -1023,8 +980,14 @@ end
 %         saveas(gcf,[saveDir fp MuscleLabels{m} '.jpeg'])
 %         close all
 %     end
-% 
+%
 %     cmdmsg(['Inspect EMG done for ' SubjectInfo.ID])
-% 
-% 
+%
+%
 % end
+
+
+function update_emg_check
+
+clc
+disp('hi')
