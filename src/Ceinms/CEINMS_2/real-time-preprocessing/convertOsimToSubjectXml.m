@@ -11,6 +11,7 @@ prefDef.contact='none'; %'knee' 'OpenSim' - should provide contactModelFile and 
 %prefDef.contactModelFile='contactKneeModel.xml';
 prefDef.emDelay = 0.015;
 prefDef.strengthCoefficient = 1;
+
 if (nargin>5)
     if (isfield(pref, 'contact')), prefDef.contact=pref.contact; end
     if (isfield(pref, 'contactModelFile')), prefDef.contactModelFile=pref.contactModelFile; end
@@ -31,7 +32,7 @@ osimModel.initSystem();
 
 for i=1:length(dofList)
     currentDofName = dofList{i};
-    dofToMuscles(currentDofName) = getMusclesOnDof(currentDofName, osimModel);
+    dofToMuscles(currentDofName) = getMusclesOnDof_BG(currentDofName, osimModel);
 end
 
 allMuscles = dofToMuscles.values;

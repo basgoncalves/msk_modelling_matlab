@@ -59,7 +59,8 @@ trialDirs.RRAkinematics                 = [trialDirs.RRA fp 'Kinematics_q.sto'];
 trialDirs.RRAsetup                      = [trialDirs.RRA fp 'setup_RRA.xml'];
 trialDirs.RRAtasks                      = [trialDirs.RRA fp 'tasks_RRA.xml'];
 trialDirs.RRAactuators                  = [trialDirs.RRA fp 'actuators_RAA.xml'];
-[~,fname,ext]=fileparts(Dir.OSIM_RRA);
+
+[~,fname,ext]                           = fileparts(Dir.OSIM_RRA);
 trialDirs.RRAmodel                      = [trialDirs.RRA fp fname ext];
 trialDirs.RRAresiduals                  = [trialDirs.RRA fp trialName '_avgResiduals.txt'];
 trialDirs.RRAlog                        = [trialDirs.RRA fp 'out.log'];
