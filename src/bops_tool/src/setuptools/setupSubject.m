@@ -85,8 +85,7 @@ end
 
 if ~isempty(models)                                                                                                 % use this section to allow for different models per participant
        
-    models          = cell2struct(models(2:end,:),models(1,:),2);
-     
+    models          = cell2struct(models(2:end,:),models(1,:),2);     
     rowsID          = find(contains({models.ID},subject));
     rowsSession     = find(contains({models.session},bops.current.session));
     model_to_use    = models(intersect(rowsID,rowsSession)).model;
@@ -142,7 +141,12 @@ settings.subjectInfo    = subjectInfo;
 settings.directories    = directories;            
 settings.ceinms         = ceinms;
 
-trialList               = strrep(cellstr(selectTrialNames(directories.Input,'.c3d')),'.c3d','');
+try
+    trialList               = strrep(cellstr(selectTrialNames(directories.Input,'.c3d')),'.c3d','');
+catch
+    DynamicTrials = findFolders(directories.dynamicElaborations,bops.Trials.Dynamic,'');
+   
+end
 
 settings.trials                 = struct;
 settings.trials.trialList       = trialList;
