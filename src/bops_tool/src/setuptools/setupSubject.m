@@ -44,6 +44,7 @@ directories.IAA = [directories.Elaborated fp 'inducedAccelerationAnalysis'];
 directories.SO = [directories.Elaborated fp 'StaticOpt']; 
 directories.JRA = [directories.Elaborated fp 'JointReactionAnalysis']; 
 directories.CMC = [directories.Elaborated fp 'ComputedMuscleControl']; 
+directories.EMG_Check = [directories.Elaborated fp 'EMG_Check']; 
 
 directories.CEINMS = [directories.Elaborated fp 'ceinms'];                                                          % CEINMS
 directories.CEINMScalibration= [directories.CEINMS fp 'calibration'];

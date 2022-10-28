@@ -569,6 +569,7 @@ template_contactModel           = Temp.CEINMScontactmodel;
 contactModel                    = CEINMSSettings.contactModel;
 dofListCell                     = split(CEINMSSettings.dofList ,' ')';
 
+[~,Adjusted,Synt] = createExcitationGenerator(Dir,CEINMSSettings,SubjectInfo);
 generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo ,trialListXML)
 
 if ~exist(claibrated_model,'file')
@@ -784,12 +785,11 @@ if ~exist(CEINMSSettings.excitationGeneratorFilename)
     copyfile(Temp.CEINMSexcitationGenerator,CEINMSSettings.excitationGeneratorFilename)
 end
 
-[~,Adjusted,Synt] = createExcitationGenerator_FAIS(Dir,CEINMSSettings,SubjectInfo);
-
-model = CEINMSSettings.nmsModel_exe;
+model           = CEINMSSettings.nmsModel_exe;
 temp_cfg_exe    = Temp.CEINMScfgExe;
 file_out        = CEINMSSettings.exeCfg;
 dofList         = CEINMSSettings.dofList;
+
 writeExecutionCFGxml_BG(model,temp_cfg_exe,file_out,dofList,Adjusted,Synt)                                          % generate the execution configuration xml
 
 for ii = 1: length(trialList)                                                                                       % generate the execution setup xml (one for each trial)
@@ -811,12 +811,13 @@ end
 disp('CEINMS files created - time for CALIBRATIOOOOOOON')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% createExcitationGenerator_FAIS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [quality,Adjusted,Synt] = createExcitationGenerator_FAIS(Dir,CEINMSSettings,SubjectInfo)
+function [quality,Adjusted,Synt] = createExcitationGenerator (Dir,CEINMSSettings,SubjectInfo)
 
 try
     load ([Dir.Elaborated fp 'EMG_check.mat'])
 catch
-
+    msgbox('EMG signals have not been checked')
+    InspectEMG_bops
 end
 
 quality  = mean(cell2mat(BadTrials),2);                                                                             % calculate the mean accross trials
@@ -985,9 +986,3 @@ disp(' ')
 %
 %
 % end
-
-
-function update_emg_check
-
-clc
-disp('hi')
