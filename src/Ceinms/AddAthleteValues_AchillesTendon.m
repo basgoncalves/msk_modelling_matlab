@@ -19,7 +19,7 @@
 % by Basilio Goncalves (2022), basilio.goncalves7@gmail.com, https://github.com/basgoncalves
 %% EditCalibratedSubject
 
-function AddAthleteValues_AchilesTendon(CEINMSxmlModel)
+function AddAthleteValues_AchillesTendon(CEINMSxmlModel)
 
 disp('adding new force-length for tendon based on (Devaprakash et al. 2022) - https://doi.org/10.1152/japplphysiol.00662.2021...')
 fp = filesep;

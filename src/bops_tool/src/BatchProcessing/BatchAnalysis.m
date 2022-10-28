@@ -558,10 +558,9 @@ Dir                 = subject.directories;
 Temp                = bops.directories.templates;
 CEINMSSettings      = subject.ceinms;
 SubjectInfo         = subject.subjectInfo;
-trialListXML        = generateTrialsXml(Dir,CEINMSSettings,subject.trials.dynamicTrials,1);                         % create xml files | last argument 1 = write the xml 0 = do not write xml
 Trials              = subject.trials;
 
-osim_model                      = CEINMSSettings.osimModelFilename;
+osim_models                     = CEINMSSettings.osimModelFilename;
 template_model_ceinms           = Temp.CEINMSuncalibratedmodel;
 unclaibrated_model              = CEINMSSettings.subjectFilename;
 claibrated_model                = CEINMSSettings.outputSubjectFilename;
@@ -569,6 +568,7 @@ template_contactModel           = Temp.CEINMScontactmodel;
 contactModel                    = CEINMSSettings.contactModel;
 dofListCell                     = split(CEINMSSettings.dofList ,' ')';
 
+trialListXML        = generateTrialsXml(Dir,CEINMSSettings,subject.trials.dynamicTrials,1);                         % create xml files | last argument 1 = write the xml 0 = do not write xml
 [~,Adjusted,Synt] = createExcitationGenerator(Dir,CEINMSSettings,SubjectInfo);
 generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo ,trialListXML)
 
@@ -580,11 +580,21 @@ if ~exist(claibrated_model,'file')
     if ~contains(Trials.CEINMScalibration,Trials.MA) || ~contains(Trials.CEINMScalibration,Trials.IK)
         cmdmsg('trial does have muscle analysis / inverse dynamics, skiping CEINMS calibration')
     end
+    
+    for iMod = 1:length(osim_models)
+        
+        osim_model = osim_models(iMod);
+        convertOsimToSubjectXml(SubjectInfo.ID,osim_model,dofListCell,unclaibrated_model,template_model_ceinms)  % convert openSim model to XML file format to be used in CEINMS
 
-    convertOsimToSubjectXml(SubjectInfo.ID,osim_model,dofListCell,unclaibrated_model_ceinms,template_model_ceinms)  % convert openSim model to XML file format to be used in CEINMS
-    AddAthleteValues_AchilesTendon(unclaibrated_model_ceinms)                                                       % add propüerties of achiles tendon defined for athletic popiulations based on
-    AddContactModel(osim_model,unclaibrated_model,claibrated_model,template_contactModel,contactModel)              % add contact model XMl to uncalibrated and (if needed) calibrated model
+        if bops.analyses_settings.ceinms == 1
+            AddAthleteValues_AchillesTendon(unclaibrated_model_ceinms)                                                  % add properties of achiles tendon defined for athletic popiulations based on
+        end
 
+        if bops.analyses_settings.ceinms == 1
+            AddContactModel(osim_model,unclaibrated_model,claibrated_model,template_contactModel,contactModel)          % add contact model XMl to uncalibrated and (if needed) calibrated model
+        end
+    end
+    
     generateCalibrationSetup_BG(Dir,CEINMSSettings);
     generateCalibrationCfg(Dir,CEINMSSettings, Temp,trialListXML,Trials.CEINMScalibration);
 
@@ -604,7 +614,7 @@ else; trialList = [Trials.MA]; end
 
 CalibratedSubjectRelativePaths(CEINMSSettings.subjectFilename,Dir.OSIM_LO)
 CalibratedSubjectRelativePaths(CEINMSSettings.outputSubjectFilename,Dir.OSIM_LO)
-%     CEINMSStaticOpt_BG (Dir,CEINMSSettings,SubjectInfo,trialList) % for static Opt
+%     CEINMSStaticOpt_BG (Dir,CEINMSSettings,SubjectInfo,trialList)                                                 % for static Opt
 
 if Logic==1 || ~exist(CEINMSSettings.excitationGeneratorFilename2ndCal)
     RedoSecondCalibration(Dir);                                                                                     % reset the folders as if to match end of first calibration (comment if not needed)
@@ -814,15 +824,17 @@ disp('CEINMS files created - time for CALIBRATIOOOOOOON')
 function [quality,Adjusted,Synt] = createExcitationGenerator (Dir,CEINMSSettings,SubjectInfo)
 
 try
-    load ([Dir.Elaborated fp 'EMG_check.mat'])
+    EMG_check = readcell([Dir.EMG_Check fp 'EMG_check.xlsx']);
 catch
-    msgbox('EMG signals have not been checked')
+    msg = msgbox('EMG signals have not been checked');
+    uiwait(msg)
     InspectEMG_bops
+    EMG_check = readcell([Dir.EMG_Check fp 'EMG_check.xlsx']);
 end
 
-quality  = mean(cell2mat(BadTrials),2);                                                                             % calculate the mean accross trials
+quality  = mean(cell2mat(EMG_check(2:end,2:end)),2);                                                                % calculate the mean accross trials
 dofList = split(CEINMSSettings.dofList ,' ')';
-S = getOSIMVariablesFAI(SubjectInfo.TestedLeg,CEINMSSettings.osimModelFilename,dofList);
+S = getOSIMVariablesFAI(SubjectInfo.InstrumentedSide,CEINMSSettings.osimModelFilename,dofList);
 
 exctGern = xml_read(CEINMSSettings.excitationGeneratorFilename);
 Adjusted =[]; Synt=[];

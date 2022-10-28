@@ -96,23 +96,19 @@ else
     generic_model_file = bops.directories.templates.Model;
 end
 
-directories.OSIM_generic                = generic_model_file;
+directories.OSIM_generic                = generic_model_file;                                                       % directory of the different models 
 directories.OSIM_LinearScaled           = [directories.Elaborated fp subject '_linearScalled.osim'];
 directories.OSIM_RRA                    = strrep(directories.OSIM_LinearScaled,'.osim','_rra.osim');
 directories.OSIM_LO                     = strrep(directories.OSIM_LinearScaled,'.osim','_rra_opt_N10.osim');
 directories.OSIM_LO_HANS                = strrep(directories.OSIM_LinearScaled,'.osim','_rra_opt_N10_hans.osim');
 directories.OSIM_LO_HANS_originalMass   = strrep(directories.OSIM_LinearScaled,'.osim','_originalMass_opt_N10_hans.osim');
 
-RRA_trials                              = cellstr(ls(directories.RRA)); RRA_trials(1:2) = [];
-
+RRA_trials                              = cellstr(ls(directories.RRA)); RRA_trials(1:2) = [];                       % directory of the models for each RRA trial
+directories.OSIM_RRA_PerTrial           = char();
 for iTrial = 1:length(RRA_trials)
-    directories.OSIM_RRA_PerTrial(iTrial).TrialName = RRA_trials{iTrial};
-    
     modeldir = [directories.RRA fp RRA_trials{iTrial} fp 'Results_Final' fp subject '_linearScalled_MIMF_FINAL.osim'];
     if exist(modeldir,'file')
-        directories.OSIM_RRA_PerTrial(iTrial).ModelDir  = modeldir;
-    else
-        directories.OSIM_RRA_PerTrial(iTrial).ModelDir  = '';
+        directories.OSIM_RRA_PerTrial(iTrial,1:length(modeldir))   = modeldir;
     end
 end
 %% CEINMS settings
@@ -126,7 +122,11 @@ ceinms.dofList_calibration = [['hip_flexion_' s] [' knee_angle_' s] [' ankle_ang
 ceinms.dofList = [['hip_flexion_' s] [' hip_adduction_' s] [' hip_rotation_' s] ...
     [' knee_angle_' s] [' ankle_angle_' s]]; 
 ceinms.nmsModel_exe = 'Hybrid';                                                                                     % type of nms model to use
-ceinms.osimModelFilename = directories.OSIM_LO_HANS_originalMass;
+
+model_type = bops.analyses_settings.ceinms.model;                                                                   % opensim models to be used for CEINMS
+ceinms_models = directories.(model_type);
+ceinms.osimModelFilename = cell2mat({ceinms_models}');
+
 ceinms.exeCfg = [directories.CEINMScfg fp 'executionCfg.xml'];
 ceinms.subjectFilename = [directories.CEINMScalibration fp 'uncalibrated.xml'];                                     % uncalibrated subject filename
 ceinms.calibrationCfg = [directories.CEINMScalibration fp 'calibrationCfg.xml'];
@@ -141,6 +141,7 @@ ceinms.contactModel = [directories.CEINMScalibration fp 'contactModel.xml'];
 settings.subjectInfo    = subjectInfo; 
 settings.directories    = directories;            
 settings.ceinms         = ceinms;
+
 trialList               = strrep(cellstr(selectTrialNames(directories.Input,'.c3d')),'.c3d','');
 
 settings.trials                 = struct;

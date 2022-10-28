@@ -31,7 +31,7 @@ function [] = elaborationFileCreation_BOPS(varargin)
 %of Markers to be written in the trc file
 %needed for trcMarkersIndexes computation within case nargin>3
 
-bops = load_setup_bops;
+bops    = load_setup_bops;
 subject = load_subject_settings;
 setupSubject;
 
