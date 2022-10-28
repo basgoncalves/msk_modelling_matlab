@@ -569,6 +569,7 @@ template_contactModel           = Temp.CEINMScontactmodel;
 contactModel                    = CEINMSSettings.contactModel;
 dofListCell                     = split(CEINMSSettings.dofList ,' ')';
 
+[~,Adjusted,Synt] = createExcitationGenerator(Dir,CEINMSSettings,SubjectInfo);
 generateExecutionXml (Dir,Temp,CEINMSSettings,SubjectInfo ,trialListXML)
 
 if ~exist(claibrated_model,'file')
@@ -784,12 +785,11 @@ if ~exist(CEINMSSettings.excitationGeneratorFilename)
     copyfile(Temp.CEINMSexcitationGenerator,CEINMSSettings.excitationGeneratorFilename)
 end
 
-[~,Adjusted,Synt] = createExcitationGenerator_FAIS(Dir,CEINMSSettings,SubjectInfo);
-
-model = CEINMSSettings.nmsModel_exe;
+model           = CEINMSSettings.nmsModel_exe;
 temp_cfg_exe    = Temp.CEINMScfgExe;
 file_out        = CEINMSSettings.exeCfg;
 dofList         = CEINMSSettings.dofList;
+
 writeExecutionCFGxml_BG(model,temp_cfg_exe,file_out,dofList,Adjusted,Synt)                                          % generate the execution configuration xml
 
 for ii = 1: length(trialList)                                                                                       % generate the execution setup xml (one for each trial)
@@ -811,17 +811,20 @@ end
 disp('CEINMS files created - time for CALIBRATIOOOOOOON')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% createExcitationGenerator_FAIS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [quality,Adjusted,Synt] = createExcitationGenerator_FAIS(Dir,CEINMSSettings,SubjectInfo)
+function [quality,Adjusted,Synt] = createExcitationGenerator (Dir,CEINMSSettings,SubjectInfo)
 
 try
-    load ([Dir.Elaborated fp 'EMG_check.mat'])
+    EMG_check = readcell([Dir.EMG_Check fp 'EMG_check.xlsx']);
 catch
-
+    msg = msgbox('EMG signals have not been checked');
+    uiwait(msg)
+    InspectEMG_bops
+    EMG_check = readcell([Dir.EMG_Check fp 'EMG_check.xlsx']);
 end
 
-quality  = mean(cell2mat(BadTrials),2);                                                                             % calculate the mean accross trials
+quality  = mean(cell2mat(EMG_check(2:end,2:end)),2);                                                                % calculate the mean accross trials
 dofList = split(CEINMSSettings.dofList ,' ')';
-S = getOSIMVariablesFAI(SubjectInfo.TestedLeg,CEINMSSettings.osimModelFilename,dofList);
+S = getOSIMVariablesFAI(SubjectInfo.InstrumentedSide,CEINMSSettings.osimModelFilename,dofList);
 
 exctGern = xml_read(CEINMSSettings.excitationGeneratorFilename);
 Adjusted =[]; Synt=[];
@@ -861,65 +864,6 @@ disp(['EMGS signals not used'; allMuscles(quality>0)])
 disp(' ')
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% InspectEMG_bops %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function InspectEMG_bops(Subjects)
-
-fp = filesep;
-bops = load_setup_bops;
-subject_settings = setupSubject;
-
-trialList       = subject_settings.trials.dynamicTrials;
-muscle_names    = bops.emg.Muscle;
-n_emg           = length(muscle_names);
-n_trials        = length(trialList);
-
-filename = [subject_settings.directories.dynamicElaborations fp 'emg_check.xlsx'];
-if ~exist(filename)
-    emg_check                           = cell(n_trials+1,n_emg+1);                                                 % create a matrix with all EMGs and trials
-    emg_check(2:n_trials+1,1)           = trialList;
-    emg_check(1,2:n_emg+1)              = muscle_names;
-    emg_check(2:n_trials+1,2:n_emg+1)   = {1};                                                                      % assign all the values to 1 (Good)
-
-    writecell(emg_check,filename);                                                                                  % save file
-else
-    emg_check = readcell(filename);
-end
-
-for iTrial = 1:length(trialList)
-
-    trialName   = trialList{iTrial};
-    [osimFiles] = getdirosimfiles_BOPS(trialName);                                                                  % get directories of opensim files for this trial
-
-    check_values    =  logical(cell2mat(emg_check(iTrial+1,2:end))');
-
-    emg_data        = load_sto_file(osimFiles.emg);
-    channel_names   = fields(emg_data);
-    emg_data        = struct2array(emg_data);
-    nChannels       = length(channel_names);
-
-    [ax, ~,FirstCol,LastRow,~] = tight_subplotBG (nChannels-1);
-
-    for iEMG = 2:nChannels
-        plot(ax(iEMG-1),emg_data(:,iEMG))
-        title(ax(iEMG-1),channel_names(iEMG))
-    end
-    mmfn_inspect
-    tight_subplot_ticks(ax,LastRow,FirstCol)
-
-    [x,y,w,h] = matWinPos; 
-    fig = figure("Position",[x+0.45*w,y+0.15*h,w/8,h/1.5]);
-    
-    y_boxes = 0.05:0.8/(nChannels-1):0.9;
-    for iEMG = 2:nChannels
-         uicontrol(fig,'Style','checkbox','Value', 1,...
-             'String',channel_names{iEMG},'Units','normalized',...
-             'Position',[0.1 y_boxes(iEMG-1) 0.9 0.1]);
-    end
-    
-    checkButton = uicontrol(fig,'Style','pushbutton',...
-             'String','confirm','Units','normalized',...
-             'Position',[0.35 0.025 0.25 0.05],'Callback',update_emg_check);
-
-end
 
 %     [Dir,Temp,SubjectInfo,Trials] = getdirFAI(SubjectFoldersInputData{ff});
 %     saveDir = [Dir.Results fp 'RunningEMG' fp SubjectInfo.ID];
