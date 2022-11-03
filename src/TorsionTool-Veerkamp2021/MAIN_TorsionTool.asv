@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J髇asd髏tir, Marjolein M. van der Krogt     		              %
+%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt     		              %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
+%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %
@@ -72,8 +72,8 @@ deformed_model = [ 'leftNSA' num2str(angle_NS_left) '_leftAVA' num2str(angle_AV_
 make_PEmodel( model, deformed_model, markerset, deform_bone, which_leg, angle_AV_left, angle_NS_left);
 
 %% right tibia
-% model = [deformed_model '.osim']; 
-% markerset = [deformed_model '_' markerset]; 
+model = [deformed_model '.osim']; 
+markerset = [deformed_model '_' markerset]; 
 
 model = 'gait2392_genericsimpl.osim'; 
 markerset = 'MarkerSet.xml'; 

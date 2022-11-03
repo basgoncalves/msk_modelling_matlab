@@ -1,4 +1,4 @@
-
+% by Basilio Goncalves, basilio.goncalves7@gmail.com, https://github.com/basgoncalves
 
 function InspectEMG_bops(manual_inspect)
 

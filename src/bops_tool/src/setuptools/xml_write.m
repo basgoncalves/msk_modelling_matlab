@@ -22,7 +22,7 @@ function DOMnode = xml_write(filename, tree, RootName, Pref)
 %   RootName     String with XML tag name used for root (top level) node
 %                Optionally it can be a string cell array storing: Name of
 %                root node, document "Processing Instructions" data and
-%                document "comment" string
+%                document "comment" stringrotated.vtp
 %   Pref         Other preferences:
 %     Pref.ItemName - default 'item' -  name of a special tag used to
 %                     itemize cell or struct arrays
@@ -313,7 +313,7 @@ elseif (isstruct(s))  % if struct than deal with each field separatly
 else  % if not a struct and not a cell than it is a leaf node
     switch TagName % different processing depending on desired type of the node
         case 'COMMENT'   % create comment node
-            com = xml.createComment(s);
+            com = xml.createComment([s]);
             parent.appendChild(com);
         case 'CDATA_SECTION' % create CDATA Section
             cdt = xml.createCDATASection(s);

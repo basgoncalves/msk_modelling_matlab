@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J髇asd髏tir, Marjolein M. van der Krogt      		          %
+%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt      		          %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
+%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %
@@ -28,7 +28,13 @@
 % Edited Nove, 2022, Basilio Goncalves
 
 function [ ready ] = make_PEmodel( answerModel, deformed_model, answerMarkerSet, deform_bone, which_leg, angle, angle_NS)
-     
+
+
+clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
+activeFile = matlab.desktop.editor.getActive;                                                                       % get dir of the current file
+bopsdir  = fileparts(activeFile.Filename);                                                                          
+bopsdir          
+
 % the path to save the deformed model
 place = [cd '\DEFORMED_MODEL\'];
 

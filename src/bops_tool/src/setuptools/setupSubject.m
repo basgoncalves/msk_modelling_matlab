@@ -79,17 +79,16 @@ directories.acquisitionXML  = [directories.Input fp 'acquisition.xml'];
 directories.elaborationXML  = [directories.dynamicElaborations fp 'elaboration.xml']; 
 directories.staticXML       = [directories.staticElaborations fp 'static.xml']; 
 
-try  models = split(importdata([bops.directories.modelsCSV]),','); 
+try  models = split(importdata([bops.directories.modelsCSV]),',');
+    models  = cell2struct(models(2:end,:),models(1,:),2);
+    rowsID  = find(contains({models.ID},subject));
 catch models = [];
 end
 
-if ~isempty(models)                                                                                                 % use this section to allow for different models per participant
-       
-    models          = cell2struct(models(2:end,:),models(1,:),2);     
-    rowsID          = find(contains({models.ID},subject));
+if ~isempty(models) &&  ~isempty(rowsID)                                                                            % use this section to allow for different models per participant
+              
     rowsSession     = find(contains({models.session},bops.current.session));
-    model_to_use    = models(intersect(rowsID,rowsSession)).model;
-    
+    model_to_use    = models(intersect(rowsID,rowsSession)).model;    
     generic_model_file = [bops.directories.templatesDir fp model_to_use '.osim'];
 else
     generic_model_file = bops.directories.templates.Model;
