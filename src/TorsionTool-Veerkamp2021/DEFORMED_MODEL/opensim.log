@@ -1,0 +1,72 @@
+[2022-11-03 12:26:21.341] [info] Updating Model file from 20303 to latest format...
+[2022-11-03 12:26:21.450] [info] Loaded model 3DGaitModel2392 from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\gait2392_genericsimpl.osim
+[2022-11-03 12:26:21.477] [warning] Couldn't find file 'femur/femur.vtp'.
+[2022-11-03 12:26:21.477] [warning] Couldn't find file 'tibia/tibia_r.vtp'.
+[2022-11-03 12:26:21.478] [warning] Couldn't find file 'tibia/fibula.vtp'.
+[2022-11-03 12:26:21.478] [warning] Couldn't find file 'talus/talus.vtp'.
+[2022-11-03 12:26:21.478] [warning] Couldn't find file 'calcn/foot.vtp'.
+[2022-11-03 12:26:21.478] [warning] Couldn't find file 'toes/bofoot.vtp'.
+[2022-11-03 12:26:21.479] [warning] Couldn't find file 'femur/femur_l.vtp'.
+[2022-11-03 12:26:21.479] [warning] Couldn't find file 'tibia/tibia_l.vtp'.
+[2022-11-03 12:26:21.479] [warning] Couldn't find file 'tibia/fibula_l.vtp'.
+[2022-11-03 12:26:21.479] [warning] Couldn't find file 'talus/l_talus.vtp'.
+[2022-11-03 12:26:21.479] [warning] Couldn't find file 'calcn/l_foot.vtp'.
+[2022-11-03 12:26:21.480] [warning] Couldn't find file 'toes/l_bofoot.vtp'.
+[2022-11-03 12:26:21.525] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-03 12:26:21.528] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-03 12:26:25.839] [info] Updating Model file from 20303 to latest format...
+[2022-11-03 12:26:25.897] [info] Loaded model deformed_model from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\rightTT-30.osim
+[2022-11-03 12:26:25.898] [warning] Couldn't find file 'femur/femur.vtp'.
+[2022-11-03 12:26:25.898] [warning] Couldn't find file 'tibia/fibula.vtp'.
+[2022-11-03 12:26:25.899] [warning] Couldn't find file 'femur/femur_l.vtp'.
+[2022-11-03 12:26:25.899] [warning] Couldn't find file 'tibia/tibia_l.vtp'.
+[2022-11-03 12:26:25.899] [warning] Couldn't find file 'tibia/fibula_l.vtp'.
+[2022-11-03 12:26:25.899] [warning] Couldn't find file 'talus/l_talus.vtp'.
+[2022-11-03 12:26:25.900] [warning] Couldn't find file 'calcn/l_foot.vtp'.
+[2022-11-03 12:26:25.900] [warning] Couldn't find file 'toes/l_bofoot.vtp'.
+[2022-11-03 12:26:25.901] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-03 12:26:25.904] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-03 12:26:25.970] [warning] Visualizer couldn't open rightTT-30_tibiaR_rotated.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\rightTT-30_tibiaR_rotated.vtp' failed with message:
+  SimTK Exception thrown at PolygonalMesh.cpp:310:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Expected to see document tag <VTKFile> but saw <_Root> instead.
+  (Required condition 'vtp.getRootTag() == "VTKFile"' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2022-11-03 12:27:46.908] [info] Updating Model file from 20303 to latest format...
+[2022-11-03 12:27:46.968] [info] Loaded model 3DGaitModel2392 from file C:/Code/Git/MSKmodelling/src/TorsionTool-Veerkamp2021/gait2392_genericsimpl.osim
+[2022-11-03 12:27:47.043] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-03 12:27:47.046] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-03 12:29:09.817] [info] Updating Model file from 20303 to latest format...
+[2022-11-03 12:29:09.874] [info] Loaded model deformed_model from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\rightTT-30.osim
+[2022-11-03 12:29:09.875] [warning] Couldn't find file '../femur/femur.vtp'.
+[2022-11-03 12:29:09.875] [warning] Couldn't find file 'tibia/fibula.vtp'.
+[2022-11-03 12:29:09.876] [warning] Couldn't find file 'femur/femur_l.vtp'.
+[2022-11-03 12:29:09.876] [warning] Couldn't find file 'tibia/tibia_l.vtp'.
+[2022-11-03 12:29:09.876] [warning] Couldn't find file 'tibia/fibula_l.vtp'.
+[2022-11-03 12:29:09.876] [warning] Couldn't find file 'talus/l_talus.vtp'.
+[2022-11-03 12:29:09.876] [warning] Couldn't find file 'calcn/l_foot.vtp'.
+[2022-11-03 12:29:09.877] [warning] Couldn't find file 'toes/l_bofoot.vtp'.
+[2022-11-03 12:29:09.877] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-03 12:29:09.879] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-03 12:29:09.915] [warning] Visualizer couldn't open rightTT-30_tibiaR_rotated.vtp because: SimTK Exception thrown at PolygonalMesh.cpp:411:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Attempt to load a VTK PolyData (.vtp) file from file name 'c:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\rightTT-30_tibiaR_rotated.vtp' failed with message:
+  SimTK Exception thrown at PolygonalMesh.cpp:310:
+  Error detected by Simbody method PolygonalMesh::loadVtpFile(): Expected to see document tag <VTKFile> but saw <_Root> instead.
+  (Required condition 'vtp.getRootTag() == "VTKFile"' was not met.)
+
+  (Required condition '!"failed"' was not met.)
+
+[2022-11-03 12:48:19.703] [info] Updating Model file from 20303 to latest format...
+[2022-11-03 12:48:19.767] [info] Loaded model deformed_model from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\DEFORMED_MODEL\rightTT-30.osim
+[2022-11-03 12:48:19.769] [warning] Couldn't find file 'tibia/fibula.vtp'.
+[2022-11-03 12:48:19.776] [warning] Couldn't find file 'tibia/tibia_l.vtp'.
+[2022-11-03 12:48:19.776] [warning] Couldn't find file 'tibia/fibula_l.vtp'.
+[2022-11-03 12:48:19.776] [warning] Couldn't find file 'talus/l_talus.vtp'.
+[2022-11-03 12:48:19.777] [warning] Couldn't find file 'calcn/l_foot.vtp'.
+[2022-11-03 12:48:19.777] [warning] Couldn't find file 'toes/l_bofoot.vtp'.
+[2022-11-03 12:48:19.778] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-03 12:48:19.780] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-03 14:15:54.671] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData\GenericModel\Ref_scaled_opt_N10_2times2392Fmax.osim
+[2022-11-03 15:58:29.114] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData\GenericModel\Ref_scaled_opt_N10_2times2392Fmax.osim

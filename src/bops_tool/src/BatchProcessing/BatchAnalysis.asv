@@ -172,7 +172,9 @@ output_marker_file = Scale.ScaleTool.MarkerPlacer.output_marker_file;
 
 function runTorsionTool
 
-[bops,subject,elab,acq,trialList,param,rerun] = loadSetupFiles;                                                       % get needed info for the analyes
+bops = load_setup_bops;
+
+bops.directories.
 
 model = [bops.directories fp  bops.analyses_settings.torsionTool.inputModel]; 
 markerset = 'MarkerSet.xml'; 

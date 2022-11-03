@@ -17,7 +17,10 @@ subjects = bops.subjects;
 
 selectedSessions = {};
 for i = 1:length(subjects)
-    subjectSessions = dir([bops.directories.InputData fp subjects{i}]);
+    subjectSessions  = dir([bops.directories.InputData fp subjects{i}]);
+    if isempty(subjectSessions)
+        subjectSessions = dir([bops.directories.ElaboratedData fp subjects{i}]);
+    end
     selectedSessions = unique([selectedSessions,{subjectSessions(3:end).name}]);
 end
 

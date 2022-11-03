@@ -25,6 +25,9 @@
 % ----------------------------------------------------------------------
 function     tibia(dataModel, markerset, answerLeg, rightbone, TT_angle, answerNameModelTibia,...
     answerNameMarkerTibia, dataTibia, dataCalcn, dataTalus, dataToes, place)
+
+close all
+fp = filesep;
 %% Find the muscle attachment on the tibia, calcn, talus and toes and place in a matrix
 [TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA(dataModel, answerLeg, rightbone);
 % The vertices for the bone are rotated to fit the coordinate system in MATLAB
@@ -423,12 +426,13 @@ dataTibia.VTKFile.PolyData.Piece.Points.DataArray.Text = tibia_Repared;
 Tibia_rotated = struct2xml(dataTibia);
 %name and placement of the tibia bone file
 direct = [];
+tibia_folder = [fileparts(fileparts(place)) fp 'tibia' fp];
 % export - write the model as an xml  - remember to save as a vtp file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     modelName = answerNameModelTibia;
     boneName = 'tibiaR_rotated.vtp';
     cTibiaR = sprintf('%s_%s' ,modelName,boneName);
-    placeNameTibia = sprintf('%s', direct, place, cTibiaR);
+    placeNameTibia = sprintf('%s', direct, tibia_folder, cTibiaR);
     FID_tibiaR = fopen(placeNameTibia,'w');
     fprintf(FID_tibiaR,Tibia_rotated);
     fclose(FID_tibiaR);
@@ -436,7 +440,7 @@ else
     modelName = answerNameModelTibia;
     boneName = 'tibiaL_rotated.vtp';
     cTibiaL = sprintf('%s_%s' ,modelName,boneName);
-    placeNameTibia = sprintf('%s', direct, place, cTibiaL);
+    placeNameTibia = sprintf('%s', direct, tibia_folder, cTibiaL);
     FID_tibiaL = fopen(placeNameTibia,'w');
     fprintf(FID_tibiaL,Tibia_rotated);
     fclose(FID_tibiaL);
@@ -682,3 +686,15 @@ fprintf(FID_marker,markersetup_rotatedtibia);
 fclose(FID_marker);
 disp('New marker set has been saved')
 cd ..
+
+% split the figures across the screen (BG, Nov 2022)
+[x,y,w,h] = matWinPos; 
+
+f = figure(1);
+f.Position(1) = 10;
+
+f = figure(2);
+f.Position(1) = w/4;
+
+f = figure(3);
+f.Position(1) = w/4*2;

@@ -24,11 +24,9 @@
 % answerMarkerset =  % string
 % which_leg = % string (L or R)
 % angle = % in degrees
-%
-% Edited Nove, 2022, Basilio Goncalves
-
 function [ ready ] = make_PEmodel( answerModel, deformed_model, answerMarkerSet, deform_bone, which_leg, angle, angle_NS)
-     
+
+
 % the path to save the deformed model
 place = [cd '\DEFORMED_MODEL\'];
 
@@ -37,9 +35,18 @@ if  ~exist(place,"dir")
 end 
 
 % what model you want to deform
-answerModel_tmp = [answerModel];
-answerMarkerSet_tmp = [answerMarkerSet];
-
+if strcmp(which_leg, 'R') == 1 &&  strcmp(deform_bone, 'F') == 1
+        answerModel_tmp = [answerModel];
+        answerMarkerSet_tmp = [answerMarkerSet];
+else
+    answerModel_tmp = [place answerModel];
+    answerMarkerSet_tmp = [place answerMarkerSet];    
+    %if template models don't exist copy from main folder 
+    if  ~exist(answerModel_tmp,"file")
+        copyfile(answerModel,answerModel_tmp)
+        copyfile(answerMarkerSet,answerMarkerSet_tmp)
+    end 
+end
 dataModel = xml2struct(answerModel_tmp);
 
 % what you want to name the deformed model
