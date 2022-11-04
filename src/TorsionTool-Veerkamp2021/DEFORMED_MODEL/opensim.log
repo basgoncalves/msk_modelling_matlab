@@ -70,3 +70,22 @@
 [2022-11-03 12:48:19.780] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
 [2022-11-03 14:15:54.671] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData\GenericModel\Ref_scaled_opt_N10_2times2392Fmax.osim
 [2022-11-03 15:58:29.114] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData\GenericModel\Ref_scaled_opt_N10_2times2392Fmax.osim
+[2022-11-04 10:37:10.222] [info] Updating Model file from 20303 to latest format...
+[2022-11-04 10:37:10.358] [info] Loaded model 3DGaitModel2392 from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\gait2392_genericsimpl.osim
+[2022-11-04 10:37:10.488] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-04 10:37:10.490] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-04 12:16:41.023] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\models\Ref_scaled_opt_N10_2times2392Fmax.osim
+[2022-11-04 12:18:53.646] [info] Updating Model file from 20303 to latest format...
+[2022-11-04 12:18:53.706] [info] Loaded model 3DGaitModel2392 from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\gait2392_genericsimpl.osim
+[2022-11-04 12:18:53.709] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-04 12:18:53.711] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-04 12:19:39.254] [info] Updating Model file from 20303 to latest format...
+[2022-11-04 12:19:39.320] [info] Loaded model 3DGaitModel2392 from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\gait2392_genericsimpl.osim
+[2022-11-04 12:19:39.322] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-04 12:19:39.325] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-04 12:26:01.290] [info] Updating Model file from 20303 to latest format...
+[2022-11-04 12:26:01.343] [info] Loaded model 3DGaitModel2392 from file C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\gait2392_genericsimpl.osim
+[2022-11-04 12:26:01.346] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2022-11-04 12:26:01.348] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2022-11-04 12:26:04.177] [info] Loaded model Ante15_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\HansSimulations\models\Ante15_scaled_opt_N10_2times2392Fmax.osim
+[2022-11-04 12:28:57.766] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\models\Ref_scaled_opt_N10_2times2392Fmax.osim
