@@ -39,7 +39,7 @@ else
 end
 
 % The muscle attachments for the femur are put in one matrix.
-[femurMuscle, femurPlace1, femurNR] = femur_MA(dataModel, answerLeg, rightbone);
+[femurMuscle, femurPlace1, femurNR] = femur_MA(dataModel, answerLeg);
 %Find the markers attached to the femur in OpenSim
 [~, ~, ~, ~, markerFemur, markerFemurNR] = OpenSimMarkers(markerset, answerLeg, rightbone);
 
@@ -481,7 +481,7 @@ modelNamePrint = sprintf('%s_%s' ,modelName,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model';%modelNamePrint; 
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-cd functions
+% cd functions
 Model2392_rotatedfemur = struct2xml(dataModel);
 %name and placement of the femoral bone file
 placeNameModel = sprintf('%s',direct, place, modelName, '.osim');
@@ -490,7 +490,7 @@ FID_model = fopen(placeNameModel,'w');
 fprintf(FID_model,Model2392_rotatedfemur);
 fclose(FID_model);
 
-disp('New model file has been saved')
+disp(['New model file has been saved in ' placeNameModel])
 
 % export the the marker setup for the scaling tool in opensim
 markersetup_rotatedfemur = struct2xml(markerset);
@@ -502,7 +502,20 @@ placeNameMarkers = sprintf('%s', direct, place, markerNameOut);
 FID_markers = fopen(placeNameMarkers,'w');
 fprintf(FID_markers,markersetup_rotatedfemur);
 fclose(FID_markers);
-disp('New marker set has been saved')
+disp(['New marker set has been saved in ' placeNameMarkers])
 
-cd ..
+% cd ..
 
+% split the figures across the screen (BG, Nov 2022)
+[x,y,w,h] = matWinPos; 
+
+f = figure(1);
+f.Position(1) = 10;
+
+f = figure(2);
+f.Position(1) = w/4;
+
+f = figure(3);
+f.Position(1) = w/4*2;
+
+close all

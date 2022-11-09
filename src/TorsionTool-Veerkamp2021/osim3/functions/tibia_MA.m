@@ -1,5 +1,5 @@
 
-function [TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA_Test(dataModel, answerLeg)
+function [TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA(dataModel, answerLeg)
 %%
 muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 

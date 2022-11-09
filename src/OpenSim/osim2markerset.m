@@ -5,6 +5,9 @@ function osim2markerset(osim_model_path)
 
 disp('loading model ...')
 model = xml_read(osim_model_path);      % load model 
+
+model2 = xml_read('C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\MarkerSet.xml')
+
 disp('model loaded!')
 
 makerset_path = fileparts(osim_model_path);

@@ -7,12 +7,10 @@ activeFile = matlab.desktop.editor.getActive;                                   
 MSKmodellingdir  = fileparts(fileparts(fileparts(activeFile.Filename))); 
 addpath(genpath(MSKmodellingdir));                     
 
-osim_version = 'osim4';                                                                                             % just the verions number before the "." (e.g. 3.2 and 3.3 = "osim3")
-torsion_tool_path = ([MSKmodellingdir fp 'src\TorsionTool-Veerkamp2021' fp osim_version]);
+osim_version = '4';
+torsion_tool_path = ([MSKmodellingdir fp 'src\TorsionTool-Veerkamp2021' fp 'osim' osim_version]);
 rmpath(genpath(fileparts(torsion_tool_path)))
-addpath(genpath(torsion_tool_path))
-
-disp(['using torsion tool for ' osim_version])
+addpath(torsion_tool_path)
 
 mainDir = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\';
 cd([mainDir 'models'])
