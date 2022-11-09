@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt     		              %
+%    Hulda J髇asd髏tir, Marjolein M. van der Krogt     		              %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
+%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %
@@ -54,8 +54,8 @@ markerset = 'MarkerSet.xml';
 
 deform_bone = 'F'; 
 which_leg = 'R'; 
-angle_AV_right = 17.6; % right anteversion angle (in degrees) %
-angle_NS_right = 123.3; % right neck-shaft angle (in degrees) %
+angle_AV_right = 18; % left anteversion angle (in degrees) - default 17.6
+angle_NS_right = 123; % left neck-shaft angle (in degrees) - default 123.3
 deformed_model = ['rightNSA' num2str(angle_NS_right) '_rightAVA' num2str(angle_AV_right) ];
 
 make_PEmodel( model, deformed_model, markerset, deform_bone, which_leg, angle_AV_right, angle_NS_right);
@@ -66,14 +66,14 @@ markerset = [deformed_model '_' markerset];
 
 deform_bone = 'F'; 
 which_leg = 'L'; 
-angle_AV_left = 17.6; % left anteversion angle (in degrees) %
-angle_NS_left = 123.3; % left neck-shaft angle (in degrees) %
+angle_AV_left = 18; % left anteversion angle (in degrees) - default 17.6
+angle_NS_left = 123; % left neck-shaft angle (in degrees) - default 123.3
 deformed_model = [ 'leftNSA' num2str(angle_NS_left) '_leftAVA' num2str(angle_AV_left)]; 
 make_PEmodel( model, deformed_model, markerset, deform_bone, which_leg, angle_AV_left, angle_NS_left);
 
 %% right tibia
-model = [deformed_model '.osim']; 
-markerset = [deformed_model '_' markerset]; 
+% model = [deformed_model '.osim']; 
+% markerset = [deformed_model '_' markerset]; 
 
 model = 'gait2392_genericsimpl.osim'; 
 markerset = 'MarkerSet.xml'; 

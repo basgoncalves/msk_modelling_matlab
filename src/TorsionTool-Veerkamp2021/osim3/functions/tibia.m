@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt      		          %
+%    Hulda J髇asd髏tir, Marjolein M. van der Krogt      		          %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
+%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %
@@ -29,8 +29,8 @@ function     tibia(dataModel, markerset, answerLeg, rightbone, TT_angle, answerN
 close all
 fp = filesep;
 %% Find the muscle attachment on the tibia, calcn, talus and toes and place in a matrix
-[TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA(dataModel, answerLeg, rightbone);
-[TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA_Test(dataModel, answerLeg);
+[TibiaMuscles, TibiaPlace1, TibiaNR, CalcnMuscles, CalcnPlace1, CalcnNR, ToesMuscles, ToesPlace1, ToesNR ] = tibia_MA(dataModel, answerLeg);
+
 % The vertices for the bone are rotated to fit the coordinate system in MATLAB
 [TibiaMuscles_start] = coordinatesCorrection(TibiaMuscles);
 [CalcnMuscles_start] = coordinatesCorrection(CalcnMuscles);
@@ -427,7 +427,7 @@ dataTibia.VTKFile.PolyData.Piece.Points.DataArray.Text = tibia_Repared;
 Tibia_rotated = struct2xml(dataTibia);
 %name and placement of the tibia bone file
 direct = [];
-tibia_folder = [fileparts(fileparts(place)) fp 'tibia' fp];
+tibia_folder = [fileparts(fileparts(place)) fp];
 % export - write the model as an xml  - remember to save as a vtp file
 if strcmp(answerLeg, rightbone) == 1
     modelName = answerNameModelTibia;
@@ -448,7 +448,7 @@ else
 end
 
 %change the name of the tibia in the gait2392 model file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,4}.VisibleObject...
         .GeometrySet.objects.DisplayGeometry{1,1}.geometry_file.Text = cTibiaR;
 else
@@ -465,7 +465,7 @@ dataTalus.VTKFile.PolyData.Piece.Points.DataArray.Text = talus_Repared;
 % convert the struct back to xml file
 Talus_rotated = struct2xml(dataTalus);
 % export - write the model as an xml  - remember to save as a vtp file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     modelName = answerNameModelTibia;
     boneName = 'talusR_rotated.vtp';
     cTalusR = sprintf('%s_%s' ,modelName,boneName);
@@ -485,7 +485,7 @@ end
 
 
 %change the name of the tibia in the gait2392 model file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,5}.VisibleObject...
         .GeometrySet.objects.DisplayGeometry.geometry_file.Text = cTalusR;
 else
@@ -502,7 +502,7 @@ dataCalcn.VTKFile.PolyData.Piece.Points.DataArray.Text = calcn_Repared;
 % convert the struct back to xml file
 Calcn_rotated = struct2xml(dataCalcn);
 % export - write the model as an xml  - remember to save as a vtp file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     modelName = answerNameModelTibia;
     boneName = 'calcnR_rotated.vtp';
     cCalcnR = sprintf('%s_%s' ,modelName,boneName);
@@ -521,7 +521,7 @@ else
 end
 
 %change the name of the tibia in the gait2392 model file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,6}.VisibleObject...
         .GeometrySet.objects.DisplayGeometry.geometry_file.Text = cCalcnR; 
 else
@@ -538,7 +538,7 @@ dataToes.VTKFile.PolyData.Piece.Points.DataArray.Text = toes_Repared;
 % convert the struct back to xml file
 Toes_rotated = struct2xml(dataToes);
 % export - write the model as an xml  - remember to save as a vtp file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     modelName = answerNameModelTibia;
     boneName = 'toesR_rotated.vtp';
     cToesR = sprintf('%s_%s' ,modelName,boneName);
@@ -558,7 +558,7 @@ end
 
 
 %change the name of the tibia in the gait2392 model file
-if strcmp(answerLeg, rightbone) == 1;
+if strcmp(answerLeg, rightbone) == 1
     dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,7}.VisibleObject...
         .GeometrySet.objects.DisplayGeometry.geometry_file.Text = cToesR;
 else
@@ -580,12 +580,12 @@ for i = 1:size(ToesMuscles,1)
         .GeometryPath.PathPointSet.objects.(string_toes(1:9)){1,str2num(string_toes(13))}.location.Text = toes_MA_OpenSim(i,:);
 end
 for i = 1:size(TibiaMuscles,1)
-    if size(TibiaPlace1{i,1},2) == 14 ;
+    if size(TibiaPlace1{i,1},2) == 14 
         musclenr_tibia = TibiaNR(i,:);
         string_tibia = TibiaPlace1{i,:};
         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
             .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
-    elseif size(TibiaPlace1{i,1},2) == 20;
+    elseif size(TibiaPlace1{i,1},2) == 20
         musclenr_tibia = TibiaNR(i,:);
         string_tibia = TibiaPlace1{i,:};
         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
@@ -611,13 +611,13 @@ modelNamePrint = sprintf('%s_%s' ,modelName,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model';%modelNamePrint; 
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-cd functions
+% cd functions
 Model2392_rotatedtibia = struct2xml(dataModel);
 %name and placement of the femoral bone file
 if strcmp(answerLeg,rightbone) == 1
-placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
+    placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
 else
-placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
+    placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
 end
 %write the model as an xml file
 FID_model = fopen(placeNameModel,'w');
@@ -626,6 +626,7 @@ fclose(FID_model);
 
 %% the pathpoints in the file are in the wrong order, because conditional pathpoints are put last when printed -> this corrects them to be in the right order
 file=importdata(placeNameModel);
+% file =  importdata('C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\gait2392_genericsimpl.osim')
 % right leg
 file_out = file(1:1881+4);
 
@@ -661,15 +662,15 @@ end
 %%
 
 if strcmp(answerLeg,rightbone) == 1
-placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
+    placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
 else
-placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
+    placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
 end
 FID_model2 = fopen(placeNameModel,'w');
 fprintf(FID_model2,'%10s\n',file_out{:});
 fclose(FID_model2);
+disp(['New model file has been saved in ' placeNameModel])
 
-disp('New model file has been saved')
 
 % export the the marker setup for the scaling tool in opensim
 markersetup_rotatedtibia = struct2xml(markerset);
@@ -678,15 +679,15 @@ markersName= answerNameMarkerTibia;
 markerNameOut = sprintf('%s_%s', modelName, markersName);
 %name and placement of the femoral bone file
 if strcmp(answerLeg,rightbone) == 1
-placeNameMarker = sprintf('%s', direct, place, markerNameOut);
+    placeNameMarker = sprintf('%s', direct, place, markerNameOut);
 else
-placeNameMarker = sprintf('%s', direct, place, 'FINAL_MARKERSET.xml');
+    placeNameMarker = sprintf('%s', direct, place, 'FINAL_MARKERSET.xml');
 end
 FID_marker = fopen(placeNameMarker,'w');
 fprintf(FID_marker,markersetup_rotatedtibia);
 fclose(FID_marker);
-disp('New marker set has been saved')
-cd ..
+disp(['New marker set has been saved in ' placeNameMarker])
+% cd ..
 
 % split the figures across the screen (BG, Nov 2022)
 [x,y,w,h] = matWinPos; 
