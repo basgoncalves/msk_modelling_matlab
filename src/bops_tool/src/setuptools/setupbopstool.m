@@ -13,6 +13,7 @@ setupDir    = fileparts(mfilename('fullpath'));
 dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
 templateDir = [fileparts(fileparts(setupDir)) fp 'Templates'];
 
+
 if nargin < 1
    UseCurrentSessitngs = 0; 
 end
