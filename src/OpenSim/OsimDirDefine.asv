@@ -37,10 +37,20 @@ end
 
 DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
 
-checkOSimVersion
-
 % NewPath = [getenv('PATH') [DirOpenSim fp 'bin' fp]];
 % setenv('PATH', NewPath);
+
+if contains(DirOpenSim,'OpenSim 3.')
+    DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
+elseif contains(DirOpenSim,'OpenSim 4.')
+    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
+    
+    if ~isfolder(DirOpenSimMatlab)
+        msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');
+        uiwait(msg)
+    end
+    
+end
 
 addpath(genpath(DirOpenSimMatlab));
 try
@@ -144,25 +154,6 @@ isAdmin = System.Security.Principal.WindowsPrincipal(...
     System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
     System.Security.Principal.WindowsBuiltInRole.Administrator);
 
-
-function checkOSimVersion(osimVersionBops)
-
-DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
-
-if contains(DirOpenSim,'OpenSim 3.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
-elseif contains(DirOpenSim,'OpenSim 4.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
-    
-    if ~isfolder(DirOpenSimMatlab)
-        msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');
-        uiwait(msg)
-        selectOsimVersion
-    end
-    
-end
-
-
 function selectOsimVersion()
 
 FilesInC = cellstr(ls(['C:' fp ]));
@@ -177,3 +168,4 @@ osimVersionBops = InstalledVersions{indx};
 bops.osimVersion = str2double(osimVersionBops);
 
 xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
+
