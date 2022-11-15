@@ -32,12 +32,12 @@ else
 end
 
 if contains(answer,'No')
-    selectOsimVersion
+    selectOsimVersion(bops)
 end
 
 DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
 
-checkOSimVersion
+checkOSimVersion(osimVersionBops)
 
 % NewPath = [getenv('PATH') [DirOpenSim fp 'bin' fp]];
 % setenv('PATH', NewPath);
@@ -110,70 +110,75 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Change text in the java paths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function isNewText = changeTxt(path,txt)
-
-try
-    original_txt = char(importdata(path));
-catch
-    writematrix([],path);
-    original_txt = char(importdata(path));
-end
-
-isNewText = zeros(1,size(original_txt,1));
-if length(isNewText) < 1
-    isNewText = 1;
-else
-    for i = 1:size(original_txt,1)
-        if contains(original_txt(i,:),txt)
-            isNewText(i) = 0;
+    function isNewText = changeTxt(path,txt)
+        
+        try
+            original_txt = char(importdata(path));
+        catch
+            writematrix([],path);
+            original_txt = char(importdata(path));
+        end
+        
+        isNewText = zeros(1,size(original_txt,1));
+        if length(isNewText) < 1
+            isNewText = 1;
         else
-            isNewText(i) = 1;
+            for i = 1:size(original_txt,1)
+                if contains(original_txt(i,:),txt)
+                    isNewText(i) = 0;
+                else
+                    isNewText(i) = 1;
+                end
+            end
+        end
+        isNewText = min(isNewText);
+        
+        if isNewText == 1
+            writematrix(txt,path)
         end
     end
-end
-isNewText = min(isNewText);
-
-if isNewText == 1
-    writematrix(txt,path)
-end
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% Change text in the java paths %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function isAdmin = checkAdminOn
-
-isAdmin = System.Security.Principal.WindowsPrincipal(...
-    System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
-    System.Security.Principal.WindowsBuiltInRole.Administrator);
-
-
-function checkOSimVersion(osimVersionBops)
-
-DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
-
-if contains(DirOpenSim,'OpenSim 3.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
-elseif contains(DirOpenSim,'OpenSim 4.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
-    
-    if ~isfolder(DirOpenSimMatlab)
-        msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');
-        uiwait(msg)
-        selectOsimVersion
+    function isAdmin = checkAdminOn
+        
+        isAdmin = System.Security.Principal.WindowsPrincipal(...
+            System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
+            System.Security.Principal.WindowsBuiltInRole.Administrator);
+        
     end
-    
+    function checkOSimVersion(osimVersionBops)
+        
+        DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
+        
+        if contains(DirOpenSim,'OpenSim 3.')
+            DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
+        elseif contains(DirOpenSim,'OpenSim 4.')
+            DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
+            
+            if ~isfolder(DirOpenSimMatlab)
+                msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');
+                uiwait(msg)
+                selectOsimVersion
+            end
+            
+        end
+        
+    end
+    function selectOsimVersion()
+        
+        FilesInC = cellstr(ls(['C:' fp ]));
+        OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
+        
+        InstalledVersions = (strrep(OpenSimFolders,'OpenSim ',''));
+        msg = 'These OpenSim versions are currently installed in "C:/", please seletect one';
+        
+        [indx,~] = listdlg('PromptString',msg,'ListString',InstalledVersions);
+        osimVersionBops = InstalledVersions{indx};
+        
+        bops.osimVersion = str2double(osimVersionBops);
+        
+        xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
+        
+    end
+
 end
 
-
-function selectOsimVersion()
-
-FilesInC = cellstr(ls(['C:' fp ]));
-OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
-
-InstalledVersions = (strrep(OpenSimFolders,'OpenSim ',''));
-msg = 'These OpenSim versions are currently installed in "C:/", please seletect one';
-
-[indx,~] = listdlg('PromptString',msg,'ListString',InstalledVersions);
-osimVersionBops = InstalledVersions{indx};
-
-bops.osimVersion = str2double(osimVersionBops);
-
-xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
