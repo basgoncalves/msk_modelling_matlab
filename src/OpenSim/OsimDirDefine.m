@@ -37,6 +37,7 @@ end
 
 DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
 
+DirOpenSimMatlab = '';
 checkOSimVersion(osimVersionBops)
 
 % NewPath = [getenv('PATH') [DirOpenSim fp 'bin' fp]];
