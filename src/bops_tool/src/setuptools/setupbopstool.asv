@@ -25,11 +25,13 @@ try cd(dataDir)
         answer = 'Yes';
     end
 catch
-    answer = 'No';
-end
- 
-if ~isfolder(dataDir) || isequal(answer,'No')                                                                       % check data folder
+    disp('DataDir does not exist, slect a new one')
     dataDir = uigetdir([],'Select your "DataFolder" '); 
+    writematrix(dataDir,[setupDir fp 'data_directory.dat'])    
+end
+
+if ~isfolder(dataDir) || isequal(answer,'No')                                                                       % check data folder
+    dataDir = uigetdir('Select your "DataFolder" ',fileparts(dataDir)); 
     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
 end
 

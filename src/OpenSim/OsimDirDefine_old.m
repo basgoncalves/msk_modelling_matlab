@@ -20,9 +20,9 @@ fp = filesep;
 originalDir = cd;
 bops = load_setup_bops;
 osimVersionBops = num2str(bops.osimVersion);
-
+    
 if nargin < 1
-    CheckOsimVersion = 0;
+   CheckOsimVersion = 0; 
 end
 
 if CheckOsimVersion==0
@@ -32,24 +32,39 @@ else
 end
 
 if contains(answer,'No')
-    selectOsimVersion
+    FilesInC = cellstr(ls(['C:' fp ]));
+    OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
+    
+    InstalledVersions = (strrep(OpenSimFolders,'OpenSim ',''));
+    msg = 'These OpenSim versions are currently installed in "C:/", please seletect one';
+    
+    [indx,~] = listdlg('PromptString',msg,'ListString',InstalledVersions);                                                                                                                                            
+    osimVersionBops = InstalledVersions{indx};
+    
+    bops.osimVersion = str2double(osimVersionBops);
+    
+    xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
 end
 
-DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
-
-checkOSimVersion
+DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops]; 
 
 % NewPath = [getenv('PATH') [DirOpenSim fp 'bin' fp]];
 % setenv('PATH', NewPath);
 
-addpath(genpath(DirOpenSimMatlab));
-try
-    cd(DirOpenSimMatlab)
+if contains(DirOpenSim,'OpenSim 3.')
+    DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
+elseif contains(DirOpenSim,'OpenSim 4.')
+    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
     
-catch
+    if ~isfolder(DirOpenSimMatlab)
+       msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');  
+       uiwait(msg)
+    end
     
 end
 
+addpath(genpath(DirOpenSimMatlab));
+cd(DirOpenSimMatlab)
 
 import org.opensim.modeling.*
 try installedOsimVersion = char(org.opensim.modeling.opensimCommon.GetVersion());
@@ -65,24 +80,24 @@ changeTxt(fullfile(prefdir, 'javalibrarypath.txt'),[DirOpenSim fp 'bin']);
 
 if ~contains(installedOsimVersion(1:3),osimVersionBops)
     
-    if checkAdminOn == 0
-        msg = msgbox(['Trying to configure OpenSim ' osimVersionBops '. Please run Matlab in Admin mode']);
-        uiwait(msg)
-        error('OpenSim not configured, please restar matlab in admin mode and run "OsimDirDefine.m" ')
+    if checkAdminOn == 0    
+       msg = msgbox(['Trying to configure OpenSim ' osimVersionBops '. Please run Matlab in Admin mode']);
+       uiwait(msg)
+       error('OpenSim not configured, please restar matlab in admin mode and run "OsimDirDefine.m" ')
     else
-        msg = msgbox(['Configure OpenSim ' osimVersionBops '. Please select the folder where opensim is installed']);
-        uiwait(msg)
+       msg = msgbox(['Configure OpenSim ' osimVersionBops '. Please select the folder where opensim is installed']);
+       uiwait(msg)
     end
     configureOpenSim
     addpath(genpath(DirUp(bops.directories.bops,3)));
     
-    msg = msgbox(['OpenSim ' osimVersionBops ' configured. Please add ' DirOpenSim fp 'bin to the System and Enviroment Path of Windows']);
-    uiwait(msg)
-    msg = msgbox(['Find instructions in ' fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide']);
-    uiwait(msg)
-    winopen([fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide'])
-    error(['OpenSim ' osimVersionBops ' has been configured but API will not work  util "' DirOpenSim fp 'bin" is added to the System and User Path of Windows' ])
-    
+     msg = msgbox(['OpenSim ' osimVersionBops ' configured. Please add ' DirOpenSim fp 'bin to the System and Enviroment Path of Windows']);
+     uiwait(msg)
+     msg = msgbox(['Find instructions in ' fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide']);
+     uiwait(msg)
+     winopen([fileparts(bops.directories.bops) fp 'OpenSim\Windows_Install_Guide'])
+     error(['OpenSim ' osimVersionBops ' has been configured but API will not work  util "' DirOpenSim fp 'bin" is added to the System and User Path of Windows' ])
+     
 elseif ~exist('org.opensim.modeling.Model')
     warning on
     warning ([sprintf('OpensSim %s is not configured \n ',osimVersionBops), ...
@@ -143,37 +158,3 @@ function isAdmin = checkAdminOn
 isAdmin = System.Security.Principal.WindowsPrincipal(...
     System.Security.Principal.WindowsIdentity.GetCurrent()).IsInRole(...
     System.Security.Principal.WindowsBuiltInRole.Administrator);
-
-
-function checkOSimVersion(osimVersionBops)
-
-DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
-
-if contains(DirOpenSim,'OpenSim 3.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
-elseif contains(DirOpenSim,'OpenSim 4.')
-    DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
-    
-    if ~isfolder(DirOpenSimMatlab)
-        msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');
-        uiwait(msg)
-        selectOsimVersion
-    end
-    
-end
-
-
-function selectOsimVersion()
-
-FilesInC = cellstr(ls(['C:' fp ]));
-OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));
-
-InstalledVersions = (strrep(OpenSimFolders,'OpenSim ',''));
-msg = 'These OpenSim versions are currently installed in "C:/", please seletect one';
-
-[indx,~] = listdlg('PromptString',msg,'ListString',InstalledVersions);
-osimVersionBops = InstalledVersions{indx};
-
-bops.osimVersion = str2double(osimVersionBops);
-
-xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);
