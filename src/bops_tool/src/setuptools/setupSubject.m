@@ -22,8 +22,6 @@ end
 
 %% Predifine the directories to be used
 
-subjectInfo = getSubjectInfo(subject); 
-
 mainDataDir = bops.directories.mainData;                                                                            % Directory of "Data" containing "BOPS", "InputData", "visual3D",...)
 
 directories.Input = [mainDataDir fp 'InputData' fp subject fp session];
@@ -54,6 +52,12 @@ directories.CEINMSsetup = [directories.CEINMS fp 'execution' fp 'Setup'];
 directories.CEINMScfg = [directories.CEINMS fp 'execution' fp 'Cfg'];
 directories.CEINMSsimulations = [directories.CEINMS fp 'execution' fp 'simulations'];
 directories.CEINMStrials = [directories.CEINMS fp 'trials'];
+
+try
+subjectInfo = getSubjectInfo(subject); 
+catch
+    
+end
 
 resultsDir = bops.directories.Results;
 directories.Results_RRA = [resultsDir fp 'RRA' fp subjectInfo.ID];                                                  % results directories per subject                                                         

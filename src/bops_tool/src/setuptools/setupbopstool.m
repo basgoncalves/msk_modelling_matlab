@@ -18,14 +18,18 @@ if nargin < 1
    UseCurrentSessitngs = 0; 
 end
 
-if isfolder(dataDir) && UseCurrentSessitngs == 0
-    answer = questdlg(sprintf('do you want to use data directory: \n %s',dataDir));
-else
-    answer = 'Yes';
+try cd(dataDir)
+    if isfolder(dataDir) && UseCurrentSessitngs == 0
+        answer = questdlg(sprintf('Is this your data directory? \n %s',dataDir));
+    else
+        answer = 'Yes';
+    end
+catch
+    answer = 'No';
 end
-
+ 
 if ~isfolder(dataDir) || isequal(answer,'No')                                                                       % check data folder
-    dataDir = uigetdir(fileparts(dataDir)); 
+    dataDir = uigetdir([],'Select your "DataFolder" '); 
     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
 end
 
