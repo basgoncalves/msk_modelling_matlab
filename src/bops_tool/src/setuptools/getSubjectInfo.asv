@@ -48,7 +48,8 @@ end
         Info.Sex = 'M';
         Info.ToProcess = '1';
         definput = struct2cell(Info);
-        Info = inputdlg(prompt,dlgtitle,dims,definput);
+        answer = inputdlg(prompt,dlgtitle,dims,definput);
+        Info = cellS
     end
 
 end
