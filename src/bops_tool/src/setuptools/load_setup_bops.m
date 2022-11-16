@@ -12,6 +12,9 @@ catch; setupbopstool
 %     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
 end
 
+
+% your mum sucks 
+
 setupfileDir = [dataDir fp 'bopsSettings.xml'];
 
 Pref = struct;
