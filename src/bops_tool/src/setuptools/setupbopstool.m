@@ -28,6 +28,11 @@ catch
     answer = 'No';
 end
  
+if isequal(answer,'Cancel')
+    disp('user canceled setup bops')
+    return
+end
+
 if ~isfolder(dataDir) || isequal(answer,'No')                                                                       % check data folder
     dataDir = uigetdir([],'Select your "DataFolder" '); 
     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
