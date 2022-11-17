@@ -18,8 +18,7 @@ for col = 1: size (Data,2)
         TimeNormalizedData(1:101,col)= NaN;
         continue
     end
-    
-    
+     
     timeTrial = 0:1/fs:size(currentData,1)/fs;
     timeTrial(end)=[];
     Tnorm = timeTrial(end)/101:timeTrial(end)/101:timeTrial(end);
