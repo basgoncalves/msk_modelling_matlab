@@ -6,30 +6,33 @@ bops = load_setup_bops;
 if isfolder(bops.directories.InputData) && ~isempty(getfolders(bops.directories.InputData))
     subjects = ls(bops.directories.InputData);
     subjects = cellstr(subjects); subjects(1:2) =[];  % delete rows '.' and '..'
-    subjectDataExist = 1;
 
 elseif isfolder(bops.directories.ElaboratedData) && ~isempty(getfolders(bops.directories.ElaboratedData))
     subjects = ls(bops.directories.ElaboratedData);
     subjects = cellstr(subjects); subjects(1:2) =[];  % delete rows '.' and '..'
-    subjectDataExist = 1;
 
 else
-    subjectDataExist = 0;
-end
-
-if subjectDataExist == 1
-    answer = questdlg(['Do you want to analyse ONLY the currently selected subjects: ' bops.subjects]);
-    if contains(answer,'Yes')
-        subjects = bops.subjects;
-        return
-    end
-
-else
-    disp('no subject data exist in "InputData" or "ElaboratedData" folders, generating paths')                      % auto generate generic paths          
-    pause(1.2)
     
-
 end
+
+if 
+    answer = questdlg(['Do you want to analyse ONLY the currently selected subjects: ' bops.subjects]);
+if contains(answer,'Yes')
+    subjects = bops.subjects;
+    return
+end
+
+
+else
+    disp('no subject data exist in "InputData" or "ElaboratedData" folders, generating ')
+    wait(2)
+    subject = {'s001'};
+    session = {'session1'};
+    mkdir([bops.directories.InputData fp subject{1} fp session{1}])
+    mkdir([bops.directories.ElaboratedData fp subject{1} fp session{1}])
+    
+end
+
 
 
 csv_dir = [bops.directories.subjectInfoCSV];
