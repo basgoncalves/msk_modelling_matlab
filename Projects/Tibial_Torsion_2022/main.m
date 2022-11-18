@@ -13,27 +13,31 @@ rmpath(genpath(fileparts(torsion_tool_path)))
 addpath(genpath(torsion_tool_path))
 
 disp(['using torsion tool for ' osim_version])
-
-mainDir = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\';
-cd([mainDir 'models'])
+% 
+% mainDir = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\models';
+% model = 'gait2392_genericsimpl_v44.osim';
 
 mainDir = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim4\';
-cd([mainDir])
-% model = ['Ref_scaled_opt_N10_2times2392Fmax.osim']; 
-% 
-% mainDir = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021';
-% cd([mainDir])
-model = 'gait2392_genericsimpl_v44.osim';
+model = 'gait2392_genericsimplOS4.osim'; 
+
 markerset = ['MarkerSet.xml']; 
+cd([mainDir])
 
 if ~exist(markerset,'file')
     osim2markerset(model)
 end
 
 legs = {'R'};
-femurAnteversion    = [];
-femurNeck_shaft     = [];
-tibialTorsion       = [-30,-15,0,15,30];
+
+original_AV = 17.6; % anteversion angle (in degrees) %
+original_NS = 123.3; % neck-shaft angle (in degrees) %
+original_TT = 0;
+
+
+femurAnteversion    = original_AV + [];
+femurNeck_shaft     = original_NS + [];
+tibialTorsion       =  original_TT + [-30,-15,0,15,30];
+
 
 [m,n] = ndgrid(femurAnteversion,femurNeck_shaft);
 femurCombos = [m(:),n(:)];

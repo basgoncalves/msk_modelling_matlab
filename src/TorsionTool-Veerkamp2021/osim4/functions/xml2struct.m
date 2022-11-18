@@ -41,8 +41,11 @@ function [ s ] = xml2struct( file )
         if (exist(file,'file') == 0)
             %Perhaps the xml extension was omitted from the file name. Add the
             %extension and try again.
-            if (isempty(strfind(file,'.xml')))
+            [~,~,ext] = fileparts(file);
+            if isempty(ext)
                 file = [file '.xml'];
+            elseif ~contains(ext, 'xml') && ~contains(ext, 'osim')
+                error('file extension should be .xml or .osim')
             end
             
             if (exist(file,'file') == 0)
