@@ -201,7 +201,9 @@ femur/femur_r.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>R_TT_minus30_tibiaR_rotated.vtp</mesh_file>
+                     <mesh_file>
+tibia/tibia_r.vtp
+</mesh_file>
                   </Mesh>
                   <Mesh name="tibia_r_geom_2">
                      <socket_frame>
@@ -262,7 +264,9 @@ fibula.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>R_TT_minus30_talusR_rotated.vtp</mesh_file>
+                     <mesh_file>
+talus/talus.vtp
+</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -304,7 +308,9 @@ fibula.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>R_TT_minus30_calcnR_rotated.vtp</mesh_file>
+                     <mesh_file>
+calcn/foot.vtp
+</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -346,7 +352,9 @@ fibula.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>R_TT_minus30_toesR_rotated.vtp</mesh_file>
+                     <mesh_file>
+toes/bofoot.vtp
+</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -432,9 +440,7 @@ femur/femur_l.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>
-tibia/tibia_l.vtp
-</mesh_file>
+                     <mesh_file>rightNSA123.3_rightAVA17.6_tibiaL_rotated.vtp</mesh_file>
                   </Mesh>
                   <Mesh name="tibia_l_geom_2">
                      <socket_frame>
@@ -495,9 +501,7 @@ fibula_l.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>
-talus/l_talus.vtp
-</mesh_file>
+                     <mesh_file>rightNSA123.3_rightAVA17.6_talusL_rotated.vtp</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -539,9 +543,7 @@ talus/l_talus.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>
-calcn/l_foot.vtp
-</mesh_file>
+                     <mesh_file>rightNSA123.3_rightAVA17.6_calcnL_rotated.vtp</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -583,9 +585,7 @@ calcn/l_foot.vtp
 1 1 1
 </color>
                      </Appearance>
-                     <mesh_file>
-toes/l_bofoot.vtp
-</mesh_file>
+                     <mesh_file>rightNSA123.3_rightAVA17.6_toesL_rotated.vtp</mesh_file>
                   </Mesh>
                </attached_geometry>
                <WrapObjectSet name="wrapobjectset">
@@ -1322,7 +1322,9 @@ false
                      <socket_parent>
 /bodyset/tibia_r
 </socket_parent>
-                     <translation>1.3165e-17 -0.43 -3.5275e-18</translation>
+                     <translation>
+0 -0.42999999999999999 0
+</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -1352,7 +1354,9 @@ false
                      <coordinates>
 ankle_angle_r
 </coordinates>
-                     <axis>0.39862 -0.17402 0.90046</axis>
+                     <axis>
+-0.10501355 -0.17402245 0.97912631999999999
+</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -1461,7 +1465,9 @@ true
                      <socket_parent>
 /bodyset/talus_r
 </socket_parent>
-                     <translation>-0.038276 -0.04195 0.031244</translation>
+                     <translation>
+-0.048770000000000001 -0.041950000000000001 0.00792
+</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -1491,7 +1497,9 @@ true
                      <coordinates>
 subtalar_angle_r
 </coordinates>
-                     <axis>0.63174 0.60475 -0.47501</axis>
+                     <axis>
+0.78717961000000003 0.60474746000000001 -0.12094949000000001
+</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -1600,7 +1608,9 @@ false
                      <socket_parent>
 /bodyset/calcn_r
 </socket_parent>
-                     <translation>0.15539 -0.002 -0.088465</translation>
+                     <translation>
+0.17879999999999999 -0.002 0.00108
+</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -1630,7 +1640,9 @@ false
                      <coordinates>
 mtp_angle_r
 </coordinates>
-                     <axis>-0.10907 1.076e-17 0.92915</axis>
+                     <axis>
+-0.58095439999999998 0 0.81393610999999999
+</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -2075,9 +2087,7 @@ false
                      <socket_parent>
 /bodyset/tibia_l
 </socket_parent>
-                     <translation>
-0 -0.42999999999999999 0
-</translation>
+                     <translation>7.9614e-18 -0.43 -1.2325e-18</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -2107,9 +2117,7 @@ false
                      <coordinates>
 ankle_angle_l
 </coordinates>
-                     <axis>
-0.10501355 0.17402245 0.97912631999999999
-</axis>
+                     <axis>0.39616 0.17402 0.90154</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -2218,9 +2226,7 @@ true
                      <socket_parent>
 /bodyset/talus_l
 </socket_parent>
-                     <translation>
--0.048770000000000001 -0.041950000000000001 -0.00792
-</translation>
+                     <translation>-0.048882 -0.04195 0.0071973</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -2250,9 +2256,7 @@ true
                      <coordinates>
 subtalar_angle_l
 </coordinates>
-                     <axis>
--0.78717961000000003 -0.60474746000000001 -0.12094949000000001
-</axis>
+                     <axis>-0.78702 -0.60475 0.13785</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -2361,9 +2365,7 @@ false
                      <socket_parent>
 /bodyset/calcn_l
 </socket_parent>
-                     <translation>
-0.17879999999999999 -0.002 -0.00108
-</translation>
+                     <translation>0.1701 -0.002 -0.055093</translation>
                      <orientation>
 0 0 0
 </orientation>
@@ -2393,9 +2395,7 @@ false
                      <coordinates>
 mtp_angle_l
 </coordinates>
-                     <axis>
-0.58095439999999998 0 0.81393610999999999
-</axis>
+                     <axis>0.79106 3.3286e-17 0.56128</axis>
                      <LinearFunction name="function">
                         <coefficients>
 1 0
@@ -3154,9 +3154,6 @@ true
 -0.027 -0.047710000000000002 -0.019570000000000001
 </location>
                         </PathPoint>
-                        <PathPoint>
-                           <location>-0.027 -0.04771 -0.01957</location>
-                        </PathPoint>
                         <ConditionalPathPoint name="semimem_r-P2">
                            <socket_parent_frame>
 /bodyset/tibia_r
@@ -3254,16 +3251,17 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.03322 -0.05282 -0.02288</location>
+                           <location>
+-0.011299999999999999 -0.0746 -0.024500000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="semiten_r-P5">
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0113 -0.0746 -0.0245</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.0027 -0.0956 -0.0193</location>
+                           <location>
+0.0027000000000000001 -0.095600000000000004 -0.019300000000000001
+</location>
                         </PathPoint>
                         <ConditionalPathPoint name="semiten_r-P2">
                            <socket_parent_frame>
@@ -3362,10 +3360,9 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0301 -0.036 0.02943</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>-0.0234 -0.0563 0.0343</location>
+                           <location>
+-0.023400000000000001 -0.056300000000000003 0.034299999999999997
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -3450,10 +3447,9 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0301 -0.036 0.02943</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>-0.0234 -0.0563 0.0343</location>
+                           <location>
+-0.023400000000000001 -0.056300000000000003 0.034299999999999997
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -3546,16 +3542,17 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0056 -0.0419 -0.0399</location>
+                           <location>
+0.0060000000000000001 -0.058900000000000001 -0.038300000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="sar_r-P5">
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.006 -0.0589 -0.0383</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.0243 -0.084 -0.0252</location>
+                           <location>
+0.024299999999999999 -0.084000000000000005 -0.0252
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -4047,9 +4044,6 @@ true
 0.0060000000000000001 -0.0487 0.029700000000000001
 </location>
                         </PathPoint>
-                        <PathPoint>
-                           <location>0.006 -0.0487 0.0297</location>
-                        </PathPoint>
                      </objects>
                      <groups/>
                   </PathPointSet>
@@ -4212,10 +4206,9 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.01943 -0.05153 -0.0358</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.006 -0.0836 -0.0228</location>
+                           <location>
+0.0060000000000000001 -0.083599999999999994 -0.022800000000000001
+</location>
                         </PathPoint>
                         <ConditionalPathPoint name="grac_r-P2">
                            <socket_parent_frame>
@@ -5638,9 +5631,6 @@ true
 0 0.031 -0.0053
 </location>
                         </PathPoint>
-                        <PathPoint>
-                           <location>-0.00265 0.031 -0.0045899</location>
-                        </PathPoint>
                         <ConditionalPathPoint name="med_gas_r-P2">
                            <socket_parent_frame>
 /bodyset/femur_r
@@ -5734,9 +5724,6 @@ true
 0 0.031 -0.0053
 </location>
                         </PathPoint>
-                        <PathPoint>
-                           <location>-0.00265 0.031 -0.0045899</location>
-                        </PathPoint>
                         <ConditionalPathPoint name="lat_gas_r-P2">
                            <socket_parent_frame>
 /bodyset/femur_r
@@ -5826,10 +5813,9 @@ true
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>-0.0021352 -0.1533 0.0071841</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>-0.00265 0.031 -0.0045899</location>
+                           <location>
+0 0.031 -0.0053
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -5906,22 +5892,25 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0094 -0.1348 0.0019</location>
+                           <location>
+-0.0144 -0.40510000000000002 -0.0229
+</location>
                         </PathPoint>
                         <PathPoint name="tib_post_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>-0.023921 -0.4051 -0.012632</location>
+                           <location>
+0.041700000000000001 0.033399999999999999 -0.0286
+</location>
                         </PathPoint>
                         <PathPoint name="tib_post_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.021813 0.0334 -0.045618</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.052807 0.0159 -0.062935</location>
+                           <location>
+0.077200000000000005 0.015900000000000001 -0.0281
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -5998,46 +5987,57 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0084924 -0.2046 9.2497e-05</location>
+                           <location>
+-0.0154 -0.40510000000000002 -0.019599999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>-0.023137 -0.4051 -0.0092741</location>
+                           <location>
+0.0436 0.0315 -0.028000000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.023759 0.0315 -0.046049</location>
+                           <location>
+0.070800000000000002 0.017600000000000001 -0.0263
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P5">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.048165 0.0176 -0.058176</location>
+                           <location>
+0.1658 -0.0080999999999999996 0.011599999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P6">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.14939 -0.0081 -0.072854</location>
+                           <location>
+-0.0019 -0.0077999999999999996 0.0147
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P7">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.0057046 -0.0078 0.013681</location>
+                           <location>
+0.028500000000000001 -0.0071000000000000004 0.021499999999999998
+</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_r-P8">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.035432 -0.0071 0.0043695</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.050292 -0.006 -0.0010922</location>
+                           <location>
+0.0441 -0.0060000000000000001 0.024199999999999999
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6114,40 +6114,49 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.00053925 -0.2334 0.025641</location>
+                           <location>
+-0.018599999999999998 -0.40789999999999998 -0.017399999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>-0.024808 -0.4079 -0.0057688</location>
+                           <location>
+0.037400000000000003 0.0276 -0.0241
+</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.020339 0.0276 -0.039571</location>
+                           <location>
+0.1038 0.0067999999999999996 -0.025600000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_r-P5">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.077093 0.0068 -0.07407</location>
+                           <location>
+0.1726 -0.0053 -0.0269
+</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_r-P6">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.13603 -0.0053 -0.1096</location>
+                           <location>
+0.0155 -0.0064000000000000003 -0.026499999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_r-P7">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.00017339 -0.0064 -0.0307</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.039621 -0.0102 -0.043775</location>
+                           <location>
+0.0562 -0.010200000000000001 -0.018100000000000002
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6224,16 +6233,17 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.018709 -0.1624 0.010132</location>
+                           <location>
+0.032899999999999999 -0.39510000000000001 -0.0177
+</location>
                         </PathPoint>
                         <PathPoint name="tib_ant_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.019642 -0.3951 -0.031779</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.085729 0.0178 -0.084714</location>
+                           <location>
+0.1166 0.0178 -0.030499999999999999
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6310,28 +6320,33 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.0078523 -0.2646 0.032305</location>
+                           <location>
+-0.019800000000000002 -0.41839999999999999 0.028299999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="per_brev_r-P3">
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0029973 -0.4184 0.034409</location>
+                           <location>
+-0.0144 -0.42949999999999999 0.028899999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="per_brev_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.0019792 -0.4295 0.032228</location>
+                           <location>
+0.047100000000000003 0.027 0.023300000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="per_brev_r-P5">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.05244 0.027 -0.0033716</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.07578 0.0219 -0.0041453</location>
+                           <location>
+0.067699999999999996 0.021899999999999999 0.034299999999999997
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6408,40 +6423,49 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.0028237 -0.1568 0.036093</location>
+                           <location>
+-0.0207 -0.42049999999999998 0.0286
+</location>
                         </PathPoint>
                         <PathPoint name="per_long_r-P3">
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>-0.0036267 -0.4205 0.035118</location>
+                           <location>
+-0.016199999999999999 -0.43190000000000001 0.028899999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="per_long_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.00042039 -0.4319 0.033128</location>
+                           <location>
+0.043799999999999999 0.023 0.022100000000000002
+</location>
                         </PathPoint>
                         <PathPoint name="per_long_r-P5">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.048982 0.023 -0.0027608</location>
+                           <location>
+0.068099999999999994 0.0106 0.028400000000000002
+</location>
                         </PathPoint>
                         <PathPoint name="per_long_r-P6">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.073176 0.0106 -0.0094549</location>
+                           <location>
+0.085199999999999998 0.0068999999999999999 0.0118
+</location>
                         </PathPoint>
                         <PathPoint name="per_long_r-P7">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.079685 0.0069 -0.032381</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.094983 0.0085 -0.076085</location>
+                           <location>
+0.1203 0.0085000000000000006 -0.0184
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6518,16 +6542,17 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.012035 -0.2804 0.019743</location>
+                           <location>
+0.0229 -0.40689999999999998 0.015900000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="per_tert_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.027782 -0.4069 0.0023198</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.089168 0.0228 -0.016956</location>
+                           <location>
+0.085699999999999998 0.022800000000000001 0.029899999999999999
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6604,34 +6629,41 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.0032 -0.1381 0.0276</location>
+                           <location>
+0.028899999999999999 -0.4007 0.0071999999999999998
+</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.028628 -0.4007 -0.0082146</location>
+                           <location>
+0.092200000000000004 0.038800000000000001 -0.0001
+</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.079798 0.0388 -0.046187</location>
+                           <location>
+0.16159999999999999 0.0054999999999999997 0.012999999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_r-P5">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.14645 0.0055 -0.069542</location>
+                           <location>
+0.00029999999999999997 0.0047000000000000002 0.015299999999999999
+</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_r-P6">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.0079098 0.0047 0.0131</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.050865 -0.0004 -0.00049936</location>
+                           <location>
+0.044299999999999999 -0.00040000000000000002 0.025000000000000001
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -6708,40 +6740,49 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_r
 </socket_parent_frame>
-                           <location>0.0040839 -0.1767 0.022463</location>
+                           <location>
+0.032599999999999997 -0.39850000000000002 -0.0085000000000000006
+</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_r-P3">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.023982 -0.3985 -0.023661</location>
+                           <location>
+0.097000000000000003 0.038899999999999997 -0.021100000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_r-P4">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.073454 0.0389 -0.066773</location>
+                           <location>
+0.1293 0.0309 -0.025700000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_r-P5">
                            <socket_parent_frame>
 /bodyset/calcn_r
 </socket_parent_frame>
-                           <location>0.099127 0.0309 -0.086907</location>
+                           <location>
+0.1734 0.013899999999999999 -0.028000000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_r-P6">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.13617 0.0139 -0.11095</location>
+                           <location>
+0.0298 0.0041000000000000003 -0.024500000000000001
+</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_r-P7">
                            <socket_parent_frame>
 /bodyset/toes_r
 </socket_parent_frame>
-                           <location>0.013558 0.0041 -0.036118</location>
-                        </PathPoint>
-                        <PathPoint>
-                           <location>0.039457 0.0034 -0.044258</location>
+                           <location>
+0.056300000000000003 0.0033999999999999998 -0.018599999999999998
+</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -7296,6 +7337,9 @@ true
 -0.027 -0.047710000000000002 0.019570000000000001
 </location>
                         </PathPoint>
+                        <PathPoint>
+                           <location>-0.027 -0.04771 0.01957</location>
+                        </PathPoint>
                         <ConditionalPathPoint name="semimem_l-P2">
                            <socket_parent_frame>
 /bodyset/tibia_l
@@ -7393,17 +7437,16 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.011299999999999999 -0.0746 0.024500000000000001
-</location>
+                           <location>-0.03322 -0.05282 0.02288</location>
                         </PathPoint>
                         <PathPoint name="semiten_l-P5">
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.0027000000000000001 -0.095600000000000004 0.019300000000000001
-</location>
+                           <location>-0.0113 -0.0746 0.0245</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.0027 -0.0956 0.0193</location>
                         </PathPoint>
                         <ConditionalPathPoint name="semiten_l-P2">
                            <socket_parent_frame>
@@ -7502,9 +7545,10 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.023400000000000001 -0.056300000000000003 -0.034299999999999997
-</location>
+                           <location>-0.0301 -0.036 -0.02943</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>-0.0234 -0.0563 -0.0343</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -7589,9 +7633,10 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.023400000000000001 -0.056300000000000003 -0.034299999999999997
-</location>
+                           <location>-0.0301 -0.036 -0.02943</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>-0.0234 -0.0563 -0.0343</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -7684,17 +7729,16 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.0060000000000000001 -0.058900000000000001 0.038300000000000001
-</location>
+                           <location>-0.0056 -0.0419 0.0399</location>
                         </PathPoint>
                         <PathPoint name="sar_l-P5">
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.024299999999999999 -0.084000000000000005 0.0252
-</location>
+                           <location>0.006 -0.0589 0.0383</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.0243 -0.084 0.0252</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -8186,6 +8230,9 @@ true
 0.0060000000000000001 -0.0487 -0.029700000000000001
 </location>
                         </PathPoint>
+                        <PathPoint>
+                           <location>0.006 -0.0487 -0.0297</location>
+                        </PathPoint>
                      </objects>
                      <groups/>
                   </PathPointSet>
@@ -8348,9 +8395,10 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.0060000000000000001 -0.083599999999999994 0.022800000000000001
-</location>
+                           <location>-0.01943 -0.05153 0.0358</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.006 -0.0836 0.0228</location>
                         </PathPoint>
                         <ConditionalPathPoint name="grac_l-P2">
                            <socket_parent_frame>
@@ -9773,6 +9821,9 @@ true
 0 0.031 0.0053
 </location>
                         </PathPoint>
+                        <PathPoint>
+                           <location>0.0016026 0.031 0.0050519</location>
+                        </PathPoint>
                         <ConditionalPathPoint name="med_gas_l-P2">
                            <socket_parent_frame>
 /bodyset/femur_l
@@ -9866,6 +9917,9 @@ true
 0 0.031 0.0053
 </location>
                         </PathPoint>
+                        <PathPoint>
+                           <location>0.0016026 0.031 0.0050519</location>
+                        </PathPoint>
                         <ConditionalPathPoint name="lat_gas_l-P2">
                            <socket_parent_frame>
 /bodyset/femur_l
@@ -9955,9 +10009,10 @@ true
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0 0.031 0.0053
-</location>
+                           <location>-0.0025539 -0.1533 -0.0070461</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.0016026 0.031 0.0050519</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10034,25 +10089,22 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.0144 -0.40510000000000002 0.0229
-</location>
+                           <location>-0.0094 -0.1348 -0.0019</location>
                         </PathPoint>
                         <PathPoint name="tib_post_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.041700000000000001 0.033399999999999999 0.0286
-</location>
+                           <location>-0.0068017 -0.4051 0.026182</location>
                         </PathPoint>
                         <PathPoint name="tib_post_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.077200000000000005 0.015900000000000001 0.0281
-</location>
+                           <location>0.048396 0.0334 0.014652</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.082083 0.0159 0.0034417</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10129,57 +10181,46 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.0154 -0.40510000000000002 0.019599999999999999
-</location>
+                           <location>-0.0079918 -0.2046 0.0028742</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.0436 0.0315 0.028000000000000001
-</location>
+                           <location>-0.0087527 -0.4051 0.023339</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.070800000000000002 0.017600000000000001 0.0263
-</location>
+                           <location>0.050025 0.0315 0.013506</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P5">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1658 -0.0080999999999999996 -0.011599999999999999
-</location>
+                           <location>0.075438 0.0176 0.0036611</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P6">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
--0.0019 -0.0077999999999999996 -0.0147
-</location>
+                           <location>0.15453 -0.0081 -0.06119</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P7">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.028500000000000001 -0.0071000000000000004 -0.021499999999999998
-</location>
+                           <location>-0.0062559 -0.0078 -0.013437</location>
                         </PathPoint>
                         <PathPoint name="flex_dig_l-P8">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.0441 -0.0060000000000000001 -0.024199999999999999
-</location>
+                           <location>0.020665 -0.0071 -0.029111</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.034718 -0.006 -0.036402</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10256,49 +10297,40 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.018599999999999998 -0.40789999999999998 0.017399999999999999
-</location>
+                           <location>-0.012501 -0.2334 -0.022394</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.037400000000000003 0.0276 0.0241
-</location>
+                           <location>-0.012468 -0.4079 0.02221</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1038 0.0067999999999999996 0.025600000000000001
-</location>
+                           <location>0.042936 0.0276 0.011663</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_l-P5">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1726 -0.0053 0.0269
-</location>
+                           <location>0.10668 0.0068 -0.0069843</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_l-P6">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.0155 -0.0064000000000000003 0.026499999999999999
-</location>
+                           <location>0.17265 -0.0053 -0.026548</location>
                         </PathPoint>
                         <PathPoint name="flex_hal_l-P7">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.0562 -0.010200000000000001 0.018100000000000002
-</location>
+                           <location>0.022787 -0.0064 0.020573</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.059042 -0.0102 0.00025956</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10375,17 +10407,16 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.032899999999999999 -0.39510000000000001 0.0177
-</location>
+                           <location>0.017379 -0.1624 -0.012273</location>
                         </PathPoint>
                         <PathPoint name="tib_ant_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1166 0.0178 0.030499999999999999
-</location>
+                           <location>0.036712 -0.3951 0.0069235</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.12036 0.0178 -0.006184</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10462,33 +10493,28 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.019800000000000002 -0.41839999999999999 -0.028299999999999999
-</location>
+                           <location>-0.015248 -0.2646 -0.029542</location>
                         </PathPoint>
                         <PathPoint name="per_brev_l-P3">
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.0144 -0.42949999999999999 -0.028899999999999999
-</location>
+                           <location>-0.02743 -0.4184 -0.020988</location>
                         </PathPoint>
                         <PathPoint name="per_brev_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.047100000000000003 0.027 -0.023300000000000001
-</location>
+                           <location>-0.022464 -0.4295 -0.023193</location>
                         </PathPoint>
                         <PathPoint name="per_brev_l-P5">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.067699999999999996 0.021899999999999999 -0.034299999999999997
-</location>
+                           <location>0.03785 0.027 -0.036451</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.05416 0.0219 -0.053165</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10565,49 +10591,40 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.0207 -0.42049999999999998 -0.0286
-</location>
+                           <location>-0.00086482 -0.1568 -0.036193</location>
                         </PathPoint>
                         <PathPoint name="per_long_l-P3">
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
--0.016199999999999999 -0.43190000000000001 -0.028899999999999999
-</location>
+                           <location>-0.028379 -0.4205 -0.021002</location>
                         </PathPoint>
                         <PathPoint name="per_long_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.043799999999999999 0.023 -0.022100000000000002
-</location>
+                           <location>-0.02418 -0.4319 -0.022649</location>
                         </PathPoint>
                         <PathPoint name="per_long_l-P5">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.068099999999999994 0.0106 -0.028400000000000002
-</location>
+                           <location>0.035067 0.023 -0.034309</location>
                         </PathPoint>
                         <PathPoint name="per_long_l-P6">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.085199999999999998 0.0068999999999999999 -0.0118
-</location>
+                           <location>0.056325 0.0106 -0.047662</location>
                         </PathPoint>
                         <PathPoint name="per_long_l-P7">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1203 0.0085000000000000006 0.0184
-</location>
+                           <location>0.077644 0.0069 -0.03701</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.12023 0.0085 -0.018836</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10684,17 +10701,16 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.0229 -0.40689999999999998 -0.015900000000000001
-</location>
+                           <location>-0.0057769 -0.2804 -0.022388</location>
                         </PathPoint>
                         <PathPoint name="per_tert_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.085699999999999998 0.022800000000000001 -0.029899999999999999
-</location>
+                           <location>0.01702 -0.4069 -0.02208</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.072648 0.0228 -0.054414</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10771,41 +10787,34 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.028899999999999999 -0.4007 -0.0071999999999999998
-</location>
+                           <location>0.0032 -0.1381 -0.0276</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.092200000000000004 0.038800000000000001 0.0001
-</location>
+                           <location>0.02537 -0.4007 -0.015601</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.16159999999999999 0.0054999999999999997 -0.012999999999999999
-</location>
+                           <location>0.087914 0.0388 -0.027783</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_l-P5">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.00029999999999999997 0.0047000000000000002 -0.015299999999999999
-</location>
+                           <location>0.1501 0.0055 -0.061254</location>
                         </PathPoint>
                         <PathPoint name="ext_dig_l-P6">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.044299999999999999 -0.00040000000000000002 -0.025000000000000001
-</location>
+                           <location>-0.0043403 0.0047 -0.014675</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.034667 -0.0004 -0.037225</location>
                         </PathPoint>
                      </objects>
                      <groups/>
@@ -10882,49 +10891,40 @@ true
                            <socket_parent_frame>
 /bodyset/tibia_l
 </socket_parent_frame>
-                           <location>
-0.032599999999999997 -0.39850000000000002 0.0085000000000000006
-</location>
+                           <location>-0.00050392 -0.1767 -0.022826</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_l-P3">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.097000000000000003 0.038899999999999997 0.021100000000000001
-</location>
+                           <location>0.033644 -0.3985 -0.0017551</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_l-P4">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1293 0.0309 0.025700000000000001
-</location>
+                           <location>0.098839 0.0389 -0.0092176</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_l-P5">
                            <socket_parent_frame>
 /bodyset/calcn_l
 </socket_parent_frame>
-                           <location>
-0.1734 0.013899999999999999 0.028000000000000001
-</location>
+                           <location>0.13102 0.0309 -0.014599</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_l-P6">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.0298 0.0041000000000000003 0.024500000000000001
-</location>
+                           <location>0.17375 0.0139 -0.025742</location>
                         </PathPoint>
                         <PathPoint name="ext_hal_l-P7">
                            <socket_parent_frame>
 /bodyset/toes_l
 </socket_parent_frame>
-                           <location>
-0.056300000000000003 0.0033999999999999998 0.018599999999999998
-</location>
+                           <location>0.035813 0.0041 0.014343</location>
+                        </PathPoint>
+                        <PathPoint>
+                           <location>0.059289 0.0034 0.00070592</location>
                         </PathPoint>
                      </objects>
                      <groups/>
