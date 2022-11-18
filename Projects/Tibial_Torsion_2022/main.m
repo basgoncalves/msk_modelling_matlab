@@ -23,7 +23,7 @@ cd([mainDir])
 % 
 % mainDir = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021';
 % cd([mainDir])
-model = 'gait2392_genericsimplOS4_BG.osim';
+model = 'gait2392_genericsimpl_v44.osim';
 markerset = ['MarkerSet.xml']; 
 
 if ~exist(markerset,'file')
@@ -31,8 +31,8 @@ if ~exist(markerset,'file')
 end
 
 legs = {'R'};
-femurAnteversion    = [10];
-femurNeck_shaft     = [0];
+femurAnteversion    = [];
+femurNeck_shaft     = [];
 tibialTorsion       = [-30,-15,0,15,30];
 
 [m,n] = ndgrid(femurAnteversion,femurNeck_shaft);
@@ -62,7 +62,7 @@ for iLeg = 1:length(legs)
         TT_str = strrep(num2str(angle_TT),'-','minus');
 
         deformed_model = [which_leg '_TT_' TT_str];
-        cd([mainDir 'models'])
+        cd([mainDir])
 
         make_PEmodel(model, deformed_model, markerset, deform_bone, which_leg, angle_TT);
     end
