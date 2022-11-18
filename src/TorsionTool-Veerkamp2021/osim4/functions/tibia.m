@@ -605,7 +605,8 @@ modelNamePrint = sprintf('%s_%s' ,modelName,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model';%modelNamePrint;
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-cd functions
+activeFile = [mfilename('fullpath') '.m'];  % get dir of the current file
+cd(fileparts(activeFile))
 Model2392_rotatedtibia = struct2xml(dataModel);
 %name and placement of the femoral bone file
 if strcmp(answerLeg,rightbone) == 1
@@ -619,54 +620,52 @@ fprintf(FID_model,Model2392_rotatedtibia);
 fclose(FID_model);
 
 %% the pathpoints in the file are in the wrong order, because conditional pathpoints are put last when printed -> this corrects them to be in the right order
-file=importdata(placeNameModel);
-if strcmp(answerLeg,rightbone)==1
-    file_out = file;
-else
+file = importdata(placeNameModel);
+% if strcmp(answerLeg,rightbone)==1
+file_out = file;
+% else
+% right leg
+file_out = file(1:1677);
 
-    % right leg
-    file_out = file(1:1677);
-
-    % lines in the file up to where the path points for each muscle are correct (1st input), and line where the conditional path points start (2nd input) are defined
-    condPathPoint(1,:) = [1 1677];
-    condPathPoint(2,:) = [1677 1682]; %semimem
-    condPathPoint(3,:) = [1722 1735]; %semiten
-    condPathPoint(4,:) = [2193 2202]; %grac
-    condPathPoint(5,:) = [2387 2396]; %iliacus
-    condPathPoint(6,:) = [2440 2449]; %psoas
-    condPathPoint(7,:) = [2898 2903]; %med_gas
-    condPathPoint(8,:) = [2943 2948]; %lat_gas
-    condPathPoint(9,:) = 3740;
-    for x = 2:length(condPathPoint)-1
-        file_out = [file_out; file(condPathPoint(x,2):condPathPoint(x,2)+5); file(condPathPoint(x,1)+1:condPathPoint(x,2)-1); file(condPathPoint(x,2)+6:condPathPoint(x+1,1))];
-    end
-
-    % left leg
-    condPathPoint(1,:) = [1 3740];
-    condPathPoint(2,:) = [1677 1682]+2063; %semimem
-    condPathPoint(3,:) = [1722 1735]+2063; %semiten
-    condPathPoint(4,:) = [2193 2202]+2063; %grac
-    condPathPoint(5,:) = [2387 2396]+2063; %iliacus
-    condPathPoint(6,:) = [2440 2449]+2063; %psoas
-    condPathPoint(7,:) = [2898 2903]+2063; %med_gas
-    condPathPoint(8,:) = [2943 2948]+2063; %lat_gas
-    condPathPoint(9,:) = length(file);
-    for x = 2:length(condPathPoint)-1
-        file_out = [file_out; file(condPathPoint(x,2):condPathPoint(x,2)+5); file(condPathPoint(x,1)+1:condPathPoint(x,2)-1); file(condPathPoint(x,2)+6:condPathPoint(x+1,1))];
-    end
+% lines in the file up to where the path points for each muscle are correct (1st input), and line where the conditional path points start (2nd input) are defined
+condPathPoint(1,:) = [1 1677];
+condPathPoint(2,:) = [1677 1682]; %semimem
+condPathPoint(3,:) = [1722 1735]; %semiten
+condPathPoint(4,:) = [2193 2202]; %grac
+condPathPoint(5,:) = [2387 2396]; %iliacus
+condPathPoint(6,:) = [2440 2449]; %psoas
+condPathPoint(7,:) = [2898 2903]; %med_gas
+condPathPoint(8,:) = [2943 2948]; %lat_gas
+condPathPoint(9,:) = 3740;
+for x = 2:length(condPathPoint)-1
+    file_out = [file_out; file(condPathPoint(x,2):condPathPoint(x,2)+5); file(condPathPoint(x,1)+1:condPathPoint(x,2)-1); file(condPathPoint(x,2)+6:condPathPoint(x+1,1))];
 end
-%%
 
+% left leg
+condPathPoint(1,:) = [1 3740];
+condPathPoint(2,:) = [1677 1682]+2063; %semimem
+condPathPoint(3,:) = [1722 1735]+2063; %semiten
+condPathPoint(4,:) = [2193 2202]+2063; %grac
+condPathPoint(5,:) = [2387 2396]+2063; %iliacus
+condPathPoint(6,:) = [2440 2449]+2063; %psoas
+condPathPoint(7,:) = [2898 2903]+2063; %med_gas
+condPathPoint(8,:) = [2943 2948]+2063; %lat_gas
+condPathPoint(9,:) = length(file);
+for x = 2:length(condPathPoint)-1
+    file_out = [file_out; file(condPathPoint(x,2):condPathPoint(x,2)+5); file(condPathPoint(x,1)+1:condPathPoint(x,2)-1); file(condPathPoint(x,2)+6:condPathPoint(x+1,1))];
+end
+% end
+%%
 if strcmp(answerLeg,rightbone) == 1
     placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
 else
     placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
 end
 FID_model2 = fopen(placeNameModel,'w');
-fprintf(FID_model2,'%10s\n',file_out{:});
+% fprintf(FID_model2,'%10s\n',file_out{:});
 fclose(FID_model2);
 
-disp('New model file has been saved')
+disp(['New model file has been saved in ' placeNameModel])
 
 % export the the marker setup for the scaling tool in opensim
 markersetup_rotatedtibia = struct2xml(markerset);
@@ -682,20 +681,17 @@ end
 FID_marker = fopen(placeNameMarker,'w');
 fprintf(FID_marker,markersetup_rotatedtibia);
 fclose(FID_marker);
-disp('New marker set has been saved')
+disp(['New marker set has been saved in ' placeNameMarker])
 
 cd ..
 
 % split the figures across the screen (Nov 2022)
-[x,y,w,h] = matWinPos; 
+[~,~,window_width,~] = matWinPos;
 
-f = figure(1);
-f.Position(1) = 10;
+f = figure(1); f.Position(1) = 10;
 
-f = figure(2);
-f.Position(1) = w/4;
+f = figure(2); f.Position(1) = window_width/4;
 
-f = figure(3);
-f.Position(1) = w/4*2;
+f = figure(3); f.Position(1) = window_width/4*2;
 
 close all

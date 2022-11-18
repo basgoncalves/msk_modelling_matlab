@@ -51,7 +51,7 @@ answerLegFemur = which_leg;
 answerDegFemur = angle;
 
 bone = 'T';
-if strcmp(deform_bone, bone) == 1; % Rotation of the tibia
+if strcmp(deform_bone, bone) == 1 % Rotation of the tibia
     % Ask the user if they want to rotate the left or right leg.
     
     answerLegTibia = which_leg;
