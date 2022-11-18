@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J髇asd髏tir, Marjolein M. van der Krogt      		          %
+%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt      		          %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
+%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %
@@ -34,6 +34,7 @@ place = [cd '\DEFORMED_MODEL\'];
 answerModel_tmp = [ answerModel];
 answerMarkerSet_tmp = [ answerMarkerSet];
 
+dataModel = struct;
 dataModel = xml2struct(answerModel_tmp);
 
 try
@@ -41,6 +42,7 @@ try
 catch
     disp('loading model went wrong')
 end
+
 
 % what you want to name the deformed model
 answerNameModel = deformed_model;
