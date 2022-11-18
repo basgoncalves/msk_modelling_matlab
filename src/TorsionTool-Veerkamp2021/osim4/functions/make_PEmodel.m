@@ -26,7 +26,6 @@
 % angle = % in degrees
 function [ ready ] = make_PEmodel(answerModel, deformed_model, answerMarkerSet, deform_bone, which_leg, angle, angle_NS)
 
-
 % the path to save the deformed model
 place = [cd '\DEFORMED_MODEL\'];
 
