@@ -31,13 +31,9 @@ function [ ready ] = make_PEmodel( answerModel, deformed_model, answerMarkerSet,
 place = [cd '\DEFORMED_MODEL\'];
 
 % what model you want to deform
-if strcmp(which_leg, 'R') == 1 &&  strcmp(deform_bone, 'F') == 1;
-        answerModel_tmp = [ answerModel];
-        answerMarkerSet_tmp = [ answerMarkerSet];
-else
-    answerModel_tmp = [place answerModel];
-    answerMarkerSet_tmp = [place answerMarkerSet];
-end
+answerModel_tmp = [ answerModel];
+answerMarkerSet_tmp = [ answerMarkerSet];
+
 dataModel = xml2struct(answerModel_tmp);
 
 % what you want to name the deformed model
