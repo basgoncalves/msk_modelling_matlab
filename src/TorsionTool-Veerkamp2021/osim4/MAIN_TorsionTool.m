@@ -85,5 +85,6 @@ which_leg = 'L';
 angle_TT_left = 0; % left tibial torsion angle (in degrees) %
 deformed_model = [ 'leftTT' num2str(angle_TT_left) ];
 
+cd(pathstr)
 make_PEmodel( model, deformed_model, markerset, deform_bone, which_leg, angle_TT_left);
 

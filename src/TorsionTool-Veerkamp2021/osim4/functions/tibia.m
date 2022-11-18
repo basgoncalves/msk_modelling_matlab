@@ -620,12 +620,61 @@ fprintf(FID_model,Model2392_rotatedtibia);
 fclose(FID_model);
 
 %% the pathpoints in the file are in the wrong order, because conditional pathpoints are put last when printed -> this corrects them to be in the right order
+
+
+msg = msgbox('here is the problem');
+uiwait(msg)
+
+error('go finish the script')
+
+
 file = importdata(placeNameModel);
 % if strcmp(answerLeg,rightbone)==1
 file_out = file;
 % else
 % right leg
 file_out = file(1:1677);
+
+
+
+
+generic_osim3 = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\models\gait2392_genericsimpl.osim';
+generic_osim32 = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim3\DEFORMED_MODEL\gait2392_genericsimpl.osim'
+generic_osim4 = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim4\gait2392_genericsimplOS4.osim';
+
+
+
+xml3 = xml_read(generic_osim3);
+xml4 = xml_read(generic_osim4);
+
+
+file32 = importdata(generic_osim32)
+file3 = importdata(generic_osim3);
+file3.textdata
+
+file4 = importdata(generic_osim4);
+file4.textdata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % lines in the file up to where the path points for each muscle are correct (1st input), and line where the conditional path points start (2nd input) are defined
 condPathPoint(1,:) = [1 1677];
