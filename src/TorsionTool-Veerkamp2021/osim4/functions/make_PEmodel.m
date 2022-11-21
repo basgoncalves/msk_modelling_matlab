@@ -41,7 +41,7 @@ catch
     fprintf(['\n \n \n could not load the model properly \n ' ...
         'attempting to delete comments from the .osim file ... \n \n \n'])
 
-    xml_delete_comments(xml_path);
+    xml_delete_comments(answerModel_tmp,'OpenSimDocument');
     dataModel = xml2struct(answerModel_tmp);
 
     try
