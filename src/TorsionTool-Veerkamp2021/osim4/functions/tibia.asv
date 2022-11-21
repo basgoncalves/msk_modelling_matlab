@@ -24,7 +24,7 @@
 % output: xml file with rotated bone/bones and muscle attachments
 % ----------------------------------------------------------------------
 function     tibia(dataModel, markerset, answerLeg, rightbone, TT_angle, answerNameModelTibia,...
-    answerNameMarkerTibia, dataTibia, dataCalcn, dataTalus, dataToes, place)
+    ~, dataTibia, dataCalcn, dataTalus, dataToes, place)
 %% Find the muscle attachment on the tibia, calcn, talus and toes and place in a matrix
 [TibiaMuscles,TibiaPlace,TibiaNR,CalcnMuscles,CalcnPlace,CalcnNR,ToesMuscles,ToesPlace,ToesNR] = tibia_MA(dataModel, answerLeg);
 % The vertices for the bone are rotated to fit the coordinate system in MATLAB
@@ -415,13 +415,12 @@ Tibia_rotated = struct2xml(dataTibia);
 direct = [];
 % export - write the model as an xml  - remember to save as a vtp file
 modelName = answerNameModelTibia;
-boneName = ['tibia'upper(answerLeg) '_rotated.vtp'];
+boneName = ['tibia' upper(answerLeg) '_rotated.vtp'];
 cTibia = sprintf('%s_%s' ,modelName,boneName);
 placeNameTibia = sprintf('%s', direct, place, cTibia);
 FID_tibia = fopen(placeNameTibia,'w');
 fprintf(FID_tibia,Tibia_rotated);
 fclose(FID_tibia);
-
 %change the name of the tibia in the gait2392 model file
 dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,3}.attached_geometry.Mesh{1,1}.mesh_file = cTibia;
 
@@ -442,8 +441,6 @@ placeNameTibia = sprintf('%s', direct, place, cTalus);
 FID_talus = fopen(placeNameTibia,'w');
 fprintf(FID_talus,Talus_rotated);
 fclose(FID_talus);
-
-
 %change the name of the tibia in the gait2392 model file
 dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,4}.attached_geometry.Mesh.mesh_file = cTalus;
 
@@ -528,7 +525,7 @@ end
 %% change the name of the model
 type= 'deformed';
 modelNamePrint = sprintf('%s_%s' ,modelName,type);
-dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model';%modelNamePrint;
+dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model'; %modelNamePrint;
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
 activeFile = [mfilename('fullpath') '.m'];  % get dir of the current file

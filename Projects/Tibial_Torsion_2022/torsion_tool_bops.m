@@ -63,7 +63,7 @@ all_versions = ls(torsion_tool_path);
 onPath_current_version = is_on_path(torsion_tool_path_version);
 onPath_other_versions = [];
 for i = 3:size(all_versions,1)
-    if ~isequal(all_versions(i,:), osim_version_str)
+    if ~isequal(strtrim(all_versions(i,:)), osim_version_str)
         onPath_other_versions(end+1) = is_on_path([torsion_tool_path fp strtrim(all_versions(i,:))]);
     end
 end
@@ -73,8 +73,8 @@ end
 if onPath_current_version==0 || any(onPath_other_versions == 1)
     disp(['adding torsion tool for OpenSim version ' osim_version_str ' to the path'])
     warning off
-    rmpath((torsion_tool_path))                     % remove all versions from path
-    addpath(genpath(torsion_tool_path_version))     % add to path only the needed version
+    rmpath(genpath(torsion_tool_path))                      % remove all versions from path
+    addpath(genpath(torsion_tool_path_version))             % add to path only the needed version
 end
 
 
