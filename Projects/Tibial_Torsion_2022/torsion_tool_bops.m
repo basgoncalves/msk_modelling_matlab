@@ -11,7 +11,7 @@ if nargin < 2
     osim_version = 4;
 end
 
-add_tosion_tool_to_path(osim_version)
+add_tosion_tool_to_path(osim_version,model_path)
 
 % geneirc values (in degrees)
 legs = {'R'};
@@ -38,7 +38,10 @@ for iLeg = 1:length(legs)
 end
 
 
-function add_tosion_tool_to_path(osim_version)
+%============================================================================================%
+%=====================================CALLBACK FUNCTIONS=====================================%
+%============================================================================================%
+function add_tosion_tool_to_path(osim_version,model_path)
 
 osim_version_str = ['osim' num2str(floor(osim_version))];
 
@@ -65,12 +68,27 @@ for i = 3:size(all_versions,1)
     end
 end
 
+
 % if none or more than one version are in the path
 if onPath_current_version==0 || any(onPath_other_versions == 1)
     disp(['adding torsion tool for OpenSim version ' osim_version_str ' to the path'])
     warning off
     rmpath((torsion_tool_path))                     % remove all versions from path
     addpath(genpath(torsion_tool_path_version))     % add to path only the needed version
+end
+
+
+% if 
+dir_model_path = fileparts(model_path);
+if ~isfolder([dir_model_path fp 'femur'])
+    
+    fprintf('\n \n copying vtp files to the location of used model... \n \n')
+
+    copyfile([torsion_tool_path_version fp 'femur'],[dir_model_pathfp 'femur'])
+    copyfile([torsion_tool_path_version fp 'tibia'],[dir_model_pathfp 'tibia'])
+    copyfile([torsion_tool_path_version fp 'calcn'],[dir_model_pathfp 'calcn'])
+    copyfile([torsion_tool_path_version fp 'talus'],[dir_model_pathfp 'talus'])
+    copyfile([torsion_tool_path_version fp 'toes'] ,[dir_model_pathfp 'toes'])
 end
 
 function apply_bone_torsions(model_path,Torsion_angles,which_leg,deform_bone)
