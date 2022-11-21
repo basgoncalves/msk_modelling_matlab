@@ -27,24 +27,29 @@
 function [ ready ] = make_PEmodel(answerModel, deformed_model, answerMarkerSet, deform_bone, which_leg, angle, angle_NS)
 
 % the path to save the deformed model
-place = [cd '\DEFORMED_MODEL\'];
+place = [cd '\DEFORMED_MODEL\']; 
+mkdir(place)
 
 % what model you want to deform
-answerModel_tmp = [ answerModel];
-answerMarkerSet_tmp = [ answerMarkerSet];
+answerModel_tmp = [answerModel];
+answerMarkerSet_tmp = [answerMarkerSet];
 
 dataModel = xml2struct(answerModel_tmp);
-
- tree = xml_read(answerModel_tmp);
- tree = rmfield(tree.Model,'COMMENT');
- xml_write(answerModel_tmp,tree,'OpenSimDocument')
-
-S = TrimStruct (tree,'COMMENT');
-
 try
-    muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
+    dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 catch
-    fprintf('\n \n \n loading model went wrong \n \n \n \n')
+    fprintf(['\n \n \n could not load the model properly \n ' ...
+        'attempting to delete comments from the .osim file ... \n \n \n'])
+
+    xml_delete_comments(xml_path);
+    dataModel = xml2struct(answerModel_tmp);
+
+    try
+        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
+        fprintf('\n \n \n model without comments was loaded successfullyy \n \n')
+    catch
+        error('model cannot be loaded properly, check if any changes in the .osim tree are appearent')
+    end
 end
 
 % what you want to name the deformed model
@@ -89,7 +94,7 @@ if strcmp(deform_bone, bone) == 1 % Rotation of the tibia
 else
     
     % femoral anteversion
-    if strcmp(answerLegFemur, 'R') == 1; % Rotation of the right foot
+    if strcmp(answerLegFemur, 'R') == 1 % Rotation of the right foot
         FA_preAngle = 17.6;
         NS_preAngle = 123.3;
         % The added anteversion angle is definded
