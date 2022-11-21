@@ -26,7 +26,6 @@
 % angle = % in degrees
 function [ ready ] = make_PEmodel(answerModel, deformed_model, answerMarkerSet, deform_bone, which_leg, angle, angle_NS)
 
-
 % the path to save the deformed model
 place = [cd '\DEFORMED_MODEL\'];
 
@@ -34,15 +33,19 @@ place = [cd '\DEFORMED_MODEL\'];
 answerModel_tmp = [ answerModel];
 answerMarkerSet_tmp = [ answerMarkerSet];
 
-dataModel = struct;
 dataModel = xml2struct(answerModel_tmp);
+
+ tree = xml_read(answerModel_tmp);
+ tree = rmfield(tree.Model,'COMMENT');
+ xml_write(answerModel_tmp,tree,'OpenSimDocument')
+
+S = TrimStruct (tree,'COMMENT') 
 
 try
     muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 catch
-    disp('loading model went wrong')
+    fprintf('\n \n \n loading model went wrong \n \n \n \n')
 end
-
 
 % what you want to name the deformed model
 answerNameModel = deformed_model;
@@ -53,7 +56,7 @@ answerLegFemur = which_leg;
 answerDegFemur = angle;
 
 bone = 'T';
-if strcmp(deform_bone, bone) == 1; % Rotation of the tibia
+if strcmp(deform_bone, bone) == 1 % Rotation of the tibia
     % Ask the user if they want to rotate the left or right leg.
     
     answerLegTibia = which_leg;

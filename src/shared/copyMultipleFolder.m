@@ -1,5 +1,3 @@
-
-
 % copy all folders from original
 
 function [] = copyMultipleFolder (sourceFile,destinationFolder)
@@ -21,7 +19,7 @@ pasteFolder = sprintf ('%s\\%s',destinationFolder, Trials(i).name);             
     if exist(pasteFolder,'dir')==7  
         continue
         
-    elseif exist (copyFolder,'dir')==7                                         % check if the folder is directory 
+    elseif exist (copyFolder,'dir')==7                          % check if the folder is directory 
        cd (destinationFolder)
        mkdir (Trials(i).name)
        copyfile(copyFolder, pasteFolder)        

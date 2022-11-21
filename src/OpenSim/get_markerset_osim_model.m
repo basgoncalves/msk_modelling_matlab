@@ -1,12 +1,12 @@
 % osim_model_path = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData\GenericModel\Ref_scaled_opt_N10_2times2392Fmax.osim'
 
 
-function osim2markerset(osim_model_path)
+function get_markerset_osim_model(osim_model_path)
 
 disp('loading model ...')
 model = xml_read(osim_model_path);      % load model 
 
-model2 = xml_read('C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\MarkerSet.xml')
+model2 = xml_read('C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\MarkerSet.xml');
 
 disp('model loaded!')
 

@@ -35,10 +35,16 @@ answerMarkerSet_tmp = [ answerMarkerSet];
 
 dataModel = xml2struct(answerModel_tmp);
 
+ tree = xml_read(answerModel_tmp);
+ tree = rmfield(tree.Model,'COMMENT');
+ xml_write(answerModel_tmp,tree,'OpenSimDocument')
+
+S = TrimStruct (tree,'COMMENT');
+
 try
     muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 catch
-    disp('loading model went wrong')
+    fprintf('\n \n \n loading model went wrong \n \n \n \n')
 end
 
 % what you want to name the deformed model

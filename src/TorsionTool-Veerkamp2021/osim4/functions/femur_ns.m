@@ -488,7 +488,7 @@ FID_model = fopen(placeNameModel,'w');
 fprintf(FID_model,Model2392_rotatedfemur);
 fclose(FID_model);
 
-disp('New model file has been saved')
+disp(['New model file has been saved in ' placeNameModel])
 
 % export the the marker setup for the scaling tool in opensim
 markersetup_rotatedfemur = struct2xml(markerset);
@@ -500,6 +500,6 @@ placeNameMarkers = sprintf('%s', direct, place, markerNameOut);
 FID_markers = fopen(placeNameMarkers,'w');
 fprintf(FID_markers,markersetup_rotatedfemur);
 fclose(FID_markers);
-disp('New marker set has been saved')
+disp(['New marker set has been saved in ' placeNameMarker])
 
 cd ..
