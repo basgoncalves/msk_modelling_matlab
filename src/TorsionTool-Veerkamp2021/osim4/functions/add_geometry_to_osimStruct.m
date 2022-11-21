@@ -1,5 +1,5 @@
 
-function dataModel = add_geometry_to_osimStruct(dataModel,body_coordinates_OpenSim,VTKstruct,modelName,answerLeg,bone)
+function dataModel = add_geometry_to_osimStruct(dataModel,body_coordinates_OpenSim,VTKstruct,modelName,answerLeg,bone,place)
 
 % convert the body data back to string
 body_rotated = sprintf('\t\t\t%+8.6f %+8.6f %+8.6f\n',body_coordinates_OpenSim');

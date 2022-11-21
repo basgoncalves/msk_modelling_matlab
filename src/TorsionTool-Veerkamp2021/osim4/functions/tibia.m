@@ -403,10 +403,10 @@ set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
 [calcn_marker_OpenSim]=coordinatesOpenSim(markerCalcn_start_transBACK);
 
 %% export the data
-dataModel = add_geometry_to_osimStruct(dataModel,tibia_rot_OpenSim,dataTibia,answerNameModelTibia,answerLeg,'tibia');
-dataModel = add_geometry_to_osimStruct(dataModel,talus_transformed_OpenSim,dataTalus,answerNameModelTibia,answerLeg,'talus');
-dataModel = add_geometry_to_osimStruct(dataModel,calcn_transformed_OpenSim,dataCalcn,answerNameModelTibia,answerLeg,'calcn');
-dataModel = add_geometry_to_osimStruct(dataModel,toes_transformed_OpenSim,dataToes,answerNameModelTibia,answerLeg,'toes');
+dataModel = add_geometry_to_osimStruct(dataModel,tibia_rot_OpenSim,dataTibia,answerNameModelTibia,answerLeg,'tibia',place);
+dataModel = add_geometry_to_osimStruct(dataModel,talus_transformed_OpenSim,dataTalus,answerNameModelTibia,answerLeg,'talus',place);
+dataModel = add_geometry_to_osimStruct(dataModel,calcn_transformed_OpenSim,dataCalcn,answerNameModelTibia,answerLeg,'calcn',place);
+dataModel = add_geometry_to_osimStruct(dataModel,toes_transformed_OpenSim,dataToes,answerNameModelTibia,answerLeg,'toes',place);
 
 %% Fill in the rotated muscle attachments to the model
 for i = 1:size(CalcnMuscles,1)
@@ -449,13 +449,19 @@ for i = 1:size(markerTibia_rot,1)
 end
 %% change the name of the model
 type= 'deformed';
-modelNamePrint = sprintf('%s_%s' ,modelName,type);
+modelNamePrint = sprintf('%s_%s' ,answerNameModelTibia,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model'; %modelNamePrint;
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
 activeFile = [mfilename('fullpath') '.m'];  % get dir of the current file
 cd(fileparts(activeFile))
 Model2392_rotatedtibia = struct2xml(dataModel);
+
+
+Pref = struct;
+Pref.StructItem = false;
+Pref.CellItem = false;
+xml_write(['.\' modelNamePrint '.osim'],dataModel.OpenSimDocument,'OpenSimDocument',Pref);
 %name and placement of the femoral bone file
 if strcmp(answerLeg,rightbone) == 1
     placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
