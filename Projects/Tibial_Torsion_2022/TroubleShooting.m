@@ -34,3 +34,10 @@ torsion_tool_bops(osim4_bas_markers,4)
 osim4_og_hans = 'C:\Users\Biomech\Documents\1-DataFolder\Tibial_Tosion2022\HansSimulations\models\Ref_scaled_opt_N10_2times2392Fmax.osim';
 torsion_tool_bops(osim4_og_hans,4)
 
+muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
+for i = 1: length(muscles)
+    if isequal(muscles{i}.Attributes.name,'semiten_r')
+        muscles{i}.GeometryPath.PathPointSet.objects.PathPoint{end}
+        break
+    end
+end

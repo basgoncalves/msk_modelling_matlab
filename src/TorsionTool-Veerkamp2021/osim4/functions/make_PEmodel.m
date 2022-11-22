@@ -34,23 +34,8 @@ mkdir(place)
 answerModel_tmp = [answerModel];
 answerMarkerSet_tmp = [answerMarkerSet];
 
-dataModel = xml2struct(answerModel_tmp);
-try
-    dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
-catch
-    fprintf(['\n \n \n could not load the model properly \n ' ...
-        'attempting to delete comments from the .osim file ... \n \n \n'])
-
-    xml_delete_comments(answerModel_tmp,'OpenSimDocument');
-    dataModel = xml2struct(answerModel_tmp);
-
-    try
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
-        fprintf('\n \n \n model without comments was loaded successfullyy \n \n')
-    catch
-        error('model cannot be loaded properly, check if any changes in the .osim tree are appearent')
-    end
-end
+% load model and delete comments if needed, otherwise structure wil
+dataModel = xml2struct_without_comments(answerModel_tmp);
 
 % what you want to name the deformed model
 answerNameModel = deformed_model;
@@ -115,8 +100,28 @@ else
     end
     % the script for the rotation of the femur is called.
     femur_ns(dataModel, markerset, answerLegFemur, 'R', FA_angle, NS_angle,...
-        answerNameModel,answerMarkerSet, dataFemur, place);
-    
-    
-    
+        answerNameModel,answerMarkerSet, dataFemur, place);  
 end
+
+
+function dataModel = xml2struct_without_comments(answerModel_tmp)
+
+dataModel = xml2struct(answerModel_tmp);
+
+try
+    dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
+catch
+    fprintf(['\n \n \n could not load the model properly \n ' ...
+        'attempting to delete comments from the .osim file ... \n \n \n'])
+
+    xml_delete_comments(answerModel_tmp,'OpenSimDocument');
+    dataModel = xml2struct(answerModel_tmp);
+
+    try
+        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
+        fprintf('\n \n \n model without comments was loaded successfullyy \n \n')
+    catch
+        error('model cannot be loaded properly, check if any changes in the .osim tree are appearent')
+    end
+end
+

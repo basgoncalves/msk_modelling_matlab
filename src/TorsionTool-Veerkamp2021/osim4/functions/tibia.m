@@ -309,8 +309,7 @@ axis equal; view(-30,25)
 set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);
 set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
 set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
-%%
-%rotation of the markers
+%% rotation of the markers
 markerCalcn_rot = [];
 for i = 1:size(markerCalcn_start_trans,1)
     marker_dist = norm(max_tibia - markerCalcn_start_trans(i,:));
@@ -421,24 +420,29 @@ for i = 1:size(ToesMuscles,1)
     dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_toes}...
         .GeometryPath.PathPointSet.objects.(string_toes(1:9)){1,str2num(string_toes(13))}.location.Text = toes_MA_OpenSim(i,:);
 end
+
+muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 for i = 1:size(TibiaMuscles,1)
-    if size(TibiaPlace{i,1},2) == 14 ;
+%     if size(TibiaPlace{i,1},2) == 14 
         musclenr_tibia = TibiaNR(i,:);
         string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
-    elseif size(TibiaPlace{i,1},2) == 20;
-        musclenr_tibia = TibiaNR(i,:);
-        string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-    else
-        musclenr_tibia = TibiaNR(i,:);
-        string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-    end
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
+
+        muscles{1,musclenr_tibia}.GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
+%     elseif size(TibiaPlace{i,1},2) == 20
+%         musclenr_tibia = TibiaNR(i,:);
+%         string_tibia = TibiaPlace{i,:};
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
+%     else
+%         musclenr_tibia = TibiaNR(i,:);
+%         string_tibia = TibiaPlace{i,:};
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
+%     end
 end
+
 for i = 1:size(markerCalcn_rot,1)
     musclenr = markerCalcnNR(i,:);
     markerset.OpenSimDocument.MarkerSet.objects.Marker{1,musclenr}.location.Text = calcn_marker_OpenSim(i,:);
@@ -453,21 +457,8 @@ modelNamePrint = sprintf('%s_%s' ,answerNameModelTibia,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model'; %modelNamePrint;
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-activeFile = [mfilename('fullpath') '.m'];  % get dir of the current file
-cd(fileparts(activeFile))
-Model2392_rotatedtibia = struct2xml(dataModel);
-
-
-Pref = struct;
-Pref.StructItem = false;
-Pref.CellItem = false;
-xml_write(['.\' modelNamePrint '.osim'],dataModel.OpenSimDocument,'OpenSimDocument',Pref);
-%name and placement of the femoral bone file
-if strcmp(answerLeg,rightbone) == 1
-    placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
-else
-    placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
-end
+Model2392_rotatedtibia = struct2xml(dataModel,['.\' modelNamePrint '.osim']);
+placeNameModel = ['.\' modelNamePrint '.osim'];
 %write the model as an xml file
 FID_model = fopen(placeNameModel,'w');
 fprintf(FID_model,Model2392_rotatedtibia);
