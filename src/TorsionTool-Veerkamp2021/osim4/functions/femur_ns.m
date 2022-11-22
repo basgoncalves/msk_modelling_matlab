@@ -30,16 +30,14 @@ function femur_ns(dataModel, markerset, answerLeg, rightbone, FA_angle, NS_angle
     answerNameMarkerFemur, dataFemur, place)
 %% Bone vertix
 % change the vertices into num and find the polys
-if strcmp(answerLeg, rightbone) == 1;
-    femur = str2num(dataFemur.VTKFile.PolyData.Piece.Points.DataArray.Text);
-    polyText = dataFemur.VTKFile.PolyData.Piece.Polys.DataArray{1,1}.Text;
-else
-    femur = str2num(dataFemur.VTKFile.PolyData.Piece.Points.DataArray.Text);
-    polyText = dataFemur.VTKFile.PolyData.Piece.Polys.DataArray{1,1}.Text;
-end
+femur = str2num(dataFemur.VTKFile.PolyData.Piece.Points.DataArray.Text);
+polyText = dataFemur.VTKFile.PolyData.Piece.Polys.DataArray{1,1}.Text;
 
 % The muscle attachments for the femur are put in one matrix.
-[femurMuscle, femurPlace1, femurNR] = femur_MA(dataModel, answerLeg);
+% [femurMuscle, femurPlace1, ] = femur_MA(dataModel, answerLeg);
+[~, ~, ~, ~, ~, ~, ~, ~, ~, femurMuscle, femurPlace1, femurNR] = get_muscle_attachments (dataModel, answerLeg);
+
+
 %Find the markers attached to the femur in OpenSim
 [~, ~, ~, ~, markerFemur, markerFemurNR] = OpenSimMarkers(markerset, answerLeg, rightbone);
 
@@ -114,24 +112,12 @@ for i= 1: size(femurMarker_NewAxis)
     end
 end
 innerBox_H_rot = (RotMatrix * H_transfer')';
-% centroidTroc_rot = (Ry_NS *Origin_transfer')';
 figure('position', [500, 50, 500, 950]); colormap([1,1,1])
 trisurf(polys, femur_rot1_all(:,1), femur_rot1_all(:,2), femur_rot1_all(:,3), 'edgecolor','black','LineStyle',':'); hold on
 trisurf(polys, femur_NewAxis(:,1), femur_NewAxis(:,2), femur_NewAxis(:,3), 'edgecolor','black');
 axis equal; set(gca,'FontSize',20); view(20,-10); xlabel('x'); ylabel('y'); zlabel('z')
-% axis equal; set(gca,'FontSize',20); view(250,40); xlabel('x'); ylabel('y'); zlabel('z')
-% scatter3(femurMarker_NewAxis(:,1),femurMarker_NewAxis(:,2), femurMarker_NewAxis(:,3),20,'b'); hold on 
-% scatter3(femurMarker_rot1_all(:,1),femurMarker_rot1_all(:,2), femurMarker_rot1_all(:,3),20,'black'); hold on 
-% scatter3(femurMA_NewAxis(:,1),femurMA_NewAxis(:,2), femurMA_NewAxis(:,3),20,'b'); hold on 
-% scatter3(femurMA_rot1_all(:,1),femurMA_rot1_all(:,2), femurMA_rot1_all(:,3),20,'black'); hold on 
-% create a new pair of axes inside current figu20
-% axes('position',[.60 .250 .35 .55])
 box on % put box around new pair of axes
-% trisurf(polys_inner,femur_NewAxis(:,1), femur_NewAxis(:,2), femur_NewAxis(:,3), 'edgecolor','black'); hold on
-% trisurf(polys_inner,femur_rot1_all(:,1), femur_rot1_all(:,2), femur_rot1_all(:,3), 'edgecolor','black','LineStyle',':'); hold on
-% scatter3(femurMarker_rot1_all(:,1),femurMarker_rot1_all(:,2), femurMarker_rot1_all(:,3),10,'r'); hold on %the femur with the new axis
 axis equal; view(30,-10); set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
-% axis equal; view(250,40); set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
 set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
 
 %% Rotation: step 2
@@ -220,12 +206,9 @@ end
 figure('position', [1000, 50, 500, 950]); colormap([1,1,1]);
 trisurf(polys,femur_rot2_all(:,1),femur_rot2_all(:,2),femur_rot2_all(:,3), 'edgecolor','black','LineStyle',':'); hold on
 trisurf(polys,femur_NewAxis(:,1),femur_NewAxis(:,2),femur_NewAxis(:,3), 'edgecolor','black');
-% scatter3(femurMA_NewAxis(:,1),femurMA_NewAxis(:,2), femurMA_NewAxis(:,3),20,'b'); hold on 
-% scatter3(femurMA_rot2_all(:,1),femurMA_rot2_all(:,2), femurMA_rot2_all(:,3),20,'black'); hold on 
-% scatter3(femurMarker_NewAxis(:,1),femurMarker_NewAxis(:,2), femurMarker_NewAxis(:,3),20,'b'); hold on 
-% scatter3(femurMarker_rot2_all(:,1),femurMarker_rot2_all(:,2), femurMarker_rot2_all(:,3),20,'black'); hold on 
+
 axis equal; set(gca,'FontSize',20); view(30,-10); grid on; xlabel('x'); ylabel('y'); zlabel('z');
-% axis equal; set(gca,'FontSize',20); view(250,40); grid on; xlabel('x'); ylabel('y'); zlabel('z');
+
 set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);
 set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
 set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', [])
@@ -237,7 +220,7 @@ trisurf(polys_middle,femur_NewAxis(:,1), femur_NewAxis(:,2), femur_NewAxis(:,3),
 trisurf(polys_inner,femur_NewAxis(:,1), femur_NewAxis(:,2), femur_NewAxis(:,3), 'edgecolor','black'); hold on
 trisurf(polys_inner,femur_rot2_all(:,1), femur_rot2_all(:,2), femur_rot2_all(:,3), 'edgecolor','black','LineStyle',':'); hold on
 axis equal; view(30,-10); set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
-% axis equal; view(250,40); set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
+
 set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
 %% Rotation; Step 3
 %MOVE THE FEMORAL HEAD BACK TO FIT CONDYLAR WITHOUT MOVING THE CONDYLAR
@@ -317,17 +300,6 @@ for i = 1:size(femurMarker_rot2_all,1)
     end
 end
 
-% plot the femoral bone as a scatter plot with inner and middle box rotated and twisted.
-% figure('position', [1000, 50, 500, 950]); colormap([1,1,1]);
-% trisurf(polys,femur_rot3_all_deform(:,1),femur_rot3_all_deform(:,2),femur_rot3_all_deform(:,3), 'edgecolor','black','LineStyle',':'); hold on
-% trisurf(polys,femur_NewAxis(:,1),femur_NewAxis(:,2),femur_NewAxis(:,3), 'edgecolor','black');
-% % scatter3(Shaft_distal(:,1),Shaft_distal(:,2), Shaft_distal(:,3),10,'r'); hold on %the femur with the new axis
-% % scatter3(femurMA_NewAxis(:,1),femurMA_NewAxis(:,2), femurMA_NewAxis(:,3),20,'b'); hold on 
-% % scatter3(femurMA_rot3_all_deform(:,1),femurMA_rot3_all_deform(:,2), femurMA_rot3_all_deform(:,3),20,'black'); hold on 
-% scatter3(femurMarker_NewAxis(:,1),femurMarker_NewAxis(:,2), femurMarker_NewAxis(:,3),20,'b'); hold on 
-% scatter3(femurMarker_rot3_all_deform(:,1),femurMarker_rot3_all_deform(:,2), femurMarker_rot3_all_deform(:,3),20,'black'); hold on 
-% axis equal; set(gca,'FontSize',16); view(30,-10); grid on; xlabel('x'); ylabel('y'); zlabel('z')
-
 %% Rotate back to the
 %the ZX plane
 angleZX_back = - angleZX;
@@ -392,9 +364,7 @@ figure('position', [1400, 50, 500, 950])
 colormap([1,1,1]);
 trisurf(polys,femur_Rotated(:,1),femur_Rotated(:,2), femur_Rotated(:,3), 'edgecolor','black','LineStyle',':'); hold on
 trisurf(polys,femur_start(:,1),femur_start(:,2), femur_start(:,3), 'edgecolor','black');
-% scatter3(femurMA_Rotated(:,1),femurMA_Rotated(:,2), femurMA_Rotated(:,3), 'red');
-% scatter3(femurMarker_back(:,1),femurMarker_back(:,2), femurMarker_back(:,3), 'red')
-% grid on; axis equal; set(gca,'FontSize',20); view(250,40); xlabel('x'); ylabel('y'); zlabel('z');
+
 grid on; axis equal; set(gca,'FontSize',20); view(30,-10); xlabel('x'); ylabel('y'); zlabel('z');
 set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);
 set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
@@ -479,7 +449,6 @@ modelNamePrint = sprintf('%s_%s' ,modelName,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model';%modelNamePrint; 
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-cd functions
 Model2392_rotatedfemur = struct2xml(dataModel);
 %name and placement of the femoral bone file
 placeNameModel = sprintf('%s',direct, place, modelName, '.osim');
