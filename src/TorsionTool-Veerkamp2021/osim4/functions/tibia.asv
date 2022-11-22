@@ -309,8 +309,7 @@ axis equal; view(-30,25)
 set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);
 set(gca, 'YTickLabelMode', 'manual', 'YTickLabel', []);
 set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
-%%
-%rotation of the markers
+%% rotation of the markers
 markerCalcn_rot = [];
 for i = 1:size(markerCalcn_start_trans,1)
     marker_dist = norm(max_tibia - markerCalcn_start_trans(i,:));
@@ -403,85 +402,10 @@ set(gca, 'ZTickLabelMode', 'manual', 'ZTickLabel', []);
 [calcn_marker_OpenSim]=coordinatesOpenSim(markerCalcn_start_transBACK);
 
 %% export the data
-% convert the tibia data back to string
-tibia_rotated =sprintf('\t\t\t%+8.6f %+8.6f %+8.6f\n',tibia_rot_OpenSim');
-tibia_Repared = strrep(tibia_rotated,'+',' ');
-% replace the generic data with the rotated bone
-dataTibia.VTKFile.PolyData.Piece.Points.DataArray.Text = tibia_Repared;
-
-% convert the struct back to xml file
-Tibia_rotated = struct2xml(dataTibia);
-%name and placement of the tibia bone file
-direct = [];
-% export - write the model as an xml  - remember to save as a vtp file
-modelName = answerNameModelTibia;
-boneName = ['tibia' upper(answerLeg) '_rotated.vtp'];
-cTibia = sprintf('%s_%s' ,modelName,boneName);
-placeNameTibia = sprintf('%s', direct, place, cTibia);
-FID_tibia = fopen(placeNameTibia,'w');
-fprintf(FID_tibia,Tibia_rotated);
-fclose(FID_tibia);
-%change the name of the tibia in the gait2392 model file
-dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,3}.attached_geometry.Mesh{1,1}.mesh_file = cTibia;
-
-
-% convert the tibia data back to string
-talus_rotated =sprintf('\t\t\t%+8.6f %+8.6f %+8.6f\n',talus_transformed_OpenSim');
-talus_Repared = strrep(talus_rotated,'+',' ');
-% replace the generic data with the rotated bone
-dataTalus.VTKFile.PolyData.Piece.Points.DataArray.Text = talus_Repared;
-
-% convert the struct back to xml file
-Talus_rotated = struct2xml(dataTalus);
-% export - write the model as an xml  - remember to save as a vtp file
-modelName = answerNameModelTibia;
-boneName = ['talus' upper(answerLeg) '_rotated.vtp'];
-cTalus = sprintf('%s_%s' ,modelName,boneName);
-placeNameTibia = sprintf('%s', direct, place, cTalus);
-FID_talus = fopen(placeNameTibia,'w');
-fprintf(FID_talus,Talus_rotated);
-fclose(FID_talus);
-%change the name of the tibia in the gait2392 model file
-dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,4}.attached_geometry.Mesh.mesh_file = cTalus;
-
-
-% convert the tibia data back to string
-calcn_rotated =sprintf('\t\t\t%+8.6f %+8.6f %+8.6f\n',calcn_transformed_OpenSim');
-calcn_Repared = strrep(calcn_rotated,'+',' ');
-% replace the generic data with the rotated bone
-dataCalcn.VTKFile.PolyData.Piece.Points.DataArray.Text = calcn_Repared;
-
-% convert the struct back to xml file
-Calcn_rotated = struct2xml(dataCalcn);
-% export - write the model as an xml  - remember to save as a vtp file
-modelName = answerNameModelTibia;
-boneName = ['calcn' upper(answerLeg) '_rotated.vtp'];
-cCalcn = sprintf('%s_%s' ,modelName,boneName);
-placeNameTibia = sprintf('%s', direct, place, cCalcn);
-FID_calcn = fopen(placeNameTibia,'w');
-fprintf(FID_calcn,Calcn_rotated);
-fclose(FID_calcn);
-%change the name of the tibia in the gait2392 model file
-dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,5}.attached_geometry.Mesh.mesh_file = cCalcn;
-
-% convert the tibia data back to string
-toes_rotated =sprintf('\t\t\t%+8.6f %+8.6f %+8.6f\n',toes_transformed_OpenSim');
-toes_Repared = strrep(toes_rotated,'+',' ');
-% replace the generic data with the rotated bone
-dataToes.VTKFile.PolyData.Piece.Points.DataArray.Text = toes_Repared;
-
-% convert the struct back to xml file
-Toes_rotated = struct2xml(dataToes);
-% export - write the model as an xml  - remember to save as a vtp file
-modelName = answerNameModelTibia;
-boneName = ['toes' upper(answerLeg) '_rotated.vtp'];
-cToes = sprintf('%s_%s' ,modelName,boneName);
-placeNameTibia = sprintf('%s', direct, place, cToes);
-FID_toes = fopen(placeNameTibia,'w');
-fprintf(FID_toes,Toes_rotated);
-fclose(FID_toes);
-%change the name of the tibia in the gait2392 model file
-dataModel.OpenSimDocument.Model.BodySet.objects.Body{1,6}.attached_geometry.Mesh.mesh_file = cToes;
+dataModel = add_geometry_to_osimStruct(dataModel,tibia_rot_OpenSim,dataTibia,answerNameModelTibia,answerLeg,'tibia',place);
+dataModel = add_geometry_to_osimStruct(dataModel,talus_transformed_OpenSim,dataTalus,answerNameModelTibia,answerLeg,'talus',place);
+dataModel = add_geometry_to_osimStruct(dataModel,calcn_transformed_OpenSim,dataCalcn,answerNameModelTibia,answerLeg,'calcn',place);
+dataModel = add_geometry_to_osimStruct(dataModel,toes_transformed_OpenSim,dataToes,answerNameModelTibia,answerLeg,'toes',place);
 
 %% Fill in the rotated muscle attachments to the model
 for i = 1:size(CalcnMuscles,1)
@@ -496,24 +420,31 @@ for i = 1:size(ToesMuscles,1)
     dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_toes}...
         .GeometryPath.PathPointSet.objects.(string_toes(1:9)){1,str2num(string_toes(13))}.location.Text = toes_MA_OpenSim(i,:);
 end
+
+muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 for i = 1:size(TibiaMuscles,1)
-    if size(TibiaPlace{i,1},2) == 14 ;
+%     if size(TibiaPlace{i,1},2) == 14 
         musclenr_tibia = TibiaNR(i,:);
         string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
-    elseif size(TibiaPlace{i,1},2) == 20;
-        musclenr_tibia = TibiaNR(i,:);
-        string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-    else
-        musclenr_tibia = TibiaNR(i,:);
-        string_tibia = TibiaPlace{i,:};
-        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-            .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-    end
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
+        
+        pathPoint = muscles{1,musclenr_tibia}.GeometryPath.PathPointSet.objects.(string_tibia(1:9))
+        
+        pathPoint{1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
+%     elseif size(TibiaPlace{i,1},2) == 20
+%         musclenr_tibia = TibiaNR(i,:);
+%         string_tibia = TibiaPlace{i,:};
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
+%     else
+%         musclenr_tibia = TibiaNR(i,:);
+%         string_tibia = TibiaPlace{i,:};
+%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
+%     end
 end
+
 for i = 1:size(markerCalcn_rot,1)
     musclenr = markerCalcnNR(i,:);
     markerset.OpenSimDocument.MarkerSet.objects.Marker{1,musclenr}.location.Text = calcn_marker_OpenSim(i,:);
@@ -524,19 +455,12 @@ for i = 1:size(markerTibia_rot,1)
 end
 %% change the name of the model
 type= 'deformed';
-modelNamePrint = sprintf('%s_%s' ,modelName,type);
+modelNamePrint = sprintf('%s_%s' ,answerNameModelTibia,type);
 dataModel.OpenSimDocument.Model.Attributes.name = 'deformed_model'; %modelNamePrint;
 %% Export the whole gait2392 model file - rotated muscle attachements and correct bone rotataion names
 % export the gait2392
-activeFile = [mfilename('fullpath') '.m'];  % get dir of the current file
-cd(fileparts(activeFile))
-Model2392_rotatedtibia = struct2xml(dataModel);
-%name and placement of the femoral bone file
-if strcmp(answerLeg,rightbone) == 1
-    placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
-else
-    placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
-end
+Model2392_rotatedtibia = struct2xml(dataModel,['.\' modelNamePrint '.osim']);
+placeNameModel = ['.\' modelNamePrint '.osim'];
 %write the model as an xml file
 FID_model = fopen(placeNameModel,'w');
 fprintf(FID_model,Model2392_rotatedtibia);

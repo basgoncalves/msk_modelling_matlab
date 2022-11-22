@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda J髇asd髏tir, Marjolein M. van der Krogt      		          %
+%    Hulda J贸nasd贸ttir, Marjolein M. van der Krogt      		          %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda J髇asd髏tir & Kirsten Veerkamp                        %
+%    Authors: Hulda J贸nasd贸ttir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 %
 % ----------------------------------------------------------------------- %
@@ -33,10 +33,10 @@ FemurMA = ['femur_' lower(answerLeg)];
 % Muscles = coordinates of muscle attachements
 % Place = path points
 % NR = number of attachments
-ToesMuscles_name = {}; ToesMuscles = []; ToesPlace = {}; ToesNR = [];
-CalcnMuscles_name = {}; CalcnMuscles = []; CalcnPlace = {}; CalcnNR = [];
+ToesMuscles = []; ToesPlace = {}; ToesNR = [];
+CalcnMuscles = []; CalcnPlace = {}; CalcnNR = [];
 TibiaMuscles_name = {}; TibiaMuscles = []; TibiaPlace = {}; TibiaNR = [];
-FemurMuscles_name = {}; FemurMuscle = []; FemurPlace1 = {}; FemurNR = [];
+FemurMuscle = []; FemurPlace1 = {}; FemurNR = [];
 
 muscles_with_attachments = {};
 location_attachments = {};
@@ -62,17 +62,21 @@ for iMuscle = 1:size(muscles,2)
     muscles_with_attachments(iMuscle,emptyCells) = {'-'};
 
     [TibiaMuscles,TibiaNR,TibiaPlace,TibiaMuscles_name] = find_muscle_path(TibiaMA,TibiaMuscles,TibiaNR,TibiaPlace,TibiaMuscles_name);
-    [CalcnMuscles,CalcnNR,CalcnPlace,CalcnMuscles_name] = find_muscle_path(CalcnMA,CalcnMuscles,CalcnNR,CalcnPlace,CalcnMuscles_name);
-    [ToesMuscles,ToesNR,ToesPlace,ToesMuscles_name] = find_muscle_path(ToesMA,ToesMuscles,ToesNR,ToesPlace,ToesMuscles_name);
-    [FemurMuscle,FemurNR,FemurPlace1,FemurMuscles_name] = find_muscle_path(FemurMA,FemurMuscle,FemurNR,FemurPlace1,FemurMuscles_name);
+    [CalcnMuscles,CalcnNR,CalcnPlace] = find_muscle_path(CalcnMA,CalcnMuscles,CalcnNR,CalcnPlace,{});
+    [ToesMuscles,ToesNR,ToesPlace] = find_muscle_path(ToesMA,ToesMuscles,ToesNR,ToesPlace,{});
+    [FemurMuscle,FemurNR,FemurPlace1] = find_muscle_path(FemurMA,FemurMuscle,FemurNR,FemurPlace1,{});
 end
-
+TibiaMuscles_name
     function [location,number_attachments,name_attachments,muscles_name] = find_muscle_path...
             (body_name,location,number_attachments,name_attachments,muscles_name)
 
         [~,row_contains_body] = find(contains(muscles_with_attachments(iMuscle,:),body_name));                                         
         for t = row_contains_body
-            muscles_name        = [muscles_name; muscles_with_attachments{iMuscle,1}];
+            if isequal(body_name,'tibia_r')
+                muscles_name2 = muscles_name;
+                muscles_name2        = [muscles_name; muscles_with_attachments{iMuscle,1}];
+                muscles_name = muscles_name2;
+            end
             location            = [location; location_attachments{iMuscle,t}];
             number_attachments  = [number_attachments; iMuscle];
             pathPoint           = sprintf('PathPoint{1,%d}',t);
