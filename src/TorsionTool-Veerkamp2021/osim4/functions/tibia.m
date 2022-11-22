@@ -25,13 +25,15 @@
 % ----------------------------------------------------------------------
 function     tibia(dataModel, markerset, answerLeg, rightbone, TT_angle, answerNameModelTibia,...
     ~, dataTibia, dataCalcn, dataTalus, dataToes, place)
-%% Find the muscle attachment on the tibia, calcn, talus and toes and place in a matrix
-[TibiaMuscles,TibiaPlace,TibiaNR,CalcnMuscles,CalcnPlace,CalcnNR,ToesMuscles,ToesPlace,ToesNR] = tibia_MA(dataModel, answerLeg);
-% The vertices for the bone are rotated to fit the coordinate system in MATLAB
+%% Find the muscle attachment on the tibia, calcn, talus and toes and placstr2nume in a matrix
+[TibiaMuscles,TibiaPlace,TibiaNR,CalcnMuscles,CalcnPlace,CalcnNR,ToesMuscles,ToesPlace,ToesNR,...
+     Femur_c, Femur_pp, Femur_na,muscle_names] = get_muscle_attachments(dataModel, answerLeg);
+
+% The vertices for the bone are rotated to fit the coordinate system in MATLAB2num
 [TibiaMuscles_start] = coordinatesCorrection(TibiaMuscles);
 [CalcnMuscles_start] = coordinatesCorrection(CalcnMuscles);
 [ToesMuscles_start] = coordinatesCorrection(ToesMuscles);
-%  Prepare the data needed
+%  Prepare the data needed (str2double will not work)
 calcn_NUM = str2num(dataCalcn.VTKFile.PolyData.Piece.Points.DataArray.Text);
 polyText_Calcn = dataCalcn.VTKFile.PolyData.Piece.Polys.DataArray{1,1}.Text;
 talus_NUM = str2num(dataTalus.VTKFile.PolyData.Piece.Points.DataArray.Text);
@@ -52,7 +54,7 @@ polyText_Tibia = dataTibia.VTKFile.PolyData.Piece.Polys.DataArray{1,1}.Text;
 [markerTibia_start] = coordinatesCorrection(markerTibia);
 [markerCalcn_start] = coordinatesCorrection(markerCalcn);
 
-% prepare the polys in the correct format for ploting the bones
+%% prepare the polys in the correct format for ploting the bones
 % Divide the text where new line occurs
 polysplit_talus = strsplit(polyText_Talus,'\n');
 polysplit_calcn = strsplit(polyText_Calcn,'\n');
@@ -67,6 +69,7 @@ for i = 1:size(polysplit_talus,2)
         poly4_talus = [poly4_talus; str2num(polysplit_talus{1,i})];
     end
 end
+
 poly3_calcn = []; poly4_calcn = [];
 for i = 1:size(polysplit_calcn,2)
     if size(str2num(polysplit_calcn{1,i}),2) == 3
@@ -83,6 +86,7 @@ for i = 1:size(polysplit_toes,2)
         poly4_toes = [poly4_toes; str2num(polysplit_toes{1,i})];
     end
 end
+
 poly3_tibia = []; poly4_tibia = [];
 for i = 1:size(polysplit_tibia,2)
     if size(str2num(polysplit_tibia{1,i}),2) == 3
@@ -196,10 +200,7 @@ trisurf(tri3_toes,toes_rot(:,1),toes_rot(:,2), toes_rot(:,3), 'edgecolor','black
 trisurf(tri4_talus,talus_rot(:,1),talus_rot(:,2),talus_rot(:,3), 'edgecolor','black','LineStyle',':'); hold on;
 trisurf(tri4_calcn,calcn_rot(:,1),calcn_rot(:,2),calcn_rot(:,3), 'edgecolor','black','LineStyle',':'); hold on;
 trisurf(tri4_toes,toes_rot(:,1),toes_rot(:,2),toes_rot(:,3), 'edgecolor','black','LineStyle',':'); hold on
-% scatter3(calcn_MA_BACK(:,1),calcn_MA_BACK(:,2),calcn_MA_BACK(:,3), 20,'b', 'Linewidth',2); hold on
-% scatter3(toes_MA_BACK(:,1),toes_MA_BACK(:,2),toes_MA_BACK(:,3), 20,'b', 'Linewidth',2); hold on
-% scatter3(calcn_MA_rot(:,1),calcn_MA_rot(:,2),calcn_MA_rot(:,3), 20,'r', 'Linewidth',2); hold on
-% scatter3(toes_MA_rot(:,1),toes_MA_rot(:,2),toes_MA_rot(:,3), 20,'r', 'Linewidth',2);
+
 axis equal; xlabel('x'); ylabel('y'); zlabel('z');
 set(gca,'FontSize',20); view(0,90);
 set(gca, 'XTickLabelMode', 'manual', 'XTickLabel', []);
@@ -264,18 +265,6 @@ for i = 1:size(TibiaMuscles_start,1)
         tibiaMA_rot = [tibiaMA_rot; tibia_rotMA2'];
     end
 end
-% figure('position', [600, 50, 400, 950])
-% grey = [0.4,0.4,0.4];
-% scatter3(tibia_rot(:,1),tibia_rot(:,2), tibia_rot(:,3),20,grey); hold on
-% scatter3(Tibia_start(:,1),Tibia_start(:,2), Tibia_start(:,3),20,'black');
-% dim = [.29 0.39 .46 .25];
-% annotation('rectangle',dim,'Color','black'); h = text(-0.068,-.2,-.15, 'Rotation 2', 'Color','black','FontSize',14);
-% set(h, 'rotation', 90); dim2 = [.29 .14 .46 .25]; annotation('rectangle',dim2,'Color','black')
-% h = text(-0.068,-.2,-.28, 'Rotation 1', 'Color','black','FontSize',14); set(h, 'rotation', 90)
-% for p = 1:size(tibia_rot,1)
-%     h =  plot3([Tibia_start(p,1),tibia_rot(p,1)],[Tibia_start(p,2),tibia_rot(p,2)],[Tibia_start(p,3),tibia_rot(p,3)],'b');set(h,'linewidth',1); hold on
-% end
-% axis equal; view(-30,25); set(gca,'FontSize',14); xlabel('x'); ylabel('y'); zlabel('z')
 
 figure('position', [700, 50, 450, 950])
 colormap([1,1,1])
@@ -408,12 +397,15 @@ dataModel = add_geometry_to_osimStruct(dataModel,calcn_transformed_OpenSim,dataC
 dataModel = add_geometry_to_osimStruct(dataModel,toes_transformed_OpenSim,dataToes,answerNameModelTibia,answerLeg,'toes',place);
 
 %% Fill in the rotated muscle attachments to the model
+
+muscle_names;
 for i = 1:size(CalcnMuscles,1)
     musclenr = CalcnNR(i,:);
     string = CalcnPlace{i,:};
     dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr}.GeometryPath.PathPointSet.objects...
         .(string(1:9)){1,str2num(string(13))}.location.Text=calcn_MA_OpenSim(i,:);
 end
+
 for i = 1:size(ToesMuscles,1)
     musclenr_toes = ToesNR(i,:);
     string_toes = ToesPlace{i,:};
@@ -421,26 +413,12 @@ for i = 1:size(ToesMuscles,1)
         .GeometryPath.PathPointSet.objects.(string_toes(1:9)){1,str2num(string_toes(13))}.location.Text = toes_MA_OpenSim(i,:);
 end
 
-muscles = dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle;
 for i = 1:size(TibiaMuscles,1)
-%     if size(TibiaPlace{i,1},2) == 14 
-        musclenr_tibia = TibiaNR(i,:);
-        string_tibia = TibiaPlace{i,:};
-%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-%             .GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
-
-        muscles{1,musclenr_tibia}.GeometryPath.PathPointSet.objects.(string_tibia(1:9)){1,str2num(string_tibia(13))}.location.Text = tibia_MA_OpenSim(i,:);
-%     elseif size(TibiaPlace{i,1},2) == 20
-%         musclenr_tibia = TibiaNR(i,:);
-%         string_tibia = TibiaPlace{i,:};
-%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-%     else
-%         musclenr_tibia = TibiaNR(i,:);
-%         string_tibia = TibiaPlace{i,:};
-%         dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-%             .GeometryPath.PathPointSet.objects.(string_tibia).location.Text = tibia_MA_OpenSim(i,:);
-%     end
+    musclenr_tibia  = TibiaNR(i,:);
+    string_tibia    = TibiaPlace{i,:};
+    cell_PathPoint  = str2num(string_tibia(13));
+    dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+        .GeometryPath.PathPointSet.objects.PathPoint{1,cell_PathPoint}.location.Text = tibia_MA_OpenSim(i,:);
 end
 
 for i = 1:size(markerCalcn_rot,1)
@@ -465,61 +443,12 @@ fprintf(FID_model,Model2392_rotatedtibia);
 fclose(FID_model);
 
 %% the pathpoints in the file are in the wrong order, because conditional pathpoints are put last when printed -> this corrects them to be in the right order
-
-
-msg = msgbox('here is the problem');
-uiwait(msg)
-
-error('go finish the script')
-
-xml_delete_comments(placeNameModel);
 file = importdata(placeNameModel);
 % if strcmp(answerLeg,rightbone)==1
 file_out = file;
 % else
 % right leg
 file_out = file(1:1677);
-
-
-
-
-generic_osim3 = 'C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\models\gait2392_genericsimpl.osim';
-generic_osim32 = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim3\DEFORMED_MODEL\gait2392_genericsimpl.osim'
-generic_osim4 = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim4\gait2392_genericsimplOS4.osim';
-
-
-
-xml3 = xml_read(generic_osim3);
-xml4 = xml_read(generic_osim4);
-
-
-file32 = importdata(generic_osim32)
-file3 = importdata(generic_osim3);
-file3.textdata
-
-file4 = importdata(generic_osim4);
-file4.textdata
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 % lines in the file up to where the path points for each muscle are correct (1st input), and line where the conditional path points start (2nd input) are defined
 condPathPoint(1,:) = [1 1677];
@@ -550,13 +479,8 @@ for x = 2:length(condPathPoint)-1
 end
 % end
 %%
-if strcmp(answerLeg,rightbone) == 1
-    placeNameModel = sprintf('%s', direct, place, modelName,'.osim');
-else
-    placeNameModel = sprintf('%s', direct, place, 'FINAL_PERSONALISEDTORSIONS','.osim');
-end
 FID_model2 = fopen(placeNameModel,'w');
-% fprintf(FID_model2,'%10s\n',file_out{:});
+fprintf(FID_model2,'%10s\n',file_out{:});
 fclose(FID_model2);
 
 disp(['New model file has been saved in ' placeNameModel])
@@ -567,25 +491,16 @@ markersetup_rotatedtibia = struct2xml(markerset);
 markersName= answerNameMarkerTibia;
 markerNameOut = sprintf('%s_%s', modelName, markersName);
 %name and placement of the femoral bone file
-if strcmp(answerLeg,rightbone) == 1
-    placeNameMarker = sprintf('%s', direct, place, markerNameOut);
-else
-    placeNameMarker = sprintf('%s', direct, place, 'FINAL_MARKERSET.xml');
-end
+placeNameMarker = sprintf('%s', direct, place, markerNameOut);
+
 FID_marker = fopen(placeNameMarker,'w');
 fprintf(FID_marker,markersetup_rotatedtibia);
 fclose(FID_marker);
 disp(['New marker set has been saved in ' placeNameMarker])
 
-cd ..
-
 % split the figures across the screen (Nov 2022)
 [~,~,window_width,~] = matWinPos;
-
 f = figure(1); f.Position(1) = 10;
-
 f = figure(2); f.Position(1) = window_width/4;
-
 f = figure(3); f.Position(1) = window_width/4*2;
-
 close all

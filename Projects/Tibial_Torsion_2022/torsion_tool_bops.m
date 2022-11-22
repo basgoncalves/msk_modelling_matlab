@@ -15,16 +15,13 @@ add_tosion_tool_to_path(osim_version,model_path)
 
 % geneirc values (in degrees)
 legs = {'R'};
-original_AV = 17.6;  % anteversion angle
-original_NS = 123.3; % neck-shaft angle
-original_TT = 0;     % tibial torsion angle
 
-femurAnteversion_angles   = original_AV + [];
-femurNeckShaft_angles     = original_NS + [];
+femurAnteversion_angles   = []; % anteversion angle (original = 17.6)
+femurNeckShaft_angles     = []; % neck-shaft angle (original = 123.3)
 [m,n] = ndgrid(femurAnteversion_angles,femurNeckShaft_angles);
 
 femurTorsion_angles     = [m(:),n(:)];
-tibialTorsion_angles    = original_TT + [-30,-15,0,15,30];
+tibialTorsion_angles    = [-30,-15,0,15,30]; % tibial torsion angle (original = 0)
 
 for iLeg = 1:length(legs)
     which_leg   = legs{iLeg};
