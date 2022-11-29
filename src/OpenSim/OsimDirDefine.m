@@ -71,7 +71,7 @@ if ~contains(installedOsimVersion(1:3),osimVersionBops)
         uiwait(msg)
         error('OpenSim not configured, please restar matlab in admin mode and run "OsimDirDefine.m" ')
     else
-        msg = msgbox(['Configure OpenSim ' osimVersionBops '. Please select the folder where opensim is installed']);
+        msg = msgbox(['Configuring OpenSim ' osimVersionBops '...']);
         uiwait(msg)
     end
     configureOpenSim
