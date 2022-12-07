@@ -4,7 +4,7 @@ function torsion_tool_bops(model_path,osim_version)
 
 clc; close all;  % clean workspace (use restoredefaultpath if needed)
 if nargin < 1 || ~isfile(model_path)
-    model_path = 'C:\Code\Git\MSKmodelling\src\TorsionTool-Veerkamp2021\osim4\gait2392_genericsimplOS4.osim';
+    model_path = [fileparts(mfilename('fullpath')) '\gait2392_genericsimplOS4_BG_markers.osim'];
 end
 
 if nargin < 2
@@ -81,11 +81,11 @@ if ~isfolder([dir_model_path fp 'femur'])
     
     fprintf('\n \n copying vtp files to the location of used model... \n \n')
 
-    copyfile([torsion_tool_path_version fp 'femur'],[dir_model_pathfp 'femur'])
-    copyfile([torsion_tool_path_version fp 'tibia'],[dir_model_pathfp 'tibia'])
-    copyfile([torsion_tool_path_version fp 'calcn'],[dir_model_pathfp 'calcn'])
-    copyfile([torsion_tool_path_version fp 'talus'],[dir_model_pathfp 'talus'])
-    copyfile([torsion_tool_path_version fp 'toes'] ,[dir_model_pathfp 'toes'])
+    copyfile([torsion_tool_path_version fp 'femur'],[dir_model_path fp 'femur'])
+    copyfile([torsion_tool_path_version fp 'tibia'],[dir_model_path fp 'tibia'])
+    copyfile([torsion_tool_path_version fp 'calcn'],[dir_model_path fp 'calcn'])
+    copyfile([torsion_tool_path_version fp 'talus'],[dir_model_path fp 'talus'])
+    copyfile([torsion_tool_path_version fp 'toes'] ,[dir_model_path fp 'toes'])
 end
 
 function apply_bone_torsions(model_path,Torsion_angles,which_leg,deform_bone)

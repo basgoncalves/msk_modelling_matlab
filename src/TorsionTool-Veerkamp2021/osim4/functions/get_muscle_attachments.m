@@ -63,7 +63,6 @@ muscle_names.Calcn = Calcn_names;
 muscle_names.Tibia = Tibia_names;
 muscle_names.Femur = Femur_names;
 
-
 %%====================================== callback functions ==================================% 
     function allocate_muscle_paths
 
