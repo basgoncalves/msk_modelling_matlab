@@ -88,8 +88,6 @@ if ~isfolder([dir_model_path fp 'femur'])
     copyfile([torsion_tool_path_version fp 'toes'] ,[dir_model_path fp 'toes'])
 end
 
-
-%============================================================================================%
 function apply_bone_torsions(model_path,Torsion_angles,which_leg,deform_bone)
 
 [dir_contains_model,model,ext] = fileparts(model_path);

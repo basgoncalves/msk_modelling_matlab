@@ -43,15 +43,15 @@ Femur_names = {}; Femur_c = []; Femur_pp = {}; Femur_na = [];
 muscles_with_attachments = {};
 location_attachments = {};
 type_paths = {'PathPoint', 'ConditionalPathPoint', 'MovingPathPoint'};
+for iType = 1:length(type_paths)
+    iType = 2;
+    type_path = type_paths{iType};
 
-for iMuscle = 1:size(muscles,2)
-    muscles_with_attachments{iMuscle,1}   = muscles{1,iMuscle}.Attributes.name;
-    location_attachments{iMuscle,1}       = muscles{1,iMuscle}.Attributes.name;
+    for iMuscle = 1:size(muscles,2)
+        muscles_with_attachments{iMuscle,1}   = muscles{1,iMuscle}.Attributes.name;
+        location_attachments{iMuscle,1}       = muscles{1,iMuscle}.Attributes.name;
 
-    for iType = 1:length(type_paths)
         try
-            type_path = type_paths{iType};
-            MuscleAttachments = muscles{1,iMuscle}.GeometryPath.PathPointSet.objects.(type_path);
             allocate_muscle_paths
         end
     end
@@ -68,23 +68,31 @@ muscle_names.Femur = Femur_names;
 
         [muscles_with_attachments,location_attachments] = ...
             find_muscle_attachements(muscles_with_attachments,location_attachments);
+        try
+            [Tibia_c,Tibia_na,Tibia_pp,Tibia_names] = ...
+                find_muscle_path(type_path,TibiaMA,Tibia_c,Tibia_na,Tibia_pp,Tibia_names);
+        end
 
-        [Tibia_c,Tibia_na,Tibia_pp,Tibia_names] = ...
-            find_muscle_path(type_path,TibiaMA,Tibia_c,Tibia_na,Tibia_pp,Tibia_names);
+        try
+            [Calcn_c,Calcn_na,Calcn_pp,Calcn_names] = ...
+                find_muscle_path(type_path,CalcnMA,Calcn_c,Calcn_na,Calcn_pp,Calcn_names);
+        end
 
-        [Calcn_c,Calcn_na,Calcn_pp,Calcn_names] = ...
-            find_muscle_path(type_path,CalcnMA,Calcn_c,Calcn_na,Calcn_pp,Calcn_names);
+        try
+            [Toes_c,Toes_na,Toes_pp,Toes_names]     = ...
+                find_muscle_path(type_path,ToesMA,Toes_c,Toes_na,Toes_pp,Toes_names);
+        end
 
-        [Toes_c,Toes_na,Toes_pp,Toes_names]     = ...
-            find_muscle_path(type_path,ToesMA,Toes_c,Toes_na,Toes_pp,Toes_names);
-
-        [Femur_c,Femur_na,Femur_pp,Femur_names] = ...
-            find_muscle_path(type_path,FemurMA,Femur_c,Femur_na,Femur_pp,Femur_names);
-
+        try
+            [Femur_c,Femur_na,Femur_pp,Femur_names] = ...
+                find_muscle_path(type_path,FemurMA,Femur_c,Femur_na,Femur_pp,Femur_names);
+        end
     end
 %=============================================================================================%
     function [muscles_with_attachments,location_attachments] = ...
                 find_muscle_attachements(muscles_with_attachments,location_attachments)
+
+         MuscleAttachments = muscles{1,iMuscle}.GeometryPath.PathPointSet.objects.(type_path);
 
          if size(MuscleAttachments,2) == 1
             body = strtrim(regexprep(MuscleAttachments.socket_parent_frame.Text,'/bodyset/',''));
@@ -106,10 +114,28 @@ muscle_names.Femur = Femur_names;
     function [location,number_attachments,cell_attachments,muscles_name] = find_muscle_path...
             (type_path, body_name,location,number_attachments,cell_attachments,muscles_name)
 
-        [~,row_contains_body] = find(contains(muscles_with_attachments(iMuscle,:),body_name));
+        MuscleAttachments = muscles{1,iMuscle}.GeometryPath.PathPointSet.objects.(type_path);
+
+        [~,col_contains_body] = find(contains(muscles_with_attachments(iMuscle,:),body_name));
         
+        % just here for debuging (clear when code works perfectly)
+        if contains(body_name,'calc') && ~isempty(col_contains_body)
+            a=1; 
+        end
+      
+        % if there is more than one muscle attachment find the one that contains the curent body
+        if size(MuscleAttachments,2) > 1 
+            for ii = 1:size(MuscleAttachments,2)
+               if contains(MuscleAttachments{ii}.socket_parent_frame.Text, body_name)
+                    MuscleAttachments = MuscleAttachments{ii};
+                    break
+               end
+            end
+        end
+
+
         if contains(MuscleAttachments.socket_parent_frame.Text, body_name)
-            for t = row_contains_body
+            for t = col_contains_body
                 muscles_name        = [muscles_name; muscles_with_attachments{iMuscle,1}];
                 location            = [location; location_attachments{iMuscle,t}];
                 number_attachments  = [number_attachments; iMuscle];
