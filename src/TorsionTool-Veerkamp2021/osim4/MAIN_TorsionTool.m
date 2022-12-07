@@ -71,7 +71,7 @@ markerset = [deformed_model '_' markerset];
 deformed_model = 'RT15'; 
 deform_bone = 'T'; 
 which_leg = 'R';
-angle_TT_right = 0; % right tibial torsion angle (in degrees) %
+angle_TT_right = 5; % right tibial torsion angle (in degrees) %
 deformed_model = [ 'rightTT' num2str(angle_TT_right) ];
 
 make_PEmodel( model, deformed_model, markerset, deform_bone, which_leg, angle_TT_right);

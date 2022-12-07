@@ -29,6 +29,7 @@ function     tibia(dataModel, markerset, answerLeg, rightbone, TT_angle, answerN
 [TibiaMuscles,TibiaPlace,TibiaNR,CalcnMuscles,CalcnPlace,CalcnNR,ToesMuscles,ToesPlace,ToesNR,...
      Femur_c, Femur_pp, Femur_na,muscle_names] = get_muscle_attachments(dataModel, answerLeg);
 
+ 
 % The vertices for the bone are rotated to fit the coordinate system in MATLAB2num
 [TibiaMuscles_start] = coordinatesCorrection(TibiaMuscles);
 [CalcnMuscles_start] = coordinatesCorrection(CalcnMuscles);

@@ -29,5 +29,5 @@ try fp;catch; addpath(genpath(mskmodelling_path));end
 % osim4_bas = [testing_model_path '\gait2392_genericsimplOS4_BG.osim'];
 % torsion_tool_bops(osim4_bas,4)
 
-osim4_bas_markers = [testing_model_path '\gait2392_genericsimplOS4_BG_markers.osim'] ;
+osim4_bas_markers = [testing_model_path '\testing_models\gait2392_genericsimplOS4_BG_markers.osim'] ;
 torsion_tool_bops(osim4_bas_markers,4)

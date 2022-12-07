@@ -109,6 +109,11 @@ muscle_names.Femur = Femur_names;
 
         [~,row_contains_body] = find(contains(muscles_with_attachments(iMuscle,:),body_name));
         
+        % just here for debuging (clear when code works perfectly)
+        if contains(body_name,'calc') && ~isempty(row_contains_body)
+            a=1; 
+        end
+        
         if contains(MuscleAttachments.socket_parent_frame.Text, body_name)
             for t = row_contains_body
                 muscles_name        = [muscles_name; muscles_with_attachments{iMuscle,1}];
