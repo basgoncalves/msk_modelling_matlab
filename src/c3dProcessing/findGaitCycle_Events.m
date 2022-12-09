@@ -9,7 +9,7 @@ c3dData     = btk_loadc3d(c3dFilePathAndName);
 fs_grf      = c3dData.fp_data.Info(1).frequency;
 fs_ratio    = fs_grf ./ c3dData.marker_data.Info.frequency;
 
-markerStruct        = c3dData.marker_data.Markers;                                                                         % get average foot position
+markerStruct        = c3dData.marker_data.Markers;                                                                  % get average foot position
 APposition_right    = avgPosition(markerStruct,rightFootMarkers);
 APposition_left     =  avgPosition(markerStruct,leftFootMarkers);
 
@@ -40,7 +40,7 @@ for i = 1:Nforceplates
     
     WarningOn   = 0;
     Fz_filtered = ZeroLagButtFiltfilt((1/fs_grf), 100, 1, 'lp', Fz,[],WarningOn);
-    timeWindow  =  find(abs(Fz_filtered)> threshold_newotons);                                                      % find data only where Fz > 20N
+    timeWindow  = find(abs(Fz_filtered)> threshold_newotons);                                                       % find data only where Fz > 20N
     
     Diff_right  = abs(mean(abs(CP(timeWindow)) - abs(APposition_right(timeWindow))));                               % calculate difference between CP and right/left feet
     Diff_left   = abs(mean(abs(CP(timeWindow)) - abs(APposition_left(timeWindow))));

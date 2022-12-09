@@ -1,0 +1,960 @@
+[2022-12-06 07:44:23.698] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 07:44:27.361] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 07:44:27.559] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 07:44:27.625] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 07:44:27.914] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 07:44:28.735] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 10:50:01.072] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 10:50:04.938] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 10:50:05.196] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 10:50:05.283] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 10:50:05.629] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 10:50:06.132] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 10:52:11.516] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 10:52:15.411] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 10:52:15.625] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 10:52:15.704] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 10:52:15.972] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 10:52:16.393] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 11:12:07.926] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:12:07.928] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:12:07.929] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:12:07.932] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:12:08.630] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:12:08.711] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:12:43.366] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:12:43.369] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:12:43.369] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:12:43.372] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:12:44.162] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:12:44.269] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:13:09.599] [error] IO.OpenInputFile(const string&,openmode mode): failed to open C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\\Ante30_IK.sto.
+[2022-12-06 11:14:49.225] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:14:49.227] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:14:49.227] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:14:49.232] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:14:50.060] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:14:50.145] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:14:50.315] [error] IO.OpenInputFile(const string&,openmode mode): failed to open C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.sto.
+[2022-12-06 11:15:09.256] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:15:09.258] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:15:09.258] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:15:09.262] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:15:10.074] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:15:10.158] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:15:10.314] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:15:10.589] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:15:11.848] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:13.098] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:13.346] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:14.238] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:14.286] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:15.121] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:15:15.168] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:04.344] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:16:04.347] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:16:04.348] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:16:04.354] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:16:05.133] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:16:05.215] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:16:05.368] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:16:05.608] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:16:06.825] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:08.033] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:08.296] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:09.182] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:09.262] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:10.120] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:16:10.168] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:51.594] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:23:51.595] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:23:51.596] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:23:51.600] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:23:52.454] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:23:52.536] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:23:52.644] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:23:52.894] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:23:54.111] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:54.758] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:55.018] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:55.481] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:55.513] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:55.946] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:23:55.990] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:16.477] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:24:16.478] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:24:16.479] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:24:16.482] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:24:17.120] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:24:17.190] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:24:17.286] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:24:17.491] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:24:18.609] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:19.208] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:19.391] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:19.748] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:19.775] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:20.105] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:20.133] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:42.034] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:24:42.036] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:24:42.037] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:24:42.041] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:24:42.914] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:24:42.997] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:24:43.104] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:24:43.332] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:24:44.557] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:45.273] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:45.497] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:45.953] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:45.993] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:46.456] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:46.501] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:55.483] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:24:55.485] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:24:55.486] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:24:55.491] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:24:56.411] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:24:56.493] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:24:56.611] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:24:56.839] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:24:58.051] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:58.654] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:58.900] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:59.447] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:59.498] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:59.958] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:24:59.988] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:31.856] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:25:31.859] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:25:31.860] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:25:31.864] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:25:32.750] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:25:32.831] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:25:32.946] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:25:33.193] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:25:34.420] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:35.113] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:35.355] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:35.997] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:36.029] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:36.548] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:36.578] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:40.564] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:25:40.566] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:25:40.567] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:25:40.572] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:25:41.458] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:25:41.568] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:25:41.672] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:25:41.886] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:25:43.034] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:43.902] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:44.130] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:44.867] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:44.898] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:45.431] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:45.470] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:52.189] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:25:52.191] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:25:52.192] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:25:52.197] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:25:53.051] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:25:53.142] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:25:53.267] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:25:53.520] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:25:54.671] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:55.343] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:55.568] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:56.251] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:56.284] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:56.766] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:25:56.797] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:15.079] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:26:15.081] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:26:15.082] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:26:15.087] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:26:15.960] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:26:16.041] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:26:16.172] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:26:16.396] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:26:17.593] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:18.423] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:18.646] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:19.463] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:19.495] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:20.230] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:26:20.261] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:28:06.580] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:28:06.582] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:28:06.584] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:28:06.589] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:28:07.620] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:28:07.702] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:29:33.011] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:29:33.012] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:29:33.014] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:29:33.023] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:29:33.957] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:29:34.044] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:29:34.229] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:29:34.457] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:29:35.812] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:36.526] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:36.766] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:37.449] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:37.480] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:38.078] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:29:38.113] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:27.973] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:34:27.975] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:34:27.976] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:34:27.981] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:34:28.816] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:34:28.906] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:34:29.062] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:34:29.307] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:34:30.653] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:31.750] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:31.992] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:32.557] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:32.584] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:33.079] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:34:33.113] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:35:22.450] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:35:22.453] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:35:22.454] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:35:22.459] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:35:23.442] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:35:23.525] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:37:39.812] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:37:39.815] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:37:39.816] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:37:39.821] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:37:40.776] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:37:40.857] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:37:41.018] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:37:41.234] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:37:42.386] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:42.985] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:43.257] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:43.986] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:44.039] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:44.536] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:37:44.566] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:17.503] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:38:17.505] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:38:17.507] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:38:17.512] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:38:18.495] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:38:18.577] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:38:18.756] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:38:18.990] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:38:20.227] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:20.867] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:21.132] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:21.816] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:21.849] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:22.363] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:38:22.394] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:45.365] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:39:45.367] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:39:45.369] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:39:45.375] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:39:46.301] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:39:46.382] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:39:46.533] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:39:46.774] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:39:48.116] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:48.813] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:49.056] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:49.782] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:49.818] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:50.877] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:39:50.911] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:43:41.849] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:43:41.852] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:43:41.853] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:43:41.859] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:43:42.847] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:43:42.932] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:44:04.535] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:44:04.537] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:44:04.539] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:44:04.545] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:44:05.544] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:44:05.652] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:44:07.059] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:44:07.308] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:44:08.791] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:09.555] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:09.804] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:10.468] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:10.516] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:11.174] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:44:11.205] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:45:09.319] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:45:09.321] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:45:09.323] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:45:09.330] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:45:10.308] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:45:10.392] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:47:51.665] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:47:51.668] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:47:51.669] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:47:51.675] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:49:49.724] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:49:49.727] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:49:49.728] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:49:49.736] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:49:50.430] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:49:50.519] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:50:32.824] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:50:33.078] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:50:34.470] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:35.193] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:35.441] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:36.022] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:36.056] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:36.513] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:50:36.542] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:54:16.278] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 11:54:16.279] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:54:16.280] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:54:16.284] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:54:16.344] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:54:16.415] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:54:21.503] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 11:54:21.691] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 11:54:22.633] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 11:56:08.342] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 11:56:08.344] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:56:08.346] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:56:08.353] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:56:08.437] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 11:56:08.519] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 11:57:17.089] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 11:57:17.091] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:57:17.093] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:57:17.099] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:58:11.328] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 11:58:11.331] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:58:11.333] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:58:11.339] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 11:58:41.733] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 11:58:41.736] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 11:58:41.738] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 11:58:41.744] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:47:34.428] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:47:34.429] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:47:34.430] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:47:34.434] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:48:14.848] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:48:14.898] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:49:06.299] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:49:06.461] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:49:07.330] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:50:22.653] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:50:22.654] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:50:22.655] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:50:22.659] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:50:30.786] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:50:30.839] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:50:33.890] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:50:34.050] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:50:58.275] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:50:58.277] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:50:58.278] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:50:58.283] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:51:01.993] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:51:02.044] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:51:04.360] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:51:04.486] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:53:15.001] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:53:15.002] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:53:15.004] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:53:15.008] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:53:24.048] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:53:24.104] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:53:48.727] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 12:53:48.728] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:53:48.730] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:53:48.734] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:53:49.099] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:53:49.149] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:54:13.359] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:54:13.487] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:54:14.220] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:14.633] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:14.776] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:15.121] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:15.143] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:15.433] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:15.452] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:25.658] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:54:25.660] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:54:25.661] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:54:25.665] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:54:25.712] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:54:25.764] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:54:27.015] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:54:27.142] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:54:27.881] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:54:43.193] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:54:43.195] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:54:43.196] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:54:43.201] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:54:43.246] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:54:43.297] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:54:45.131] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:54:45.260] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:54:46.002] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:04.810] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:58:04.811] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:58:04.813] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:58:04.818] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:58:04.869] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:58:04.921] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:58:06.828] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:58:07.002] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:58:07.902] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:08.514] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:08.702] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:09.220] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:09.247] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:09.664] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:58:09.690] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:13.170] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 12:59:13.172] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 12:59:13.173] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 12:59:13.178] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 12:59:13.232] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 12:59:13.283] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 12:59:14.968] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 12:59:15.138] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 12:59:16.023] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:16.624] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:16.809] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:17.302] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:17.333] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:17.714] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:17.744] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 12:59:17.757] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:43.467] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:02:43.468] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:02:43.470] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:02:43.476] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:02:43.530] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:02:43.580] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:02:45.264] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:02:45.420] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:02:46.273] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:46.881] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:47.047] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:47.523] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:47.549] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:47.932] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:02:47.955] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:12.366] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:05:12.368] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:05:12.370] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:05:12.377] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:05:12.437] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:05:12.496] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:05:17.981] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:05:18.114] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:05:18.871] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:19.308] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:19.451] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:19.956] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:19.979] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:20.295] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:05:20.316] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:44.015] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:06:44.017] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:06:44.019] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:06:44.023] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:06:44.069] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:06:44.120] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:06:44.212] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:06:44.341] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:06:45.088] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:45.503] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:45.647] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:46.145] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:46.166] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:46.528] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:06:46.552] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:11:27.839] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:11:27.840] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:11:27.842] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:11:27.848] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:11:27.907] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:11:44.402] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:11:44.404] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:11:44.405] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:11:44.410] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:11:44.457] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:11:44.508] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:11:44.550] [warning] Storage grf could not locate data for identifier ground_force_2_m.
+[2022-12-06 13:12:04.300] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:12:04.301] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:12:04.303] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:12:04.308] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:12:04.354] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:12:04.406] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:12:04.499] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:12:04.629] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:12:05.391] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:05.810] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:06.002] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:06.498] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:06.518] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:06.833] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:12:06.854] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:20:27.369] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:20:27.370] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:20:27.372] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:20:27.377] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:20:27.428] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:20:27.478] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:20:47.275] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:20:47.277] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:20:47.278] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:20:47.283] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:20:58.722] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_scaled_opt_N10_2times2392Fmax_withActuators.osim
+[2022-12-06 13:20:58.724] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:20:58.726] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:20:58.732] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:20:58.789] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:20:58.848] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:20:58.956] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:20:59.119] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:21:00.081] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:00.633] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:00.887] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:01.482] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:01.505] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:01.825] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:21:01.847] [warning] Thelen2003Muscle initialization: 'gem_r' is at its minimum fiber length of 0.0.
+[2022-12-06 13:32:19.995] [info] Loaded model Ref_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ref_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:32:19.997] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:32:19.998] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:32:20.000] [warning] Couldn't find file 'femur/femur_r.vtp'.
+[2022-12-06 13:32:20.001] [warning] Couldn't find file 'tibia/tibia_r.vtp'.
+[2022-12-06 13:32:20.002] [warning] Couldn't find file 'talus/talus.vtp'.
+[2022-12-06 13:32:20.003] [warning] Couldn't find file 'calcn/foot.vtp'.
+[2022-12-06 13:32:20.004] [warning] Couldn't find file 'toes/bofoot.vtp'.
+[2022-12-06 13:32:20.005] [warning] Couldn't find file 'femur/femur_l.vtp'.
+[2022-12-06 13:32:20.006] [warning] Couldn't find file 'tibia/tibia_l.vtp'.
+[2022-12-06 13:32:20.008] [warning] Couldn't find file 'talus/l_talus.vtp'.
+[2022-12-06 13:32:20.009] [warning] Couldn't find file 'calcn/l_foot.vtp'.
+[2022-12-06 13:32:20.010] [warning] Couldn't find file 'toes/l_bofoot.vtp'.
+[2022-12-06 13:32:20.013] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:32:20.612] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:32:20.663] [info] ExternalForce::grf_r_2 Data source being set to grf
+[2022-12-06 13:32:20.733] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_long_r' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_lat_r' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'per_long_r' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'semimem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'semiten_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'bifemlh_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'bifemsh_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max1_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max2_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max3_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'psoas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'rect_fem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.734] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_int_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_lat_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_med_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'med_gas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'lat_gas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'soleus_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'tib_ant_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_med1_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_med2_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_med3_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_min1_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_min2_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_min3_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'semimem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'semiten_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'bifemlh_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'bifemsh_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_mag1_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_mag2_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_mag3_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max1_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max2_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'glut_max3_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'iliacus_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'psoas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'rect_fem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_int_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_lat_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'vas_med_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'med_gas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'lat_gas_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'soleus_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'tib_ant_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'tib_post_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'flex_dig_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'flex_hal_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'per_brev_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'per_long_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'per_tert_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'ext_dig_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'ext_hal_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'sar_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_long_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'add_brev_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'tfl_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'pect_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'grac_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'quad_fem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'gem_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.735] [warning] Umberger2010MuscleMetabolicsProbe_MetabolicMuscleParameter: Muscle 'peri_l' not found in model. Ignoring...
+[2022-12-06 13:32:20.783] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_IK.mot (nr=205 nc=24)
+[2022-12-06 13:32:20.913] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\StudyData\Ante30_TD_FPA_ID.sto (nr=205 nc=24)
+[2022-12-06 13:42:19.700] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:42:19.702] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:42:19.705] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:42:19.712] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:42:20.196] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:42:20.252] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:42:20.372] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:42:20.554] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:49:13.728] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:49:13.729] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:49:13.731] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:49:13.736] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:49:14.130] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:49:14.180] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:49:14.273] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:49:14.412] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:50:21.399] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:50:21.401] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:50:21.403] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:50:21.408] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:50:21.809] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:50:21.860] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:50:21.954] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:50:22.095] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:50:53.943] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:50:53.945] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:50:53.947] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:50:53.954] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:50:54.434] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:50:54.489] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:50:54.601] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:50:54.779] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:51:05.006] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:51:05.007] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:51:05.009] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:51:05.015] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:51:05.418] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:51:05.469] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:51:05.563] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:51:05.706] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:52:51.205] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:52:51.206] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:52:51.208] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:52:51.214] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:52:51.615] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:52:51.665] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:52:51.758] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:52:51.898] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:53:01.998] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:53:01.999] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:53:02.001] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:53:02.007] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:53:02.414] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:53:02.466] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:53:02.560] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:53:02.701] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 13:53:38.445] [info] Loaded model Ante30_scaled_opt_N10.osim from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_scaled_opt_N10_2times2392Fmax.osim
+[2022-12-06 13:53:38.446] [warning] Couldn't find file 'treadmill.vtp'.
+[2022-12-06 13:53:38.448] [warning] Couldn't find file 'pelvis.vtp'.
+[2022-12-06 13:53:38.454] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2022-12-06 13:53:38.865] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\grf.mot (nr=5106 nc=19)
+[2022-12-06 13:53:38.917] [info] ExternalForce::grf_l_3 Data source being set to grf
+[2022-12-06 13:53:39.011] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\IK.mot (nr=439 nc=24)
+[2022-12-06 13:53:39.153] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\LeftStep\Ante30_TD_FPA_ID.sto (nr=439 nc=24)
+[2022-12-06 14:22:31.060] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:22:32.315] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:22:32.458] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:22:32.508] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:22:32.651] [warning] Storage walking_baseline1_forces.mot could not locate data for identifier ground_moment_m.
+[2022-12-06 14:23:21.262] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:23:22.621] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:23:22.769] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:23:22.822] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:23:23.064] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:23:23.379] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:24:59.042] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:25:00.219] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:25:00.356] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:25:00.404] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:25:00.621] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:25:00.912] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:26:35.541] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:26:36.722] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:26:36.859] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:26:36.907] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:26:37.116] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:26:37.379] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:28:02.803] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:28:03.988] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:28:04.128] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:28:04.177] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:28:04.386] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:28:04.652] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:29:51.131] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:29:52.463] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:29:52.611] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:29:52.641] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:29:52.790] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:29:53.106] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:30:46.833] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:30:48.041] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:30:48.198] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:30:48.226] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:30:48.371] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:30:48.664] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:32:01.263] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:32:02.637] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:32:02.803] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:32:02.832] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:32:02.985] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:32:03.310] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:32:47.218] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:32:48.468] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:32:48.616] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:32:48.668] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:32:48.884] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:32:49.168] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:33:48.020] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:33:49.347] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:33:49.498] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:33:49.553] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:33:49.797] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:33:50.120] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-06 14:42:49.301] [info] Loaded model Rajagopal_scaled from file C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_gasAvoid.osim
+[2022-12-06 14:42:50.485] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-06 14:42:50.626] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:42:50.678] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-06 14:42:50.899] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-06 14:42:51.200] [info] Storage: read data file = C:\Users\willi\ucloud\PhD\CMBBE\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 16:25:12.687] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 16:25:30.404] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 16:25:53.319] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 16:25:53.550] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 16:25:53.585] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 16:26:44.580] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 16:27:00.002] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 18:56:19.949] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 18:56:23.682] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 18:56:23.964] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 18:56:23.997] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 18:56:29.386] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 18:56:29.911] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 18:59:04.841] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 18:59:05.720] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 18:59:05.929] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 18:59:05.961] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 18:59:06.161] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 18:59:06.379] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:03:21.455] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:03:22.266] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:03:22.465] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:03:22.509] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:03:22.702] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:03:22.959] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:04:49.011] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:04:49.962] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:04:50.196] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:04:50.242] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:04:50.478] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:04:50.668] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:10:10.772] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:10:11.578] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:10:11.771] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:10:11.810] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:10:12.017] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:10:12.350] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:10:58.017] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:10:58.837] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:10:59.047] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:10:59.091] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:10:59.299] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:10:59.510] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:11:48.270] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:11:49.186] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:11:49.403] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:11:49.447] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:11:49.656] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:11:49.863] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:12:31.440] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:12:32.241] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:12:32.429] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:12:32.466] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:12:32.648] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:12:32.821] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:13:16.722] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:13:17.507] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:13:17.700] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:13:17.738] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:13:17.919] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:13:18.097] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:14:02.752] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:14:03.563] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:14:03.747] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:14:03.784] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:14:03.974] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:14:04.177] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:14:44.160] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:14:44.936] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:14:45.149] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:14:45.187] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:14:45.361] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:14:45.554] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:15:30.933] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:15:32.097] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:15:32.281] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:15:32.318] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:15:32.492] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:15:32.661] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:16:18.743] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:16:19.530] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:16:19.721] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:16:19.760] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:16:19.937] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:16:20.134] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:17:09.437] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:17:10.230] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:17:10.434] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:17:10.471] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:17:10.655] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:17:10.833] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:17:52.957] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:17:53.791] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:17:53.974] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:17:54.011] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:17:54.192] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:17:54.386] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:18:40.061] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:18:40.862] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:18:41.057] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:18:41.094] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:18:41.272] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:18:41.445] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:19:25.828] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:19:26.629] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:19:26.822] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:19:26.859] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:19:27.041] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:19:27.212] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:20:12.678] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:20:13.457] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:20:13.661] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:20:13.697] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:20:13.874] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:20:14.054] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:20:57.412] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:20:58.203] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:20:58.421] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:20:58.458] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:20:58.649] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:20:58.843] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:21:44.226] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:21:45.070] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:21:45.291] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:21:45.329] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:21:45.516] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:21:45.695] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:22:29.833] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:22:30.635] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:22:30.858] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:22:30.895] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:22:31.073] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:22:31.262] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:23:16.281] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:23:17.061] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:23:17.268] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:23:17.305] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:23:17.489] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:23:17.663] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:24:01.177] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:24:01.955] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:24:02.174] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:24:02.216] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:24:02.398] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:24:02.570] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:24:45.786] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:24:46.676] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:24:46.858] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:24:46.895] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:24:47.070] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:24:47.256] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:25:32.476] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:25:33.267] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:25:33.459] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:25:33.495] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:25:33.668] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:25:33.842] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:26:18.611] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:26:19.415] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:26:19.613] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:26:19.650] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:26:19.821] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:26:20.002] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:27:05.923] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:27:06.714] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:27:06.911] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:27:06.949] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:27:07.131] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:27:07.304] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:27:50.590] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:27:51.371] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:27:51.561] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:27:51.597] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:27:51.769] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:27:51.939] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:28:35.150] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:28:35.923] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:28:36.109] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:28:36.148] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:28:36.319] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:28:36.485] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:29:21.342] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:29:22.155] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:29:22.349] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:29:22.388] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:29:22.591] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:29:22.797] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:30:20.197] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:30:21.275] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:30:21.506] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:30:21.548] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:30:21.791] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:30:22.047] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:31:14.231] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:31:15.056] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:31:15.255] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:31:15.292] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:31:15.487] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:31:15.685] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:32:06.796] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:32:07.666] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:32:07.866] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:32:07.909] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:32:08.261] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:32:08.444] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-09 19:32:55.015] [info] Loaded model Rajagopal_scaled_TorsFem_l_Prox30Dist0Deg from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim
+[2022-12-09 19:32:55.855] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-09 19:32:56.066] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:32:56.109] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-09 19:32:56.311] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-09 19:32:56.493] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
