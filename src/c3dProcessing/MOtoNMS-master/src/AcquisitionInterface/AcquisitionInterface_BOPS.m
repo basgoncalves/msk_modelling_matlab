@@ -166,7 +166,7 @@ rightFootMarkers        = newAcquisition.MarkersProtocol.rightFootMarkers;
 leftFootMarkers         = newAcquisition.MarkersProtocol.leftFootMarkers;
 
 
-trialTypes = {bops.Trials.trial.Type};
+trialTypes = {bops.Trials.trial.Type};                                                                              % find gait events
 for k = 1:length(UsedTrials)
     
     trialName = UsedTrials{k};
