@@ -52,6 +52,8 @@ y(IDXnan)=[];
 [c, pvalue,rlo,rup] = corrcoef(x,y);
 rsquared = c(1,2)^2;
 pvalue = pvalue(1,2);
+rlo = rlo(1,2);
+rup = rup(1,2);
 
 % calculate t-statistic 
 t = tinv(1-Alpha/2,S.df);
