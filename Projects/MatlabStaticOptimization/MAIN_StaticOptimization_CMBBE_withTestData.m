@@ -9,6 +9,7 @@ function [] = MAIN_StaticOptimization_CMBBE_withTestData()
 % This main loop allows you to run StaticOptimizationAPI.m
 
 clear all;  format compact; clc; fclose all;
+run_analysis = 0;
 %close all;
 
 % % Path to the data and utility functions. No need to change this, unless
@@ -16,7 +17,6 @@ clear all;  format compact; clc; fclose all;
 maindir = fileparts([mfilename('fullpath') '.m']);
 baseDir = [maindir '\TestData\'] ; % Base Directory to base results directory.
 addpath(genpath('Utilities'))
-run_analysis = 0;
 
 % % % Fill Path names
 INPUTS.trialname = 'walking_baseline1' ;
@@ -148,15 +148,10 @@ if run_analysis == 1
             currentfile=strcat(FileNameAndLocation, '.m');
             copyfile(currentfile,newbackup);
         end
-
-
     end
-
 end
 
-
 % % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
-
 savedir = [baseDir fp 'figures_parent'];
 plotReuslts_CMBBE_withTestData(savedir)
 
