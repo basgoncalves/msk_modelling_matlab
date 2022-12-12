@@ -9,7 +9,7 @@ mainDir = fileparts(fileparts([mfilename('fullpath') '.m']));
 tesdataDir = [mainDir '\TestData\'] ; % Base Directory to base results directory.
 
 if nargin < 1 
-   savedir = [tesdataDir fp 'results_figures'];
+   savedir = [tesdataDir fp 'figures'];
 end
 
 if isfolder(savedir)
@@ -47,8 +47,14 @@ for iLeg = 1:2
     for iPen = 1:length(penalties)
         
         curr_penalty = penalties{iPen};
+        
+        if contains(l,'l')
+            leg = 'left';
+        else
+            leg = 'right';
+        end
 
-        resultsDirs = dir([tesdataDir fp 'results_SO_right_*_Pen' curr_penalty '*']);
+        resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '*']);
         cd(resultsDirs(1).folder)
 
         muscles_of_interest = strcat({'iliacus_' 'psoas_' 'recfem_' 'tfl_' 'glmax1_' 'glmed1_' 'glmin1_'}, l);
@@ -86,7 +92,7 @@ for iLeg = 1:2
             look_for_substrings = {['hip_' l], ['knee_' l], ['ankle_' l]};
             [contactForces_data] = resulstant_JCF(contactForces_data,look_for_substrings,fs);
     
-            if contains(onBody,'child')
+            try % in child
                 contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
                 contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
                 contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
@@ -96,7 +102,7 @@ for iLeg = 1:2
                 contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
                 contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
                 
-            elseif contains(onBody,'parent')
+            catch % in parent
                 contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fx_norm']);
                 contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fy_norm']);
                 contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fz_norm']);
