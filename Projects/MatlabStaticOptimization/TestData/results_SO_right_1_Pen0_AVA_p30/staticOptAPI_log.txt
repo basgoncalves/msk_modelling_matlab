@@ -6,284 +6,86 @@ Beginning Optimization for walking_baseline1 from 0.40 to 1.52 seconds.
 Optimizing t=0.400s
 SQP optimizer had an issue - output state was 0
 Trying IP instead
-This step took 2.739s. Exitflag was 2.
+This step took 5.1193s. Exitflag was 2.
 
 Optimizing t=0.420s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.67s. Exitflag was 2.
+This step took 0.87682s. Exitflag was 2.
 
 Optimizing t=0.440s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.7855s. Exitflag was 2.
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('DynamicsConstraint_momentMatching')" style="font-weight:bold">DynamicsConstraint_momentMatching</a>
 
-Optimizing t=0.460s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.682s. Exitflag was 2.
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('StaticOptimizationAPIVectorized>@(coeffs0)DynamicsConstraint_momentMatching(coeffs0,params)', 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\StaticOptimizationAPIVectorized.m', 724)" style="font-weight:bold">StaticOptimizationAPIVectorized>@(coeffs0)DynamicsConstraint_momentMatching(coeffs0,params)</a> (<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\StaticOptimizationAPIVectorized.m',724,0)">line 724</a>)
+    nonlcon = @(coeffs0) DynamicsConstraint_momentMatching(coeffs0,params) ;
+In finDiffEvalAndChkErr
 
-Optimizing t=0.480s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.7981s. Exitflag was 2.
+In finitedifferences
 
-Optimizing t=0.500s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8467s. Exitflag was 2.
+In computeFinDiffGradAndJac
 
-Optimizing t=0.520s
-Cost Value was 3x last time, will try to use IP
-Trying IP instead
-This step took 1.775s. Exitflag was 2.
+In sqpInterface
 
-Optimizing t=0.540s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.543s. Exitflag was 2.
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fmincon', 'C:\Program Files\MATLAB\R2022a\toolbox\shared\optimlib\fmincon.m', 882)" style="font-weight:bold">fmincon</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2022a\toolbox\shared\optimlib\fmincon.m',882,0)">line 882</a>)
+    [X,FVAL,EXITFLAG,OUTPUT,LAMBDA,GRAD,HESSIAN] = sqpInterface(funfcn,X,full(A),full(B),full(Aeq),full(Beq), ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('StaticOptimizationAPIVectorized', 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\StaticOptimizationAPIVectorized.m', 730)" style="font-weight:bold">StaticOptimizationAPIVectorized</a> (<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\StaticOptimizationAPIVectorized.m',730,0)">line 730</a>)
+        [coeffsFinal,fval,exitflag,output] = fmincon(@(coeffs0) CostFunction(coeffs0,params), ...
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('MAIN_StaticOptimization_CMBBE_withTestData', 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\MAIN_StaticOptimization_CMBBE_withTestData.m', 123)" style="font-weight:bold">MAIN_StaticOptimization_CMBBE_withTestData</a> (<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\MAIN_StaticOptimization_CMBBE_withTestData.m',123,0)">line 123</a>)
+        StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI} 
+MAIN_StaticOptimization_CMBBE_withTestData
+if system_dependent('IsDebugMode')==1, dbcont; end
+if system_dependent('IsDebugMode')==1, dbstep in; end
+<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\MAIN_StaticOptimization_CMBBE_withTestData.m',43,1)">43  </a>INPUTS.appendActuators = true ; % Append reserve actuators at all coordinates?
+savedir = [baseDir fp 'resilts_figures_parent'];
+plotReuslts_CMBBE_withTestData(savedir)
+[Warning: Directory already exists.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotReuslts_CMBBE_withTestData', 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\plotReuslts_CMBBE_withTestData.m', 16)" style="font-weight:bold">plotReuslts_CMBBE_withTestData</a> (<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\plotReuslts_CMBBE_withTestData.m',16,0)">line 16</a>)
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('MAIN_StaticOptimization_CMBBE_withTestData', 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\MAIN_StaticOptimization_CMBBE_withTestData.m', 43)" style="font-weight:bold">MAIN_StaticOptimization_CMBBE_withTestData</a> (<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\MAIN_StaticOptimization_CMBBE_withTestData.m',43,0)">line 43</a>)] 
+<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\plotReuslts_CMBBE_withTestData.m',98,1)">98  </a>            try % in child
+if system_dependent('IsDebugMode')==1, dbcont; end
+<a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\plotReuslts_CMBBE_withTestData.m',214,1)">214 </a>    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
+[ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
+    last_plot_not_contact_force = 0;
+    Plot_colors = colorBG(0,length(penalties));
+    for iJoint = 1:length(joints)
+        for iPen = 1:length(penalties)
+            axes(ha(last_plot_not_contact_force+iJoint))
 
-Optimizing t=0.560s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.5894s. Exitflag was 2.
+            JointName = joints{iJoint};
+            force_data = contactForces.(['Pen_' penalties{iPen}]).(JointName);
 
-Optimizing t=0.580s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.6617s. Exitflag was 2.
+            plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
+            title(JointName,'Interpreter','none')
+            if any(iJoint == FirstCol)
+                ylabel('Contact force (N)')
+            end
+            if any(iJoint == LastRow)
+                xlabel('Gait cycle(%)')
+            end
+        end
+    end
 
-Optimizing t=0.600s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.7178s. Exitflag was 2.
+    % appearance
+    ax = gca;
+    lg = legend(ax.Children(2:2:end),flip(penalties));
+    lg.Interpreter = "none";
 
-Optimizing t=0.620s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.7016s. Exitflag was 2.
+    tight_subplot_ticks(ha,LastRow,0)
 
-Optimizing t=0.640s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.6382s. Exitflag was 2.
+    mmfn_inspect
+figure;plot(contactForces.Pen_0.hip_x,'DisplayName','contactForces.Pen_0.hip_x')
+MATLAB has experienced a low-level graphics error, and may not have drawn correctly.
+Read about what you can do to prevent this issue at <a href="matlab:opengl('problems')">Resolving Low-Level Graphics Issues</a> then restart MATLAB.
+To share details of this issue with MathWorks technical support,
+please include <a href="file:C:\Users\Biomech\AppData\Local\Temp\jogl.ex.16460">this file</a> with your service request.
+clc
+muscleForces
+muscleForces = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
 
-Optimizing t=0.660s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.6507s. Exitflag was 2.
-
-Optimizing t=0.680s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.6249s. Exitflag was 2.
-
-Optimizing t=0.700s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.6392s. Exitflag was 2.
-
-Optimizing t=0.720s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8011s. Exitflag was 2.
-
-Optimizing t=0.740s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.7688s. Exitflag was 2.
-
-Optimizing t=0.760s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.5964s. Exitflag was 2.
-
-Optimizing t=0.780s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.6935s. Exitflag was 2.
-
-Optimizing t=0.800s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 3.8185s. Exitflag was 2.
-
-Optimizing t=0.820s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.8743s. Exitflag was 2.
-
-Optimizing t=0.840s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.2524s. Exitflag was 2.
-
-Optimizing t=0.860s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.2157s. Exitflag was 2.
-
-Optimizing t=0.880s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9686s. Exitflag was 2.
-
-Optimizing t=0.900s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.0577s. Exitflag was 2.
-
-Optimizing t=0.920s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.2054s. Exitflag was 2.
-
-Optimizing t=0.940s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9352s. Exitflag was 2.
-
-Optimizing t=0.960s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8915s. Exitflag was 2.
-
-Optimizing t=0.980s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9145s. Exitflag was 2.
-
-Optimizing t=1.000s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9403s. Exitflag was 2.
-
-Optimizing t=1.020s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9232s. Exitflag was 2.
-
-Optimizing t=1.040s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.164s. Exitflag was 2.
-
-Optimizing t=1.060s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8678s. Exitflag was 2.
-
-Optimizing t=1.080s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8093s. Exitflag was 2.
-
-Optimizing t=1.100s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8598s. Exitflag was 2.
-
-Optimizing t=1.120s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.537s. Exitflag was 2.
-
-Optimizing t=1.140s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.1184s. Exitflag was 2.
-
-Optimizing t=1.160s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9473s. Exitflag was 2.
-
-Optimizing t=1.180s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.1373s. Exitflag was 2.
-
-Optimizing t=1.200s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9884s. Exitflag was 2.
-
-Optimizing t=1.220s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9191s. Exitflag was 2.
-
-Optimizing t=1.240s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9699s. Exitflag was 2.
-
-Optimizing t=1.260s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9511s. Exitflag was 2.
-
-Optimizing t=1.280s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.8808s. Exitflag was 2.
-
-Optimizing t=1.300s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.0002s. Exitflag was 2.
-
-Optimizing t=1.320s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9925s. Exitflag was 2.
-
-Optimizing t=1.340s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9888s. Exitflag was 2.
-
-Optimizing t=1.360s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.1277s. Exitflag was 2.
-
-Optimizing t=1.380s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9276s. Exitflag was 2.
-
-Optimizing t=1.400s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9581s. Exitflag was 2.
-
-Optimizing t=1.420s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.042s. Exitflag was 2.
-
-Optimizing t=1.440s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9609s. Exitflag was 2.
-
-Optimizing t=1.460s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.0089s. Exitflag was 2.
-
-Optimizing t=1.480s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 2.1244s. Exitflag was 2.
-
-Optimizing t=1.500s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9438s. Exitflag was 2.
-
-Optimizing t=1.520s
-SQP optimizer had an issue - output state was 0
-Trying IP instead
-This step took 1.9831s. Exitflag was 2.
+       Pen_0: [1×1 struct]
+      Pen_10: [1×1 struct]
+     Pen_100: [1×1 struct]
+     Pen_500: [1×1 struct]
+    Pen_1000: [1×1 struct]
+if system_dependent('IsDebugMode')==1, dbquit all; end
+[muscleForces] = sumMuscleForces(muscleForces)
+{Unrecognized function or variable 'muscleForces'.} 
