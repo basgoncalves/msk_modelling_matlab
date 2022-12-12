@@ -6848,3 +6848,55 @@ iLeg =
      2
 if system_dependent('IsDebugMode')==1, dbcont; end
 <a href="matlab: opentoline('C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\Utilities\plotReuslts_CMBBE_withTestData.m',177,1)">177 </a>end
+if system_dependent('IsDebugMode')==1, dbquit; end
+MAIN_StaticOptimization_CMBBE_withTestData
+YOU ARE OVERRIDING SOME ACTUATOR WEIGHTS
+FINDING TIMES FOR ALL THE GAIT CYCLES
+ INPUTS.outputFilePath 
+ans =
+    'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_SO_left_1_Pen0_AVA_p30\'
+INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p0\']
+INPUTS = 
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+                        trialname: 'walking_baseline1'
+                    forceFilePath: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot'
+                       ikFilePath: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto'
+                       idFilePath: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto'
+                      emgFilePath: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\EMG_allMuscles.sto'
+                   outputFilePath: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_SO_left_1_Pen0_AVA_p0\'
+                         modelDir: 'C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\'
+                        modelName: 'Rajagopal_scaled_Sub1.osim'
+                              leg: 'l'
+                         filtFreq: 6
+                  appendActuators: 1
+                     appendForces: 1
+       deleteContralateralMuscles: 0
+                     useEmgRatios: 0
+                  useEqualMuscles: 0
+                useEmgConstraints: 0
+               changePassiveForce: 0
+           ignoreTendonCompliance: 0
+                        fixedDOFs: {'knee_angle_r_beta'  'knee_angle_l_beta'}
+                    emgRatioPairs: {}
+                     equalMuscles: {}
+            emgConstrainedMuscles: {}
+                  emgSumThreshold: 0
+           reserveActuatorWeights: 1
+                    muscleWeights: 1
+      ipsilateralActuatorStrength: 1
+    contralateralActuatorStrength: 100
+                weightsToOverride: {'recfem'}
+                  overrideWeights: 0
+        prescribedActuationCoords: {}
+                externalForceName: {'GRF_r'  'GRF_l'}
+                  applied_to_body: {'calcn_r'  'calcn_l'}
+          force_expressed_in_body: {'ground'  'ground'}
+                 force_identifier: {'ground_force_v'  '1_ground_force_v'}
+          point_expressed_in_body: {'ground'  'ground'}
+                 point_identifier: {'ground_force_p'  '1_ground_force_p'}
+                             jRxn: [1×1 struct]
+              passiveForceStrains: [0 0.7000]
+                        startTime: 0.9600
+                          endTime: 2.0800
+StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI

@@ -9,7 +9,7 @@ function [] = MAIN_StaticOptimization_CMBBE_withTestData()
 % This main loop allows you to run StaticOptimizationAPI.m
 
 clear all;  format compact; clc; fclose all;
-run_analysis = 0;
+run_analysis = 1;
 %close all;
 
 % % Path to the data and utility functions. No need to change this, unless
@@ -27,6 +27,7 @@ INPUTS.emgFilePath = [baseDir '\EMG_allMuscles.sto'] ; % location of *.mot file 
 INPUTS.outputFilePath = [baseDir '\results_SO_Pen1000_AVA_p30\'] ; % full path for SO & JRA outputs
 INPUTS.modelDir = [baseDir] ; % full path to folder where model is
 INPUTS.modelName = 'Rajagopal_scaled_Sub1_TorsFem_l_Prox30Dist0Deg.osim' ; % model file name
+INPUTS.modelName = 'Rajagopal_scaled_Sub1.osim' ; % model file name
 geometryPath = [baseDir 'Geometry'] ; % full path to geometry folder for Model. If pointing to Geometry folder in OpenSim install, leave this field blank: []
 
 INPUTS.leg = 'l' ; % If deleteContralateralMuscles flag is true, actuates this leg
@@ -115,29 +116,29 @@ if run_analysis == 1
 
         INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
-        % Run it for Right leg
-        for i = 1:6%length(contacts_rightLeg)-1
-            INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
-            INPUTS.endTime = contacts_rightLeg(i+1);
-            INPUTS.leg = 'r';
-            INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
-
-            StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
-
-            % Save this script in the folder to reference settings
-            FileNameAndLocation=[mfilename('fullpath')];
-            newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
-            currentfile=strcat(FileNameAndLocation, '.m');
-            copyfile(currentfile,newbackup);
-        end
+%         % Run it for Right leg
+%         for i = 1:6%length(contacts_rightLeg)-1
+%             INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
+%             INPUTS.endTime = contacts_rightLeg(i+1);
+%             INPUTS.leg = 'r';
+%             INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+% 
+%             StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+% 
+%             % Save this script in the folder to reference settings
+%             FileNameAndLocation=[mfilename('fullpath')];
+%             newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+%             currentfile=strcat(FileNameAndLocation, '.m');
+%             copyfile(currentfile,newbackup);
+%         end
 
         % Run it for Left leg
-        for i = 1:6%length(contacts_leftLeg)-1
+        for i = 2:6%length(contacts_leftLeg)-1
 
             INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
             INPUTS.endTime = contacts_leftLeg(i+1);
             INPUTS.leg = 'l';
-            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p0\'];
 
             StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
 
