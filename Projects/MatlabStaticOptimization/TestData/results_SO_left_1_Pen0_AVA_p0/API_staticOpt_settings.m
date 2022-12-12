@@ -112,7 +112,7 @@ if run_analysis == 1
 
     Penalties = [0,10,100,500,1000];
 
-    for iPen = Penalties(2:end)
+    for iPen = Penalties
 
         INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
@@ -138,7 +138,7 @@ if run_analysis == 1
             INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
             INPUTS.endTime = contacts_leftLeg(i+1);
             INPUTS.leg = 'l';
-            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p0\'];
+            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
 
             StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
 
