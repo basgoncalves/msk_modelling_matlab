@@ -16,6 +16,7 @@ clear all;  format compact; clc; fclose all;
 maindir = fileparts([mfilename('fullpath') '.m']);
 baseDir = [maindir '\TestData\'] ; % Base Directory to base results directory.
 addpath(genpath('Utilities'))
+run_analysis = 0;
 
 % % % Fill Path names
 INPUTS.trialname = 'walking_baseline1' ;
@@ -94,63 +95,69 @@ INPUTS.passiveForceStrains = [0, 0.7] ; % Default = [0,.7] this is strain at zer
 % This only matters if ignorePassiveForces = true
 
 % % % % % END OF USER INPUTS % % % % %% % % % %% % % % %% % % % %% % % % %
-import org.opensim.modeling.*
+if run_analysis == 1
+    import org.opensim.modeling.*
 
-if ~isempty(INPUTS.overrideWeights)
-    disp('YOU ARE OVERRIDING SOME ACTUATOR WEIGHTS');
-end
-
-if ~isempty(geometryPath)
-    org.opensim.modeling.ModelVisualizer.addDirToGeometrySearchPaths(geometryPath)
-end
-
-disp('FINDING TIMES FOR ALL THE GAIT CYCLES')
-[contacts_leftLeg,contacts_rightLeg] = find_gait_cycles(INPUTS.ikFilePath,INPUTS.forceFilePath);
-
-Penalties = [0,10,100,500,1000];
-
-for iPen = Penalties
-
-    INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
-
-    % Run it for Right leg
-    for i = 1:6%length(contacts_rightLeg)-1
-        INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
-        INPUTS.endTime = contacts_rightLeg(i+1);
-        INPUTS.leg = 'r';
-        INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
-
-        StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
-
-        % Save this script in the folder to reference settings
-        FileNameAndLocation=[mfilename('fullpath')];
-        newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
-        currentfile=strcat(FileNameAndLocation, '.m');
-        copyfile(currentfile,newbackup);
+    if ~isempty(INPUTS.overrideWeights)
+        disp('YOU ARE OVERRIDING SOME ACTUATOR WEIGHTS');
     end
 
-    % Run it for Left leg
-    for i = 1:6%length(contacts_leftLeg)-1
-
-        INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
-        INPUTS.endTime = contacts_leftLeg(i+1);
-        INPUTS.leg = 'l';
-        INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
-
-        StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
-
-
-        % Save this script in the folder to reference settings
-        FileNameAndLocation=[mfilename('fullpath')];
-        newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
-        currentfile=strcat(FileNameAndLocation, '.m');
-        copyfile(currentfile,newbackup);
+    if ~isempty(geometryPath)
+        org.opensim.modeling.ModelVisualizer.addDirToGeometrySearchPaths(geometryPath)
     end
 
+    disp('FINDING TIMES FOR ALL THE GAIT CYCLES')
+    [contacts_leftLeg,contacts_rightLeg] = find_gait_cycles(INPUTS.ikFilePath,INPUTS.forceFilePath);
+
+    Penalties = [0,10,100,500,1000];
+
+    for iPen = Penalties
+
+        INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
+
+        % Run it for Right leg
+        for i = 1:6%length(contacts_rightLeg)-1
+            INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
+            INPUTS.endTime = contacts_rightLeg(i+1);
+            INPUTS.leg = 'r';
+            INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+
+            StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+
+            % Save this script in the folder to reference settings
+            FileNameAndLocation=[mfilename('fullpath')];
+            newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+            currentfile=strcat(FileNameAndLocation, '.m');
+            copyfile(currentfile,newbackup);
+        end
+
+        % Run it for Left leg
+        for i = 1:6%length(contacts_leftLeg)-1
+
+            INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
+            INPUTS.endTime = contacts_leftLeg(i+1);
+            INPUTS.leg = 'l';
+            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+
+            StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+
+
+            % Save this script in the folder to reference settings
+            FileNameAndLocation=[mfilename('fullpath')];
+            newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+            currentfile=strcat(FileNameAndLocation, '.m');
+            copyfile(currentfile,newbackup);
+        end
+
+
+    end
 
 end
 
-savedir = [baseDir fp 'resilts_figures_parent'];
+
+% % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
+
+savedir = [baseDir fp 'figures_parent'];
 plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main
