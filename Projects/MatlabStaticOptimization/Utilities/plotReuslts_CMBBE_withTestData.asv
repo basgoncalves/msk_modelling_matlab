@@ -55,6 +55,9 @@ for iLeg = 1:2
         end
 
         resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '*']);
+
+        
+
         cd(resultsDirs(1).folder)
 
         muscles_of_interest = strcat({'iliacus_' 'psoas_' 'recfem_' 'tfl_' 'glmax1_' 'glmed1_' 'glmin1_'}, l);

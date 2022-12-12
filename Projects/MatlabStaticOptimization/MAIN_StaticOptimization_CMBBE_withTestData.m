@@ -146,8 +146,6 @@ for iPen = Penalties
         currentfile=strcat(FileNameAndLocation, '.m');
         copyfile(currentfile,newbackup);
     end
-
-
 end
 
 savedir = [baseDir fp 'resilts_figures_parent'];
