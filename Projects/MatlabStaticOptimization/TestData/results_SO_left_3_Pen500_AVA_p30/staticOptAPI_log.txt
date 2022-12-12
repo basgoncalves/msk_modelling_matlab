@@ -4,551 +4,271 @@ Beginning Optimization for walking_baseline1 from 3.20 to 4.30 seconds.
 
 
 Optimizing t=3.200s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 7.665367e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 1.1514s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.7956s. Exitflag was 2.
 
 Optimizing t=3.220s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.594890e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.73553s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9527s. Exitflag was 2.
 
 Optimizing t=3.240s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.828430e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.75831s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5825s. Exitflag was 2.
 
 Optimizing t=3.260s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.811270e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.77966s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4321s. Exitflag was 2.
 
 Optimizing t=3.280s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 5.630603e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.87066s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.111s. Exitflag was 2.
 
 Optimizing t=3.300s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.892001e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.88413s. Exitflag was 2.
+This step took 0.92481s. Exitflag was 2.
 
 Optimizing t=3.320s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 6.866419e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.83929s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.7504s. Exitflag was 2.
 
 Optimizing t=3.340s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.219392e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.83026s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9885s. Exitflag was 2.
 
 Optimizing t=3.360s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.200540e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.82714s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0717s. Exitflag was 2.
 
 Optimizing t=3.380s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.368420e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.84541s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6055s. Exitflag was 2.
 
 Optimizing t=3.400s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.236541e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.91202s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.7775s. Exitflag was 2.
 
 Optimizing t=3.420s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.098237e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.79299s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4839s. Exitflag was 2.
 
 Optimizing t=3.440s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.236644e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.79652s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6227s. Exitflag was 2.
 
 Optimizing t=3.460s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.147568e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.82425s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4335s. Exitflag was 2.
 
 Optimizing t=3.480s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.174448e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.76041s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.8668s. Exitflag was 2.
 
 Optimizing t=3.500s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.209123e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.81802s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4472s. Exitflag was 2.
 
 Optimizing t=3.520s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.248558e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.82002s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.7046s. Exitflag was 2.
 
 Optimizing t=3.540s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.274758e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.80402s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9041s. Exitflag was 2.
 
 Optimizing t=3.560s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.299428e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.77191s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.1577s. Exitflag was 2.
 
 Optimizing t=3.580s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.481192e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.80261s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9079s. Exitflag was 2.
 
 Optimizing t=3.600s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.164127e-15, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.81605s. Exitflag was 2.
+This step took 1.009s. Exitflag was 2.
 
 Optimizing t=3.620s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.346558e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.75568s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.8964s. Exitflag was 2.
 
 Optimizing t=3.640s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.332227e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.78389s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0218s. Exitflag was 2.
 
 Optimizing t=3.660s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.298645e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.79087s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.7479s. Exitflag was 2.
 
 Optimizing t=3.680s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.275103e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.71816s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5809s. Exitflag was 2.
 
 Optimizing t=3.700s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.288107e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.7193s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9661s. Exitflag was 2.
 
 Optimizing t=3.720s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.305101e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.84276s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.6534s. Exitflag was 2.
 
 Optimizing t=3.740s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.285552e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.78892s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9328s. Exitflag was 2.
 
 Optimizing t=3.760s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 6.454241e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.76673s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4994s. Exitflag was 2.
 
 Optimizing t=3.780s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.463135e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70127s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.9503s. Exitflag was 2.
 
 Optimizing t=3.800s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 3.267138e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70854s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5429s. Exitflag was 2.
 
 Optimizing t=3.820s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.796234e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.74715s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6873s. Exitflag was 2.
 
 Optimizing t=3.840s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.025884e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70097s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.3466s. Exitflag was 2.
 
 Optimizing t=3.860s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.332989e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.6825s. Exitflag was 2.
+This step took 1.1037s. Exitflag was 2.
 
 Optimizing t=3.880s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 7.923099e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.72597s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5039s. Exitflag was 2.
 
 Optimizing t=3.900s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.432166e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.69372s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6891s. Exitflag was 2.
 
 Optimizing t=3.920s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.325369e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.66901s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0098s. Exitflag was 2.
 
 Optimizing t=3.940s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 6.528373e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70499s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2731s. Exitflag was 2.
 
 Optimizing t=3.960s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.343584e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.71832s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4832s. Exitflag was 2.
 
 Optimizing t=3.980s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 7.084848e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70955s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.8227s. Exitflag was 2.
 
 Optimizing t=4.000s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.418861e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.72446s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0425s. Exitflag was 2.
 
 Optimizing t=4.020s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.607147e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.73255s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5394s. Exitflag was 2.
 
 Optimizing t=4.040s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.666015e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70524s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0703s. Exitflag was 2.
 
 Optimizing t=4.060s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.699327e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.72031s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2859s. Exitflag was 2.
 
 Optimizing t=4.080s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.708915e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.74413s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5208s. Exitflag was 2.
 
 Optimizing t=4.100s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.708865e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.70653s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.8024s. Exitflag was 2.
 
 Optimizing t=4.120s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 5.095474e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.74986s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2104s. Exitflag was 2.
 
 Optimizing t=4.140s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 2.114102e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.69273s. Exitflag was 2.
+This step took 1.1198s. Exitflag was 2.
 
 Optimizing t=4.160s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 6.275038e-17, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.67117s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.3495s. Exitflag was 2.
 
 Optimizing t=4.180s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.651947e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.72127s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5547s. Exitflag was 2.
 
 Optimizing t=4.200s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 3.267359e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.68352s. Exitflag was 2.
+This step took 1.2572s. Exitflag was 2.
 
 Optimizing t=4.220s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.585966e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.74744s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.3705s. Exitflag was 2.
 
 Optimizing t=4.240s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.535836e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.71218s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5693s. Exitflag was 2.
 
 Optimizing t=4.260s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.506778e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.7114s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5938s. Exitflag was 2.
 
 Optimizing t=4.280s
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 3.014840e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.71069s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9406s. Exitflag was 2.
 
 Optimizing t=4.300s
-
-<a href = "matlab: helpview('optim','feasible_better_objective','CSHelpWindow');">Feasible point with lower objective function value found</a>.
-
-
-Optimization stopped because the <a href = "matlab: helpview('optim','norm_curr_step_fminconip','CSHelpWindow');">relative changes in all elements of x</a> are
-less than <a href = "matlab: helpview('optim','tolx','CSHelpWindow');">options.StepTolerance</a> = 1.000000e-08, and the relative maximum constraint
-violation, 1.576157e-16, is less than <a href = "matlab: helpview('optim','tol_con','CSHelpWindow');">options.ConstraintTolerance</a> = 1.000000e-04.
-
-This step took 0.73059s. Exitflag was 2.
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2188s. Exitflag was 2.

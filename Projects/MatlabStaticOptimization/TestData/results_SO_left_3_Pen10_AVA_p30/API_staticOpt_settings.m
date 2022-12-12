@@ -69,7 +69,7 @@ INPUTS.contralateralActuatorStrength = 100 ;
 INPUTS.weightsToOverride = {'recfem'} ; % Overrides the general actuator weight for muscles or reserves.
 % Can be a partial name. Eg. 'hip_rotation' will change hip_rotation_r and hip_rotation_l
 % or 'gastroc' to override the weight for the right and left gastroc muscles
-INPUTS.overrideWeights = [1000] ; % A column vector the same size as weights
+INPUTS.overrideWeights = [1000]; % A column vector the same size as weights
 INPUTS.prescribedActuationCoords = {} ; % A column cell with coordinates (exact name) that will be prescribed from ID moments eg. 'knee_adduction_r'
 % The muscles will not aim to balance the moment at this DOF,
 % but their contribution to the moment will be computed at the
@@ -86,8 +86,8 @@ INPUTS.point_expressed_in_body = {'ground','ground'} ;
 INPUTS.point_identifier = {'ground_force_p','1_ground_force_p'} ;
 
 % Joint Reaction Fields
-INPUTS.jRxn.inFrame = 'child' ;
-INPUTS.jRxn.onBody = 'child' ;
+INPUTS.jRxn.inFrame = 'parent' ;
+INPUTS.jRxn.onBody = 'parent' ;
 INPUTS.jRxn.jointNames = ['all'] ;
 
 INPUTS.passiveForceStrains = [0, 0.7] ; % Default = [0,.7] this is strain at zero force and strain at 1 norm force in Millard model
@@ -107,50 +107,51 @@ end
 disp('FINDING TIMES FOR ALL THE GAIT CYCLES')
 [contacts_leftLeg,contacts_rightLeg] = find_gait_cycles(INPUTS.ikFilePath,INPUTS.forceFilePath);
 
+Penalties = [0,10,100,500,1000];
 
-% Run it for Right leg
-for i = 1:length(contacts_rightLeg)-1
+for iPen = Penalties
 
-    INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
-    INPUTS.endTime = contacts_rightLeg(i+1);
-    INPUTS.leg = 'r';
-    INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen1000_AVA_p30\'];
+    INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
-    StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+    % Run it for Right leg
+    for i = 1:6%length(contacts_rightLeg)-1
+        INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
+        INPUTS.endTime = contacts_rightLeg(i+1);
+        INPUTS.leg = 'r';
+        INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
 
-    % Save this script in the folder to reference settings
-    FileNameAndLocation=[mfilename('fullpath')];
-    newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
-    currentfile=strcat(FileNameAndLocation, '.m');
-    copyfile(currentfile,newbackup);
+        StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+
+        % Save this script in the folder to reference settings
+        FileNameAndLocation=[mfilename('fullpath')];
+        newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+        currentfile=strcat(FileNameAndLocation, '.m');
+        copyfile(currentfile,newbackup);
+    end
+
+    % Run it for Left leg
+    for i = 1:6%length(contacts_leftLeg)-1
+
+        INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
+        INPUTS.endTime = contacts_leftLeg(i+1);
+        INPUTS.leg = 'l';
+        INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+
+        StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+
+
+        % Save this script in the folder to reference settings
+        FileNameAndLocation=[mfilename('fullpath')];
+        newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+        currentfile=strcat(FileNameAndLocation, '.m');
+        copyfile(currentfile,newbackup);
+    end
+
+
 end
 
-% Run it for Right leg
-for i = 1:length(contacts_rightLeg)-1
-
-    INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
-    INPUTS.endTime = contacts_rightLeg(i+1);
-    INPUTS.leg = 'r';
-    INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen1000_AVA_p30\'];
-
-    StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
-
-
-    % Save this script in the folder to reference settings
-    FileNameAndLocation=[mfilename('fullpath')];
-    newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
-    currentfile=strcat(FileNameAndLocation, '.m');
-    copyfile(currentfile,newbackup);
-end
-
-
-
-
-
-
-
-
-plotReuslts_CMBBE_withTestData
+savedir = [baseDir fp 'resilts_figures_parent'];
+plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main
 

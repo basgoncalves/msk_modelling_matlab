@@ -86,8 +86,8 @@ INPUTS.point_expressed_in_body = {'ground','ground'} ;
 INPUTS.point_identifier = {'ground_force_p','1_ground_force_p'} ;
 
 % Joint Reaction Fields
-INPUTS.jRxn.inFrame = 'child' ;
-INPUTS.jRxn.onBody = 'child' ;
+INPUTS.jRxn.inFrame = 'parent' ;
+INPUTS.jRxn.onBody = 'parent' ;
 INPUTS.jRxn.jointNames = ['all'] ;
 
 INPUTS.passiveForceStrains = [0, 0.7] ; % Default = [0,.7] this is strain at zero force and strain at 1 norm force in Millard model
@@ -114,7 +114,7 @@ for iPen = Penalties
     INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
     % Run it for Right leg
-    for i = 1:3%length(contacts_rightLeg)-1
+    for i = 1:6%length(contacts_rightLeg)-1
         INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
         INPUTS.endTime = contacts_rightLeg(i+1);
         INPUTS.leg = 'r';
@@ -129,8 +129,8 @@ for iPen = Penalties
         copyfile(currentfile,newbackup);
     end
 
-    % Run it for Right leg
-    for i = 1:3%length(contacts_leftLeg)-1
+    % Run it for Left leg
+    for i = 1:6%length(contacts_leftLeg)-1
 
         INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
         INPUTS.endTime = contacts_leftLeg(i+1);
@@ -150,7 +150,8 @@ for iPen = Penalties
 
 end
 
-% plotReuslts_CMBBE_withTestData
+savedir = [baseDir fp 'resilts_figures_parent'];
+plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main
 

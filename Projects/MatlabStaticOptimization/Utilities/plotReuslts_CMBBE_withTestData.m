@@ -1,10 +1,21 @@
 
 
-function plotReuslts_CMBBE_withTestData
+function plotReuslts_CMBBE_withTestData(savedir)
 
 fp = filesep;
+
+onBody = 'parent';
 mainDir = fileparts(fileparts([mfilename('fullpath') '.m']));
 tesdataDir = [mainDir '\TestData\'] ; % Base Directory to base results directory.
+
+if nargin < 1 
+   savedir = [tesdataDir fp 'results_figures'];
+end
+
+if isfolder(savedir)
+    mkdir(savedir)
+end
+
 legs = {'l' 'r'};
 penalties = {'0' '10' '100' '500' '1000'};
 resultsDirs = dir([tesdataDir fp 'results_SO_*']);
@@ -62,7 +73,6 @@ for iLeg = 1:2
             contactForces.(['Pen_' curr_penalty]).(joints{iJoint}) = [];
         end
 
-
         % loop through each trial
         for iFolder = 1:length(resultsDirs)
             count_loops = count_loops +1;
@@ -76,14 +86,26 @@ for iLeg = 1:2
             look_for_substrings = {['hip_' l], ['knee_' l], ['ankle_' l]};
             [contactForces_data] = resulstant_JCF(contactForces_data,look_for_substrings,fs);
     
-            contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
-            contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
-            contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
-
-            contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fx_norm']);
-            contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
-            contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
-
+            if contains(onBody,'child')
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+                
+                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
+                
+            elseif contains(onBody,'parent')
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fz_norm']);
+                
+                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+            end
+            
             time_range = [min(force_data.time) max(force_data.time)];
 
             idx_time = [find(ik_data.time==time_range(1)): find(ik_data.time==time_range(2))]';
@@ -109,7 +131,7 @@ for iLeg = 1:2
         end
     end
 
-
+    cd(savedir)
     save(['results_' l '.mat'],"contactForces","muscleForces","ik","id","muscles_of_interest","joints")
     %% plot external biomech
     [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(2,3);
@@ -143,7 +165,8 @@ for iLeg = 1:2
      
     tight_subplot_ticks(ha,LastRow,0)
     mmfn_inspect
-    saveas(gcf,'ExtBiomech_results.tiff')
+    saveas(gcf,[savedir fp 'ExtBiomech_results_' l '.tiff'])
+    close all
     %% plot muscle forces
     [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_interest));
     
@@ -174,7 +197,7 @@ for iLeg = 1:2
     tight_subplot_ticks(ha,LastRow,0)
 
     mmfn_inspect
-    saveas(gcf,'MuscleForces_results.tiff')
+    saveas(gcf,[savedir fp 'MuscleForces_results_' l '.tiff'])
 
     %% plot contact forces
     [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
@@ -207,7 +230,7 @@ for iLeg = 1:2
 
     mmfn_inspect
     
-    saveas(gcf,'JCF_results.tiff')
+    saveas(gcf,[savedir fp 'JCF_results_' l '.tiff'])
 
 
 
