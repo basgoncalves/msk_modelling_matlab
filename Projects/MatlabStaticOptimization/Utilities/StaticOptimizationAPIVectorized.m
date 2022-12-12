@@ -616,10 +616,13 @@ for i = 1:nMuscles+nFreeCoords
 end
 
 % Set optimizer options
-options_sqp = optimoptions('fmincon','Display','notify-detailed', ...
-    'TolCon',1e-4,'TolFun',1e-12,'TolX',1e-8,'MaxFunEvals',20000,...
-    'MaxIter',5000,'Algorithm','sqp');
-options_ip = optimoptions('fmincon','Display','notify-detailed', ...
+% options_sqp = optimoptions('fmincon','Display','notify-detailed', ...
+%     'TolCon',1e-4,'TolFun',1e-12,'TolX',1e-19,'MaxFunEvals',2000,...
+%     'MaxIter',50000,'Algorithm','sqp');
+options_sqp = optimoptions('fmincon','Display','off', ...
+    'TolCon',1e-4,'TolFun',1e-12,'TolX',1e-19,'MaxFunEvals',20000,...
+    'MaxIter',50000,'Algorithm','sqp');
+options_ip = optimoptions('fmincon','Display','off', ...
     'TolCon',1e-4,'TolFun',1e-12,'TolX',1e-8,'MaxFunEvals',1000000,...
     'MaxIter',10000,'Algorithm','interior-point');
 
@@ -721,9 +724,11 @@ for tInd_ML = 1:nTimeSteps ; % counter is Matlab indexing
     nonlcon = @(coeffs0) DynamicsConstraint_momentMatching(coeffs0,params) ;
 
     % Call constrained optimization
+    
+%     CheckEffectsParam_CostFunction   % use just to check how number of iterations affects final coeeficients  (BG Dec 2022)
     try % Use SQP optimizer first
         [coeffsFinal,fval,exitflag,output] = fmincon(@(coeffs0) CostFunction(coeffs0,params), ...
-            coeffs_initial,A,b,Aeq,beq,lb,ub,nonlcon,options_sqp) ;
+            coeffs_initial,A,b,Aeq,beq,lb,ub,nonlcon,options_sqp);
         if tInd_ML >1 && fval>2*fvalLast % after first iteration, look for spikes in cost function - use IP if identified
             disp(['Cost Value was ' num2str(ceil(fval/fvalLast)) 'x last time, will try to use IP'])
             error('Cost Too High')
@@ -821,7 +826,6 @@ stateReport.getStatesStorage.print([outputFilePath 'results_states.sto']) ;
 jointRxn.end(state) ;
 % jointRxn.printResults([outputFilePath 'results_JointReaction.sto']) ;
 jointRxn.printResults('results_JointReaction',outputFilePath,-1,'.sto') ;
-
 
 % Save Model (clear external Forces first - or will crash Opensim due to
 % bug if you try to open in GUI

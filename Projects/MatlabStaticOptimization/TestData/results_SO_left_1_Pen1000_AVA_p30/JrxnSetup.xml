@@ -16,8 +16,8 @@
 		<!--Names of the joints on which to perform the analysis. The key word 'All' indicates that the analysis should be performed for all joints.-->
 		<joint_names> ground_pelvis hip_r walker_knee_r patellofemoral_r ankle_r subtalar_r mtp_r hip_l walker_knee_l patellofemoral_l ankle_l subtalar_l mtp_l back</joint_names>
 		<!--Choice of body ('parent' or 'child') for which the reaction loads are calculated. Child body is default. The array must either have one entry or the same number of entries as joints specified above. If the array has one entry only, that selection is applied to all chosen joints.-->
-		<apply_on_bodies> child</apply_on_bodies>
+		<apply_on_bodies> parent</apply_on_bodies>
 		<!--Names of frames in which the calculated reactions are expressed, or the keyword 'child' or 'parent' to indicate the joint's 'child' or 'parent' Frame. ground is default. If a Frame named 'child' or 'parent' exists and the keyword 'child' or 'parent' is used, the analysis will use that Frame. The array must either have one entry or the same number of entries as joints specified above. If the array has one entry only, that selection is applied to all chosen joints.-->
-		<express_in_frame> child</express_in_frame>
+		<express_in_frame> parent</express_in_frame>
 	</JointReaction>
 </OpenSimDocument>
