@@ -168,7 +168,7 @@ for iLeg = 1:2
     saveas(gcf,[savedir fp 'ExtBiomech_results_' l '.tiff'])
     close all
     %% plot muscle forces
-    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_interest));
+    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_interest),0,[0.01 0.02],[],[0.03 0.08]);
     
     last_plot_not_muscle = 0;
     Plot_colors = colorBG(0,length(penalties));
@@ -180,20 +180,22 @@ for iLeg = 1:2
             force_data = muscleForces.(['Pen_' penalties{iPen}]).(MuscleName);
 
             plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
-            title(MuscleName,'Interpreter','none')
-            if iMuscle == FirstCol
+           
+            if any(iMuscle == FirstCol)
                 ylabel('Muscle force (N)')
             end
-            if iMuscle == LastRow
+            if any(iMuscle == LastRow)
                 xlabel('Gait cycle(%)')
             end
         end
-        ylim([0 max(ylim)])
+        ylim([0 max(ylim)*1.15])
+        t = title(MuscleName,'Interpreter','none');
+        t.Position(2) = t.Position(2) *0.92;
     end
     ax = gca;
     lg = legend(ax.Children(2:2:end),flip(penalties));
     lg.Interpreter = "none";
-    lg.Position = [0.75 0.25 0.05 0.09];
+    lg.Position = [0.94 0.5 0.05 0.09];
     tight_subplot_ticks(ha,LastRow,0)
 
     mmfn_inspect
@@ -212,10 +214,10 @@ for iLeg = 1:2
 
             plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
             title(JointName,'Interpreter','none')
-            if iJoint == FirstCol
+            if any(iJoint == FirstCol)
                 ylabel('Contact force (N)')
             end
-            if iJoint == LastRow
+            if any(iJoint == LastRow)
                 xlabel('Gait cycle(%)')
             end
         end
