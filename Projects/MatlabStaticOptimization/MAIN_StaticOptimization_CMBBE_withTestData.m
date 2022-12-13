@@ -156,7 +156,7 @@ end
 % % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
 
 savedir = [baseDir fp 'figures_parent'];
-Convert2Mat(savedir)
+Convert2Mat
 plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main

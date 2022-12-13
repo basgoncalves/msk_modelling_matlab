@@ -112,7 +112,7 @@ if run_analysis == 1
 
     Penalties = [0,10,100,500,1000];
 
-    for iPen = Penalties
+    for iPen = Penalties(2:end)
 
         INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
@@ -133,7 +133,7 @@ if run_analysis == 1
 %         end
 
         % Run it for Left leg
-        for i = 2:6%length(contacts_leftLeg)-1
+        for i = 1:6%length(contacts_leftLeg)-1
 
             INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
             INPUTS.endTime = contacts_leftLeg(i+1);
@@ -156,7 +156,7 @@ end
 % % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
 
 savedir = [baseDir fp 'figures_parent'];
-Convert2Mat(savedir)
+Convert2Mat
 plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main

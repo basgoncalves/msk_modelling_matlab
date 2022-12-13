@@ -1,0 +1,269 @@
+
+
+Beginning Optimization for walking_baseline1 from 4.30 to 5.38 seconds. 
+
+
+Optimizing t=4.300s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 10804.127s. Exitflag was 2.
+
+Optimizing t=4.320s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 42096.699s. Exitflag was 2.
+
+Optimizing t=4.340s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 8.7961s. Exitflag was 2.
+
+Optimizing t=4.360s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 8.2262s. Exitflag was 2.
+
+Optimizing t=4.380s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 5.1103s. Exitflag was 2.
+
+Optimizing t=4.400s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.8586s. Exitflag was 2.
+
+Optimizing t=4.420s
+This step took 3.5094s. Exitflag was 2.
+
+Optimizing t=4.440s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 5.1126s. Exitflag was 2.
+
+Optimizing t=4.460s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 4.4108s. Exitflag was 2.
+
+Optimizing t=4.480s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 4.506s. Exitflag was 2.
+
+Optimizing t=4.500s
+This step took 1.3198s. Exitflag was 2.
+
+Optimizing t=4.520s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 4.3044s. Exitflag was 2.
+
+Optimizing t=4.540s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2249s. Exitflag was 2.
+
+Optimizing t=4.560s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6201s. Exitflag was 2.
+
+Optimizing t=4.580s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4518s. Exitflag was 2.
+
+Optimizing t=4.600s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4063s. Exitflag was 2.
+
+Optimizing t=4.620s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6471s. Exitflag was 2.
+
+Optimizing t=4.640s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.0638s. Exitflag was 2.
+
+Optimizing t=4.660s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4731s. Exitflag was 2.
+
+Optimizing t=4.680s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.2965s. Exitflag was 2.
+
+Optimizing t=4.700s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5041s. Exitflag was 2.
+
+Optimizing t=4.720s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9183s. Exitflag was 2.
+
+Optimizing t=4.740s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.9075s. Exitflag was 2.
+
+Optimizing t=4.760s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.6287s. Exitflag was 2.
+
+Optimizing t=4.780s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.496s. Exitflag was 2.
+
+Optimizing t=4.800s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.5325s. Exitflag was 2.
+
+Optimizing t=4.820s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4929s. Exitflag was 2.
+
+Optimizing t=4.840s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.4155s. Exitflag was 2.
+
+Optimizing t=4.860s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0969s. Exitflag was 2.
+
+Optimizing t=4.880s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 1.9928s. Exitflag was 2.
+
+Optimizing t=4.900s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0568s. Exitflag was 2.
+
+Optimizing t=4.920s
+Cost Value was 3x last time, will try to use IP
+Trying IP instead
+This step took 2.3159s. Exitflag was 2.
+
+Optimizing t=4.940s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.8369s. Exitflag was 2.
+
+Optimizing t=4.960s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.3695s. Exitflag was 2.
+
+Optimizing t=4.980s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.2949s. Exitflag was 2.
+
+Optimizing t=5.000s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0859s. Exitflag was 2.
+
+Optimizing t=5.020s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0016s. Exitflag was 2.
+
+Optimizing t=5.040s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0989s. Exitflag was 2.
+
+Optimizing t=5.060s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.2411s. Exitflag was 2.
+
+Optimizing t=5.080s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.264s. Exitflag was 2.
+
+Optimizing t=5.100s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.2637s. Exitflag was 2.
+
+Optimizing t=5.120s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.3613s. Exitflag was 2.
+
+Optimizing t=5.140s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0849s. Exitflag was 2.
+
+Optimizing t=5.160s
+This step took 0.73505s. Exitflag was 2.
+
+Optimizing t=5.180s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.0141s. Exitflag was 2.
+
+Optimizing t=5.200s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.176s. Exitflag was 2.
+
+Optimizing t=5.220s
+This step took 2.0854s. Exitflag was 2.
+
+Optimizing t=5.240s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.4436s. Exitflag was 2.
+
+Optimizing t=5.260s
+This step took 1.0988s. Exitflag was 2.
+
+Optimizing t=5.280s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.437s. Exitflag was 2.
+
+Optimizing t=5.300s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 3.2885s. Exitflag was 2.
+
+Optimizing t=5.320s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.334s. Exitflag was 2.
+
+Optimizing t=5.340s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.3353s. Exitflag was 2.
+
+Optimizing t=5.360s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.1485s. Exitflag was 2.
+
+Optimizing t=5.380s
+SQP optimizer had an issue - output state was 0
+Trying IP instead
+This step took 2.2071s. Exitflag was 2.
