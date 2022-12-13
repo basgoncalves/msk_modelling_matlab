@@ -9,6 +9,7 @@ for ii = 1:N
     if contains(class(fig.Children(ii)),'Axes')
         fig.Children(ii).FontName = 'Times New Roman';
         fig.Children(ii).Title.FontWeight = 'Normal';
+        fig.Children(ii).FontSize = 14;
         
         for ax = 1:length(fig.Children(ii).Children)
             if contains(class(fig.Children(ii).Children(ax)),'matlab.graphics.chart.primitive.Line')

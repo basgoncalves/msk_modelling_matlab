@@ -424,3 +424,183 @@
 [2022-12-12 12:41:29.213] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
 [2022-12-12 12:41:29.430] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
 [2022-12-12 12:41:30.347] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:30:00.413] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:30:01.584] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:30:01.842] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:30:01.887] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:30:02.132] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:30:02.732] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:33:37.060] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:33:38.025] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:33:38.249] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:33:38.294] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:33:38.515] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:33:38.857] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:36:06.232] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:36:07.949] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:36:08.353] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:36:08.424] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:36:08.753] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:36:09.060] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:38:46.088] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:38:47.346] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:38:47.550] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:38:47.592] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:38:47.808] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:38:48.032] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:41:17.209] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:41:18.323] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:41:18.549] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:41:18.593] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:41:18.826] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:41:19.198] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:43:42.172] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:43:43.121] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:43:43.332] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:43:43.375] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:43:43.583] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:43:43.789] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:52:47.155] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:52:47.979] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:52:48.156] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:52:48.195] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:52:48.381] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:52:48.722] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:54:47.098] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:54:47.903] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:54:48.084] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:54:48.121] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:54:48.309] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:54:48.517] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:56:48.455] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:56:49.365] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:56:49.582] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:56:49.620] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:56:49.815] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:56:50.063] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 18:58:47.996] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 18:58:48.909] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 18:58:49.095] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:58:49.132] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 18:58:49.335] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 18:58:49.528] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:00:46.311] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:00:47.225] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:00:47.480] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:00:47.519] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:00:47.774] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:00:48.047] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:02:45.613] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:02:46.836] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:02:47.035] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:02:47.072] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:02:47.276] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:02:47.474] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:04:48.620] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:04:49.495] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:04:49.692] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:04:49.731] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:04:49.937] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:04:50.110] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:06:49.379] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:06:50.217] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:06:50.416] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:06:50.458] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:06:50.642] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:06:50.822] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:08:49.418] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:08:50.259] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:08:50.455] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:08:50.492] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:08:50.678] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:08:50.850] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:10:48.410] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:10:49.594] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:10:49.787] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:10:49.825] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:10:50.003] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:10:50.186] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:12:46.847] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:12:47.743] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:12:47.960] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:12:47.998] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:12:48.211] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:12:48.441] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:14:44.636] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:14:45.522] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:14:45.721] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:14:45.763] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:14:45.976] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:14:46.208] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:16:47.891] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:16:48.790] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:16:48.983] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:16:49.021] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:16:49.219] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:16:49.447] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:18:46.187] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:18:47.065] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:18:47.335] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:18:47.373] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:18:47.620] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:18:47.819] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:20:50.898] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:20:51.727] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:20:51.956] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:20:51.996] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:20:52.184] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:20:52.402] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-12 19:22:41.960] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-12 19:22:42.781] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-12 19:22:42.982] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:22:43.020] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-12 19:22:43.247] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-12 19:22:43.681] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:06:52.129] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:06:52.909] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:06:53.102] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:06:53.138] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:06:53.308] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:06:53.479] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:08:57.013] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:08:57.801] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:08:57.979] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:08:58.015] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:08:58.186] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:08:58.364] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:11:08.538] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:11:09.292] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:11:09.475] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:11:09.512] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:11:09.705] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:11:09.902] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:13:08.012] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:13:08.765] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:13:08.964] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:13:09.000] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:13:09.180] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:13:09.365] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:15:19.735] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:15:20.557] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:15:20.739] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:15:20.777] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:15:20.948] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:15:21.126] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:17:24.807] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:17:25.673] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:17:25.881] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:17:25.922] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:17:26.143] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:17:26.365] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:19:24.278] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:19:25.182] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:19:25.373] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:19:25.413] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:19:25.616] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:19:25.804] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)
+[2022-12-13 10:21:32.241] [info] Loaded model Rajagopal_scaled from file C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\Rajagopal_scaled_Sub1.osim
+[2022-12-13 10:21:33.079] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\walking_baseline1_forces.mot (nr=121120 nc=19)
+[2022-12-13 10:21:33.291] [info] ExternalForce::GRF_r Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:21:33.328] [info] ExternalForce::GRF_l Data source being set to walking_baseline1_forces.mot
+[2022-12-13 10:21:33.516] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_ik.sto (nr=3028 nc=26)
+[2022-12-13 10:21:33.692] [info] Storage: read data file = C:\Git\MSKmodelling\Projects\MatlabStaticOptimization\TestData\\results_id.sto (nr=3028 nc=26)

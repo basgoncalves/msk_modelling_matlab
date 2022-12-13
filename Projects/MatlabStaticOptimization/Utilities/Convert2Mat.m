@@ -9,6 +9,7 @@ savedir = [tesdataDir];
 
 legs = {'l' 'r'};
 penalties = {'0' '10' '100' '500' '1000'};
+AVA = {'AVA_p30' 'AVA_p0'};
 resultsDirs = dir([tesdataDir fp 'results_SO_*']);
 muscleForces = struct;
 contactForces = struct;
@@ -40,118 +41,121 @@ for iLeg = 1:2
     if contains(l,'l'); leg = 'left';
     else; leg = 'right';
     end
-
-    count_loops = 0;
+    
     disp(['loading data for ' leg ' leg...'])
-    for iPen = 1:length(penalties)
 
-        curr_penalty = penalties{iPen};
+    for iAva = 1:length(AVA)
+        count_loops = 0;
+        curr_AVA = AVA{iAva};
+
+        for iPen = 1:length(penalties)
+                        
+            curr_penalty = penalties{iPen};
+            resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '_' curr_AVA '*']);
+            cd(resultsDirs(1).folder)
+
+            muscles_of_interest = strcat({'iliacus_' 'psoas_' 'recfem_' 'tfl_' 'glmax1_' 'glmed1_' 'glmin1_'}, l);
+
+            muscles_of_interest = strcat({'addbrev_' 'addlong_' 'addmagDist_' 'addmagIsch_' 'addmagMid_' 'addmagProx_' 'bflh_' 'bfsh_' ...
+                'edl_' 'ehl_' 'fdl_' 'fhl_' 'gaslat_' 'gasmed_' 'glmax1_' 'glmax2_' 'glmax3_' 'glmed1_' 'glmed2_' 'glmed3_'...
+                'glmin1_' 'glmin2_' 'glmin3_' 'grac_' 'iliacus_' 'perbrev_' 'perlong_' 'piri_' 'psoas_' 'recfem_' 'sart_' ...
+                'semimem_' 'semiten_' 'soleus_' 'tfl_' 'tibant_' 'tibpost_' 'vasint_' 'vaslat_' 'vasmed_'},l);
 
 
-        resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '_*']);
-        cd(resultsDirs(1).folder)
-
-        muscles_of_interest = strcat({'iliacus_' 'psoas_' 'recfem_' 'tfl_' 'glmax1_' 'glmed1_' 'glmin1_'}, l);
-
-        muscles_of_interest = strcat({'addbrev_' 'addlong_' 'addmagDist_' 'addmagIsch_' 'addmagMid_' 'addmagProx_' 'bflh_' 'bfsh_' ...
-            'edl_' 'ehl_' 'fdl_' 'fhl_' 'gaslat_' 'gasmed_' 'glmax1_' 'glmax2_' 'glmax3_' 'glmed1_' 'glmed2_' 'glmed3_'...
-            'glmin1_' 'glmin2_' 'glmin3_' 'grac_' 'iliacus_' 'perbrev_' 'perlong_' 'piri_' 'psoas_' 'recfem_' 'sart_' ...
-            'semimem_' 'semiten_' 'soleus_' 'tfl_' 'tibant_' 'tibpost_' 'vasint_' 'vaslat_' 'vasmed_'},l);
-
-
-        force_file = [resultsDirs(1).name fp 'results_forces.sto'];
-        force_data = load_sto_file(force_file);
-        fs = 1/(force_data.time(2)-force_data.time(1));
-
-        muscleForces.(['Pen_' curr_penalty]) = struct;
-        for iMuscle = 1:length(muscles_of_interest)
-            iMuscle = muscles_of_interest{iMuscle};
-            muscleForces.(['Pen_' curr_penalty]).(iMuscle) = [];
-            trap.muscleForces.(['Pen_' curr_penalty]).(iMuscle) = [];
-        end
-
-        for iJoint = 1:length(joints)
-            contactForces.(['Pen_' curr_penalty]).(joints{iJoint}) = [];
-            trap.contactForces.(['Pen_' curr_penalty]).(joints{iJoint}) = [];
-        end
-
-        % loop through each trial
-        for iFolder = 1:length(resultsDirs)
-
-            disp([resultsDirs(iFolder).name])
-            count_loops = count_loops +1;
-            
-            % load muscle forces
-            force_file = [resultsDirs(iFolder).name fp 'results_forces.sto'];
+            force_file = [resultsDirs(1).name fp 'results_forces.sto'];
             force_data = load_sto_file(force_file);
-            
-            % load joint contact force
-            contactForces_file = [resultsDirs(iFolder).name fp 'results_JointReaction_JointRxn_ReactionLoads.sto'];
-            contactForces_data = load_sto_file(contactForces_file);
+            fs = 1/(force_data.time(2)-force_data.time(1));
 
-            look_for_substrings = {['hip_' l], ['knee_' l], ['ankle_' l]};
-            [contactForces_data] = calc_resultant_JCF(contactForces_data,look_for_substrings,fs);
-
-            try % in child   
-                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
-                
-                
-                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fx_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{7})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{8})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['knee_' l '_norm']);
-
-            catch % in parent
-                
-                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fx_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fy_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fz_norm']);
-    	        contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
-
-                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{7})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{8})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
-                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['knee_' l '_norm']);
-            end
-
-            % area under the curve of resultant contact force
-            trap.contactForces.(['Pen_' curr_penalty]).(joints{1})(end+1) = trapz(contactForces_data.time,contactForces_data.(['hip_' l]));
-            trap.contactForces.(['Pen_' curr_penalty]).(joints{5})(end+1) = trapz(contactForces_data.time,contactForces_data.(['knee_' l]));
-
-            % find time range in muscle force data to only use the ext
-            % biomech for the same time range
-            time_range = [min(force_data.time) max(force_data.time)];
-            idx_time = [find(ik_data.time==time_range(1)): find(ik_data.time==time_range(2))]';
-           
-
-            % load IK and ID data (only use the iterations of the first
-            % penalty, after that kinematics and kienctics just repeat)
-            if count_loops <= length(resultsDirs)
-                ik.hip_flexion(:,end+1) = TimeNorm(ik_data.(['hip_flexion_' l])(idx_time),fs);
-                ik.knee_angle(:,end+1)  = TimeNorm(ik_data.(['knee_angle_' l])(idx_time),fs);
-                ik.ankle_angle(:,end+1) = TimeNorm(ik_data.(['ankle_angle_' l])(idx_time),fs);
-
-                id.hip_flexion(:,end+1) = TimeNorm(id_data.(['hip_flexion_' l '_moment'])(idx_time),fs);
-                id.knee_angle(:,end+1)  = TimeNorm(id_data.(['knee_angle_' l '_moment'])(idx_time),fs);
-                id.ankle_angle(:,end+1) = TimeNorm(id_data.(['ankle_angle_' l '_moment'])(idx_time),fs);
-            end
-
-            
-            % add muscle forces and AUC to the final struct
+            muscleForces.(['Pen_' curr_penalty]) = struct;
             for iMuscle = 1:length(muscles_of_interest)
                 iMuscle = muscles_of_interest{iMuscle};
-                muscleForces.(['Pen_' curr_penalty]).(iMuscle)(:,end+1) = TimeNorm([force_data.(iMuscle)],fs);
+                muscleForces.(['Pen_' curr_penalty]).(iMuscle) = [];
+                trap.muscleForces.(['Pen_' curr_penalty]).(iMuscle) = [];
+            end
 
-                trap.muscleForces.(['Pen_' curr_penalty]).(iMuscle)(:,end+1) = trapz(force_data.time,force_data.(iMuscle));
+            for iJoint = 1:length(joints)
+                contactForces.(['Pen_' curr_penalty]).(joints{iJoint}) = [];
+                trap.contactForces.(['Pen_' curr_penalty]).(joints{iJoint}) = [];
+            end
+
+            % loop through each trial
+            for iFolder = 1:length(resultsDirs)
+
+                disp([resultsDirs(iFolder).name])
+                count_loops = count_loops +1;
+
+                % load muscle forces
+                force_file = [resultsDirs(iFolder).name fp 'results_forces.sto'];
+                force_data = load_sto_file(force_file);
+
+                % load joint contact force
+                contactForces_file = [resultsDirs(iFolder).name fp 'results_JointReaction_JointRxn_ReactionLoads.sto'];
+                contactForces_data = load_sto_file(contactForces_file);
+
+                look_for_substrings = {['hip_' l], ['knee_' l], ['ankle_' l]};
+                [contactForces_data] = calc_resultant_JCF(contactForces_data,look_for_substrings,fs);
+
+                try % in child
+                    contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
+
+
+                    contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fx_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{7})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{8})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['knee_' l '_norm']);
+
+                catch % in parent
+
+                    contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fx_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fy_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fz_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
+
+                    contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{7})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{8})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+                    contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['knee_' l '_norm']);
+                end
+
+                % area under the curve of resultant contact force
+                trap.contactForces.(['Pen_' curr_penalty]).(joints{1})(end+1) = trapz(contactForces_data.time,contactForces_data.(['hip_' l]));
+                trap.contactForces.(['Pen_' curr_penalty]).(joints{5})(end+1) = trapz(contactForces_data.time,contactForces_data.(['knee_' l]));
+
+                % find time range in muscle force data to only use the ext
+                % biomech for the same time range
+                time_range = [min(force_data.time) max(force_data.time)];
+                idx_time = [find(ik_data.time==time_range(1)): find(ik_data.time==time_range(2))]';
+
+
+                % load IK and ID data (only use the iterations of the first
+                % penalty, after that kinematics and kienctics just repeat)
+                if count_loops <= length(resultsDirs)
+                    ik.hip_flexion(:,end+1) = TimeNorm(ik_data.(['hip_flexion_' l])(idx_time),fs);
+                    ik.knee_angle(:,end+1)  = TimeNorm(ik_data.(['knee_angle_' l])(idx_time),fs);
+                    ik.ankle_angle(:,end+1) = TimeNorm(ik_data.(['ankle_angle_' l])(idx_time),fs);
+
+                    id.hip_flexion(:,end+1) = TimeNorm(id_data.(['hip_flexion_' l '_moment'])(idx_time),fs);
+                    id.knee_angle(:,end+1)  = TimeNorm(id_data.(['knee_angle_' l '_moment'])(idx_time),fs);
+                    id.ankle_angle(:,end+1) = TimeNorm(id_data.(['ankle_angle_' l '_moment'])(idx_time),fs);
+                end
+
+
+                % add muscle forces and AUC to the final struct
+                for iMuscle = 1:length(muscles_of_interest)
+                    iMuscle = muscles_of_interest{iMuscle};
+                    muscleForces.(['Pen_' curr_penalty]).(iMuscle)(:,end+1) = TimeNorm([force_data.(iMuscle)],fs);
+
+                    trap.muscleForces.(['Pen_' curr_penalty]).(iMuscle)(:,end+1) = trapz(force_data.time,force_data.(iMuscle));
+                end
             end
         end
+        [muscleForces] = sumMuscleForces(muscleForces,l);
+        cd(savedir)
+        save(['results_' l '_' curr_AVA '.mat'],'contactForces','muscleForces','trap','ik','id','muscles_of_interest','joints')
     end
-    [muscleForces] = sumMuscleForces(muscleForces,l);
-    cd(savedir)
-    save(['results_' l '.mat'],'contactForces','muscleForces','trap','ik','id','muscles_of_interest','joints')
 end
 
 
