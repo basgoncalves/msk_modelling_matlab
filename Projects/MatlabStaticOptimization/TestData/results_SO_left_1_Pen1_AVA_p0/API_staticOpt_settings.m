@@ -110,9 +110,9 @@ if run_analysis == 1
     disp('FINDING TIMES FOR ALL THE GAIT CYCLES')
     [contacts_leftLeg,contacts_rightLeg] = find_gait_cycles(INPUTS.ikFilePath,INPUTS.forceFilePath);
 
-    Penalties = [0,10,100,500,1000];
+    Penalties = [1,10,100,500,1000];
 
-    for iPen = Penalties(2:end)
+    for iPen = Penalties(1:end)
 
         INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
 
