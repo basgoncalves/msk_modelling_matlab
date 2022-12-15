@@ -12,7 +12,9 @@ for ax=FigAx
        ax.Title.FontWeight = 'Normal';
     end
     
-    if ~isempty(ax.Legend); legend('boxoff'); end
+    if isfield(ax,'Legend') && ~isempty(ax.Legend) 
+        legend('boxoff'); 
+    end
     
     N =  length(ax.Children);
     for ii = 1:N
