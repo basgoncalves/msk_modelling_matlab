@@ -7,7 +7,13 @@ mainDir = fileparts(fileparts([mfilename('fullpath') '.m']));
 tesdataDir = [mainDir '\TestData'] ; % Base Directory to base results directory.
 cd(tesdataDir)
 
+<<<<<<< HEAD
 if nargin < 1; savedir = [tesdataDir fp 'figures']; end
+=======
+if nargin < 1 
+   savedir = [tesdataDir fp 'figures'];
+end
+>>>>>>> main
 
 if ~isfolder(savedir); mkdir(savedir); end
 
@@ -41,6 +47,7 @@ ylabel('joint angle (deg)')
 axes(ha(2))
 plotShadedSD(mean(ik.knee_angle,2),std(ik.knee_angle,0,2),kinematics_color);
 
+<<<<<<< HEAD
 axes(ha(3))
 plotShadedSD(mean(ik.ankle_angle,2),std(ik.ankle_angle,0,2),kinematics_color);
 
@@ -50,6 +57,20 @@ axes(ha(first_moments_plot))
 plotShadedSD(mean(id.hip_flexion,2),std(id.hip_flexion,0,2),kinematics_color);
 ylabel('joint moment (Nm)')
 xlabel('Gait cycle (%)')
+=======
+    for iPen = 1:length(penalties)
+        
+        curr_penalty = penalties{iPen};
+        
+        if contains(l,'l')
+            leg = 'left';
+        else
+            leg = 'right';
+        end
+
+        resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '*']);
+        cd(resultsDirs(1).folder)
+>>>>>>> main
 
 axes(ha(first_moments_plot+1))
 plotShadedSD(mean(id.knee_angle,2),std(id.knee_angle,0,2),kinematics_color);
@@ -85,8 +106,67 @@ for iMuscle = 1:length(muscles_of_to_plot)                                      
         else
             yticks('')                                                                                          % yticks
         end
+<<<<<<< HEAD
         if any(iMuscle == LastRow)
             xlabel('Gait cycle(%)')                                                                             % xlabels
+=======
+
+        % loop through each trial
+        for iFolder = 1:length(resultsDirs)
+            count_loops = count_loops +1;
+            
+            force_file = [resultsDirs(iFolder).name fp 'results_forces.sto'];
+            force_data = load_sto_file(force_file);
+
+            contactForces_file = [resultsDirs(iFolder).name fp 'results_JointReaction_JointRxn_ReactionLoads.sto'];
+            contactForces_data = load_sto_file(contactForces_file);
+            
+            look_for_substrings = {['hip_' l], ['knee_' l], ['ankle_' l]};
+            [contactForces_data] = resulstant_JCF(contactForces_data,look_for_substrings,fs);
+    
+            try % in child
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+                
+                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_tibia_' l '_in_tibia_' l '_fz_norm']);
+                
+            catch % in parent
+                contactForces.(['Pen_' curr_penalty]).(joints{1})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{2})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{3})(:,end+1) = contactForces_data.(['hip_' l '_on_pelvis_in_pelvis_fz_norm']);
+                
+                contactForces.(['Pen_' curr_penalty]).(joints{4})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fx_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{5})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fy_norm']);
+                contactForces.(['Pen_' curr_penalty]).(joints{6})(:,end+1) = contactForces_data.(['walker_knee_' l '_on_femur_' l '_in_femur_' l '_fz_norm']);
+            end
+            
+            time_range = [min(force_data.time) max(force_data.time)];
+
+            idx_time = [find(ik_data.time==time_range(1)): find(ik_data.time==time_range(2))]';
+            x_time = 0:100';
+            
+            % load IK and ID data (only use the iterations of the first
+            % penalty, after that kinematics and kienctics just repeat)
+            if count_loops <= length(resultsDirs)
+                ik.hip_flexion(:,end+1) = TimeNorm(ik_data.(['hip_flexion_' l])(idx_time),fs);
+                ik.knee_angle(:,end+1) = TimeNorm(ik_data.(['knee_angle_' l])(idx_time),fs);
+                ik.ankle_angle(:,end+1) = TimeNorm(ik_data.(['ankle_angle_' l])(idx_time),fs);
+
+                id.hip_flexion(:,end+1) = TimeNorm(id_data.(['hip_flexion_' l '_moment'])(idx_time),fs);
+                id.knee_angle(:,end+1) = TimeNorm(id_data.(['knee_angle_' l '_moment'])(idx_time),fs);
+                id.ankle_angle(:,end+1) = TimeNorm(id_data.(['ankle_angle_' l '_moment'])(idx_time),fs);
+            end
+
+                
+            for iMuscle = 1:length(muscles_of_interest)
+                iMuscle = muscles_of_interest{iMuscle};
+                muscleForces.(['Pen_' curr_penalty]).(iMuscle)(:,end+1) = TimeNorm([force_data.(iMuscle)],fs);
+            end
+>>>>>>> main
         end
     end
     ylim([0 3500])                                                                                              % ylim
@@ -116,11 +196,42 @@ for iJoint = [1,5]                                                              
     for iPen = 1:length(penalties)                                                                              % plot time-varying contact forces
         axes(ha(count))
 
+<<<<<<< HEAD
         JointName = joints{iJoint};
         force_data = contactForces.([penalties{iPen}]).(JointName);
+=======
+    % plot moments
+    first_moments_plot = 4;
+    axes(ha(first_moments_plot))
+    plotShadedSD(mean(id.hip_flexion,2),std(id.hip_flexion,0,2),kinematics_color);
+    ylabel('joint moment (Nm)')
+    xlabel('Gait cycle(%)')
+    
+    axes(ha(first_moments_plot+1))
+    plotShadedSD(mean(id.knee_angle,2),std(id.knee_angle,0,2),kinematics_color);
+    xlabel('Gait cycle(%)')
+    
+    axes(ha(first_moments_plot+2))
+    plotShadedSD(mean(id.ankle_angle,2),std(id.ankle_angle,0,2),kinematics_color);
+    xlabel('Gait cycle(%)')
+     
+    tight_subplot_ticks(ha,LastRow,0)
+    mmfn_inspect
+    saveas(gcf,[savedir fp 'ExtBiomech_results_' l '.tiff'])
+    close all
+    %% plot muscle forces
+    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_interest),0,[0.01 0.02],[],[0.03 0.08]);
+    
+    last_plot_not_muscle = 0;
+    Plot_colors = colorBG(0,length(penalties));
+    for iMuscle = 1:length(muscles_of_interest)
+        for iPen = 1:length(penalties)
+            axes(ha(last_plot_not_muscle+iMuscle))
+>>>>>>> main
 
         trap_JCF(end+1,:) = trap.contactForces.([penalties{iPen}]).(JointName);
 
+<<<<<<< HEAD
         plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
         title(strrep(JointName,'_',' ') ,'Interpreter','none')
         if any(count == FirstCol)
@@ -128,6 +239,49 @@ for iJoint = [1,5]                                                              
         end
         if any(count == LastRow)
             xlabel('Gait cycle (%)')
+=======
+            plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
+           
+            if any(iMuscle == FirstCol)
+                ylabel('Muscle force (N)')
+            end
+            if any(iMuscle == LastRow)
+                xlabel('Gait cycle(%)')
+            end
+        end
+        ylim([0 max(ylim)*1.15])
+        t = title(MuscleName,'Interpreter','none');
+        t.Position(2) = t.Position(2) *0.92;
+    end
+    ax = gca;
+    lg = legend(ax.Children(2:2:end),flip(penalties));
+    lg.Interpreter = "none";
+    lg.Position = [0.94 0.5 0.05 0.09];
+    tight_subplot_ticks(ha,LastRow,0)
+
+    mmfn_inspect
+    saveas(gcf,[savedir fp 'MuscleForces_results_' l '.tiff'])
+
+    %% plot contact forces
+    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
+    last_plot_not_contact_force = 0;
+    Plot_colors = colorBG(0,length(penalties));
+    for iJoint = 1:length(joints)
+        for iPen = 1:length(penalties)
+            axes(ha(last_plot_not_contact_force+iJoint))
+
+            JointName = joints{iJoint};
+            force_data = contactForces.(['Pen_' penalties{iPen}]).(JointName);
+
+            plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
+            title(JointName,'Interpreter','none')
+            if any(iJoint == FirstCol)
+                ylabel('Contact force (N)')
+            end
+            if any(iJoint == LastRow)
+                xlabel('Gait cycle(%)')
+            end
+>>>>>>> main
         end
         ylim([0 5500])                                                                                          % ylim
     end

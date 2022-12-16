@@ -9,7 +9,11 @@ function [] = MAIN_StaticOptimization_CMBBE_withTestData()
 % This main loop allows you to run StaticOptimizationAPI.m
 
 clear all;  format compact; clc; fclose all;
+<<<<<<< HEAD
 run_analysis = 1;
+=======
+run_analysis = 0;
+>>>>>>> main
 %close all;
 
 % % Path to the data and utility functions. No need to change this, unless
@@ -110,6 +114,7 @@ if run_analysis == 1
     disp('FINDING TIMES FOR ALL THE GAIT CYCLES')
     [contacts_leftLeg,contacts_rightLeg] = find_gait_cycles(INPUTS.ikFilePath,INPUTS.forceFilePath);
 
+<<<<<<< HEAD
     Penalties = [-10,10,100,500,1000];
 
     for iPen = Penalties(1:end)
@@ -131,6 +136,29 @@ if run_analysis == 1
 %             currentfile=strcat(FileNameAndLocation, '.m');
 %             copyfile(currentfile,newbackup);
 %         end
+=======
+    Penalties = [0,10,100,500,1000];
+
+    for iPen = Penalties
+
+        INPUTS.overrideWeights = [iPen]; % A column vector the same size as weights
+
+        % Run it for Right leg
+        for i = 1:6%length(contacts_rightLeg)-1
+            INPUTS.startTime = contacts_rightLeg(i); % % % Set time for simulation % % %
+            INPUTS.endTime = contacts_rightLeg(i+1);
+            INPUTS.leg = 'r';
+            INPUTS.outputFilePath = [baseDir '\results_SO_right_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+
+            StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
+
+            % Save this script in the folder to reference settings
+            FileNameAndLocation=[mfilename('fullpath')];
+            newbackup=[INPUTS.outputFilePath 'API_staticOpt_settings.m'];
+            currentfile=strcat(FileNameAndLocation, '.m');
+            copyfile(currentfile,newbackup);
+        end
+>>>>>>> main
 
         % Run it for Left leg
         for i = 1:6%length(contacts_leftLeg)-1
@@ -138,7 +166,11 @@ if run_analysis == 1
             INPUTS.startTime = contacts_leftLeg(i); % % % Set time for simulation % % %
             INPUTS.endTime = contacts_leftLeg(i+1);
             INPUTS.leg = 'l';
+<<<<<<< HEAD
             INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p0\'];
+=======
+            INPUTS.outputFilePath = [baseDir '\results_SO_left_' num2str(i) '_Pen' num2str(iPen) '_AVA_p30\'];
+>>>>>>> main
 
             StaticOptimizationAPIVectorized(INPUTS) ; % Run StaticOptimizationAPI
 
@@ -152,11 +184,16 @@ if run_analysis == 1
     end
 end
 
+<<<<<<< HEAD
 
 % % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
 
 savedir = [baseDir fp 'figures_parent'];
 Convert2Mat
+=======
+% % % % % Plot results % % % % %% % % % %% % % % %% % % % %% % % % %
+savedir = [baseDir fp 'figures_parent'];
+>>>>>>> main
 plotReuslts_CMBBE_withTestData(savedir)
 
 end % Main
