@@ -7,13 +7,7 @@ mainDir = fileparts(fileparts([mfilename('fullpath') '.m']));
 tesdataDir = [mainDir '\TestData'] ; % Base Directory to base results directory.
 cd(tesdataDir)
 
-<<<<<<< HEAD
 if nargin < 1; savedir = [tesdataDir fp 'figures']; end
-=======
-if nargin < 1 
-   savedir = [tesdataDir fp 'figures'];
-end
->>>>>>> main
 
 if ~isfolder(savedir); mkdir(savedir); end
 
