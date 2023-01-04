@@ -1,43 +1,54 @@
-1. a bit slow to install and open (maybe in python or Go)? With Chat GPT or somehelp
-	a.
+1. a bit slow to install and open (maybe in python or Go)? 
+With Chat GPT or somehelp from a computer scientist
 	
 2. Intead of working directory write "Data folder" or "Folder containing MRI data" ...
-	a.
 	
-3. Checking PyMeshLab opens python, you can probably just check and make sugestions.
-	a. add my code to auto install pip
+3. Checking PyMeshLab opens in python, you can probably just check and make sugestions.
+	a. add my code to auto pip install  
+
+		import subprocess
+		import sys
+		import pkg_resources
+
+		Packages = ["pymeshlab"]
+
+		installed_packages = pkg_resources.working_set
+		installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
 
 
-import subprocess
-import sys
-import pkg_resources
-
-Packages = ["pymeshlab"]
-
-installed_packages = pkg_resources.working_set
-installed_packages_list = sorted(["%s==%s" % (i.key, i.version) for i in installed_packages])
+		for pkg in Packages:
+			if any(pkg in s for s in installed_packages_list):
+				print(pkg + " already installed")
+			else:
+				subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
 
 
-for pkg in Packages:
-    if any(pkg in s for s in installed_packages_list):
-        print(pkg + " already installed")
-    else:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
+		f = open('testPyMeshLabResult.txt', 'w')
 
+		try:
+			import pymeshlab
+		except:
+		   print('PyMeshLab not installed or linked correctly with python')
+		   f.write('not working')
+		else:
+		   print('PyMeshLab working correctly')
+		   f.write('working')
+		finally:
+			f.close()
+			
 
-f = open('testPyMeshLabResult.txt', 'w')
+4. add a cancel button or someting when checking pymeshlab. It crashed and I need to turn off 
+the whole prgramm
 
-try:
-    import pymeshlab
-except:
-   print('PyMeshLab not installed or linked correctly with python')
-   f.write('not working')
-else:
-   print('PyMeshLab working correctly')
-   f.write('working')
-finally:
-    f.close()
-	
+5. Permission denied! Give permisison to write on folder
 
-4. add a cancel button or someting when checking pymeshlab. It crashed and I need to turn off the whole prgramm
+6. Run cubit check after path selection
 
+7. Workout the VSCode issue
+
+8. add a 'typically' to FEbio step install
+
+9. in the 'analysis' and 'loading' steps, would be cool to add labels to the events when asking 
+if they are correct. See slide 26 example
+
+10. on Plots add the x and y labels (units)
