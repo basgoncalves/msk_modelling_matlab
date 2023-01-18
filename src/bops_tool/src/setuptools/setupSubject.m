@@ -151,11 +151,12 @@ catch
    
 end
 
-settings.trials                 = struct;
-settings.trials.trialList       = trialList;
-settings.trials.dynamicTrials   = trialList(contains(trialList,bops.Trials.Dynamic));
-settings.trials.staticTrials    = trialList(contains(trialList,bops.Trials.Static));
-settings.trials.maxEMGTrials    = trialList(contains(trialList,bops.Trials.MaxEMG));
+settings.trials             = struct;
+settings.trials.names       = trialList;
+settings.trials.c3dpaths    = strcat(strcat([settings.directories.Input fp],trialList),'.c3d');        
+settings.trials.dynamic     = trialList(contains(trialList,bops.Trials.Dynamic));
+settings.trials.static      = trialList(contains(trialList,bops.Trials.Static));
+settings.trials.maxEMG      = trialList(contains(trialList,bops.Trials.MaxEMG));
 
 settings.trials.CEINMScalibration = trialList;
 

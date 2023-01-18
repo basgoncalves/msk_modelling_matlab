@@ -1,0 +1,447 @@
+<!--Markers in the model.-->
+<MarkerSet name="">
+	<objects>
+		<Marker name="C7">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> torso </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.07000000       0.44000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="T10">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> torso </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.10000000       0.22000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="CLAV">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> torso </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.04000000       0.38000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="STRN">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> torso </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.10000000       0.24000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RBAK">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> torso </body>
+			<!--Location of a marker on the body segment.-->
+			<location>  -0.101905 0.281906 0.0689522</location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LASI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> pelvis </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.02000000       0.03000000      -0.12800000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RASI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> pelvis </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.02000000       0.03000000       0.12800000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LPSI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> pelvis </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.16000000       0.03530000      -0.05360000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RPSI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> pelvis </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.16000000       0.03530000       0.05360000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LTHI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> femur_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.01000000      -0.30000000      -0.06000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LKNE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> femur_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.00000000      -0.40400000      -0.05000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LTIB">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> tibia_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.02000004      -0.32307399      -0.05000001 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LANK">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> tibia_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.00500000      -0.41000000      -0.05300000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LHEE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> calcn_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.02000000       0.02000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="LTOE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> calcn_l </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.18000000       0.02000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RTHI">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> femur_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.00049185      -0.25474052       0.07491211 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RKNE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> femur_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.00000000      -0.40400000       0.05000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RTIB">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> tibia_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.02000002      -0.29032747       0.05000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RANK">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> tibia_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.00500000      -0.41000000       0.05300000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RHEE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> calcn_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>      -0.02000000       0.02000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RTOE">
+			<!--Body segment in the model on which the marker resides.-->
+			<body> calcn_r </body>
+			<!--Location of a marker on the body segment.-->
+			<location>       0.18000000       0.02000000       0.00000000 </location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed> false </fixed>
+			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+	</objects>
+	<groups/>
+</MarkerSet>

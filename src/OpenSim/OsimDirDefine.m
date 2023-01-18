@@ -44,13 +44,8 @@ checkOSimVersion(osimVersionBops)
 % setenv('PATH', NewPath);
 
 addpath(genpath(DirOpenSimMatlab));
-try
-    cd(DirOpenSimMatlab)
-    
-catch
-    
-end
 
+try cd(DirOpenSimMatlab); catch; end
 
 import org.opensim.modeling.*
 try installedOsimVersion = char(org.opensim.modeling.opensimCommon.GetVersion());

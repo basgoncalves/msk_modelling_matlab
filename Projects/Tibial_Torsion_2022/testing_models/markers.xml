@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSimDocument Version="40000">
+   <MarkerSet name="markerset">
+      <objects>
+         <Marker name="STRN">
+            <body>torso</body>
+            <location>0.102408 0.24133499999999999 -0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="C7">
+            <body>torso</body>
+            <location>-0.068897399999999998 0.43399300000000002 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="T10">
+            <body>torso</body>
+            <location>-0.097186570358457347 0.20227420794904766 -0.0021200803519089355</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="CLAV">
+            <body>torso</body>
+            <location>0.057875900000000001 0.36516799999999999 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RBAK">
+            <body>torso</body>
+            <location>-0.097186599999999998 0.40227400000000002 0.10212</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RASI">
+            <body>pelvis</body>
+            <location>0.02 0.01 0.128</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LASI">
+            <body>pelvis</body>
+            <location>0.02 0.01 -0.128</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="SACR">
+            <body>pelvis</body>
+            <location>-0.15314900000000001 0.070893600000000001 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LT1">
+            <body>femur_l</body>
+            <location>0.029999999999999999 -0.20000000000000001 -0.070000000000000007</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LT3">
+            <body>femur_l</body>
+            <location>0.13 -0.27000000000000002 -0.070000000000000007</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LT2">
+            <body>femur_l</body>
+            <location>-0.01 -0.28999999999999998 -0.059999999999999998</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LKNE">
+            <body>femur_l</body>
+            <location>0 -0.42499999999999999 -0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LKNM">
+            <body>femur_l</body>
+            <location>0 -0.42499999999999999 0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LS1">
+            <body>tibia_l</body>
+            <location>0.0050000000000000001 -0.13 -0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LS3">
+            <body>tibia_l</body>
+            <location>0.01 -0.23000000000000001 -0.070000000000000007</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LS2">
+            <body>tibia_l</body>
+            <location>-0.11 -0.16 -0.040000000000000001</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LANK">
+            <body>tibia_l</body>
+            <location>-0.0050000000000000001 -0.40999999999999998 -0.052999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LANM">
+            <body>tibia_l</body>
+            <location>0.0060000000000000001 -0.40000000000000002 0.037999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LHEE">
+            <body>calcn_l</body>
+            <location>-0.02 0.02 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LM5D">
+            <body>calcn_l</body>
+            <location>0.16 0.014999999999999999 -0.045999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LTOE">
+            <body>calcn_l</body>
+            <location>0.185 0.02 -0.0049999999999998015</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LHJC">
+            <body>femur_l</body>
+            <location>0 0 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LKJC">
+            <body>femur_l</body>
+            <location>-0.0044998599999999996 -0.39500000000000002 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="LAJC">
+            <body>talus_l</body>
+            <location>0 0 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RT1">
+            <body>femur_r</body>
+            <location>0.029731500000000001 -0.20000000000000001 0.070000000000000007</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RT3">
+            <body>femur_r</body>
+            <location>0.13 -0.26000000000000001 0.059999999999999998</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RT2">
+            <body>femur_r</body>
+            <location>-0.01 -0.28999999999999998 0.089999999999999997</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RKNE">
+            <body>femur_r</body>
+            <location>0 -0.42499999999999999 0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RKNM">
+            <body>femur_r</body>
+            <location>0 -0.42499999999999999 -0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RS1">
+            <body>tibia_r</body>
+            <location>0.0050000000000000001 -0.13 0.050000000000000003</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RS3">
+            <body>tibia_r</body>
+            <location>0.01 -0.22 0.059999999999999998</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RS2">
+            <body>tibia_r</body>
+            <location>-0.11 -0.16 0.029999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RANK">
+            <body>tibia_r</body>
+            <location>-0.0050000000000000001 -0.40999999999999998 0.052999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RANM">
+            <body>tibia_r</body>
+            <location>0.0060000000000000001 -0.40000000000000002 -0.037999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RHEE">
+            <body>calcn_r</body>
+            <location>-0.02 0.02 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RM5D">
+            <body>calcn_r</body>
+            <location>0.16 0.014999999999999999 0.045999999999999999</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RTOE">
+            <body>calcn_r</body>
+            <location>0.185 0.02 0.0050000000000000001</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RHJC">
+            <body>femur_r</body>
+            <location>0 0 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RKJC">
+            <body>femur_r</body>
+            <location>-0.0044998599999999996 -0.39500000000000002 0</location>
+            <fixed>false</fixed>
+         </Marker>
+         <Marker name="RAJC">
+            <body>talus_r</body>
+            <location>0 0 0</location>
+            <fixed>false</fixed>
+         </Marker>
+      </objects>
+      <groups/>
+   </MarkerSet>
+</OpenSimDocument>

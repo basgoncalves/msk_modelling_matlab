@@ -16,7 +16,7 @@ add_tosion_tool_to_path(osim_version,model_path)
 % geneirc values (in degrees)
 legs = {'R'};
 
-femurAnteversion_angles   = []; % anteversion angle (original = 17.6)
+femurAnteversion_angles   = [15]; % anteversion angle (original = 17.6)
 femurNeckShaft_angles     = []; % neck-shaft angle (original = 123.3)
 [m,n] = ndgrid(femurAnteversion_angles,femurNeckShaft_angles);
 

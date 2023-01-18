@@ -25,6 +25,9 @@ if any(contains(out,'Convert Visual3D'));            Visual3DtoMotoNMS;  end
 if any(contains(out,'Select subjects'));             selectSubjects;     end
 if any(contains(out,'Select Session'));              selectSession(0);   end
 if any(contains(out,'Select Analysis'));             selectAnalysis;     end
+
+setupAnalysis
+
 if any(contains(out,'Setup InverseKinematics'));     setupIK;            end
 
 if any(contains(out,'Batch Analysis'));              BatchAnalysis;      end
@@ -85,6 +88,12 @@ end
 
 % --------------------------------------------------------------------------------------------------------------- %
 % ---------------------------------------------------- FUCNTIONS ------------------------------------------------ %
+% --------------------------------------------------------------------------------------------------------------- %
+
+% function setupAnalysis
+% bops = load_setup_bops;
+
+
 % --------------------------------------------------------------------------------------------------------------- %
 function runScale
 
