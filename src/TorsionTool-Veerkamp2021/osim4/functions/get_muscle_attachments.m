@@ -44,7 +44,6 @@ muscles_with_attachments = {};
 location_attachments = {};
 type_paths = {'PathPoint', 'ConditionalPathPoint', 'MovingPathPoint'};
 for iType = 1:length(type_paths)
-    iType = 2;
     type_path = type_paths{iType};
 
     for iMuscle = 1:size(muscles,2)

@@ -1,0 +1,140 @@
+[2023-01-17 11:36:48.236] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 11:36:48.312] [info] Loaded model 3DGaitModel2392 from file C:/Git/MSKmodelling/src/bops_tool/Templates/Models/gait2392_PlugInGait.osim
+[2023-01-17 11:36:48.494] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 11:36:48.498] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 11:44:54.669] [info] Updating Model file from 10600 to latest format...
+[2023-01-17 11:55:19.038] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 11:55:19.097] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait.osim
+[2023-01-17 11:55:19.103] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 11:55:19.106] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 11:56:04.409] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 11:56:04.470] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait.osim
+[2023-01-17 11:56:04.473] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 11:56:04.476] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 12:27:48.956] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait_MU2392_Arms_Scale_MarkerSet_PlugInGait.osim
+[2023-01-17 12:34:06.614] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait_MU2392_Arms_Scale_MarkerSet_PlugInGait.osim
+[2023-01-17 12:35:20.405] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait_MU2392_Arms_Scale_MarkerSet_PlugInGait.osim
+[2023-01-17 13:11:26.659] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait_MU2392_Arms_Scale_MarkerSet_PlugInGait.osim
+[2023-01-17 13:45:33.801] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_PlugInGait_MU2392_Arms_Scale_MarkerSet_PlugInGait.osim
+[2023-01-17 14:20:51.123] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 14:20:51.188] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody.osim
+[2023-01-17 14:20:51.189] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-17 14:20:51.189] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-17 14:20:51.189] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-17 14:20:51.189] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-17 14:20:51.189] [warning] Couldn't find file 'femur_r.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'tibia_r.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'talus.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'foot.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'bofoot.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'femur_l.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'tibia_l.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'l_fibula.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'l_talus.vtp'.
+[2023-01-17 14:20:51.190] [warning] Couldn't find file 'l_foot.vtp'.
+[2023-01-17 14:20:51.191] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2023-01-17 14:20:51.191] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-17 14:20:51.191] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-17 14:20:51.191] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-17 14:20:51.191] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-17 14:20:51.191] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 14:20:51.194] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 14:21:11.236] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody_UV_PlugInGait.osim
+[2023-01-17 14:31:09.015] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 14:31:09.097] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody.osim
+[2023-01-17 14:31:09.098] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-17 14:31:09.098] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-17 14:31:09.098] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-17 14:31:09.098] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'femur_r.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'tibia_r.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'talus.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'foot.vtp'.
+[2023-01-17 14:31:09.099] [warning] Couldn't find file 'bofoot.vtp'.
+[2023-01-17 14:31:09.100] [warning] Couldn't find file 'femur_l.vtp'.
+[2023-01-17 14:31:09.100] [warning] Couldn't find file 'tibia_l.vtp'.
+[2023-01-17 14:31:09.100] [warning] Couldn't find file 'l_fibula.vtp'.
+[2023-01-17 14:31:09.100] [warning] Couldn't find file 'l_talus.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'l_foot.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-17 14:31:09.101] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-17 14:31:09.102] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 14:31:09.104] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 14:31:35.163] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody_UV_PlugInGait.osim
+[2023-01-17 14:37:54.853] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 14:37:54.915] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody.osim
+[2023-01-17 14:37:54.915] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'femur_r.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'tibia_r.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'talus.vtp'.
+[2023-01-17 14:37:54.916] [warning] Couldn't find file 'foot.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'bofoot.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'femur_l.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'tibia_l.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'l_fibula.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'l_talus.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'l_foot.vtp'.
+[2023-01-17 14:37:54.917] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2023-01-17 14:37:54.918] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-17 14:37:54.918] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-17 14:37:54.918] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-17 14:37:54.918] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-17 14:37:54.919] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 14:37:54.921] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 14:38:25.917] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 14:38:25.977] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody.osim
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'femur_r.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'tibia_r.vtp'.
+[2023-01-17 14:38:25.978] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'talus.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'foot.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'bofoot.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'femur_l.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'tibia_l.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'l_fibula.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'l_talus.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'l_foot.vtp'.
+[2023-01-17 14:38:25.979] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2023-01-17 14:38:25.980] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-17 14:38:25.980] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-17 14:38:25.980] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-17 14:38:25.980] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-17 14:38:25.980] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 14:38:25.983] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
+[2023-01-17 14:41:34.585] [info] Updating Model file from 20303 to latest format...
+[2023-01-17 14:41:38.425] [info] Loaded model 3DGaitModel2392 from file C:\Git\MSKmodelling\src\bops_tool\Templates\Models\gait2392_simbody.osim
+[2023-01-17 14:41:38.426] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-17 14:41:38.426] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-17 14:41:38.427] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-17 14:41:38.427] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-17 14:41:38.428] [warning] Couldn't find file 'femur_r.vtp'.
+[2023-01-17 14:41:38.428] [warning] Couldn't find file 'tibia_r.vtp'.
+[2023-01-17 14:41:38.428] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-17 14:41:38.429] [warning] Couldn't find file 'talus.vtp'.
+[2023-01-17 14:41:38.429] [warning] Couldn't find file 'foot.vtp'.
+[2023-01-17 14:41:38.430] [warning] Couldn't find file 'bofoot.vtp'.
+[2023-01-17 14:41:38.430] [warning] Couldn't find file 'femur_l.vtp'.
+[2023-01-17 14:41:38.431] [warning] Couldn't find file 'tibia_l.vtp'.
+[2023-01-17 14:41:38.431] [warning] Couldn't find file 'l_fibula.vtp'.
+[2023-01-17 14:41:38.431] [warning] Couldn't find file 'l_talus.vtp'.
+[2023-01-17 14:41:38.432] [warning] Couldn't find file 'l_foot.vtp'.
+[2023-01-17 14:41:38.432] [warning] Couldn't find file 'l_bofoot.vtp'.
+[2023-01-17 14:41:38.433] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-17 14:41:38.433] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-17 14:41:38.433] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-17 14:41:38.434] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-17 14:41:38.438] [info] ControllerSet 'Controllers' was renamed and is being reset to 'controllerset'.
+[2023-01-17 14:41:38.510] [info] ComponentSet 'MiscComponents' was renamed and is being reset to 'componentset'.
