@@ -154,9 +154,9 @@ end
 settings.trials             = struct;
 settings.trials.names       = trialList;
 settings.trials.c3dpaths    = strcat(strcat([settings.directories.Input fp],trialList),'.c3d');        
-settings.trials.dynamic     = trialList(contains(trialList,bops.Trials.Dynamic));
-settings.trials.static      = trialList(contains(trialList,bops.Trials.Static));
-settings.trials.maxEMG      = trialList(contains(trialList,bops.Trials.MaxEMG));
+settings.trials.dynamic     = trialList(contains(trialList,split(bops.Trials.Dynamic)));
+settings.trials.static      = trialList(contains(trialList,split(bops.Trials.Static)));
+settings.trials.maxEMG      = trialList(contains(trialList,split(bops.Trials.MaxEMG)));
 
 settings.trials.CEINMScalibration = trialList;
 

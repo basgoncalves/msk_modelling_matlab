@@ -6,18 +6,19 @@ bopsDir     = fileparts(fileparts(setupDir));
 
 dataDir = char(importdata([setupDir fp 'data_directory.dat']));
 
-try cd(dataDir)
-catch; setupbopstool
-%     dataDir = uigetdir(cd,'Select your "DataFolder" '); 
-%     writematrix(dataDir,[setupDir fp 'data_directory.dat'])
-end
+try cd(dataDir); catch; setupbopstool(-1); end                                                                       % if data folder doesnt exist setup project again 
 
 setupfileDir = [dataDir fp 'bopsSettings.xml'];
 
 Pref = struct;
 Pref.StructItem = false;
 Pref.CellItem = false;
-bops = xml_read(setupfileDir,Pref);                                                                                 % load "setup.xml"
+try
+    bops = xml_read(setupfileDir,Pref);                                                                             % load "setup.xml"
+catch
+    delete(setupfileDir);
+    setupbopstool(-1);
+end
 
 bops.directories.bops = bopsDir;
 bops.directories.mainData = dataDir;

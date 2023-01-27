@@ -7,10 +7,25 @@
       <analysis>torsionTool</analysis>
       <rerun>[true]</rerun>
    </current>
+   <subjects>
+      <item>s001</item>
+   </subjects>
+   <sessions>
+      <item>GenericModel</item>
+   </sessions>
    <analysis_mode>
       <analyses>batch</analyses>
       <plot>batch</plot>
    </analysis_mode>
+   <ProcessingSteps>
+      <Visual3DtoMotoNMS>[false]</Visual3DtoMotoNMS>
+      <SetupIK>[false]</SetupIK>
+      <setupAnalysis>[false]</setupAnalysis>
+      <selectSubjects>[false]</selectSubjects>
+      <selectSession>[true]</selectSession>
+      <BatchAnalysis>[false]</BatchAnalysis>
+      <PlotResults>[false]</PlotResults>
+   </ProcessingSteps>
    <analyses>
       <c3d2mat>[false]</c3d2mat>
       <acquisition>[false]</acquisition>
@@ -176,12 +191,6 @@
       </MuscleLabels>
       <offset>0.2</offset>
    </emg>
-   <subjects>
-      <item>s001</item>
-   </subjects>
-   <sessions>
-      <item>GenericModel</item>
-   </sessions>
    <Trials>
       <Dynamic>GAIT</Dynamic>
       <MaxEMG>GAIT</MaxEMG>
@@ -207,6 +216,7 @@
    </xmlPref>
    <directories>
       <bops>C:\Code\Git\MSKmodelling\src\bops_tool</bops>
+	  <osimMatlab>C:\OpenSim 4.4\Resources\Code\Matlab\Utilities</osimMatlab>
       <mainData>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations</mainData>
       <setupbopsXML>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\bopsSettings.xml</setupbopsXML>
       <subjectInfoCSV>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\subjectinfo.csv</subjectInfoCSV>

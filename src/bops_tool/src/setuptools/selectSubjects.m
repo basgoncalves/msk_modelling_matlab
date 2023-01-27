@@ -10,8 +10,10 @@ bops = load_setup_bops;
 [subjects,subjectDataExist] = check_subjects(bops);                                                                 % check if subjectsb in the settings file exist in data folder
 
 if subjectDataExist == 1    
-    answer = questdlg(['Do you want to analyse ONLY the currently selected subjects: ' bops.subjects]);
-    if contains(answer,'Yes')
+    
+    promt = ['Do you want to analyse the selected subjects: ' bops.subjects];
+    answer = questdlg(promt,'choice','Select new set of subjects','Continue these subjects','Continue');
+    if contains(answer,'Continue these subjects')
         subjects = bops.subjects;
         return
     end
@@ -20,9 +22,7 @@ else
     disp('no subject data exist in "InputData" or "ElaboratedData" folders, generating paths')                      % auto generate generic paths
 
     subjects = create_InputData_folder(bops);
-
-    % make this variable '1' so it doesnt ask again
-    SelectAll = 1;
+    SelectAll = 1;                                                                                                  % make this variable '1' so function doesn't ask again
 end
 
 
@@ -51,6 +51,7 @@ end
 
 xml_write(bops.directories.setupbopsXML,bops,'bops',bops.xmlPref);                                                  % save settings
 
+
 % --------------------------------------------------------------------------------------------------------------- %
 function [subjects,subjectDataExist] = check_subjects(bops)
 
@@ -72,6 +73,10 @@ end
 
 % --------------------------------------------------------------------------------------------------------------- %
 function subjects = create_InputData_folder(bops)
+
+if nargin <1
+    bops = load_setup_bops;
+end
 
 % select subject folders containing sessions and c3d files
 prompt = 'Select your subject folders (i.e. folders containing sessions as per vicon format)';

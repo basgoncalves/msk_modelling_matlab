@@ -24,8 +24,21 @@ if ~isequal(bops.current.subject,subject) || ~isequal(bops.current.subject,sessi
 end
 settingsfiledir = [bops.directories.ElaboratedData fp subject fp session fp 'settings.xml'];
 
+if ~exist([bops.directories.ElaboratedData fp subject fp session]) && ...
+        ~exist([bops.directories.InputData fp subject fp session])
+    subjectSettings = [];
+    return
+end
+
 if isfile(settingsfiledir)                                                                                          % if subject xml file exists
     subjectSettings = xml_read(settingsfiledir);                                                                    % load file 
+
+    trialList                          = subjectSettings.trials.names;
+    subjectSettings.trials.dynamic     = trialList(contains(trialList,split(bops.Trials.Dynamic)));
+    subjectSettings.trials.static      = trialList(contains(trialList,split(bops.Trials.Static)));
+    subjectSettings.trials.maxEMG      = trialList(contains(trialList,split(bops.Trials.MaxEMG)));
+    
+
 else
     warning on
     warning ('subject settings does not exist. Creating file now...')                       

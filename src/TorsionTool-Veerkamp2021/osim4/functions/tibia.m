@@ -412,20 +412,25 @@ for i = 1:size(ToesMuscles,1)
         .GeometryPath.PathPointSet.objects.(string_toes(1:9)){1,str2num(string_toes(13))}.location.Text = toes_MA_OpenSim(i,:);
 end
 
+
 for i = 1:size(TibiaMuscles,1)
     musclenr_tibia  = TibiaNR(i,:);
     path_type       = erase(eraseBetween(TibiaPlace{i,:},'{','}'),'{}');
     str_PathPoint = erase(TibiaPlace{i,:},path_type);
     cell_PathPoint  = str2num(str_PathPoint(4));
 
-%     if contains(path_type,'PathPoint')
-    dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-        .GeometryPath.PathPointSet.objects.(path_type){1,cell_PathPoint}.location.Text = tibia_MA_OpenSim(i,:);
-%     elseif contains(path_type,'ConditionalPathPoint')
-%      dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
-%         .GeometryPath.PathPointSet.objects.(path_type){1,cell_PathPoint}.location.Text = tibia_MA_OpenSim(i,:);
-% 
-%     end
+    if isequal(path_type,'PathPoint')
+        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+            .GeometryPath.PathPointSet.objects.(path_type){1,cell_PathPoint}.location.Text = tibia_MA_OpenSim(i,:);
+
+    elseif isequal(path_type,'ConditionalPathPoint')
+        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+            .GeometryPath.PathPointSet.objects.(path_type).location.Text = tibia_MA_OpenSim(i,:);
+
+    elseif isequal(path_type,'MovingPathPoint')
+        dataModel.OpenSimDocument.Model.ForceSet.objects.Thelen2003Muscle{1,musclenr_tibia}...
+            .GeometryPath.PathPointSet.objects.(path_type).location.Text = tibia_MA_OpenSim(i,:);
+    end
 end
 
 for i = 1:size(markerCalcn_rot,1)

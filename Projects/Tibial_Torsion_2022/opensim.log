@@ -1,0 +1,11 @@
+[2023-01-20 14:11:11.336] [info] Loaded model deformed_model from file C:\Users\Biomech\Downloads\CODE4.0_incltibia\DEFORMED_MODEL\FINAL_PERSONALISEDTORSIONS.osim
+[2023-01-20 14:11:11.337] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 14:11:11.338] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 14:11:11.338] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 14:11:11.339] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 14:11:11.341] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-20 14:11:11.344] [warning] Couldn't find file 'fibula_l.vtp'.
+[2023-01-20 14:11:11.345] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 14:11:11.346] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 14:11:11.348] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 14:11:11.348] [warning] Couldn't find file 'hat_ribs.vtp'.

@@ -25,7 +25,7 @@ yPos = 0.7/length(Values);
 for i = 1:length(Conditions)                                                                                        % add tick boxes for each condition
     Xsize_text = length(Conditions{i})*0.1;
     TickHandles(i) = uicontrol('style','checkbox','units','normalized',...
-        'position',[0.1,0.85-yPos*i,Xsize_text,0.02],'string',Conditions{i},'value',Values(i));                      
+        'position',[0.1,0.85-yPos*i,Xsize_text,0.06],'string',Conditions{i},'value',Values(i));                      
 end
 
 TextHandle = uicontrol('style','text','units','normalized',...                                                      % add text

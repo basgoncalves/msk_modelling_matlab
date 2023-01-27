@@ -61,7 +61,14 @@ else
     og_fcut = fcut;
     fcut = og_fcut /(sqrt(2) - 1)^(0.5/order);              % this adjustment may cause Wn to exceed [0 1] range
     Wn = 2 * fcut * dt;
-    adjustSepts = 0.99;                                 % adjust upper threshold 1% at a time
+    
+    if min(Wn) < 0 || max(Wn) > 1
+        adjustSepts = 0.99;                                     % adjust upper threshold 1% at a time
+        WarningOn = 1;
+    else
+        WarningOn = 0;
+    end
+
     while min(Wn) < 0 || max(Wn) > 1
         og_fcut = og_fcut * adjustSepts;
         fcut = og_fcut /(sqrt(2) - 1)^(0.5/order);
@@ -69,7 +76,7 @@ else
     end
     if WarningOn == 1
         cprintf('yellow', 'EMG bp cut-off were adjusted to avoid errors. Please check... \n' )
-        disp('...\DataProcessing_master\src\c3dProcessing\MOtoNMS-master\src\shared\ZeroLagButtFiltfilt.m')
+        disp('...\MSKmodelling\src\c3dProcessing\MOtoNMS-master\src\shared\ZeroLagButtFiltfilt.m')
     end
 end
 
