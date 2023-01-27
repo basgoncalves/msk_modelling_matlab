@@ -5,7 +5,25 @@ function add_markerset_to_osim_model(osim_model_path,markerset_path)
 
 import org.opensim.modeling.*
 warning on
+
+% if no inputs
+if nargin < 2                                                                                                       
+    
+    activeFile = [mfilename('fullpath') '.m'];
+
+    % select model from templates
+    osim_models_folder = [fileparts(fileparts(activeFile)) fp 'bops_tool\Templates\Models'];
+    [filename,path] = uigetfile({'*.osim','C3D file'},'Select .osim model file...',osim_models_folder);            
+    osim_model_path = [path filename];
+
+    % select markerset from templates
+    markerset_folder = [fileparts(fileparts(activeFile)) fp 'bops_tool\Templates\MarkersProtocols'];
+    [filename,path] = uigetfile({'*.xml','C3D file'},'Select .xml markerset file...',markerset_folder);             
+    markerset_path = [path filename];
+end
+
 disp('loading model and markerset...')
+
 % load model and markerset
 markerset = MarkerSet(markerset_path);
 osimModel = Model(osim_model_path);

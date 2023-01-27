@@ -234,7 +234,7 @@ saveAnalysisWindow(foldersPath.trialOutput,AnalysisWindow)
 %% ------------------------------------------------------------------------
 %                        DATA WINDOW SELECTION
 %--------------------------------------------------------------------------
-[MarkersFiltered,Mtime]=selectionData(filtMarkers,AnalysisWindow,VideoFrameRate);                                   % [MarkersFiltered,Mtime]=selectionData(filtMarkersCorrected,AnalysisWindow,VideoFrameRate);
+[MarkersFiltered,Mtime] = selectionData(filtMarkers,AnalysisWindow,VideoFrameRate);                                   % [MarkersFiltered,Mtime]=selectionData(filtMarkersCorrected,AnalysisWindow,VideoFrameRate);
 [ForcesFiltered,~]      = selectionData(ForcesThr,AnalysisWindow,AnalogFrameRate);
 [MomentsFiltered,~]     = selectionData(MomentsThr,AnalysisWindow,AnalogFrameRate);
 [COPFiltered,Ftime]     = selectionData(filtCOP,AnalysisWindow,AnalogFrameRate);

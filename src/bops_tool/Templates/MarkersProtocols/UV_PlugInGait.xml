@@ -316,6 +316,26 @@
 				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
 			</VisibleObject>
 		</Marker>
+		<Marker name="LTOE5">
+			<!--Body segment in the model on which the marker resides.-->
+			<body>toes_l</body>
+			<!--Location of a marker on the body segment.-->
+			<location>-0.039270711568997287 0.015867585795202855 -0.057317327075438233</location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed>true</fixed>
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
 		<Marker name="RTHI">
 			<!--Body segment in the model on which the marker resides.-->
 			<body> femur_r </body>
@@ -431,6 +451,26 @@
 							allowed to move.-->
 			<fixed> false </fixed>
 			<!--Used for displaying a marker in the visuals.-->
+			<VisibleObject name="">
+				<geometry_files> </geometry_files>
+				<VisibleProperties name="">
+					<display_preference> 4 </display_preference>
+					<show_normals> false </show_normals>
+					<show_axes> false </show_axes>
+					<material_name> DEFAULT </material_name>
+				</VisibleProperties>
+				<scale_factors>       1.00000000       1.00000000       1.00000000 </scale_factors>
+			</VisibleObject>
+		</Marker>
+		<Marker name="RTOE5">
+			<!--Body segment in the model on which the marker resides.-->
+			<body>toes_r</body>
+			<!--Location of a marker on the body segment.-->
+			<location>-0.037640804795507563 0.014144129350913862 0.058141537927392406</location>
+			<!--Flag (true or false) specifying whether or not a marker should be kept
+							fixed in the marker placement step.  i.e. If false, the marker is
+							allowed to move.-->
+			<fixed>true</fixed>
 			<VisibleObject name="">
 				<geometry_files> </geometry_files>
 				<VisibleProperties name="">

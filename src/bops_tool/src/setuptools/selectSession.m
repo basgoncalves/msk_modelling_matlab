@@ -7,18 +7,18 @@ if nargin < 1; SelectAll = 0; end
 
 if SelectAll == 0                                                                                                   % if SelectAll is false (or 0)
 
-    prompt = ['Do you want to select a new set of sessions? currently selected subjects: ' bops.sessions];          % check if you want to continue with the previous used sessions
-    answer = questdlg(prompt);
-    if contains(answer,'No')
+    prompt = ['Do you want to analyse the selected sessions: ' bops.sessions];          % check if you want to continue with the previous used sessions
+    answer = questdlg(prompt,'choice','Select new sessions','Continue these sessions','Continue');
+
+
+    if contains(answer,'Continue these sessions')
         selectedSessions = bops.sessions;
         return
 
     else
-
         selectedSessions = find_sessions_all_subjects(bops);
         msg = 'select sessions:';
         [indx,~] = listdlg('PromptString',msg,'ListString',selectedSessions);                                       % select the sessions to use from all available
-
         selectedSessions = selectedSessions(indx);
     end
 
@@ -37,7 +37,7 @@ subjects = bops.subjects;
 selectedSessions = {};
 
 for i = 1:length(subjects)
-    try   
+    try
         subjectSessions  = dir([bops.directories.InputData fp subjects{i}]);            % check InputData sessions
     catch
         subjectSessions = dir([bops.directories.ElaboratedData fp subjects{i}]);        % check ElaboratedData sessions

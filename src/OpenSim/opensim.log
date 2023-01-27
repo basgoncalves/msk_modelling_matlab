@@ -1,0 +1,47 @@
+[2023-01-20 14:57:21.395] [info] Loaded model Ante15_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\DataFolder\Tibial_Tosion2022\HansSimulations\models\\Ante15_scaled_opt_N10_2times2392Fmax.osim
+[2023-01-20 14:57:21.396] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 14:57:21.397] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 14:57:21.397] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 14:57:21.397] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 14:57:21.404] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 14:57:21.404] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 14:57:21.405] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 14:57:21.405] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-20 15:18:33.878] [info] Loaded model Ante15_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\DataFolder\Tibial_Tosion2022\HansSimulations\models\\Ante15_scaled_opt_N10_2times2392Fmax.osim
+[2023-01-20 15:18:33.879] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 15:18:33.880] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 15:18:33.880] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 15:18:33.880] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 15:18:33.886] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 15:18:33.886] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 15:18:33.886] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 15:18:33.887] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-20 15:46:09.227] [info] Loaded model Ante15_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\DataFolder\Tibial_Tosion2022\HansSimulations\models\\Ante15_scaled_opt_N10_2times2392Fmax.osim
+[2023-01-20 15:46:09.228] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 15:46:09.229] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 15:46:09.229] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 15:46:09.230] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 15:46:09.235] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 15:46:09.236] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 15:46:09.236] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 15:46:09.236] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-20 15:47:00.977] [info] Loaded model Ante15_scaled_opt_N10.osim from file C:\Users\Biomech\Documents\DataFolder\Tibial_Tosion2022\HansSimulations\models\\Ante15_scaled_opt_N10_2times2392Fmax.osim
+[2023-01-20 15:47:00.978] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 15:47:00.979] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 15:47:00.979] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 15:47:00.980] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 15:47:00.985] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 15:47:00.985] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 15:47:00.985] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 15:47:00.986] [warning] Couldn't find file 'hat_ribs.vtp'.
+[2023-01-20 15:47:01.900] [info] Loaded model deformed_model from file C:\Users\Biomech\Downloads\CODE4.0_incltibia\DEFORMED_MODEL\FINAL_PERSONALISEDTORSIONS.osim
+[2023-01-20 15:47:01.901] [warning] Couldn't find file 'treadmill.vtp'.
+[2023-01-20 15:47:01.901] [warning] Couldn't find file 'sacrum.vtp'.
+[2023-01-20 15:47:01.902] [warning] Couldn't find file 'pelvis.vtp'.
+[2023-01-20 15:47:01.902] [warning] Couldn't find file 'l_pelvis.vtp'.
+[2023-01-20 15:47:01.903] [warning] Couldn't find file 'fibula.vtp'.
+[2023-01-20 15:47:01.905] [warning] Couldn't find file 'fibula_l.vtp'.
+[2023-01-20 15:47:01.907] [warning] Couldn't find file 'hat_spine.vtp'.
+[2023-01-20 15:47:01.907] [warning] Couldn't find file 'hat_jaw.vtp'.
+[2023-01-20 15:47:01.908] [warning] Couldn't find file 'hat_skull.vtp'.
+[2023-01-20 15:47:01.908] [warning] Couldn't find file 'hat_ribs.vtp'.

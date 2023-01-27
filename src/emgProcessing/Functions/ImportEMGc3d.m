@@ -14,33 +14,30 @@
 %--------------------------------------------------------------------------
 
 
-function [filename,EMGdata,Fs,Labels]=ImportEMGc3d (filename,LabelsAnalog_data)
+function [filename,EMGdata,Fs,Labels,time]=ImportEMGc3d (filepath,EMGLabels)
 
 if nargin ==0
     [filename,path] = uigetfile({'*.c3d','C3D file'}, 'C3D data file...');
-    cd (path);
-    % get al the files in the path
-    folderCSV = sprintf('%s\%s',path,'*.c3d');
-    
+    filepath = [path filename];
 else
-    [path,name]=fileparts(which(filename));
-    cd(path);
-    filename = sprintf('%s%s',name,'.c3d');
+    [~,filename] = fileparts(filepath);
 end
 
 
 % read the .c3d file
-data = btk_loadc3d(filename);
+[Markers, AnalogData, FPdata, Events, ForcePlatformInfo, Rates] = getInfoFromC3D(filepath);
+AnalogLabels = AnalogData.Labels;
 % select EMG Channels  amd Labels
-for i = 1: length(LabelsAnalog_data)
-    if sum(contains(fields(data.analog_data.Channels),LabelsAnalog_data{i}))>0
-        Nrows = length(data.analog_data.Channels.(LabelsAnalog_data{i})) ;   
-        EMGdata(1:Nrows,i) = data.analog_data.Channels.(LabelsAnalog_data{i});
-    else
+for i = 1: length(EMGLabels)
+    try 
+        col = contains(AnalogLabels,EMGLabels{i});
+        Nrows = length(AnalogData.RawData(:,col)) ;   
+        EMGdata(1:Nrows,i) = AnalogData.RawData(:,col);
+    catch
         EMGdata(:,i) = NaN;
     end
 end
 
-Labels = LabelsAnalog_data;
+Labels = EMGLabels;
 % get sample frequency
-Fs = data.analog_data.Info.frequency;
+Fs = AnalogData.Rate;
