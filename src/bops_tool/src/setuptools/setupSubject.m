@@ -54,9 +54,11 @@ directories.CEINMSsimulations = [directories.CEINMS fp 'execution' fp 'simulatio
 directories.CEINMStrials = [directories.CEINMS fp 'trials'];
 
 try
-subjectInfo = getSubjectInfo(subject); 
+    subjectInfo = getSubjectInfo(subject); 
 catch
-    
+    subjectInfo = struct;
+    subjectInfo.ID = subject;
+    subjectInfo.InstrumentedSide = 'R';
 end
 
 resultsDir = bops.directories.Results;

@@ -6,7 +6,7 @@ bops = load_setup_bops;
 
 [EMG_final,MuscleNames,trialList_bops] = create_data_struct(bops);
 
-for iSub = 1:length(bops.subjects)
+for iSub = 4:length(bops.subjects)
     for iSess = 1:length(bops.sessions)
 
         subject = bops.subjects{iSub};
@@ -34,23 +34,34 @@ for iSub = 1:length(bops.subjects)
             load(emgDataDir);                                                                                       % load EMG
             load(markerDataDir);                                                                                    % load marker data
 
-            emgLabels = bops.emg.Muscle;
-            emgRaw = AnalogData.RawData(:,find(contains(AnalogData.Labels,emgLabels)));
-
-            marker_cols = find(contains(Markers.Labels,'RHEE'))*3;
-            heel_marker = Markers.RawData(:,marker_cols:marker_cols+2);
-            heel_marker_filt = ZeroLagButtFiltfilt((1/Markers.Rate), 2, 2, 'lp', heel_marker);                      % filter marker trajectories
-
-            [~,footContacts]=findpeaks(-heel_marker_filt(:,1));                                                     % find contacts as the peaks of the right heel marker
-
-
             markerRate  = Markers.Rate;                                                                             % get marker rate
             emgRate     = AnalogData.Rate;                                                                          % get EMG rate
-
             bp = bops.filters.EMGbp;                                                                                % filter settings
             lp = bops.filters.EMGlp;
+            try
+                emgLabels = bops.emg.Muscle;
+                emgRaw = AnalogData.RawData(:,find(contains(AnalogData.Labels,emgLabels)));
+                emgEnvelope = downsample(EMGLinearEnvelope(emgRaw,emgRate,bp,lp),emgRate/markerRate);                   % downsample EMG to marker rate and get linear envelope (filter)
+            catch
+                warning(['EMG data doesnt exist for ' trialName])
+                continue
+            end
 
-            emgEnvelope = downsample(EMGLinearEnvelope(emgRaw,emgRate,bp,lp),emgRate/markerRate);                   % downsample EMG to marker rate and get linear envelope (filter)
+            try
+                marker_cols = find(contains(Markers.Labels,'RHEE'))*3;
+                heel_marker = Markers.RawData(:,marker_cols:marker_cols+2);
+                heel_marker_filt = ZeroLagButtFiltfilt((1/Markers.Rate), 2, 2, 'lp', heel_marker);                      % filter marker trajectories
+
+                [~,footContacts]=findpeaks(-heel_marker_filt(:,1));                                                     % find contacts as the peaks of the right heel marker
+            catch
+                warning(['marker data doesnt exist for ' trialName])
+                continue
+            end
+
+            
+
+           
+            
 
             for iMuscle = 1:5
                 muscle = MuscleNames{iMuscle};
@@ -66,7 +77,7 @@ for iSub = 1:length(bops.subjects)
         end
         cmdmsg('EMG analyis finished')
     end
-    save([bops.directories.Results fp 'emg.mat'],EMG_final)
+    save([bops.directories.Results fp 'emg.mat'],'EMG_final')
 end
 
 
