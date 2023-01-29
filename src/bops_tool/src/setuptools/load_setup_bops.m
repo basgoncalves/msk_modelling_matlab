@@ -6,7 +6,7 @@ bopsDir     = fileparts(fileparts(setupDir));
 
 dataDir = char(importdata([setupDir fp 'data_directory.dat']));
 
-try cd(dataDir); catch; setupbopstool(-1); end                                                                       % if data folder doesnt exist setup project again 
+try cd(dataDir); catch; setupbopstool; end                                                                          % if data folder doesnt exist setup project again 
 
 setupfileDir = [dataDir fp 'bopsSettings.xml'];
 
