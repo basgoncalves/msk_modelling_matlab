@@ -52,7 +52,7 @@ for a = 1:length(analyses)
         fprintf('running %s ... \n',iAnalysis)
     end
 
-    for b = 1:length(bops.subjects)
+    for b = 5:length(bops.subjects)
         for c = 1:length(bops.sessions)
 
             iSubject = bops.subjects{b};
