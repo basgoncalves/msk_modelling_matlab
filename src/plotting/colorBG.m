@@ -1,3 +1,4 @@
+% [cMat,LineStyles,Marker] = colorBG (nPallet,nColors)
 % Color pallet
 %  0 = viridis;
 %  1 = prism;
