@@ -8,16 +8,16 @@
 function [bops_settings] = setupbopstool
 
 fp = filesep;
+[bops_settings,answer] = check_bops_setup;
+og_bopsSetup = bops_settings;                                                                                       % use the og to compare with the updated at the end of the fucntion
+
 setupDir    = fileparts(mfilename('fullpath'));
 dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
 templateDir = [fileparts(fileparts(setupDir)) fp 'Templates'];
 
-[bops_settings,answer] = check_bops_setup;
-og_bopsSetup = bops_settings;                                                                                                % use the og to compare with the updated at the end of the fucntion
-
 if isempty(answer); disp('user canceled setup bops'); return; end
 
-create_copy_of_templates_on_project_folder(dataDir,templateDir)
+create_copy_of_templates_on_project_folder(dataDir)
 
 bops_settings = define_bops_directories(bops_settings,templateDir);
 
@@ -83,7 +83,7 @@ end
 
 
 %----------------------------------------------------------------------------------------------------------------%
-function create_copy_of_templates_on_project_folder(dataDir,templateDir)
+function create_copy_of_templates_on_project_folder(dataDir)
 
 if ~isfile([dataDir fp 'bopsSettings.xml'])                                                                         % check if bopsSettings.xml exist
     copy_from_templates('bopsSettings.xml')
@@ -102,22 +102,23 @@ if ~isfile([dataDir fp 'Models.csv'])                                           
 end
 
 if ~isfolder([dataDir fp 'templates'])                                                                              % check if templates folder exist
-    source = [templateDir fp '1-ProjectTemplate'];
-    destin = [dataDir fp 'templates'];
-    copyfile(source,destin)
+    copy_from_templates('1-ProjectTemplate','templates');
 end
 %----------------------------------------------------------------------------------------------------------------%
 
 
 %----------------------------------------------------------------------------------------------------------------%
-function copy_from_templates(filename)
+function copy_from_templates(filename,fileout)
 
+if nargin < 2
+    fileout = filename;
+end
 setupDir    = fileparts(mfilename('fullpath'));
 dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
 templateDir = [fileparts(fileparts(setupDir)) fp 'Templates'];
 
 source = [templateDir fp filename];
-destin = [dataDir fp filename];
+destin = [dataDir fp fileout];
 copyfile(source,destin)
 %----------------------------------------------------------------------------------------------------------------%
 
