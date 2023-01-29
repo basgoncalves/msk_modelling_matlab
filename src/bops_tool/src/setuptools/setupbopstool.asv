@@ -17,12 +17,12 @@ og_bopsSetup = bops_settings;                                                   
 
 if isempty(answer); disp('user canceled setup bops'); return; end
 
-create_copy_of_templates_on_project_folder(dataDir,templateDir)
+copy_templates(dataDir,templateDir)
 
 bops_settings = define_bops_directories(bops_settings,templateDir);
 
 if ~isequal(og_bopsSetup,bops_settings)                                                                             % save new xml if original bops is different from the new one
-    xml_write(bops_settings.directories.setupbopsXML,bops_settings,'bops',bops_settings.xmlPref);
+    xml_write(bops_settings.setupbopsXML,bops_settings,'bops',bops_settings.xmlPref);
     % winopen(bops_settings.setupbopsXML)
 end
 
@@ -47,7 +47,7 @@ else
 
 end
 
-if isequal(answer,'Select new project folder')                                                                      % select a new folder if needed
+if isequal(answer,'Select new project folder')
     prompt = 'Select your data folder';
     dataDir = uigetdir(bopsDir,prompt);
     writematrix(dataDir,setupDir);
@@ -73,6 +73,21 @@ for i = 1:length(steps)
     string_processing = sprintf('%s \n %s - %s ',string_processing,steps{i},num2str(values(i)));
 end
 
+% try cd(dataDir)
+%     if nargin < 1 || SetupMode == 0
+%         promt = sprintf('Do you want to setup a new project or continue with the current? \n %s \n %s ', dataDir,string_processing);
+%         answer = questdlg(promt,'choice','New project','Continue with new settings','Continue as it is','Continue');
+%         if isequal(answer,'Continue as it is')
+%             bops = load_setup_bops;
+%             return
+%         end
+%     else
+%         answer = 'Continue as it is';
+%     end
+% catch
+%     answer = 'New project';
+% end
+
 if  isequal(answer,'Select new project folder') || isequal(answer,'Continue this project with new settings')
     [OutValues,~] = BopsCheckbox(steps,values,'Which steps of the pipeline do you want to run?');             	    % Setup analysis
     for i = 1:length(steps)
@@ -83,7 +98,7 @@ end
 
 
 %----------------------------------------------------------------------------------------------------------------%
-function create_copy_of_templates_on_project_folder(dataDir,templateDir)
+function create_templates(dataDir,templateDir)
 
 if ~isfile([dataDir fp 'bopsSettings.xml'])                                                                         % check if bopsSettings.xml exist
     copy_from_templates('bopsSettings.xml')
@@ -106,6 +121,12 @@ if ~isfolder([dataDir fp 'templates'])                                          
     destin = [dataDir fp 'templates'];
     copyfile(source,destin)
 end
+
+if any(structfun(@isempty, bops.dataStructure))                                                                     % check if any project entry is empty
+    winopen(setupfileDir);
+    msgbox('please fill the empty spaces in the bopsSetup.xml ')
+    error('please fill the empty spaces in the bopsSetup.xml ')
+end
 %----------------------------------------------------------------------------------------------------------------%
 
 
@@ -120,7 +141,6 @@ source = [templateDir fp filename];
 destin = [dataDir fp filename];
 copyfile(source,destin)
 %----------------------------------------------------------------------------------------------------------------%
-
 
 %----------------------------------------------------------------------------------------------------------------%
 function bops_settings = define_bops_directories(bops_settings,templateDir)
