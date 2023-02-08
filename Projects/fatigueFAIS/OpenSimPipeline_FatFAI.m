@@ -70,7 +70,7 @@ MomentArmCheck_FAI_compare_withOGmodel
 %% Mean biomehcanical data for mechanical work running paper (paper 2)
 PHD_Paper2_results
 
-%% External biomechanics before and after RS in FAIS,CAM and CON (paper 5)
+%% External biomechanics before and after RS in FAIS,CAM and CON (paper 3)
 PHD_RS_FAIS_results
 cd([Dir.Paper_RSFAI fp 'Results\April2021'])
 % MainResults_RSFAI
@@ -79,7 +79,7 @@ cd([Dir.Paper_RSFAI fp 'Results\April2021'])
 Dir=getdirFAI;  
 Subjects=splitGroupsFAI(Dir.Main,'JCFFAI');
 update={'MuscleVariables' 'MomentArms' 'ContactForces' 'externalBiomech' 'SpatioTemporal'}; 
-PHD_JCF_FAIS_results(update([1]),Subjects(29:end),'run')
+PHD_JCF_FAIS_results(update([4]),Subjects(1:end),'run')
 MuscleParamenters = GetMuscleParameters_FAI(Subjects);
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS
 % GatherRRAresults(Subjects,[1:16]) 

@@ -71,6 +71,11 @@ S.dofsimple=strrep(dofsimple,'e_r','e');
 
 S.coordinates = dofList;
 S.moments = strcat(dofList,'_moment');
+% replace 'moment' by 'force' in pelvis_t
+S.moments(find(contains(S.moments,'pelvis_tx'))) = strrep(S.moments(find(contains(S.moments,'pelvis_tx'))),'moment','force');
+S.moments(find(contains(S.moments,'pelvis_ty'))) = strrep(S.moments(find(contains(S.moments,'pelvis_ty'))),'moment','force');
+S.moments(find(contains(S.moments,'pelvis_tz'))) = strrep(S.moments(find(contains(S.moments,'pelvis_tz'))),'moment','force');
+
 
 import org.opensim.modeling.*
 S.DOFmuscles = struct;

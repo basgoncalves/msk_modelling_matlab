@@ -20,7 +20,7 @@ end
 
 [~,~,Leg,ContraLeg] = findLeg(Dir.Elaborated,trialName);
 Leg = Leg{1};
-[events,FPNumber,~] = findGaitCycle_FAIS(Dir,trialName);
+[events,FPNumber,~] = findGaitCycle_FAIS(Dir.Elaborated,trialName);
 
 if ~isempty(FPNumber) && contains (trialName,{'run'},'IgnoreCase',1) && contains(trialName,'1')
     

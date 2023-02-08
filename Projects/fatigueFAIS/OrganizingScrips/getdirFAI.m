@@ -18,7 +18,12 @@ dataDir         = char(importdata(path_dataDir));
 Dir.Main = dataDir;
 
 try cd(Dir.Main)
-catch;    cmdmsg([Dir.Main ' does not exist, update "getdirFAI.m" ']); % check if the folder and sessions exist
+catch
+    cmdmsg([Dir.Main ' does not exist']); % check if the folder and sessions exist
+
+    prompt = 'Select your data folder';
+    dataDir = uigetdir(MasterDir,prompt);
+    writematrix(dataDir,path_dataDir);
 end
 
 Dir.Results = [Dir.Main fp 'Results'];
