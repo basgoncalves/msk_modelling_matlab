@@ -21,7 +21,7 @@ Subjects = Subjects(1:end);
 % Subjects = {'009' '021' '028' '044'};
 
 ReRun=0; if ReRun==true; n=1; else, n=2 ;end %   Logic (after "suffix'): 1 = re-run trials(default) / 2 = do not re-run trials
-%% 
+%% BATCH
 % checkThroughFolders
 % BatchC3D2MAT_FAI_BG(Subjects)
 % CheckSubjects = BatchMOtoNMS_FAI_BG(Subjects);
