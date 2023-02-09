@@ -3,9 +3,7 @@
 function [Work,Pnorm,P,LabelsWork] = jointworkcalc (Dir,SubjectInfo,Trials,trialName,motions,moments,IDanalysis)
 
 fp = filesep;
-%import sampling rates
-load([Dir.Elaborated fp 'sessionData' fp 'Rates.mat'])
-fs = Rates.VideoFrameRate;
+
 osimFiles = getosimfilesFAI(Dir,trialName); % load paths for this trial 
  
 [TimeWindow,FramesWindow,FootContact] = TimeWindow_FatFAIS(Dir,trialName);
@@ -17,6 +15,7 @@ Normalise = 0; % 1 for "yes" (default) or 2 for "no";
 
 % results = LoadResults_BG (DataDir,TimeWindow,FieldsOfInterest,fs)
 [IK,LabelsIK] = LoadResults_BG (osimFiles.IKresults,TimeWindow,['time'; motions],MatchWord,Normalise);
+fs = Rates.VideoFrameRate;
 LabelsWork = LabelsIK(2:end);
 tIK = IK(:,1);
 IK(:,1) =[];

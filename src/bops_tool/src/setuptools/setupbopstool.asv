@@ -68,11 +68,8 @@ addpath(genpath(masterDir))                                                     
 try
     steps = fields(bops.ProcessingSteps);
 catch
-    og_bops = xml_read([bops.directories.bops fp 'Templates\bopsSettings.xml']);
-    bops.ProcessingSteps = og_bops.ProcessingSteps;
-    steps = fields(bops.ProcessingSteps);
+   og_bops = xml_read(bops.dir) 
 end
-
 values = logical(cell2mat(struct2cell(bops.ProcessingSteps)));
 
 string_processing = '';

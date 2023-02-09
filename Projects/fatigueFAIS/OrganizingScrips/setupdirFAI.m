@@ -1,13 +1,10 @@
-function setupdirFAI(UseCurrentSessitngs)
+function setupdirFAI
 
 disp('Setup FAI directories...')
-if nargin < 1
-   UseCurrentSessitngs = 0; 
-end
 
 MasterDir = MasterSetup;
 
-bops = setupbopstool(UseCurrentSessitngs);
+bops = setupbopstool;
 
 path_dataDir    = [MasterDir fp 'Projects\fatigueFAIS\data_directory.dat'];
 dataDir         = char(importdata(path_dataDir));

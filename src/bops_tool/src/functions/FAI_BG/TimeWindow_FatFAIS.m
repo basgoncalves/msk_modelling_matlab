@@ -8,7 +8,7 @@ initialDir = cd;
 TimeWindow =[];FramesWindow =[];
 SplitEvent=struct; SplitEvent.time = [];SplitEvent.frame = [];
 %
-if ~exist([Dir.sessionData fp trialName])
+if ~isdir([Dir.sessionData fp trialName])
     disp([Dir.sessionData fp trialName ' does not exisit'])
     disp(['creating Session folder...'])
     if ~exist([Dir.Input fp trialName '.c3d'])

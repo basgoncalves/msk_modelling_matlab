@@ -59,7 +59,6 @@ if ~contains(update,'none')
         for itrial = 1:length(Trials.CEINMS)
             %% Setup-trial info
             trialName = Trials.CEINMS{itrial};
-            [TimeWindow, FramesWindow,FootContact] = TimeWindow_FatFAIS(Dir,trialName);
             SimulationDir = [Dir.CEINMSsimulations fp trialName];
             
             if length(dir(SimulationDir))<3 || ~contains(Strials{itrial},TrialList);   continue;   end
@@ -74,14 +73,13 @@ if ~contains(update,'none')
             LabelsCF(:,deleteCols)=[];
             
             TimeWindow = [JCFStruct.data(1,1) JCFStruct.data(end,1)];
-            %[TimeWindow,FramesWindow,FootContact] = AdjustTimeWindow(Dir,SubjectInfo,Trials,trialName,TimeWindow,FramesWindow,FootContact);
-            
-            % find best CEINMS iteration (including directory and mean err for EMG and MOM)
-            BestItr = OptimalGammaCEINMS_BG(Dir,[Dir.CEINMSsimulations fp trialName],SubjectInfo);
-            BestItrDir = BestItr.Dir;
-            
             %% Muscle Variables
             if ~exist('update') || any(contains(update,'MuscleVariables'))
+                
+                % find best CEINMS iteration (including directory and mean err for EMG and MOM)
+                BestItr = OptimalGammaCEINMS_BG(Dir,[Dir.CEINMSsimulations fp trialName],SubjectInfo);
+                BestItrDir = BestItr.Dir; 
+                
                 BestGamma(isubj).Participant = (['s' SubjectInfo.ID]);
                 BestGamma(isubj).trialName = trialName;
                 BestGamma(isubj).Alpha = BestItr.Alpha;
@@ -152,11 +150,11 @@ if ~contains(update,'none')
                 G = SortData(G,'ID',ID,Strials{itrial},dofList.IK,isubj);
                 G = SortData(G,'ID_ceinms',ID_ceinms,Strials{itrial},S.dofsimple,isubj);
                 
-                if ~contains(trialName,'walking','IgnoreCase',1)
-                    [Work,JointPowerTimeNorm,~,~] = jointworkcalc (Dir,SubjectInfo,Trials,trialName,Ext.coordinates',Ext.moments','RRA');
-                    G = SortData(G,'Powers',JointPowerTimeNorm,Strials{itrial},dofList.IK,isubj);
-                    W = SortData_work(W,Work,Strials{itrial},fields(W)',isubj);
-                end
+%                 if ~contains(trialName,'walking','IgnoreCase',1)
+%                     [Work,JointPowerTimeNorm,~,~] = jointworkcalc (Dir,SubjectInfo,Trials,trialName,Ext.coordinates',Ext.moments','RRA');
+%                     G = SortData(G,'Powers',JointPowerTimeNorm,Strials{itrial},dofList.IK,isubj);
+%                     W = SortData_work(W,Work,Strials{itrial},fields(W)',isubj);
+%                 end
             end
             
             %% Spatio temporal data

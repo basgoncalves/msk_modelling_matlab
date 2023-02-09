@@ -32,7 +32,7 @@ else
 end
 
 if contains(answer,'No')
-    selectOsimVersion(bops)
+    selectOsimVersion
 end
 
 DirOpenSim = ['C:' fp 'OpenSim ' osimVersionBops];
@@ -159,7 +159,7 @@ end
         end
         
     end
-    function selectOsimVersion()
+    function selectOsimVersion
         
         FilesInC = cellstr(ls(['C:' fp ]));
         OpenSimFolders = FilesInC(contains(FilesInC,'OpenSim'));

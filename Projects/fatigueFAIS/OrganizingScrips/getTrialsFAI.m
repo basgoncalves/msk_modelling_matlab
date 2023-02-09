@@ -16,7 +16,7 @@ if exist(Dir.Input,'dir')
 elseif exist(Dir.sessionData,'dir') && length((dir(Dir.sessionData)))>3
     DynamicTrials = findFolders(Dir.sessionData,DynamicTrials);
 elseif exist(Dir.IK,'dir')
-    DynamicTrials = findFolders(Dir.IK,DynamicTrials);
+    DynamicTrials = findFolders(Dir.IK,DynamicTrials,'static');
 end
 % (uncomment to use only pre and post runs)
 idx = find(contains(DynamicTrials,TrialsToUse,'IgnoreCase',true));

@@ -9,8 +9,8 @@ addpath(genpath(MasterDir));                                                    
 cd(MasterDir)
 
 % Organise Data
-setupdirFAI(1)
-OsimDirDefine(1)                                                                                                    % check if OpenSim is set up
+setupdirFAI
+OsimDirDefine                                                                                                       % check if OpenSim is set up
 Dir=getdirFAI;                                                                                                      % EDIT THIS FUNCTION FOR a DIFFERENT PROJECT
 % schemer_import('.\schemes\darksteel.prf');                                                                        % change theme to dark mode (not needed but I prefer it myself)
 
@@ -83,6 +83,8 @@ PHD_JCF_FAIS_results(update([4]),Subjects(1:end),'run')
 MuscleParamenters = GetMuscleParameters_FAI(Subjects);
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS
 % GatherRRAresults(Subjects,[1:16]) 
+
+bops_gather_ik
 
 %% Results Joint contact forces and muscle forces in FAIS,CAM and CON - CUTTING
 Dir=getdirFAI;  
