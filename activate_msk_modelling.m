@@ -3,14 +3,15 @@
 function activate_msk_modelling
 clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
 
+activeFile = [mfilename('fullpath') '.m'];                                                                          % get dir of the current file
+msk_dir  = fileparts(activeFile);
+
 try
     isbopsactive;    % check if the pipeline is in the path
+    disp([msk_dir ' is already in the path'])
 catch
 
-    activeFile = [mfilename('fullpath') '.m'];                                                                          % get dir of the current file
-    msk_dir  = fileparts(activeFile);
     addpath(genpath(msk_dir));                                                                                          % add current folder to MATLAB path
-
     disp([msk_dir ' activated'])
     bops = load_setup_bops;
 

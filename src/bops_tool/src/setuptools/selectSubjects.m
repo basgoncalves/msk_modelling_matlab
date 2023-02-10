@@ -41,6 +41,7 @@ end
 if SelectAll == 0
     [indx,~] = listdlg('PromptString',msg,'ListString',subjects);                                                   % select subjects
     subjects = subjects(indx);
+    subjects = join(subjects,' ');
 end
 
 if isempty(subjects)

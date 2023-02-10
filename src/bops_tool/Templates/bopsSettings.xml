@@ -2,30 +2,30 @@
 <bops>
    <osimVersion>4.4</osimVersion>
    <current>
-      <subject>s001</subject>
-      <session>GenericModel</session>
-      <analysis>torsionTool</analysis>
+      <subject>s009</subject>
+      <session>pre</session>
+      <analysis>setupAnalysis</analysis>
       <rerun>[true]</rerun>
    </current>
    <subjects>
-      <item>s001</item>
+      <item>s009 s010 s012 s013 s015 s017 s018 s019 s021 s022 s024 s025 s026 s028 s029 s030 s031 s033 s034 s036 s037 s038 s039 s040 s041 s043 s044 s047 s048 s050 s052 s054 s055 s056 s058 s060 s061 s064 s070 s072 s073 s074 s075 s076 s077 s078 s079</item>
    </subjects>
    <sessions>
-      <item>GenericModel</item>
+      <item>pre</item>
    </sessions>
-   <analysis_mode>
-      <analyses>batch</analyses>
-      <plot>batch</plot>
-   </analysis_mode>
    <ProcessingSteps>
       <Visual3DtoMotoNMS>[false]</Visual3DtoMotoNMS>
       <SetupIK>[false]</SetupIK>
       <setupAnalysis>[false]</setupAnalysis>
       <selectSubjects>[false]</selectSubjects>
-      <selectSession>[true]</selectSession>
+      <selectSession>[false]</selectSession>
       <BatchAnalysis>[false]</BatchAnalysis>
-      <PlotResults>[false]</PlotResults>
+      <PlotResults>[true]</PlotResults>
    </ProcessingSteps>
+   <analysis_mode>
+      <analyses>batch</analyses>
+      <plot>batch</plot>
+   </analysis_mode>
    <analyses>
       <c3d2mat>[false]</c3d2mat>
       <acquisition>[false]</acquisition>
@@ -46,14 +46,13 @@
    </analyses>
    <analyses_settings>
       <models>
-         <OSIM_LinearScaled></OSIM_LinearScaled>
-         <OSIM_RRA></OSIM_RRA>
-         <OSIM_LO></OSIM_LO>
-         <OSIM_LO_HANS></OSIM_LO_HANS>
-         <OSIM_LO_HANS_originalMass></OSIM_LO_HANS_originalMass>
+         <OSIM_LinearScaled/>
+         <OSIM_RRA/>
+         <OSIM_LO/>
+         <OSIM_LO_HANS/>
+         <OSIM_LO_HANS_originalMass/>
       </models>
-      <torsionTool><!--in degrees (original value: femurAnteversion = 17.6 original value; femurNeck_shaft = 123.3), leg: R = right; L = left-->
-         <inputModel>Ref_scaled_opt_N10_2times2392Fmax</inputModel>
+      <torsionTool><!--in degrees (original value: femurAnteversion = 17.6 original value; femurNeck_shaft = 123.3), leg: R = right; L = left--><inputModel>Ref_scaled_opt_N10_2times2392Fmax</inputModel>
          <tibialTorsion>[-30 -15 0 15 30]</tibialTorsion>
          <femurAnteversion/>
          <femurNeck_shaft/>
@@ -97,9 +96,9 @@
       </jra>
    </analyses_settings>
    <plot_analysis>
-      <summary_per_trial>[true]</summary_per_trial>
-      <summary>[true]</summary>
-      <ik>[false]</ik>
+      <summary_per_trial>[false]</summary_per_trial>
+      <summary>[false]</summary>
+      <ik>[true]</ik>
       <id>[true]</id>
       <rra>[false]</rra>
       <id_postrra>[false]</id_postrra>
@@ -107,11 +106,11 @@
       <handsfield>[false]</handsfield>
       <ma>[false]</ma>
       <ceinms>[false]</ceinms>
-      <so>[true]</so>
+      <so>[false]</so>
       <jra>[false]</jra>
    </plot_analysis>
    <plot_variables>
-      <ik/>
+      <time_window>JRAresults</time_window>
       <id/>
       <rra/>
       <id_postrra/>
@@ -192,8 +191,16 @@
       <offset>0.2</offset>
    </emg>
    <Trials>
-      <Dynamic>GAIT</Dynamic>
-      <MaxEMG>GAIT</MaxEMG>
+      <Dynamic>
+         <item>RunA</item>
+         <item>RunN</item>
+         <item>Run_baseline</item>
+      </Dynamic>
+      <MaxEMG>
+         <item>RunA</item>
+         <item>RunN</item>
+         <item>Run_baseline</item>
+      </MaxEMG>
       <Static>STATIC</Static>
       <trial>
          <Type>STATIC</Type>
@@ -215,48 +222,48 @@
       <CellItem>[false]</CellItem>
    </xmlPref>
    <directories>
-      <bops>C:\Code\Git\MSKmodelling\src\bops_tool</bops>
-	  <osimMatlab>C:\OpenSim 4.4\Resources\Code\Matlab\Utilities</osimMatlab>
-      <mainData>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations</mainData>
-      <setupbopsXML>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\bopsSettings.xml</setupbopsXML>
-      <subjectInfoCSV>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\subjectinfo.csv</subjectInfoCSV>
-      <eventsCSV>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\events.csv</eventsCSV>
-      <modelsCSV>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\Models.csv</modelsCSV>
-      <masterProcessing>C:\Code\Git\MSKmodelling</masterProcessing>
-      <CEINMSexe>C:\Code\Git\MSKmodelling\src\Ceinms\CEINMS_2</CEINMSexe>
-      <InputData>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\InputData</InputData>
-      <ElaboratedData>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\ElaboratedData</ElaboratedData>
-      <Results>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\Results</Results>
-      <templatesDir>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates</templatesDir>
+      <bops>C:\Git\MSKmodelling\src\bops_tool</bops>
+      <osimMatlab>C:\OpenSim 4.4\Resources\Code\Matlab\Utilities</osimMatlab>
+      <mainData>C:\Users\Biomech\Documents\DataFolder\Running_FAI</mainData>
+      <setupbopsXML>C:\Users\Biomech\Documents\DataFolder\Running_FAI\bopsSettings.xml</setupbopsXML>
+      <subjectInfoCSV>C:\Users\Biomech\Documents\DataFolder\Running_FAI\subjectinfo.csv</subjectInfoCSV>
+      <eventsCSV>C:\Users\Biomech\Documents\DataFolder\Running_FAI\events.csv</eventsCSV>
+      <modelsCSV>C:\Users\Biomech\Documents\DataFolder\Running_FAI\Models.csv</modelsCSV>
+      <masterProcessing>C:\Git\MSKmodelling</masterProcessing>
+      <CEINMSexe>C:\Git\MSKmodelling\src\Ceinms\CEINMS_2</CEINMSexe>
+      <InputData>C:\Users\Biomech\Documents\DataFolder\Running_FAI\InputData</InputData>
+      <ElaboratedData>C:\Users\Biomech\Documents\DataFolder\Running_FAI\ElaboratedData</ElaboratedData>
+      <Results>C:\Users\Biomech\Documents\DataFolder\Running_FAI\Results</Results>
+      <templatesDir>C:\Git\MSKmodelling\src\bops_tool\Templates</templatesDir>
       <templates>
-         <acquisitionXML>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\acquisition.xml</acquisitionXML>
-         <elaborationXML>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\elaboration.xml</elaborationXML>
-         <Model>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\gait2392_CAST_CP.osim</Model>
-         <ScaleTool>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\ScaleTool.xml</ScaleTool>
-         <Static>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\static.xml</Static>
-         <IKSetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\IK_setup.xml</IKSetup>
-         <IDSetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\ID_setup.xml</IDSetup>
-         <GRF>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\ID_externalForces_RL.xml</GRF>
-         <RRASetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\RRA_setup.xml</RRASetup>
-         <RRAActuators>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\RRA_actuators.xml</RRAActuators>
-         <RRATaks>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\RRA_tasks.xml</RRATaks>
-         <RRASetup_actuation_analyze>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\RRA_setup_actuation_analyze.xml</RRASetup_actuation_analyze>
-         <MASetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\MA_setup.xml</MASetup>
-         <SOSetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\SO_setup.xml</SOSetup>
-         <SOActuators>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\SO_actuators.xml</SOActuators>
-         <CMCSetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CMC_setup.xml</CMCSetup>
-         <CMCControls>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CMC_ControlConstraints.xml</CMCControls>
-         <CMCtasks>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CMC_tasks.xml</CMCtasks>
-         <CMCactuators>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CMC_actuators.xml</CMCactuators>
-         <CEINMSuncalibratedmodel>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
-         <CEINMScalibrationCfg>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
-         <CEINMScalibrationCfg_HJCF>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>
-         <CEINMSexcitationGenerator>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_excitationGenerator.xml</CEINMSexcitationGenerator>
-         <CEINMSexecutionSetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_executionSetup.xml</CEINMSexecutionSetup>
-         <CEINMSexecutionCfg>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_executionCfg.xml</CEINMSexecutionCfg>
-         <CEINMScontactmodel>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\CEINMS_contactOpenSimModel.xml</CEINMScontactmodel>
-         <JRAsetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\JCF_setup.xml</JRAsetup>
-         <IAASetup>C:\Users\Biomech\Documents\1-UVienna\Tibial_Tosion2022\BasSimulations\templates\IAA_setup.xml</IAASetup>
+         <acquisitionXML>C:\Git\MSKmodelling\src\bops_tool\Templates\acquisition.xml</acquisitionXML>
+         <elaborationXML>C:\Git\MSKmodelling\src\bops_tool\Templates\elaboration.xml</elaborationXML>
+         <Model>C:\Git\MSKmodelling\src\bops_tool\Templates\Models\Rajagopal2015_FAI.osim</Model>
+         <ScaleTool>C:\Git\MSKmodelling\src\bops_tool\Templates\ScaleTool.xml</ScaleTool>
+         <Static>C:\Git\MSKmodelling\src\bops_tool\Templates\static.xml</Static>
+         <IKSetup>C:\Git\MSKmodelling\src\bops_tool\Templates\IK_setup.xml</IKSetup>
+         <IDSetup>C:\Git\MSKmodelling\src\bops_tool\Templates\ID_setup.xml</IDSetup>
+         <GRF>C:\Git\MSKmodelling\src\bops_tool\Templates\ID_externalForces_RL.xml</GRF>
+         <RRASetup>C:\Git\MSKmodelling\src\bops_tool\Templates\RRA_setup.xml</RRASetup>
+         <RRAActuators>C:\Git\MSKmodelling\src\bops_tool\Templates\RRA_actuators.xml</RRAActuators>
+         <RRATaks>C:\Git\MSKmodelling\src\bops_tool\Templates\RRA_tasks.xml</RRATaks>
+         <RRASetup_actuation_analyze>C:\Git\MSKmodelling\src\bops_tool\Templates\RRA_setup_actuation_analyze.xml</RRASetup_actuation_analyze>
+         <MASetup>C:\Git\MSKmodelling\src\bops_tool\Templates\MA_setup.xml</MASetup>
+         <SOSetup>C:\Git\MSKmodelling\src\bops_tool\Templates\SO_setup.xml</SOSetup>
+         <SOActuators>C:\Git\MSKmodelling\src\bops_tool\Templates\SO_actuators.xml</SOActuators>
+         <CMCSetup>C:\Git\MSKmodelling\src\bops_tool\Templates\CMC_setup.xml</CMCSetup>
+         <CMCControls>C:\Git\MSKmodelling\src\bops_tool\Templates\CMC_ControlConstraints.xml</CMCControls>
+         <CMCtasks>C:\Git\MSKmodelling\src\bops_tool\Templates\CMC_tasks.xml</CMCtasks>
+         <CMCactuators>C:\Git\MSKmodelling\src\bops_tool\Templates\CMC_actuators.xml</CMCactuators>
+         <CEINMSuncalibratedmodel>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_uncalibrated_RL.xml</CEINMSuncalibratedmodel>
+         <CEINMScalibrationCfg>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_calibrationCfg_RL.xml</CEINMScalibrationCfg>
+         <CEINMScalibrationCfg_HJCF>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_calibrationCfg_RL_HJCF.xml</CEINMScalibrationCfg_HJCF>
+         <CEINMSexcitationGenerator>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_excitationGenerator.xml</CEINMSexcitationGenerator>
+         <CEINMSexecutionSetup>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_executionSetup.xml</CEINMSexecutionSetup>
+         <CEINMSexecutionCfg>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_executionCfg.xml</CEINMSexecutionCfg>
+         <CEINMScontactmodel>C:\Git\MSKmodelling\src\bops_tool\Templates\CEINMS_contactOpenSimModel.xml</CEINMScontactmodel>
+         <JRAsetup>C:\Git\MSKmodelling\src\bops_tool\Templates\JCF_setup.xml</JRAsetup>
+         <IAASetup>C:\Git\MSKmodelling\src\bops_tool\Templates\IAA_setup.xml</IAASetup>
       </templates>
    </directories>
 </bops>

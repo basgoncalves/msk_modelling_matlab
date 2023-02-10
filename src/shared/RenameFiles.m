@@ -1,24 +1,42 @@
 
-%% This function removes participant ID from the c3d file name
-function RenameFiles (Dir, subtring,newsubstring,Extension)
+%% RenameFiles (folderPath,substring,newsubstring,Extension)
+% replaces the name of the files containing the subtring with a new
+% substring
+% it allows to add a substring to the begining ('-*name*') or end
+% ('*name*-') of all files in the folder
+function RenameFiles(folderPath,substring,newsubstring,Extension)
 
-destination = (sprintf('%s\\%s',Dir));
-cd(Dir)
+fp = filesep;
+original_path = cd;
+cd(folderPath)
 
-if ~contains(Extension,'*')
+if ~exist('Extension','var')
+    Extension = '*';
+elseif ~contains(Extension,'*')
     Extension = ['*' Extension];
 end
 
-Files= dir(sprintf('%s\\%s',Dir,Extension)); % get files from directory
+Files= dir(sprintf('%s\\%s',folderPath,Extension)); % get files from directory
 
-for  k=1:length(Files)
-     
-    if contains(Files(k).name,subtring)&& ~contains(Files(k).name,newsubstring)
-     
-        FileName = Files(k).name;       
-        NewFilename = strrep(FileName,subtring,newsubstring);
-        source = Files(k).name;
-        movefile (source, [destination NewFilename]);
+for k = 1:length(Files)
+
+    FileName = Files(k).name;
+    if isequal(FileName,'.') || isequal(FileName,'..')
+        continue
+    elseif contains(FileName,substring)&& ~contains(FileName,newsubstring)
+        NewFilename = strrep(FileName,substring,newsubstring);
+
+    elseif contains(substring, '-*name')
+        NewFilename = strrep(FileName,FileName,[newsubstring FileName]);        % add subtring in the beginning
+
+    elseif contains(substring, 'name*-')
+        NewFilename = strrep(FileName,FileName,[newsubstring FileName]);        % add subtring in the end
+
+    else
+        continue
     end
+
+    movefile ([folderPath fp FileName], [folderPath fp NewFilename]);
 end
 
+cd(original_path)

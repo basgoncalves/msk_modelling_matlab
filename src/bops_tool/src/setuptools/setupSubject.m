@@ -147,10 +147,14 @@ settings.directories    = directories;
 settings.ceinms         = ceinms;
 
 try
-    trialList               = strrep(cellstr(selectTrialNames(directories.Input,'.c3d')),'.c3d','');
+    trialList = strrep(cellstr(selectTrialNames(directories.Input,'.c3d')),'.c3d','');          % check input data
 catch
-    DynamicTrials = findFolders(directories.dynamicElaborations,bops.Trials.Dynamic,'');
-   
+    try
+        trialList = findFolders(directories.dynamicElaborations,bops.Trials.Dynamic,'');        % check session data
+        trialList(1);
+    catch 
+        trialList = findFolders(directories.IK,'','');                                          % check ik data 
+    end
 end
 
 settings.trials             = struct;

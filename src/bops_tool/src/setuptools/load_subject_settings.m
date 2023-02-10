@@ -24,24 +24,31 @@ if ~isequal(bops.current.subject,subject) || ~isequal(bops.current.subject,sessi
 end
 settingsfiledir = [bops.directories.ElaboratedData fp subject fp session fp 'settings.xml'];
 
-if ~exist([bops.directories.ElaboratedData fp subject fp session]) && ...
-        ~exist([bops.directories.InputData fp subject fp session])
+sessionInput = [bops.directories.InputData fp subject fp session];
+sessionElaborated = [bops.directories.ElaboratedData fp subject fp session];
+
+if ~exist(sessionInput,'dir') && ~exist(sessionElaborated,'dir')
     subjectSettings = [];
     return
 end
 
-if isfile(settingsfiledir)                                                                                          % if subject xml file exists
+settingsXML = dir(settingsfiledir);
+subjectCSV = dir(bops.directories.subjectInfoCSV);
+if isfile(settingsfiledir) && settingsXML.datenum > subjectCSV.datenum                                              % if subject xml file exists AND is more recent than subjects CSV
     subjectSettings = xml_read(settingsfiledir);                                                                    % load file 
+
+    if ~isequal(subjectSettings.directories.Elaborated,bops.directories.ElaboratedData)
+        subjectSettings = setupSubject(subject,session);
+    end
 
     trialList                          = subjectSettings.trials.names;
     subjectSettings.trials.dynamic     = trialList(contains(trialList,split(bops.Trials.Dynamic)));
     subjectSettings.trials.static      = trialList(contains(trialList,split(bops.Trials.Static)));
     subjectSettings.trials.maxEMG      = trialList(contains(trialList,split(bops.Trials.MaxEMG)));
     
-
 else
     warning on
     warning ('subject settings does not exist. Creating file now...')                       
-    subjectSettings = setupSubject(subject,session);                                                                % if NOT create it from scratch 
+    subjectSettings = setupSubject(subject,session);                                                                % create subject settings from scratch 
 end
 

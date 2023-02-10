@@ -17,7 +17,7 @@ try
     bops = xml_read(setupfileDir,Pref);                                                                             % load "setup.xml"
 catch
     delete(setupfileDir);
-    setupbopstool(-1);
+    setupbopstool;
 end
 
 bops.directories.bops = bopsDir;

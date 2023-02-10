@@ -31,7 +31,7 @@ for s = 1:length(steps)
             case 'selectSubjects';      selectSubjects;
             case 'selectSession';       selectSession;
             case 'BatchAnalysis';       BatchAnalysis;
-            case 'PlotResults';         PlotResults;
+            case 'PlotResults';         bops_plot_results;
             otherwise
         end
     end
@@ -52,7 +52,7 @@ for a = 1:length(analyses)
         fprintf('running %s ... \n',iAnalysis)
     end
 
-    for b = 5:length(bops.subjects)
+    for b = 1:length(bops.subjects)
         for c = 1:length(bops.sessions)
 
             iSubject = bops.subjects{b};
