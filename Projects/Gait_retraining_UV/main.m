@@ -18,7 +18,7 @@ trial_list = dir(data_dir);
 trial_list = {trial_list([trial_list.isdir]).name};
 trial_list(1:2) = [];
 
-for i = 3:length(trial_list)
+for i = 1:length(trial_list)
 
     % file directories
     trialDir = [data_dir fp trial_list{i}];
@@ -35,6 +35,8 @@ for i = 3:length(trial_list)
         run_IK(model_path,trc_file,resultsDir,marker_weights_path)
 
         run_ID(model_path,mot_file,grf_xml,resultsDir)
+
+        run_MA(model_path,mot_file,resultsDir)
     end
 end
 
@@ -118,7 +120,7 @@ idTool.run();
 %------------------------------------------------------------------------------------------%
 
 %------------------------------------------------------------------------------------------%
-function run_MA(model_path,ik_mot,grf_xml,resultsDir)
+function run_MA(model_path,ik_mot,resultsDir)
 
 import org.opensim.modeling.*
 % Load the model
