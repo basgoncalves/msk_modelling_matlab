@@ -5,15 +5,13 @@
 %   CEINMSsetup
 %   ..\setuptools\bopsSetup.xml
 % 
-% MatlabAppearance_BG
+% bops_matlabAppearance
 
 % by Basilio Goncalves, basilio.goncalves7@gmail.com, https://github.com/basgoncalves
 function runbops
 
 clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
-activeFile = matlab.desktop.editor.getActive;                                                                       % get dir of the current file
-bopsdir  = fileparts(activeFile.Filename);                                                                          
-addpath(genpath(bopsdir));                                                                                          % add current folder to MATLAB path
+activate_msk_modelling
 bops = setupbopstool;                                                                                               % add "DataProcessing_master" pipeline
 OsimDirDefine                                                                                                       % check if OpenSim set up is correct
 

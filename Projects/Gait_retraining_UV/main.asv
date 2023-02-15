@@ -129,10 +129,12 @@ end
 import org.opensim.modeling.*
 % Load the model
 model = Model(model_path);
-model.initSystem();                                 % Apply the motion data to the model
 
 % Load the motion data
 motion = Storage(ik_mot);
+
+% Apply the motion data to the model
+model.initSystem();
 
 % Create a MuscleAnalysis object
 muscleAnalysis = MuscleAnalysis();
@@ -143,30 +145,33 @@ muscleAnalysis.set_model(model);
 
 % Create the muscle analysis tool
 maTool = AnalyzeTool();
-maTool.setModel(model);                                 % Set the model for the muscle analysis tool
+maTool.setModel(model);                             % Set the model for the muscle analysis tool
 maTool.setModelFilename(model_path);
-maTool.setLowpassCutoffFrequency(6);                    % Set the motion data for the muscle analysis tool
+maTool.setLowpassCutoffFrequency(6);                % Set the motion data for the muscle analysis tool
 maTool.setCoordinatesFileName(ik_mot);
 maTool.setName('Muscle analysis');
 maTool.setMaximumNumberOfSteps(20000);
-maTool.setStartTime(motion.getFirstTime)                % time window
+maTool.setStartTime(motion.getFirstTime)            % time window
 maTool.setFinalTime(motion.getLastTime)
-maTool.getAnalysisSet().cloneAndAppend(muscleAnalysis)  % add analysis set
-maTool.setResultsDir(resultsDir);                       % results directory
-maTool.setInitialTime(motion.getFirstTime);             % time window
-maTool.setFinalTime(motion.getLastTime);                
-maTool.setExternalLoadsFileName(grf_xml)                % grf xml 
-maTool.setSolveForEquilibrium(false)                    % other settings
+% maTool.addAnalysisSetToModel()                      % add analysis set
+maTool.getAnalysisSet().cloneAndAppend(muscleAnalysis)
 maTool.setReplaceForceSet(false);
-maTool.setMaximumNumberOfSteps(20000)
+maTool.setResultsDir(resultsDir);
 maTool.setOutputPrecision(8)
+maTool.setInitialTime(motion.getFirstTime);
+maTool.setFinalTime(motion.getLastTime);
+maTool.setSolveForEquilibrium(false)
+maTool.setMaximumNumberOfSteps(20000)
 maTool.setMaxDT(1)
 maTool.setMinDT(1e-008)
 maTool.setErrorTolerance(1e-005)
 maTool.removeControllerSetFromModel()
-maTool.print([resultsDir fp '..' fp 'ma_setup.xml']);           % print setup
+maTool.setExternalLoadsFileName(grf_xml)
 
-maTool = AnalyzeTool([resultsDir fp '..' fp 'ma_setup.xml']);   % reload analysis from xml (for some reason doesn't work othewise)
+maTool.print([resultsDir fp 'ma_setup.xml']);           % print setup
+maTool =  AnalyzeTool([resultsDir fp 'ma_setup.xml']);
+
+
 
 % Run the muscle analysis calculation
 maTool.run;
