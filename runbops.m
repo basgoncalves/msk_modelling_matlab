@@ -884,12 +884,12 @@ for i = 1:length(trialList)
 
     [osimFiles] = getdirosimfiles_BOPS(trialName,trialAnalysisPath);                                                % get directories of opensim files for this trial
 
-    setupFile=[results_directory fp 'setup_JCF.xml'];
+    setupFile = [results_directory fp 'setup_JCF.xml'];
     copyfile(bops.directories.templates.JRASetup,setupFile)                                                         % print JCF setup file
 
     XML = xml_read(setupFile);
     XML.AnalyzeTool.COMMENT = {};
-    XML.AnalyzeTool.ATTRIBUTE.name='JCF'; % make this so names of the results are consistent across trilas (they are already in different folders)
+    XML.AnalyzeTool.ATTRIBUTE.name='JCF';                                                                           % make this so names of the results are consistent across trilas (they are already in different folders)
     XML.AnalyzeTool.model_file = relativepath(osimModel,results_directory);
     XML.AnalyzeTool.initial_time = num2str(initial_time);
     XML.AnalyzeTool.final_time = num2str(final_time);
@@ -910,7 +910,7 @@ for i = 1:length(trialList)
 
     logFileOut=[results_directory '\out.log'];% Save the log file in a Log folder for each trial
 
-    %Run JCF
+    % Run JCF
     cd(results_directory)
     outputDir = [results_directory fp 'JCF_JointReaction_ReactionLoads.sto'];
 
