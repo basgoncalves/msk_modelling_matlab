@@ -47,7 +47,7 @@ Pref.StructItem = false;                                                        
 Pref.ItemName   = 'Muscle';
 Pref.CellItem   = false;
 
-trialNames                                              = subject.trials.trialList'; 
+trialNames                                              = subject.trials.names'; 
 c3dFilePathAndName                                      = [subject.directories.Input fp trialNames{1} '.c3d'];
 [Markers, AnalogData, FPdata, ~, ForcePlatformInfo, ~]  = getInfoFromC3D(c3dFilePathAndName);
     
@@ -123,7 +123,7 @@ end
 %                              TRIALS                                     %
 %-------------------------------------------------------------------------%
 leg         = subject.subjectInfo.InstrumentedSide;
-UsedTrials  = subject.trials.trialList;
+UsedTrials  = subject.trials.names;
 AcqTrial    = struct;
 count       = 1;
 
@@ -137,20 +137,22 @@ sortedMarkers                                           = sort(markerSet);
 rewrite   = 0;
 if ~isfield(newAcquisition.MarkersProtocol,'motionDirectionMarkers') || ...                                         % if they don't exist select motion direction markers                                                                                                
         isempty (newAcquisition.MarkersProtocol.motionDirectionMarkers)
-    [indx,~] = listdlg('PromptString','Select markers to use in the motion','ListString',sortedMarkers );                                                      
+    [indx,~] = listdlg('PromptString','Select motion direction markers','ListString',sortedMarkers );                                                      
     motionDirectionMarkers = char(join(sortedMarkers (indx),' '));
     newAcquisition.MarkersProtocol.motionDirectionMarkers = motionDirectionMarkers;
     rewrite   = 1; 
 end
 
-if isempty (newAcquisition.MarkersProtocol.rightFootMarkers)                                                        % if they don't exist select motion direction markers                                                                                                
+if ~isfield(newAcquisition.MarkersProtocol,'rightFootMarkers') || ... 
+        isempty (newAcquisition.MarkersProtocol.rightFootMarkers)                                                        % if they don't exist select motion direction markers                                                                                                
     [indx,~] = listdlg('PromptString','Select right foot markers','ListString',sortedMarkers );                                                      
     rightFootMarkers = char(join(sortedMarkers (indx),' '));
     newAcquisition.MarkersProtocol.rightFootMarkers = rightFootMarkers;
     rewrite   = 1;
 end 
 
-if isempty (newAcquisition.MarkersProtocol.leftFootMarkers)                                                        % if they don't exist select motion direction markers                                                                                                
+if ~isfield(newAcquisition.MarkersProtocol,'leftFootMarkers') || ... 
+        isempty (newAcquisition.MarkersProtocol.leftFootMarkers)                                                        % if they don't exist select motion direction markers                                                                                                
     [indx,~] = listdlg('PromptString','Select left foot markers','ListString',sortedMarkers );                                                      
     leftFootMarkers = char(join(sortedMarkers (indx),' '));
     newAcquisition.MarkersProtocol.leftFootMarkers = leftFootMarkers;

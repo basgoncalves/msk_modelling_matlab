@@ -21,6 +21,8 @@ function []= writetrc(markers,MLabels,VideoFrameRate,FullFileName)
 % <ali.mantoan@gmail.com>, <monica.reggiani@gmail.com>
 %
 % Note: from an .m function developed by Thor Besier
+% use the example_writetrc.mat and run:
+% "writetrc(CompleteMarkersData,MarkersListjc{1}',Markers.Rate,FullFileName)"
 
 %%
 

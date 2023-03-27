@@ -349,11 +349,11 @@ subject = load_subject_settings;
 staticXML               = xml_read(bops.directories.templates.Static);
 staticXML.FolderName    = relativepath(subject.directories.Input,bops.directories.mainData);
 
-staticTrials =subject.trials.staticTrials;
+staticTrials = subject.trials.static;
 if iscell(staticTrials)
-    staticXML.TrialName = subject.trials.staticTrials{1};
+    staticXML.TrialName = staticTrials{1};
 else
-    staticXML.TrialName = subject.trials.staticTrials;
+    staticXML.TrialName = staticTrials;
 end
 
 data = btk_loadc3d([subject.directories.Input fp staticXML.TrialName '.c3d']);

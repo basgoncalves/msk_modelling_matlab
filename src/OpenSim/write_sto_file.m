@@ -12,8 +12,13 @@ fname = fieldnames(data);
 %open the file
 fid_1 = fopen(filename,'w');
 
-D = data.time;
-hd = ['time' '\t'];
+try 
+    D = data.time;
+    hd = ['time' '\t'];
+catch
+    D = data.Time;
+    hd = ['Time' '\t'];
+end
 fm = '%6.6f\t';
 
 b = find(~strcmp('time',fname));

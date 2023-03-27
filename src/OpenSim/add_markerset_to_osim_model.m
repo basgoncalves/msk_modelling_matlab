@@ -52,4 +52,5 @@ new_model_name = strrep(osim_model_path,'.osim', ['_' markerset_name '.osim']);
 osimModel.finalizeConnections()
 osimModel.print(new_model_name);
 disp(['model saved in ' new_model_name])
-clear all
+clear all 
+close all

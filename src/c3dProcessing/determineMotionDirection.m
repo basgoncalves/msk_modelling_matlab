@@ -21,13 +21,15 @@ elseif isequal(class(detectMarkers),'char')
     
 end
 
-APdirection         = 1;                                                                                            % coordinate system normally y-axis in most labs
-
 data = btk_loadc3d(c3dFilePathAndName);
 markersNames = fields(data.marker_data.Markers);
 markersPresent = sort(markersNames(contains(markersNames,detectMarkers)));                                          % Gets right side markers
 
-coordinates = smooth(smooth(smooth(data.marker_data.Markers.(markersPresent{1})(:,APdirection))));                  % Find coordinates in the AP direction
+tracking_marker = data.marker_data.Markers.(markersPresent{1});
+[~,APdirection] = max(range(tracking_marker));                                                                      % find AP direction as the direction with the lasgest range of values (only for overground walking/running)
+coordinates = smooth(smooth(smooth(tracking_marker(:,APdirection))));                                               % get coordinates in the AP direction
+
+coordinates = coordinates(find(coordinates));                                                                       % get only values where the coordinates are present
 
 if      coordinates(1) < coordinates(end)                                                                           % check motion direction
     motionDirection = 'forward';

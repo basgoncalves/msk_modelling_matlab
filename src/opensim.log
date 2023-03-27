@@ -1,0 +1,25 @@
+[2023-03-27 19:51:21.096] [info] Loaded model lenhart2015 from file C:\Git\research_data\TorsionToolAllModels\models\Lenhart\OActiveRight_modified.osim
+[2023-03-27 19:52:22.960] [info] Loaded model deformed_model from file C:\Git\research_data\TorsionToolAllModels\models\DEFORMED_MODEL\FINAL_PERSONALISEDTORSIONS.osim
+[2023-03-27 19:52:23.112] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RASI'. The duplicate is being renamed to 'RASI_0'.
+[2023-03-27 19:52:23.175] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LASI'. The duplicate is being renamed to 'LASI_0'.
+[2023-03-27 19:52:23.257] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'SACR'. The duplicate is being renamed to 'SACR_0'.
+[2023-03-27 19:52:23.325] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RHJC'. The duplicate is being renamed to 'RHJC_0'.
+[2023-03-27 19:52:23.875] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RANK'. The duplicate is being renamed to 'RANK_0'.
+[2023-03-27 19:52:24.002] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RHEE'. The duplicate is being renamed to 'RHEE_0'.
+[2023-03-27 19:52:24.065] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RTOE'. The duplicate is being renamed to 'RTOE_0'.
+[2023-03-27 19:52:24.129] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RKJC'. The duplicate is being renamed to 'RKJC_0'.
+[2023-03-27 19:52:24.207] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RAJC'. The duplicate is being renamed to 'RAJC_0'.
+[2023-03-27 19:52:24.273] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RKNE'. The duplicate is being renamed to 'RKNE_0'.
+[2023-03-27 19:52:24.337] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LTOE'. The duplicate is being renamed to 'LTOE_0'.
+[2023-03-27 19:52:24.406] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LAJC'. The duplicate is being renamed to 'LAJC_0'.
+[2023-03-27 19:52:24.473] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LHEE'. The duplicate is being renamed to 'LHEE_0'.
+[2023-03-27 19:52:24.547] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LANK'. The duplicate is being renamed to 'LANK_0'.
+[2023-03-27 19:52:24.954] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LKJC'. The duplicate is being renamed to 'LKJC_0'.
+[2023-03-27 19:52:25.067] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LKNE'. The duplicate is being renamed to 'LKNE_0'.
+[2023-03-27 19:52:25.341] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LHJC'. The duplicate is being renamed to 'LHJC_0'.
+[2023-03-27 19:52:25.417] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'CLAV'. The duplicate is being renamed to 'CLAV_0'.
+[2023-03-27 19:52:25.485] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'STRN'. The duplicate is being renamed to 'STRN_0'.
+[2023-03-27 19:52:25.553] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'LSHO'. The duplicate is being renamed to 'LSHO_0'.
+[2023-03-27 19:52:25.624] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'RSHO'. The duplicate is being renamed to 'RSHO_0'.
+[2023-03-27 19:52:25.746] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'T10'. The duplicate is being renamed to 'T10_0'.
+[2023-03-27 19:52:25.892] [warning] MarkerSet 'markerset' has subcomponents with duplicate name 'C7'. The duplicate is being renamed to 'C7_0'.

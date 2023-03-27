@@ -34,7 +34,7 @@ if isequal(answer,'Select new channels')
         settings = load_subject_settings(project_settings.subjects{1},project_settings.sessions{1},'setupAnalysis');
     end
 
-    if all(~isfolder(settings.trials.c3dpaths))   % if c3d file paths DO NOT exist 
+    if all(~isfile(settings.trials.c3dpaths))   % if c3d file paths DO NOT exist 
         msg = msgbox('Cannot find c3d files in path. EMG names cannot be selected at this time');
         uiwait(msg)
     else

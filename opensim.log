@@ -4778,3 +4778,12 @@ Assembly error tolerance achieved: 6.0332961893348629e-09 required: 1e-10..Model
 [2023-02-15 18:23:02.733] [warning] Couldn't find file 'thumb_proximal_lvs.vtp'.
 [2023-02-15 18:23:02.742] [warning] Couldn't find file 'thumb_distal_lvs.vtp'.
 [2023-02-15 18:23:02.899] [info] Storage: read data file = Z:\GaitRetraining\MonteCarlo\TD10_Data\gait_01\ik.mot (nr=455 nc=40)
+[2023-03-27 19:57:17.443] [info] Loaded model Lernagopal_41_OUF from file C:\Git\research_data\TorsionToolAllModels\models\Lernagopal_41_OUF_UniVie.osim
+[2023-03-27 19:57:17.445] [warning] Couldn't find file 'fem_cond.vtp'.
+[2023-03-27 19:57:17.445] [warning] Couldn't find file 'sphere.vtp'.
+[2023-03-27 19:57:17.445] [warning] Couldn't find file 'sphere.vtp'.
+[2023-03-27 19:57:17.445] [warning] Couldn't find file 'tib_plat.vtp'.
+[2023-03-27 19:57:17.446] [warning] Couldn't find file 'fem_cond.vtp'.
+[2023-03-27 19:57:17.446] [warning] Couldn't find file 'sphere.vtp'.
+[2023-03-27 19:57:17.446] [warning] Couldn't find file 'sphere.vtp'.
+[2023-03-27 19:57:17.446] [warning] Couldn't find file 'tib_plat.vtp'.

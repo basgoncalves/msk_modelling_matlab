@@ -41,9 +41,9 @@ MarkersSet              =   textscan(acquisitionInfo.MarkersProtocol.MarkersSetD
 MarkersSet              =   MarkersSet{1};
 
 % --------------------------Trials Selection-------------------------------
-trialList               =   subject.trials.trialList;
-dynamicTrials           =   subject.trials.dynamicTrials;
-maxEMGTrials            =   subject.trials.maxEMGTrials;
+trialList               =   subject.trials.names;
+dynamicTrials           =   subject.trials.dynamic;
+maxEMGTrials            =   subject.trials.maxEMG;
 
 fcut                    =   bops.filters;
 
