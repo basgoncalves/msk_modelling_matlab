@@ -24,7 +24,7 @@ for s = 1:length(steps)
         fprintf('running %s ... \n',iStep)
         switch iStep
             case 'Visual3DtoMotoNMS';   Visual3DtoMotoNMS;
-            case 'SetupIK';             SetupIK;      
+            case 'SetupIK';             setupIK;      
             case 'setupAnalysis';       setupAnalysis;
             case 'selectSubjects';      selectSubjects;
             case 'selectSession';       selectSession;

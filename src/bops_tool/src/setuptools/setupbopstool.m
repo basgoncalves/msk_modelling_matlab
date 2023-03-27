@@ -13,13 +13,12 @@ og_bopsSetup = bops_settings;                                                   
 
 setupDir    = fileparts(mfilename('fullpath'));
 dataDir     = char(importdata([setupDir fp 'data_directory.dat']));
-templateDir = [fileparts(fileparts(setupDir)) fp 'Templates'];
 
 if isempty(answer); disp('user canceled setup bops'); return; end
 
 create_copy_of_templates_on_project_folder(dataDir)
 
-bops_settings = define_bops_directories(bops_settings,templateDir);
+bops_settings = define_bops_directories(bops_settings);
 
 if ~isequal(og_bopsSetup,bops_settings)                                                                             % save new xml if original bops is different from the new one
     xml_write(bops_settings.directories.setupbopsXML,bops_settings,'bops',bops_settings.xmlPref);
@@ -131,7 +130,7 @@ copyfile(source,destin)
 
 
 %----------------------------------------------------------------------------------------------------------------%
-function bops_settings = define_bops_directories(bops_settings,templateDir)
+function bops_settings = define_bops_directories(bops_settings)
 
 Dir = bops_settings.directories;
 Dir.osimMatlab          = ['C:' fp 'OpenSim ' num2str(bops_settings.osimVersion) fp 'Resources\Code\Matlab\Utilities'];
@@ -145,6 +144,7 @@ Dir.ElaboratedData      = [Dir.mainData fp 'ElaboratedData'];
 
 Dir.Results = [Dir.mainData fp 'Results'];
 
+templateDir                  = [Dir.mainData fp 'templates'];
 Dir.templatesDir             = templateDir;
 Dir.templates                = struct;                                                                              % Directory with template setup files for this project
 Dir.templates.acquisitionXML = [templateDir fp 'acquisition.xml'];                                                  % MOtoNMS (see https://scfbm.biomedcentral.com/articles/10.1186/s13029-015-0044-4)

@@ -63,7 +63,6 @@ for i = 1:length(subjects)
         static_trial_folder     = {getfolders(session_folder,'Static').name};
         statictrcpath           = [session_folder fp static_trial_folder{1} fp 'marker_experimental.trc'];
         scaleModel(model_torsion_unscaled,model_torsion_scaled,setupScaleXml_template,statictrcpath,subjectInfo)
-        
     end
 end
 

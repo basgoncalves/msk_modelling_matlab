@@ -6,10 +6,10 @@ clear; clc; close all;                                                          
 activeFile = [mfilename('fullpath') '.m'];                                                                          % get dir of the current file
 msk_dir  = fileparts(activeFile);
 
-try
-    isbopsactive;    % check if the pipeline is in the path
-    disp([msk_dir ' is already in the path'])
-catch
+% try
+%     isbopsactive;    % check if the pipeline is in the path
+%     disp([msk_dir ' is already in the path'])
+% catch
 
     addpath(genpath(msk_dir));                                                                                          % add current folder to MATLAB path
     disp([msk_dir ' activated'])
@@ -20,5 +20,5 @@ catch
 
     disp([DirOpenSim ' activated'])
 
-end
+% end
 
