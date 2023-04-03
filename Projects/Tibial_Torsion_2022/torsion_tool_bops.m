@@ -1,6 +1,6 @@
 
 
-function torsion_tool_bops(model_path,osim_version)
+function torsion_tool_bops
 
 clc; close all;  % clean workspace (use restoredefaultpath if needed)
 activate_msk_modelling
@@ -10,150 +10,65 @@ if ~contains(bops.directories.mainData,'TorsionToolAllModels')
     bops = setupbopstool;     
 end
 
-% if nargin < 1 || ~isfile(model_path)
-%     model_path = [fileparts(mfilename('fullpath')) '\gait2392_genericsimplOS4_BG_markers.osim'];
-% end
-% 
-% if nargin < 2
-%     osim_version = 4;
-% end
-% 
-% add_tosion_tool_to_path(osim_version,model_path)
-% 
-% % geneirc values (in degrees)
-% legs = {'R'};
-% 
-% femurAnteversion_angles   = [0]; % anteversion angle (original = 17.6)
-% femurNeckShaft_angles     = []; % neck-shaft angle (original = 123.3)
-% [m,n] = ndgrid(femurAnteversion_angles,femurNeckShaft_angles);
-% 
-% femurTorsion_angles     = [m(:),n(:)];
-% tibialTorsion_angles    = [-30,-15,0,15,30]; % tibial torsion angle (original = 0)
-% 
-% for iLeg = 1:length(legs)
-%     which_leg   = legs{iLeg};
-%     % apply all the femur rotations
-%     deform_bone = 'F';
-%     apply_bone_torsions(model_path,femurTorsion_angles,which_leg,deform_bone)
-% 
-%     % apply all the tibial rotations
-%     deform_bone = 'T';
-%     apply_bone_torsions(model_path,tibialTorsion_angles,which_leg,deform_bone)
-% end
-
-
-bops = load_setup_bops;
 simulationsdir = 'C:\Git\research_data\TorsionToolAllModels\simulations';
+modelsdir = 'C:\Git\research_data\TorsionToolAllModels\models';
 subjects = {getfolders(simulationsdir).name};
 sessions = {'pre', 'post'};
-templatesdir = [bops.directories.templatesDir];
 
-for i = 1:length(subjects)
-    for ii = 1%:length(sessions)
+for iSubj = 1:length(subjects)
+    for iSess = 1%:length(sessions)
 
-        session_folder = [simulationsdir fp subjects{i} fp sessions{ii}];
-        [subjectSettings] = load_subject_settings(subjects{i},sessions{ii});
+        subject = subjects{iSubj};
+        session = sessions{iSess};
+        session_folder = [simulationsdir fp subject fp session];
+        [subjectSettings] = load_subject_settings(subject,session);
 
-        subjectInfo = getSubjectInfo(subjects{i});
+        subjectInfo = getSubjectInfo(subject);
 
-        model_torsion_unscaled  = [session_folder fp 'DEFORMED_MODEL\FINAL_PERSONALISEDTORSIONS.osim'];
-        model_torsion_scaled    = [session_folder fp 'torsion_scaled.osim'];
+        model_torsion_unscaled  = [modelsdir fp subject fp 'FINAL_PERSONALISEDTORSIONS.osim'];
+        model_scaled            = [modelsdir fp subject fp 'torsion_scaled.osim'];
+        model_luca              = [modelsdir fp subject fp 'torsion_scaled_luca.osim'];
+        model_handsfield        = [modelsdir fp subject fp 'torsion_scaled_luca_hands.osim'];
+
+        mass        = subjectInfo.Mass_kg;
+        height      = subjectInfo.Height_cm/100;
 
         setupScaleXml_template  = bops.directories.templates.ScaleTool;                                             
-        static_trial_folder     = {getfolders(session_folder,'Static').name};
+        static_trial_folder     = {getfolders(session_folder,'Static',1).name};
         statictrcpath           = [session_folder fp static_trial_folder{1} fp 'marker_experimental.trc'];
 
-        calculate_joint_centres(statictrcpath)                                                                      
-        scaleModel(model_torsion_unscaled,model_torsion_scaled,setupScaleXml_template,statictrcpath,subjectInfo)    % scale model
-    end
-end
+        calculate_joint_centres(statictrcpath,setupScaleXml_template)                                                                      
+        scaleModel(model_torsion_unscaled,model_scaled,setupScaleXml_template,statictrcpath,subjectInfo)            % scale model
+%         applyLucaOptimizer(model_torsion_unscaled,model_scaled,10)                                                  % apply luca optimizer
+%         adjust_model_Handsfield_regressions(in_model,out_model,mass,height,sex)                                     % 
 
-    
+        trialsNames         = {getfolders(session_folder,'Dynamic',1).name};
+        template_so_xml     = [fileparts(modelsdir) '\templates\SO_setup.xml'];
 
-%============================================================================================%
-%=====================================CALLBACK FUNCTIONS=====================================%
-%============================================================================================%
-function add_tosion_tool_to_path(osim_version,model_path)
-
-osim_version_str = ['osim' num2str(floor(osim_version))];
-
-% get dir of the current file
-activeFile = [mfilename('fullpath') '.m'];
-mskmodelling_path = fileparts(fileparts(fileparts(activeFile)));
-
-% if the mskmodelling pipeline is not in the path add it
-try fp;catch; addpath(genpath(mskmodelling_path));end
-
-
-% define dir of the torsion tool and check all the versions in the folder
-torsion_tool_path = [mskmodelling_path fp 'src\TorsionTool-Veerkamp2021'];
-torsion_tool_path_version = ([torsion_tool_path fp osim_version_str]);
-all_versions = ls(torsion_tool_path);
-
-
-% check which versions of the torsion tool ar in the path
-onPath_current_version = is_on_path(torsion_tool_path_version);
-onPath_other_versions = [];
-for i = 3:size(all_versions,1)
-    if ~isequal(strtrim(all_versions(i,:)), osim_version_str)
-        onPath_other_versions(end+1) = is_on_path([torsion_tool_path fp strtrim(all_versions(i,:))]);
+        disp(['subject ' subject])
+        for iTrial = 1:length(trialsNames)
+            trialpath = [session_folder fp trialsNames{iTrial}];
+            runIK(model_scaled,trialpath)                                                                           % ik
+            runID(model_scaled,trialpath)                                                                           % id
+            runSOandJRF(model_scaled,trialpath)                                                                     % so & jrf
+        
+        end
     end
 end
 
 
-% if none or more than one version are in the path
-if onPath_current_version==0 || any(onPath_other_versions == 1)
-    disp(['adding torsion tool for OpenSim version ' osim_version_str ' to the path'])
-    warning off
-    rmpath(genpath(torsion_tool_path))                      % remove all versions from path
-    addpath(genpath(torsion_tool_path_version))             % add to path only the needed version
-end
 
-
-% if 
-dir_model_path = fileparts(model_path);
-if ~isfolder([dir_model_path fp 'femur'])
-    
-    fprintf('\n \n copying vtp files to the location of used model... \n \n')
-
-    copyfile([torsion_tool_path_version fp 'femur'],[dir_model_path fp 'femur'])
-    copyfile([torsion_tool_path_version fp 'tibia'],[dir_model_path fp 'tibia'])
-    copyfile([torsion_tool_path_version fp 'calcn'],[dir_model_path fp 'calcn'])
-    copyfile([torsion_tool_path_version fp 'talus'],[dir_model_path fp 'talus'])
-    copyfile([torsion_tool_path_version fp 'toes'] ,[dir_model_path fp 'toes'])
-end
 
 %============================================================================================%
-function apply_bone_torsions(model_path,Torsion_angles,which_leg,deform_bone)
-
-[dir_contains_model,model,ext] = fileparts(model_path);
-model = [model ext];
-markerset = 'MarkerSet.xml';
-cd(dir_contains_model)
-if ~exist(markerset,'file')
-    get_markerset_osim_model(model)
-end
-
-for i = 1:length(Torsion_angles)
-
-    cd(dir_contains_model)
-    if contains(deform_bone,'T')
-        angle_TT        = Torsion_angles(i);
-        TT_str          = strrep(num2str(angle_TT),'-','minus');
-        deformed_model  = [which_leg '_TT_' TT_str];
-        make_PEmodel(model, deformed_model, markerset, deform_bone, which_leg, angle_TT);
-    else
-        angle_AV = femurCombos(iFem,1);
-        angle_NS = femurCombos(iFem,2);
-        AV_str = strrep(num2str(angle_AV),'-','minus');
-        NS_str = strrep(num2str(angle_NS),'-','minus');
-        deformed_model = [which_leg '_NSA_' NS_str '_AVA_' AV_str];
-        make_PEmodel(model, deformed_model, markerset, deform_bone, which_leg, angle_AV, angle_NS);
-    end
-end
-
+%============================================================================================%
 %============================================================================================%
 function scaleModel(originalModel, scaledModel,setupScaleXml_template,statictrcpath,subjectInfo)
+
+
+if isfile(scaledModel)
+    disp(['Scaled model already exists in: ' scaledModel])
+    return 
+end
 
 Scale               = xml_read(setupScaleXml_template);
 ScalePath           = fileparts(statictrcpath);
@@ -167,7 +82,7 @@ Scale.ScaleTool.age     = subjectInfo.Age;
 %% ----------------------------- CHECK MARKERS SCALE TOOL XML -----------------------------------------
 trc             = load_trc_file(statictrcpath);
 trc_markers     = fields(trc);
-time_range      = [trc.Time(1) trc.Time(end)];
+time_range      = [trc.Time(1) trc.Time(2)];
 Measurements    = Scale.ScaleTool.ModelScaler.MeasurementSet.objects.Measurement;
 MarkerSet       = Scale.ScaleTool.MarkerPlacer.IKTaskSet.objects.IKMarkerTask;
 Nmeasuremtns    = length(Measurements);
@@ -230,6 +145,7 @@ Scale.ScaleTool.ATTRIBUTE.name  = subjectInfo.ID;
 
 Scale.ScaleTool.GenericModelMaker.ATTRIBUTE.name    = '';                                                           % GenericModelMaker
 Scale.ScaleTool.GenericModelMaker.model_file        = generic_model_file;
+Scale.ScaleTool.GenericModelMaker.marker_set_file   = [fileparts(generic_model_file) fp 'FINAL_MARKERSET.xml'];
 
 Scale.ScaleTool.ModelScaler.ATTRIBUTE.name      = '';                                                               % ModelScaler
 Scale.ScaleTool.ModelScaler.marker_file         = marker_file;
@@ -269,50 +185,368 @@ dos(['opensim-cmd run-tool ' setupScaleXML],'-echo');                           
 
 cmdmsg('Model Scaled')
 
-
 %============================================================================================%
-function runIK(modelpath,trcfilepath)
+function runIK(modelpath,trialpath)
 
+cd(trialpath)
+if isfile('ik.mot')
+    disp(['ik.mot already exists in: ' trialpath])
+    return 
+end
+[~,trial] = fileparts(trialpath);
+disp(['ik for ' trial])
 % Set paths to OpenSim libraries
 import org.opensim.modeling.*;
+
+% ImportC3D file and find timing based on events
+c3d = btk_loadc3d([trialpath fp 'c3dfile.c3d']);
+for i = 1:100
+    c3d.Events.Events = TrimStruct (c3d.Events.Events,['C' num2str(i) '_']); % deelte "c_xx" in case events come from mokka
+end
+start_time = c3d.marker_data.First_Frame/c3d.marker_data.Info.frequency;
+
+if length(fields(c3d.Events.Events)) > 2
+    cell_time = struct2cell(c3d.Events.Events);
+    time_range = cell_time{1};
+    
+else
+    try
+        time_range = [c3d.Events.Events.Right_Foot_Off c3d.Events.Events.Right_Foot_Strike];
+    catch
+        time_range = [c3d.Events.Events.Left_Foot_Off c3d.Events.Events.Left_Foot_Strike];
+    end
+end
+
+time_range = time_range - start_time;
 
 % Load OpenSim model and setup inverse kinematics tool
 model = Model(modelpath);
 ikTool = InverseKinematicsTool();
 ikTool.setModel(model);
 
-% Set input files
-% ikTool.setCoordinatesFileName('subject_walk.xml');
-ikTool.setMarkerFileName(trcfilepath);
-ikTool.setStartTime(0);
-ikTool.setEndTime(1.0);
+% copy model to the subject folder
+[~,modelname,ext]   = fileparts(modelpath);
+model_destidnation  = [fileparts(trialpath) fp modelname ext];
+if ~isfile(model_destidnation)
+    copyfile(modelpath,model_destidnation)
+end
 
-% Set output files
-ikTool.setOutputMotionFileName('ik_results.mot');
-ikTool.setOutputMarkerFileName('virtual_markers.trc');
+% set ik parameters
+trcfilepath = ['.\marker_experimental.trc'];
+ikTool.setMarkerDataFileName(trcfilepath);
+ikTool.setStartTime(time_range(1));
+ikTool.setEndTime(time_range(2));
+ikTool.setOutputMotionFileName('.\ik.mot');
+ikTool.print('.\setup_ik.xml');
+ikTool.set_report_marker_locations(true);
+ikTool.set_results_directory(trialpath)
 
-% Run inverse kinematics
+% run tool
 ikTool.run();
 
-% Load marker data from output file
-data = importdata('virtual_markers.trc');
-marker_labels = data.colheaders(3:end);
-marker_data = data.data(:, 3:end);
+%============================================================================================%
+function runID(modelpath,trialpath)
 
-% Print marker positions
-disp('Virtual marker positions:');
-disp(marker_labels);
-disp(marker_data);
+cd(trialpath)
+if isfile('inverse_dynamics.sto')
+    disp(['inverse_dynamics.sto already exists in: ' trialpath])
+    return 
+end
+
+[~,trial] = fileparts(trialpath);
+disp(['id for ' trial])
+
+% Set paths to OpenSim libraries
+import org.opensim.modeling.*;
+
+idTool = InverseDynamicsTool();
+model = Model(modelpath);
+idTool.setModel(model);
+idTool.setModelFileName(model.getDocumentFileName());
+
+%Set Input
+coordinates_file = [trialpath fp 'ik.mot'];
+idTool.setCoordinatesFileName(coordinates_file);
+idTool.setLowpassCutoffFrequency(6);
+
+% Get mot data to determine time range
+motData = Storage(coordinates_file);
+
+% Get initial and intial time
+initial_time = motData.getFirstTime();
+final_time = motData.getLastTime();
+
+idTool.setStartTime(initial_time);
+idTool.setEndTime(final_time);
+
+%Set folders
+idTool.set_results_directory('.\');
+idTool.setOutputGenForceFileName(['.\inverse_dynamics.sto']);
+
+%Set forces_to_exclude
+excludedForces = ArrayStr();
+excludedForces.append('Muscles');
+idTool.setExcludedForces(excludedForces);
+idTool.setExternalLoadsFileName('.\GRF.xml');
+
+%Print ID setup file
+idTool.print(['.\setup_id.xml']);
+
+%Run ID
+idTool.run();
 
 %============================================================================================%
-function calculate_joint_centres(statictrcpath)
+function runSOandJRF(modelpath,trialpath)
+
+cd(trialpath)
+results_directory   = [trialpath];
+coordinates_file    = [trialpath fp 'ik.mot'];
+[~,trial] = fileparts(trialpath);
+
+import org.opensim.modeling.*
+
+% open osim model
+OsimModel = Model(modelpath);
+
+% Get mot data to determine time range
+motData = Storage(coordinates_file);
+
+% Get initial and intial time
+initial_time = motData.getFirstTime();
+final_time = motData.getLastTime();
+
+%% Static Optimization
+so = StaticOptimization();
+so.setName('StaticOptimization');
+so.setModel(OsimModel);
+
+% Set other parameters as needed
+so.setStartTime(initial_time);
+so.setEndTime(final_time);
+so.setMaxIterations(25);
+
+% add to analysis tool
+analyzeTool_SO = create_analysisTool(coordinates_file,modelpath,results_directory);
+analyzeTool_SO.get().AnalysisSet.cloneAndAppend(so);
+OsimModel.addAnalysis(so);
+
+if ~isfile([results_directory fp '_StaticOptimization_force.sto'])
+    % save setup file and run
+    analyzeTool_SO.print(['setup_so.xml']);
+    analyzeTool_SO=AnalyzeTool(['setup_so.xml']);
+
+    disp(['so for ' trial])
+
+    analyzeTool_SO.run();
+else
+    disp(['SO and JRA already exists in: ' results_directory])
+end
+%% Joint reaction analysis
+jr = JointReaction();
+jr.setName('joint reaction analysis');
+jr.set_model(OsimModel);
+
+inFrame = ArrayStr; onBody = ArrayStr; jointNames = ArrayStr;
+inFrame.set(0,'parent'); 
+onBody.set(0,'parent'); 
+jointNames.set(0,'all');
+
+jr.setInFrame(inFrame);
+jr.setOnBody(onBody);
+jr.setJointNames(jointNames);
+
+% Set other parameters as needed
+jr.setStartTime(initial_time);
+jr.setEndTime(final_time);
+jr.setForcesFileName([results_directory fp '_StaticOptimization_force.sto']);
+
+% add to analysis tool
+analyzeTool_JR = create_analysisTool(coordinates_file,modelpath,results_directory);;
+analyzeTool_JR.get().AnalysisSet.cloneAndAppend(jr);
+OsimModel.addAnalysis(jr);
+
+if ~isfile([results_directory fp '_joint reaction analysis_ReactionLoads.sto'])
+   
+    % save setup file and run
+    analyzeTool_JR.print(['setup_jra.xml']);
+    analyzeTool_JR = AnalyzeTool(['setup_jra.xml']);
+
+    disp(['jra for ' trial])
+
+    analyzeTool_JR.run();
+
+else
+    disp(['JRA already exists in: ' results_directory])
+end
+
+%============================================================================================%
+function analyzeTool = create_analysisTool(coordinates_file,modelpath,results_directory)
+import org.opensim.modeling.*
+
+% Get mot data to determine time range
+motData = Storage(coordinates_file);
+
+% Get initial and intial time
+initial_time = motData.getFirstTime();
+final_time = motData.getLastTime();
+
+%Set the model
+model = Model(modelpath);
+
+%% Analyze tool
+analyzeTool=AnalyzeTool();
+analyzeTool.setModel(model);
+analyzeTool.setModelFilename(model.getDocumentFileName());
+
+analyzeTool.setReplaceForceSet(false);
+analyzeTool.setResultsDir(results_directory);
+analyzeTool.setOutputPrecision(8)
+
+if nargin >4  %Set actuators file    
+    forceSet = ArrayStr();
+    forceSet.append(force_set_files);
+    analyzeTool.setForceSetFiles(forceSet);
+end
+
+% motData.print('.\states.sto');
+% states = Storage('.\states.sto');
+% analyzeTool.setStatesStorage(states);
+analyzeTool.setInitialTime(initial_time);
+analyzeTool.setFinalTime(final_time);
+
+analyzeTool.setSolveForEquilibrium(false)
+analyzeTool.setMaximumNumberOfSteps(20000)
+analyzeTool.setMaxDT(1)
+analyzeTool.setMinDT(1e-008)
+analyzeTool.setErrorTolerance(1e-005)
+
+analyzeTool.setExternalLoadsFileName('.\GRF.xml');
+analyzeTool.setCoordinatesFileName(coordinates_file);
+analyzeTool.setLowpassCutoffFrequency(6);
+
+%============================================================================================%
+function applyLucaOptimizer(reference_model,target_model,N_eval)
+% Copyright (c) 2015 Modenese L., Ceseracciu, E., Reggiani M., Lloyd, D.G. %
+% reference - 
+
+% importing OpenSim libraries
+import org.opensim.modeling.*
+% importing muscle optimizer's functions
+addpath(genpath('./Functions_MusOptTool'))
+fp = filesep;
+
+%=========== INITIALIZING FOLDERS AND FILES =============
+% folders used by the script
+
+DirElaborated           = fileparts(osimModel_targ_filepath);
+OptimizedModel_folder   = DirElaborated;    % folder for storing optimized model
+Results_folder          = [DirElaborated fp 'Results_LO'];
+log_folder              = [DirElaborated fp 'Results_LO'];
+
+checkFolder(OptimizedModel_folder);% creates results folder is not existing
+checkFolder(Results_folder);
+
+% reference model for calculating results metrics
+osimModel_ref = Model(osimModel_ref_filepath);
+
+
+%====== MUSCLE OPTIMIZER ========
+% optimizing target model based on reference model fro N_eval points per
+% degree of freedom
+if ~exist(N_eval)
+    N_eval = 10;
+end
+
+[osimModel_opt, SimsInfo{N_eval}] = optimMuscleParams(osimModel_ref_filepath, osimModel_targ_filepath, N_eval, log_folder);
+
+%====== PRINTING OPT MODEL =======
+% setting the output folder
+if strcmp(OptimizedModel_folder,'') || isempty(OptimizedModel_folder)
+    OptimizedModel_folder = targModel_folder;
+end
+% printing the optimized model
+osimModel_opt.print(fullfile(OptimizedModel_folder, char(osimModel_opt.getName())));
+
+%============================================================================================%
+function adjust_model_Handsfield_regressions(in_model,out_model,mass,height,sex)
+% by Daniel Devaprakash (Griffith University) (2020), Tamara Grant (2021), Basilio Goncalves (2021) 
+% Update muscle volumes and then use them to calculate maximal isometric forces based
+% Handsfield et al. 2014
+
+import org.opensim.modeling.*
+
+if ~exist(ModelOut)
+    % Create model object
+    model = Model(ModelIn);
+    % Create reference for the maintained model state
+    model.initSystem;
+    
+    %% Muscles in model
+    muscles = model.getMuscles();
+    nMuscles = muscles.getSize();
+    
+    % read b1 and b2 (regression equation coefficients based on Handsfield et al. 2014)
+    % change path accordingly
+    inF = "handsfieldRegressionCoefficients.xlsx";
+    d = xlsread(inF);
+    muscleInfo = struct();
+    
+    % Create a structure to store required information
+    for ii = 0:nMuscles-1
+        muscleInfo(ii+1).muscleNames = char(muscles.get(ii).getName());
+        muscleInfo(ii+1).muscleOptFiberLength = muscles.get(ii).getOptimalFiberLength()*100;
+        %   Here specific tension of the muscle is taken as 55; Thomas O' Brien 2010
+        if contains(sex,'M')
+            muscleInfo(ii+1).specificTension = 55;
+        else
+            muscleInfo(ii+1).specificTension = 57;
+        end
+        muscleInfo(ii+1).muscleForce = muscles.get(ii).getMaxIsometricForce();
+        muscleInfo(ii+1).presentVolume = (muscleInfo(ii+1).muscleForce * muscleInfo(ii+1).muscleOptFiberLength)/muscleInfo(ii+1).specificTension;
+        muscleInfo(ii+1).b1 = d(ii+1,1);
+        muscleInfo(ii+1).b2 = d(ii+1,2);
+    end
+    
+    % Calculate total lower limb muscle volume
+    totalVolume = (47*mass*height) + 1285;
+    
+    % Recalculate volume for specific muscles
+    [muscleInfo] = recalculateMuscleVolumes_RajModel(nMuscles, muscleInfo, totalVolume);
+    
+    for ii = 0:nMuscles-1
+        muscleInfo(ii+1).updatedMuscleForce = (muscleInfo(ii+1).specificTension * muscleInfo(ii+1).updatedVolume)/muscleInfo(ii+1).muscleOptFiberLength;
+    end
+    muscles.get(muscleInfo(ii+1).muscleNames).setMaxIsometricForce(muscleInfo(ii+1).updatedMuscleForce);
+    % Write the model to a new file
+    model.print(ModelOut)
+end
+
+%============================================================================================%
+function calculate_joint_centres(statictrcpath,setupScaleXml_template)
 %Hip joint center computation according to Harrington et al J.Biomech 2006
 %Developed by Zimi Sawacha <zimi.sawacha@dei.unipd.it>
 %Modified by Claudio Pizzolato <claudio.pizzolato@griffithuni.edu.au>
 %Modified by Basilio Gonvalves <basilio.goncalves@univie.ac.at>
 
 trc             = load_trc_file(statictrcpath);
+Rate            = 1/(trc.Time(2) - trc.Time(1));
 trc_markers     = fields(trc);
+Scale           = xml_read(setupScaleXml_template);
+MarkerSet       = Scale.ScaleTool.MarkerPlacer.IKTaskSet.objects.IKMarkerTask;
+MarkerSetNames  = {};
+
+for i = (1:length(MarkerSet))                                                                                       % convert structure of markerset to names
+    MarkerSetNames{i} = MarkerSet(i).ATTRIBUTE.name;
+end
+MarkerSetNames = ['Time' MarkerSetNames];
+
+for i = flip(1:length(trc_markers))                                                                                 % delete trc markers that are not in the markerset
+    iName = trc_markers{i};
+    if ~contains(MarkerSetNames,iName)
+        trc = rmfield(trc,trc_markers{i});
+        trc_markers(i) = [];
+    end
+end
 
 if contains(trc_markers,'RHJC')
     return
@@ -321,7 +555,7 @@ end
 LASIS   = trc.LASI';   
 RASIS   = trc.RASI';
 SACRUM  = trc.SACR';
-
+RHJC = []; LHJC = [];
 for t=1:size(RASIS,2)
 
     %Global Pelvis Center position
@@ -371,18 +605,32 @@ end
 trc.RHJC=RHJC';
 trc.LHJC=LHJC';
 
+% Define relevant measurements
+l_ASIS_PSIS = norm(ASIS - PSIS);
+l_ASIS_HJC = 0.56 * l_ASIS_PSIS;
+l_PSIS_HJC = 0.44 * l_ASIS_PSIS;
+m_ASIS_PSIS = (PSIS - ASIS) / l_ASIS_PSIS;
+
+% Calculate the midpoint of the ASIS and PSIS markers
+midpoint = (ASIS + PSIS) / 2;
+
+% Calculate the hip joint center
+HJC = midpoint + l_ASIS_HJC * m_ASIS_PSIS;
+
+
 Labels_struct = fields(trc);
 CompleteMarkersData = [];
-for i = 2:length(Labels_struct)                                                                                     % convert trc struct into double (data) and cell (lables)
+for i = 1:length(Labels_struct)                                                                                     % convert trc struct into double (data) and cell (lables)
     field_data = trc.(Labels_struct{i});
     for col = 1:size(field_data,2)
         CompleteMarkersData(:,end+1) = field_data(:,col);                                                           
     end
 end
 
+Labels_struct(2:3)=[];
+CompleteMarkersData(:,2:7) = [];
 
-Rate = 1/(trc.Time(2) - trc.Time(1));
-FullFileName = statictrcpath;
-writetrc(CompleteMarkersData,Labels_struct(3:end),Rate,FullFileName)
+FullFileName = strrep(statictrcpath,'.trc','_HJC.trc');
+writetrc(CompleteMarkersData,Labels_struct(2:end),Rate,FullFileName)
 
 

@@ -20,9 +20,9 @@ end
 
 [file_data,s_data]= readtext(file, '\t', '', '', '');
 
-headings = file_data(7,:);
+headings = file_data(5,:);
 out = struct;
 for i = 1:length(headings)
     fname = headings{i};
-    out.(fname) = cell2mat(file_data(8:end,i));
+    out.(fname) = cell2mat(file_data(7:end,i));
 end

@@ -57,7 +57,6 @@ checkFolder(Results_folder);
 osimModel_ref = Model(osimModel_ref_filepath);
 
 
-
 %====== MUSCLE OPTIMIZER ========
 % optimizing target model based on reference model fro N_eval points per
 % degree of freedom
