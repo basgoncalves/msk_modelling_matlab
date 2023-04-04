@@ -559,64 +559,50 @@ RHJC = []; LHJC = [];
 for t=1:size(RASIS,2)
 
     %Global Pelvis Center position
-    OP(:,t)=(LASIS(:,t)+RASIS(:,t))/2;    
+    OP=(LASIS(:,t)+RASIS(:,t))/2;    
     
-    PROVV(:,t)=(RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
-    IB(:,t)=(RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
+    PROVV=(RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
+    IB=(RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
     
-    KB(:,t)=IB(:,t).*PROVV(:,t);                               
-    KB(:,t)=KB(:,t)/norm(KB(:,t));
+    KB=IB.*PROVV;                               
+    KB=KB/norm(KB);
     
-    JB(:,t)=KB(:,t).*IB(:,t);                               
-    JB(:,t)=JB(:,t)/norm(JB(:,t));
+    JB=KB.*IB;
+    JB=JB/norm(JB);
     
-    OB(:,t)=OP(:,t);
+    OB=OP;
       
     %rotation+ traslation in homogeneous coordinates (4x4)
-    pelvis(:,:,t)=[IB(:,t) JB(:,t) KB(:,t) OB(:,t);
-                   0 0 0 1];
+    pelvis = [IB JB KB OB;  0 0 0 1];
     
     %Trasformation into pelvis coordinate system (CS)
-    OPB(:,t)=inv(pelvis(:,:,t))*[OB(:,t);1];    
+    OPB = inv(pelvis)*[OB;1];    
        
-    PW(t)=norm(RASIS(:,t)-LASIS(:,t));
-    PD(t)=norm(SACRUM(:,t)-OP(:,t));
+    PW=norm(RASIS(:,t)-LASIS(:,t));
+    PD=norm(SACRUM(:,t)-OP);
     
     %Harrington formulae (starting from pelvis center)
-    diff_ap(t)=-0.24*PD(t)-9.9;
-    diff_v(t)=-0.30*PW(t)-10.9;
-    diff_ml(t)=0.33*PW(t)+7.3;
+    diff_ap = -0.24 * PD - 9.9;
+    diff_v  = -0.30 * PW - 10.9;
+    diff_ml =  0.33 * PW + 7.3;
     
     %vector that must be subtract to OP to obtain hjc in pelvis CS
-    vett_diff_pelvis_sx(:,t)=[-diff_ml(t);diff_ap(t);diff_v(t);1];
-    vett_diff_pelvis_dx(:,t)=[diff_ml(t);diff_ap(t);diff_v(t);1];    
+    vett_diff_pelvis_sx = [-diff_ml; diff_ap; diff_v; 1];
+    vett_diff_pelvis_dx = [diff_ml; diff_ap; diff_v; 1];    
     
     %hjc in pelvis CS (4x4)
-    rhjc_pelvis(:,t)=OPB(:,t)+vett_diff_pelvis_dx(:,t);  
-    lhjc_pelvis(:,t)=OPB(:,t)+vett_diff_pelvis_sx(:,t);  
+    rhjc_pelvis = OPB + vett_diff_pelvis_dx;  
+    lhjc_pelvis = OPB + vett_diff_pelvis_sx;  
     
 
     %Transformation Local to Global
-    RHJC(:,t)=pelvis(1:3,1:3,t)*[rhjc_pelvis(1:3,t)]+OB(:,t);
-    LHJC(:,t)=pelvis(1:3,1:3,t)*[lhjc_pelvis(1:3,t)]+OB(:,t);
+    RHJC(:,t) = pelvis(1:3,1:3,1) * [rhjc_pelvis(1:3,1)] + OB;
+    LHJC(:,t) = pelvis(1:3,1:3,1) * [lhjc_pelvis(1:3,1)] + OB;
        
 end
 
 trc.RHJC=RHJC';
 trc.LHJC=LHJC';
-
-% Define relevant measurements
-l_ASIS_PSIS = norm(ASIS - PSIS);
-l_ASIS_HJC = 0.56 * l_ASIS_PSIS;
-l_PSIS_HJC = 0.44 * l_ASIS_PSIS;
-m_ASIS_PSIS = (PSIS - ASIS) / l_ASIS_PSIS;
-
-% Calculate the midpoint of the ASIS and PSIS markers
-midpoint = (ASIS + PSIS) / 2;
-
-% Calculate the hip joint center
-HJC = midpoint + l_ASIS_HJC * m_ASIS_PSIS;
-
 
 Labels_struct = fields(trc);
 CompleteMarkersData = [];
