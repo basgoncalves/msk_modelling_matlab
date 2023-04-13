@@ -559,24 +559,21 @@ RHJC = []; LHJC = [];
 for t=1:size(RASIS,2)
 
     %Global Pelvis Center position
-    OP=(LASIS(:,t)+RASIS(:,t))/2;    
-    
-    PROVV=(RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
-    IB=(RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
+    OP      = (LASIS(:,t)+RASIS(:,t))/2;        
+    PROVV   = (RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
+    IB      = (RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
     
     KB=IB.*PROVV;                               
     KB=KB/norm(KB);
     
     JB=KB.*IB;
     JB=JB/norm(JB);
-    
-    OB=OP;
       
     %rotation+ traslation in homogeneous coordinates (4x4)
-    pelvis = [IB JB KB OB;  0 0 0 1];
+    pelvis = [IB JB KB OP;  0 0 0 1];
     
     %Trasformation into pelvis coordinate system (CS)
-    OPB = inv(pelvis)*[OB;1];    
+    OPB = inv(pelvis)*[OP;1];    
        
     PW=norm(RASIS(:,t)-LASIS(:,t));
     PD=norm(SACRUM(:,t)-OP);
@@ -596,8 +593,8 @@ for t=1:size(RASIS,2)
     
 
     %Transformation Local to Global
-    RHJC(:,t) = pelvis(1:3,1:3,1) * [rhjc_pelvis(1:3,1)] + OB;
-    LHJC(:,t) = pelvis(1:3,1:3,1) * [lhjc_pelvis(1:3,1)] + OB;
+    RHJC(:,t) = pelvis(1:3,1:3,1) * [rhjc_pelvis(1:3,1)] + OP;
+    LHJC(:,t) = pelvis(1:3,1:3,1) * [lhjc_pelvis(1:3,1)] + OP;
        
 end
 
