@@ -2,8 +2,11 @@
 % splitGroupsFAI
 function [Subjects,Groups,Weights,Intra] = splitGroupsFAI(DirDemorgraphics,Study)
 
-cd(DirDemorgraphics);warning on
+cd(DirDemorgraphics);
+warning on
+getDemographicsFAI(DirDemorgraphics);
 load(['demographics.mat']);
+
 labelsDemographics = demographics(2,:);
 
 SubjectCol = find(strcmp(labelsDemographics,'Subject'));

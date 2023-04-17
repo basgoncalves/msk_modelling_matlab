@@ -616,4 +616,51 @@ CompleteMarkersData(:,2:7) = [];
 FullFileName = strrep(statictrcpath,'.trc','_HJC.trc');
 writetrc(CompleteMarkersData,Labels_struct(2:end),Rate,FullFileName)
 
+%============================================================================================%
+function check_if_static_exists_in_all_folders()
 
+
+function Temp = get_templates_prject()
+
+
+templateDir                  = [Temp.mainData fp 'templates'];
+Temp.templatesDir             = templateDir;
+Temp.templates                = struct;                                                                              % Directory with template setup files for this project
+Temp.templates.acquisitionXML = [templateDir fp 'acquisition.xml'];                                                  % MOtoNMS (see https://scfbm.biomedcentral.com/articles/10.1186/s13029-015-0044-4)
+Temp.templates.elaborationXML = [templateDir fp 'elaboration.xml'];
+
+Temp.templates.Model     = [templateDir fp bops_settings.dataStructure.OSIMModelName '.osim'];                       %OpenSim
+Temp.templates.ScaleTool = [templateDir fp 'ScaleTool.xml'];
+Temp.templates.Static    = [templateDir fp 'static.xml'];
+
+Temp.templates.IKSetup = [templateDir fp 'IK_setup.xml'];                                                            % Inverse kinematics
+
+Temp.templates.IDSetup = [templateDir fp 'ID_setup.xml'];                                                            % Inverse dynamics
+Temp.templates.GRF = [templateDir fp 'ID_externalForces_RL.xml'];
+
+Temp.templates.RRASetup                      = [templateDir fp 'RRA_setup.xml'];                                     % residual reduction analysis
+Temp.templates.RRAActuators                  = [templateDir fp 'RRA_actuators.xml'];
+Temp.templates.RRATaks                       = [templateDir fp 'RRA_tasks.xml'];
+Temp.templates.RRASetup_actuation_analyze    = [templateDir fp 'RRA_setup_actuation_analyze.xml'];
+
+Temp.templates.MASetup = [templateDir fp 'MA_setup.xml'];                                                            % muscle analysis
+
+Temp.templates.SOSetup       = [templateDir fp 'SO_setup.xml'];                                                      % static optimization
+Temp.templates.SOActuators   = [templateDir fp 'SO_actuators.xml'];
+
+Temp.templates.CMCSetup      = [templateDir fp 'CMC_setup.xml'];                                                     % computed muscle control
+Temp.templates.CMCControls   = [templateDir fp 'CMC_ControlConstraints.xml'];
+Temp.templates.CMCtasks      = [templateDir fp 'CMC_tasks.xml'];
+Temp.templates.CMCactuators  = [templateDir fp 'CMC_actuators.xml'];
+
+Temp.templates.CEINMSuncalibratedmodel = [templateDir fp 'CEINMS_uncalibrated_RL.xml'];                              % CEINMS templates
+Temp.templates.CEINMScalibrationCfg = [templateDir fp 'CEINMS_calibrationCfg_RL.xml'];
+Temp.templates.CEINMScalibrationCfg_HJCF = [templateDir fp 'CEINMS_calibrationCfg_RL_HJCF.xml'];
+Temp.templates.CEINMSexcitationGenerator = [templateDir fp 'CEINMS_excitationGenerator.xml'];
+Temp.templates.CEINMSexecutionSetup = [templateDir fp 'CEINMS_executionSetup.xml'];
+Temp.templates.CEINMSexecutionCfg = [templateDir fp 'CEINMS_executionCfg.xml'];
+Temp.templates.CEINMScontactmodel = [templateDir fp 'CEINMS_contactOpenSimModel.xml'];
+
+Temp.templates.JRAsetup = [templateDir fp 'JCF_setup.xml'];                                                          % joint reaction analysis
+
+Temp.templates.IAASetup = [templateDir fp 'IAA_setup.xml'];                                                          % induced acceleration analysis
