@@ -1,6 +1,6 @@
 
 % by Basilio Goncalves, basilio.goncalves7@gmail.com, https://github.com/basgoncalves
-function activate_msk_modelling
+function activate_msk_modelling()
 clear; clc; close all;                                                                                              % clean workspace (use restoredefaultpath if needed)
 
 activeFile = [mfilename('fullpath') '.m'];                                                                          % get dir of the current file
