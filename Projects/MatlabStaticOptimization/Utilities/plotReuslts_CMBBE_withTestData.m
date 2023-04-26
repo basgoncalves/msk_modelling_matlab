@@ -60,7 +60,7 @@ for iPen = 1:length(penalties)
         leg = 'right';
     end
 
-    resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*_Pen' curr_penalty '*']);
+    resultsDirs = dir([tesdataDir fp 'results_SO_' leg '_*' curr_penalty '*']);
     cd(resultsDirs(1).folder)
 
 
@@ -205,11 +205,8 @@ Plot_colors = colorBG(0,length(penalties));
 for iMuscle = 1:length(muscles_of_interest)
     for iPen = 1:length(penalties)
         axes(ha(last_plot_not_muscle+iMuscle))
-        >>>>>>> main
-
         trap_JCF(end+1,:) = trap.contactForces.([penalties{iPen}]).(JointName);
 
-        <<<<<<< HEAD
         plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
         title(strrep(JointName,'_',' ') ,'Interpreter','none')
         if any(count == FirstCol)
@@ -217,7 +214,6 @@ for iMuscle = 1:length(muscles_of_interest)
         end
         if any(count == LastRow)
             xlabel('Gait cycle (%)')
-            =======
             plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
 
             if any(iMuscle == FirstCol)
@@ -259,7 +255,7 @@ for iMuscle = 1:length(muscles_of_interest)
             if any(iJoint == LastRow)
                 xlabel('Gait cycle(%)')
             end
-            >>>>>>> main
+            
         end
         ylim([0 5500])                                                                                          % ylim
     end
@@ -381,7 +377,19 @@ lg.Position = [0.35 0.82 0.17 0.005];
 lg.Interpreter = "none";
 mmfn_CMBBE
 
-print(gcf,[savedir fp 'JCF_results_' l '_no_impulse.jpeg'],'-dpng','-r1200')
+% remove background
+for i = 1:4
+    set(ha(i), 'Color',rgb2mat([0,107,140]), 'FontSize', 14, 'FontName', 'Arial','XColor', 'white', 'YColor', 'white', 'ZColor', 'white');
+    ha(i).YLabel.Color = [1,1,1];
+    ha(i).Title.Color = [1,1,1];
+    try ha(i).Legend.TextColor = [1,1,1];; catch; end 
+end
+
+
+
+print(gcf,[savedir fp 'JCF_results_' l '_no_impulse.png'],'-dpng','-r1200')
+f = gcf;
+saveas(f,[savedir fp 'JCF_results_' l '_no_impulse.jpeg'])
 saveas(gcf,[savedir fp 'JCF_results_' l '_no_impulse.tiff'])
 savefig(gcf,[savedir fp 'JCF_results_' l '_no_impulse.fig'])
 close all
