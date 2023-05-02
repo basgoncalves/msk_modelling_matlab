@@ -33,7 +33,7 @@ if nargin < 1
 else
    
     switch nPallet
-        case 1;cMat = prism;
+        case 1; cMat = prism;
         case 2;cMat = parula;
         case 3;cMat = flag;
         case 4;cMat = hsv;
@@ -50,7 +50,25 @@ else
         case 15;cMat = lines;
         case 16;cMat = jet;
         case 17;cMat = colorcube;
-            
+
+        case 'prism';   cMat = prism;
+        case 'parula';  cMat = parula;
+        case 'flag';    cMat = flag;
+        case 'hsv';     cMat = hsv;
+        case 'hot';     cMat = hot;
+        case 'cool';    cMat = cool;
+        case 'spring';  cMat = spring;
+        case 'summer';  cMat = summer;
+        case 'autumn';  cMat = autumn;
+        case 'winter';  cMat = winter;
+        case 'gray';    cMat = gray;
+        case 'bone';    cMat = bone;
+        case 'copper';  cMat = copper;
+        case 'pink';    cMat = pink;
+        case 'lines';   cMat = lines;
+        case 'jet';     cMat = jet;
+        case 'colorcube';cMat = colorcube;
+           
         case 0;cMat = (viridis); 
     end
     warning off

@@ -198,92 +198,100 @@ mmfn_inspect
 saveas(gcf,[savedir fp 'ExtBiomech_results_' l '.tiff'])
 close all
 %% plot muscle forces
-[ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_interest),0,[0.01 0.02],[],[0.03 0.08]);
+[ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(muscles_of_to_plot),0,[0.05 0.05],[0.15 0.15],[0.05 0.08]);
 
 last_plot_not_muscle = 0;
 Plot_colors = colorBG(0,length(penalties));
-for iMuscle = 1:length(muscles_of_interest)
+count = 0;
+for iMuscle = 1:length(muscles_of_to_plot)
     for iPen = 1:length(penalties)
         axes(ha(last_plot_not_muscle+iMuscle))
-        trap_JCF(end+1,:) = trap.contactForces.([penalties{iPen}]).(JointName);
+        muscleName = muscles_of_to_plot{iMuscle};
+
+        force_data = muscleForces.([penalties{iPen}]).(muscleName);
 
         plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
-        title(strrep(JointName,'_',' ') ,'Interpreter','none')
-        if any(count == FirstCol)
+        title(strrep(muscleName,'_',' ') ,'Interpreter','none')
+
+        if any(iMuscle == LastRow)
+            xlabel('Gait cycle (%)')
+        end
+        if any(iMuscle == FirstCol)
+            ylabel('Muscle force (N)')
+        end
+
+%         ylim([0 max(ylim)*1.15])
+        t = title(muscleName,'Interpreter','none');
+%         t.Position(2) = t.Position(2) *0.92;
+    end
+end
+ax = gca;
+lg = legend(ax.Children(2:2:end),flip(penalties));
+lg.Interpreter = "none";
+lg.Position = [0.94 0.5 0.05 0.09];
+tight_subplot_ticks(ha,LastRow,0)
+
+% remove background
+for i = 1:length(muscles_of_to_plot)
+    set(ha(i), 'Color',rgb2mat([0,107,140]), 'FontSize', 14, 'FontName', 'Arial','XColor', 'white', 'YColor', 'white', 'ZColor', 'white');
+    ha(i).YLabel.Color = [1,1,1];
+    ha(i).Title.Color = [1,1,1];
+    try ha(i).Legend.TextColor = [1,1,1]; catch; end
+end
+set(gcf, 'Color',rgb2mat([0,107,140]));
+  
+
+
+mmfn_inspect
+saveas(gcf,[savedir fp 'MuscleForces_results_' l '.tiff'])
+
+%% plot contact forces
+[ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
+last_plot_not_contact_force = 0;
+Plot_colors = colorBG(0,length(penalties));
+for iJoint = 1:length(joints)
+    for iPen = 1:length(penalties)
+        axes(ha(last_plot_not_contact_force+iJoint))
+
+        JointName = joints{iJoint};
+        force_data = contactForces.(['Pen_' penalties{iPen}]).(JointName);
+
+        plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
+        title(JointName,'Interpreter','none')
+        if any(iJoint == FirstCol)
             ylabel('Contact force (N)')
         end
-        if any(count == LastRow)
-            xlabel('Gait cycle (%)')
-            plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
-
-            if any(iMuscle == FirstCol)
-                ylabel('Muscle force (N)')
-            end
-            if any(iMuscle == LastRow)
-                xlabel('Gait cycle(%)')
-            end
+        if any(iJoint == LastRow)
+            xlabel('Gait cycle(%)')
         end
-        ylim([0 max(ylim)*1.15])
-        t = title(MuscleName,'Interpreter','none');
-        t.Position(2) = t.Position(2) *0.92;
+
     end
-    ax = gca;
-    lg = legend(ax.Children(2:2:end),flip(penalties));
-    lg.Interpreter = "none";
-    lg.Position = [0.94 0.5 0.05 0.09];
-    tight_subplot_ticks(ha,LastRow,0)
+    ylim([0 5500])                                                                                          % ylim
+end
+count = count +1;
+axes(ha(count)); hold on
 
-    mmfn_inspect
-    saveas(gcf,[savedir fp 'MuscleForces_results_' l '.tiff'])
+rsquared = []; pvalue = [];
+for irow = 1:size(trap_MF,1)                                                                                % loop throguh rows(different inhibitions) and plot the are under the curve (impulse)
+    x = trap_MF(irow,:);
+    y = trap_JCF(irow,:);
+    [r,p] = corrcoef(x,y);                                                                                  % calcuclate pearson coefficient and square it
+    rsquared(irow) = r(1,2)^2;
+    pvalue(irow) = p(1,2);
+    plot(mean(x), mean(y),'.','MarkerSize',35,'Color', Plot_colors(irow,:))                                 % plot
+    errorbar(mean(x,2),mean(y,2), std(y,0,2),'Color',[0 0 0],'LineStyle','none')
+    errorbar(mean(x,2),mean(y,2), std(x,0,2),'horizontal','Color',[0 0 0],'LineStyle','none')
+end
+r = mean(rsquared);                                                                                         % mean rsquared
+[r, pvalue,rlo,rup] = corrcoef(mean(trap_MF,2),mean(trap_JCF,2));
+r = r(1,2)^2;                                                                                               % rsquared of the mean values
 
-    %% plot contact forces
-    [ha, pos,FirstCol,LastRow,LastCol] = tight_subplotBG(length(joints));
-    last_plot_not_contact_force = 0;
-    Plot_colors = colorBG(0,length(penalties));
-    for iJoint = 1:length(joints)
-        for iPen = 1:length(penalties)
-            axes(ha(last_plot_not_contact_force+iJoint))
+t = text(0.9, 0.9,['r^2 = ' num2str(round(r,4))],'Units','normalized','Position',[.7925 0.7093 0]);
 
-            JointName = joints{iJoint};
-            force_data = contactForces.(['Pen_' penalties{iPen}]).(JointName);
-
-            plotShadedSD(mean(force_data,2),std(force_data,0,2), Plot_colors(iPen,:));
-            title(JointName,'Interpreter','none')
-            if any(iJoint == FirstCol)
-                ylabel('Contact force (N)')
-            end
-            if any(iJoint == LastRow)
-                xlabel('Gait cycle(%)')
-            end
-            
-        end
-        ylim([0 5500])                                                                                          % ylim
-    end
-    count = count +1;
-    axes(ha(count)); hold on
-
-    rsquared = []; pvalue = [];
-    for irow = 1:size(trap_MF,1)                                                                                % loop throguh rows(different inhibitions) and plot the are under the curve (impulse)
-        x = trap_MF(irow,:);
-        y = trap_JCF(irow,:);
-        [r,p] = corrcoef(x,y);                                                                                  % calcuclate pearson coefficient and square it
-        rsquared(irow) = r(1,2)^2;
-        pvalue(irow) = p(1,2);
-        plot(mean(x), mean(y),'.','MarkerSize',35,'Color', Plot_colors(irow,:))                                 % plot
-        errorbar(mean(x,2),mean(y,2), std(y,0,2),'Color',[0 0 0],'LineStyle','none')
-        errorbar(mean(x,2),mean(y,2), std(x,0,2),'horizontal','Color',[0 0 0],'LineStyle','none')
-    end
-    r = mean(rsquared);                                                                                         % mean rsquared
-    [r, pvalue,rlo,rup] = corrcoef(mean(trap_MF,2),mean(trap_JCF,2));
-    r = r(1,2)^2;                                                                                               % rsquared of the mean values
-
-    t = text(0.9, 0.9,['r^2 = ' num2str(round(r,4))],'Units','normalized','Position',[.7925 0.7093 0]);
-
-    ylim([0 3000])
-    ylabel('Contact force impulse (N*s)')
-    if any(count == LastRow)
-        xlabel('Muscle force impulse (N*s)')
-    end
+ylim([0 3000])
+ylabel('Contact force impulse (N*s)')
+if any(count == LastRow)
+    xlabel('Muscle force impulse (N*s)')
 end
 tight_subplot_ticks(ha,LastRow,0)
 % appearance scatter plots
@@ -382,8 +390,9 @@ for i = 1:4
     set(ha(i), 'Color',rgb2mat([0,107,140]), 'FontSize', 14, 'FontName', 'Arial','XColor', 'white', 'YColor', 'white', 'ZColor', 'white');
     ha(i).YLabel.Color = [1,1,1];
     ha(i).Title.Color = [1,1,1];
-    try ha(i).Legend.TextColor = [1,1,1];; catch; end 
+    try ha(i).Legend.TextColor = [1,1,1];; catch; end
 end
+set(gcf, 'Color',rgb2mat([0,107,140])
 
 
 
