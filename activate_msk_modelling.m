@@ -14,8 +14,9 @@ catch
 
     addpath(genpath(msk_dir));                                                                                          % add current folder to MATLAB path
     disp([msk_dir ' activated'])
+    
     bops = load_setup_bops;
-
+    
     DirOpenSim = ['C:' fp 'OpenSim ' num2str(bops.osimVersion) fp 'Resources\Code\Matlab'];
     addpath(genpath(DirOpenSim));
 
