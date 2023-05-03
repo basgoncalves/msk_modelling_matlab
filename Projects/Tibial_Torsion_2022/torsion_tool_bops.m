@@ -559,64 +559,47 @@ RHJC = []; LHJC = [];
 for t=1:size(RASIS,2)
 
     %Global Pelvis Center position
-    OP(:,t)=(LASIS(:,t)+RASIS(:,t))/2;    
+    OP      = (LASIS(:,t)+RASIS(:,t))/2;        
+    PROVV   = (RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
+    IB      = (RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
     
-    PROVV(:,t)=(RASIS(:,t)-SACRUM(:,t))/norm(RASIS(:,t)-SACRUM(:,t));  
-    IB(:,t)=(RASIS(:,t)-LASIS(:,t))/norm(RASIS(:,t)-LASIS(:,t));    
+    KB=IB.*PROVV;                               
+    KB=KB/norm(KB);
     
-    KB(:,t)=IB(:,t).*PROVV(:,t);                               
-    KB(:,t)=KB(:,t)/norm(KB(:,t));
-    
-    JB(:,t)=KB(:,t).*IB(:,t);                               
-    JB(:,t)=JB(:,t)/norm(JB(:,t));
-    
-    OB(:,t)=OP(:,t);
+    JB=KB.*IB;
+    JB=JB/norm(JB);
       
     %rotation+ traslation in homogeneous coordinates (4x4)
-    pelvis(:,:,t)=[IB(:,t) JB(:,t) KB(:,t) OB(:,t);
-                   0 0 0 1];
+    pelvis = [IB JB KB OP;  0 0 0 1];
     
     %Trasformation into pelvis coordinate system (CS)
-    OPB(:,t)=inv(pelvis(:,:,t))*[OB(:,t);1];    
+    OPB = inv(pelvis)*[OP;1];    
        
-    PW(t)=norm(RASIS(:,t)-LASIS(:,t));
-    PD(t)=norm(SACRUM(:,t)-OP(:,t));
+    PW=norm(RASIS(:,t)-LASIS(:,t));
+    PD=norm(SACRUM(:,t)-OP);
     
     %Harrington formulae (starting from pelvis center)
-    diff_ap(t)=-0.24*PD(t)-9.9;
-    diff_v(t)=-0.30*PW(t)-10.9;
-    diff_ml(t)=0.33*PW(t)+7.3;
+    diff_ap = -0.24 * PD - 9.9;
+    diff_v  = -0.30 * PW - 10.9;
+    diff_ml =  0.33 * PW + 7.3;
     
     %vector that must be subtract to OP to obtain hjc in pelvis CS
-    vett_diff_pelvis_sx(:,t)=[-diff_ml(t);diff_ap(t);diff_v(t);1];
-    vett_diff_pelvis_dx(:,t)=[diff_ml(t);diff_ap(t);diff_v(t);1];    
+    vett_diff_pelvis_sx = [-diff_ml; diff_ap; diff_v; 1];
+    vett_diff_pelvis_dx = [diff_ml; diff_ap; diff_v; 1];    
     
     %hjc in pelvis CS (4x4)
-    rhjc_pelvis(:,t)=OPB(:,t)+vett_diff_pelvis_dx(:,t);  
-    lhjc_pelvis(:,t)=OPB(:,t)+vett_diff_pelvis_sx(:,t);  
+    rhjc_pelvis = OPB + vett_diff_pelvis_dx;  
+    lhjc_pelvis = OPB + vett_diff_pelvis_sx;  
     
 
     %Transformation Local to Global
-    RHJC(:,t)=pelvis(1:3,1:3,t)*[rhjc_pelvis(1:3,t)]+OB(:,t);
-    LHJC(:,t)=pelvis(1:3,1:3,t)*[lhjc_pelvis(1:3,t)]+OB(:,t);
+    RHJC(:,t) = pelvis(1:3,1:3,1) * [rhjc_pelvis(1:3,1)] + OP;
+    LHJC(:,t) = pelvis(1:3,1:3,1) * [lhjc_pelvis(1:3,1)] + OP;
        
 end
 
 trc.RHJC=RHJC';
 trc.LHJC=LHJC';
-
-% Define relevant measurements
-l_ASIS_PSIS = norm(ASIS - PSIS);
-l_ASIS_HJC = 0.56 * l_ASIS_PSIS;
-l_PSIS_HJC = 0.44 * l_ASIS_PSIS;
-m_ASIS_PSIS = (PSIS - ASIS) / l_ASIS_PSIS;
-
-% Calculate the midpoint of the ASIS and PSIS markers
-midpoint = (ASIS + PSIS) / 2;
-
-% Calculate the hip joint center
-HJC = midpoint + l_ASIS_HJC * m_ASIS_PSIS;
-
 
 Labels_struct = fields(trc);
 CompleteMarkersData = [];
@@ -633,4 +616,51 @@ CompleteMarkersData(:,2:7) = [];
 FullFileName = strrep(statictrcpath,'.trc','_HJC.trc');
 writetrc(CompleteMarkersData,Labels_struct(2:end),Rate,FullFileName)
 
+%============================================================================================%
+function check_if_static_exists_in_all_folders()
 
+
+function Temp = get_templates_prject()
+
+
+templateDir                  = [Temp.mainData fp 'templates'];
+Temp.templatesDir             = templateDir;
+Temp.templates                = struct;                                                                              % Directory with template setup files for this project
+Temp.templates.acquisitionXML = [templateDir fp 'acquisition.xml'];                                                  % MOtoNMS (see https://scfbm.biomedcentral.com/articles/10.1186/s13029-015-0044-4)
+Temp.templates.elaborationXML = [templateDir fp 'elaboration.xml'];
+
+Temp.templates.Model     = [templateDir fp bops_settings.dataStructure.OSIMModelName '.osim'];                       %OpenSim
+Temp.templates.ScaleTool = [templateDir fp 'ScaleTool.xml'];
+Temp.templates.Static    = [templateDir fp 'static.xml'];
+
+Temp.templates.IKSetup = [templateDir fp 'IK_setup.xml'];                                                            % Inverse kinematics
+
+Temp.templates.IDSetup = [templateDir fp 'ID_setup.xml'];                                                            % Inverse dynamics
+Temp.templates.GRF = [templateDir fp 'ID_externalForces_RL.xml'];
+
+Temp.templates.RRASetup                      = [templateDir fp 'RRA_setup.xml'];                                     % residual reduction analysis
+Temp.templates.RRAActuators                  = [templateDir fp 'RRA_actuators.xml'];
+Temp.templates.RRATaks                       = [templateDir fp 'RRA_tasks.xml'];
+Temp.templates.RRASetup_actuation_analyze    = [templateDir fp 'RRA_setup_actuation_analyze.xml'];
+
+Temp.templates.MASetup = [templateDir fp 'MA_setup.xml'];                                                            % muscle analysis
+
+Temp.templates.SOSetup       = [templateDir fp 'SO_setup.xml'];                                                      % static optimization
+Temp.templates.SOActuators   = [templateDir fp 'SO_actuators.xml'];
+
+Temp.templates.CMCSetup      = [templateDir fp 'CMC_setup.xml'];                                                     % computed muscle control
+Temp.templates.CMCControls   = [templateDir fp 'CMC_ControlConstraints.xml'];
+Temp.templates.CMCtasks      = [templateDir fp 'CMC_tasks.xml'];
+Temp.templates.CMCactuators  = [templateDir fp 'CMC_actuators.xml'];
+
+Temp.templates.CEINMSuncalibratedmodel = [templateDir fp 'CEINMS_uncalibrated_RL.xml'];                              % CEINMS templates
+Temp.templates.CEINMScalibrationCfg = [templateDir fp 'CEINMS_calibrationCfg_RL.xml'];
+Temp.templates.CEINMScalibrationCfg_HJCF = [templateDir fp 'CEINMS_calibrationCfg_RL_HJCF.xml'];
+Temp.templates.CEINMSexcitationGenerator = [templateDir fp 'CEINMS_excitationGenerator.xml'];
+Temp.templates.CEINMSexecutionSetup = [templateDir fp 'CEINMS_executionSetup.xml'];
+Temp.templates.CEINMSexecutionCfg = [templateDir fp 'CEINMS_executionCfg.xml'];
+Temp.templates.CEINMScontactmodel = [templateDir fp 'CEINMS_contactOpenSimModel.xml'];
+
+Temp.templates.JRAsetup = [templateDir fp 'JCF_setup.xml'];                                                          % joint reaction analysis
+
+Temp.templates.IAASetup = [templateDir fp 'IAA_setup.xml'];                                                          % induced acceleration analysis

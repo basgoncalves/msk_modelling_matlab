@@ -19,8 +19,8 @@ for ff = 1:length(Subjects)
     updateLogAnalysis(Dir,'MOtoNMS',SubjectInfo,'start')
     
     AcquisitionInterface_BG(Dir,Temp,SubjectInfo,Trials);                               % create acquisition xml
-    copyfile([Dir.Input fp 'acquisition.xml'],[Dir.Elaborated fp 'acquisition.xml'])  % create a copy in /ElaboratedData/Subject/
-    elaborationFileCreation_BG(Dir,Temp,Fcut,Trials);                                    % run dynamic elaboration
+    copyfile([Dir.Input fp 'acquisition.xml'],[Dir.Elaborated fp 'acquisition.xml'])    % create a copy in /ElaboratedData/Subject/
+    elaborationFileCreation_BG(Dir,Temp,Fcut,Trials);                                   % run dynamic elaboration
 %     runDataProcessing_BG_EMGOnly(Dir.dynamicElaborations,Fcut)
     runDataProcessing_BG(Dir.dynamicElaborations,Fcut)
 
