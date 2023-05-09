@@ -67,9 +67,8 @@ if ~exist(ModelOut)
     for ii = 0:nMuscles-1
         muscleInfo(ii+1).updatedMuscleForce = (muscleInfo(ii+1).specificTension * muscleInfo(ii+1).updatedVolume)/muscleInfo(ii+1).muscleOptFiberLength;
     end
-    muscles.get(muscleInfo(ii+1).muscleNames).setMaxIsometricForce(muscleInfo(ii+1).updatedMuscleForce);
-    % Write the model to a new file
-    model.print(ModelOut)
+   
+
 end
 disp(['The new model has been saved as ' ModelOut]);
 

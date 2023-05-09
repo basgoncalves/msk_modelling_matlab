@@ -31,10 +31,14 @@ end
 %acquisition.xml file path reconstruction
 i=strfind(ElaborationFilePath,'ElaboratedData');
 
-acquisitionPath=[ElaborationFilePath(1:(i-1)) elaboration.FolderName(3:end)];
-
 %Acquisition Info: load acquisition.xml
-acquisitionInfo=xml_read([acquisitionPath filesep 'acquisition.xml']);
+try 
+    acquisitionPath=[ElaborationFilePath(1:(i-1)) elaboration.FolderName(3:end)];
+    acquisitionInfo=xml_read([acquisitionPath filesep 'acquisition.xml']);
+catch
+    acquisitionPath=[fileparts(ElaborationFilePath)];
+    acquisitionInfo=xml_read([acquisitionPath filesep 'acquisition.xml']);
+end
 
 %Folders Definition
 foldersPath=foldersDefinition(acquisitionPath,ElaborationFilePath);

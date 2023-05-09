@@ -26,11 +26,20 @@ function []= writetrc_os4(markers,MLabels,VideoFrameRate,FullFileName)
 % use the example_writetrc.mat and run:
 % "writetrc(CompleteMarkersData,MarkersListjc{1}',Markers.Rate,FullFileName)"
 
+<<<<<<< HEAD
+=======
+%%
+
+>>>>>>> 56bcd1658d908c3bb095b81d6cbee90273cae0ad
 time=markers(:,1);
 DataStartFrame=time(1)*VideoFrameRate+1;
 
 %add frame column
+<<<<<<< HEAD
 frameArray=[(time(1)*VideoFrameRate+1):(time(end)*VideoFrameRate+1)]';
+=======
+frameArray=[(time(1)*VideoFrameRate+1):round(time(end)*VideoFrameRate+1)]';
+>>>>>>> 56bcd1658d908c3bb095b81d6cbee90273cae0ad
 
 markers=[frameArray markers];
 

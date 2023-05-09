@@ -24,7 +24,7 @@
 
 function b = BarBG (yData,ErrorBars,Ylb,Xtics,Titl,Lgd,IndivData,FontSize,MarkerSize)
 
-if exist('FontSize')&&~isempty(FontSize)
+if nargin > 7  && ~isempty(FontSize)
     FS = FontSize;
 else
     FS = 50;
