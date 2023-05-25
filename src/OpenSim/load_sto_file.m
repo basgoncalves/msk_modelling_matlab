@@ -11,9 +11,6 @@ function out = load_sto_file(filename)
 %
 % Author: Glen Lichtwark 
 % Last Modified: 17/11/2008
-%   Updates:
-%   L71 -  ~isempty(str2num(f_name(1)))&& ~contains(f_name,'iliacus') to
-%   avoid the iliacus to be replaced by Niliacus (BG, 2/10/2020)
 
 if nargin < 1
     [fname, pname] = uigetfile('*.*', 'File to load - ');
@@ -39,10 +36,7 @@ data = reshape(num_dat,m-a(end),sum(s_data.numberMask(a(end)+1,:),2));
 if sum(s_data.stringMask(a(end),:)) == sum(s_data.numberMask(a(end)+1,:))
     data_label = file_data(a(end),:);
     b = a(end)-1;
-else
-    cols = sum(s_data.numberMask(a(end)+1,:));
-    data_label = file_data(a(end),1:cols);
-    b = a(end);
+else b = a(end);
 end
 
 % go through the data labels and find any that are duplicates (this occurs
@@ -72,9 +66,11 @@ for i = 1:length(data_label)
     if ~isempty(e)
         f_name(e) = '_';
     end
-    if ~isempty(str2num(f_name(1)))&& ~contains(f_name,'iliacus')
+
+    % Add an 'N' in front of name IF fisrt element of the string is a number (excluding 'i' and 'j'
+    % which are numbers in matlab)
+    if ~isempty(str2num(f_name(1))) && ~contains(f_name(1),'i') && ~contains(f_name(1),'j')  
         f_name = ['N' f_name];
     end
     out.(f_name) = data(:,i);
 end
-
