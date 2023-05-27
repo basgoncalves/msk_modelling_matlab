@@ -19,25 +19,22 @@
 %% plotCorr
 function [rsquared,pvalue, p1,rlo,rup] = plotCorr (x,y,n,Alpha,Color, MakerSize)
 
-if  nargin<3
+
+if  nargin < 3 || isempty(n)
     n= length(x);
 end
-if nargin<4
+if nargin < 4 || isempty(Alpha)
     Alpha= 0.05;
 end
 
-if  nargin<5
+if  nargin < 5 || isempty(Color)
     Color= 'k';
 end
 
-if  nargin<6
+if  nargin < 6 || isempty(MarkerSize)
     MakerSize= 10;
 end
 
-if size(x,1)==1
-    x = x';
-    y = y';
-end
 % delete nan
 IDXnan = any(isnan([x y]),2); 
 x(IDXnan)=[];
