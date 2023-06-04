@@ -8,7 +8,7 @@
 %
 function [YPositions,Lines] = addLinePlotSPM(LineLength,colors,Shade)
 
-[Ncomparisons,NLines] =size(LineLength);
+[Ncomparisons,NLines] = size(LineLength);
 if nargin<2; colors=zeros(Ncomparisons,3); end
 
 IntitalLimits = ylim; rangeY=range(IntitalLimits);SpaceBelow=0.03*Ncomparisons*rangeY*2;
