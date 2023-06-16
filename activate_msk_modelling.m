@@ -6,6 +6,7 @@ clear; clc; close all;                                                          
 activeFile = [mfilename('fullpath') '.m'];                                                                          % get dir of the current file
 msk_dir  = fileparts(activeFile);
 
+
 try
     isbopsactive;    % check if the pipeline is in the path
     addpath(genpath([msk_dir fp 'src' fp 'OpenSim']));
