@@ -130,7 +130,7 @@ for c = 1:size(comb,1)
     end
     
     % mean and CI across whole curve
-    [MD(c,1),lCI(c,1),uCI(c,1)] = meanDif_arrary (Dataset1,Dataset2, Alpha,2,0); 
+    [MD(c,1),lCI(c,1),uCI(c,1)] = meanDif(Dataset1,Dataset2, Alpha,2,0); 
     X{c,1} = {};
     Pval(c,1) = spmi.p_set;
 
@@ -144,7 +144,7 @@ for c = 1:size(comb,1)
         X{c,col} = Xvalues;
 
         % mean and CI for the area of each patch
-        [MD(c,col),lCI(c,col),uCI(c,col)] = meanDif_arrary (Dataset1(Xvalues,:),Dataset2(Xvalues,:),Alpha,2,0); 
+        [MD(c,col),lCI(c,col),uCI(c,col)] = meanDif (Dataset1(Xvalues,:),Dataset2(Xvalues,:),Alpha,2,0); 
 
         % remove text and conver p-value to number
         try
