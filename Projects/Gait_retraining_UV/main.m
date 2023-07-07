@@ -6,11 +6,7 @@ bopsdir  = fileparts(activeFile.Filename);
 cd([bopsdir '\..\..']);
 activate_msk_modelling
 
-main_dir = 'Z:\GaitRetraining\MonteCarlo';
-data_dir = [main_dir fp 'TD10_Data'];
 
-model_path = [main_dir fp 'Model\defModel_scaled.osim'];
-marker_weights_path = [main_dir fp 'marker_weights.xml'];
 
 % get_marker_weight_from_model(model_path,marker_weights_path)
 
