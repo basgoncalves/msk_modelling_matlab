@@ -1,0 +1,67 @@
+function findCentroid(M)
+
+
+activeFile = [mfilename('fullpath') '.m'];    
+activeDir = fileparts(activeFile);
+
+% example data
+if nargin < 1
+    load([activeDir fp 'findCentroid_exampleData'])
+    M = smoothing_i; 
+end
+
+
+% Find the centroid
+[row, col] = find(~isnan(M));
+xc = mean(col);
+yc = mean(row);
+
+% [x,y] = findEdged(M);
+[x,y] = drawRandomShape(0);
+% [xc,yc] = polygoncentroid(x,y);
+
+figure; 
+imagesc(M);
+hold on
+plot(xc,yc, '.r', 'MarkerSize',20)
+ylim([0 200])
+xlim([0 200])
+
+
+
+function [xc,yc] = polygoncentroid(x,y)
+xn = circshift(x,-1);
+yn = circshift(y,-1);
+A = x.*yn-xn.*y;
+a = 3*sum(A);
+xc = sum((x+xn).*A)/a;
+yc = sum((y+yn).*A)/a;
+
+
+function [x,y] = drawRandomShape(plotLogic)
+
+N= 20;                                  % Number Of Sides To Polygon
+a = sort(rand(N,1))*2*pi;
+r = randi(9, N, 1);
+x = cos(a).*r;
+y = sin(a).*r;
+if plotLogic
+    figure
+    plot([x; x(1)], [y; y(1)])
+end
+
+function [x,y] = findEdged(M)
+
+% Find the edges between NaN and numbers
+[row, col] = find(~isnan(M));
+edges = [];
+for i = 1:numel(row)
+    if (col(i) > 0 && isnan(M(row(i), col(i) - 1))) %|| (col(i) < size(M, 2) && isnan(M(row(i), col(i) + 1)))
+        edges = [edges; row(i), col(i)];
+    end
+end
+
+x = edges(:,2);
+y = edges(:,1);
+
+% END
