@@ -82,7 +82,7 @@ update={'MuscleVariables' 'MomentArms' 'ContactForces' 'externalBiomech' 'Spatio
 PHD_JCF_FAIS_results(update([4]),Subjects(1:end),'run')
 MuscleParamenters = GetMuscleParameters_FAI(Subjects);
 cd([Dir.Paper_JCFFAI fp 'Results']) % ResultsScript_JCFFAIS
-% GatherRRAresults(Subjects,[1:16]) 
+% GatherRRAresults(Subjects,[]) 
 
 bops_gather_ik
 
