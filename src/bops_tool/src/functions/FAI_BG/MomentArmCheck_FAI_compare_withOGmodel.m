@@ -98,7 +98,7 @@ plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6])
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M1,SD1,[1 0 0],Xvalues1)
 plotShadedSD(M2,SD2,[0 1 1],Xvalues2)
-ylim([0 8])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -129,7 +129,7 @@ axes(ha(Ntile)); hold on
 plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6]) 
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M1,SD1,[0 1 1],Xvalues1)
-ylim([0 8])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -153,7 +153,7 @@ axes(ha(Ntile)); hold on
 plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6]) 
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M,SD,[1 0 0],mean(angles,2))
-ylim([-10 0])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -177,7 +177,7 @@ axes(ha(Ntile)); hold on
 plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6]) 
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M,SD,[1 0 0],mean(angles,2))
-ylim([-10 0])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -229,7 +229,7 @@ axes(ha(Ntile)); hold on
 plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6])
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M,SD,[0 1 0],mean(angles,2))
-ylim([-10 0])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -265,7 +265,7 @@ plot(Angles_IK,MuscleMomArm_OG,'Color',[0.6 0.6 0.6])
 plot(Angles_IK,MuscleMomArm,'--k')
 plotShadedSD(M1,SD1,[0 1 0],mean(angles,2))
 plotShadedSD(M2,SD2,[0 1 1],mean(angles,2))
-ylim([-10 5])
+ylim([-10 10])
 xlim([-40 100])
 xticklabels(xticks)
 yticklabels(yticks)
@@ -561,16 +561,15 @@ newMOT = templateMOT;
 newMOT.(coordinates) = [rangeangles(1):range(rangeangles)/n:rangeangles(2)]';
 write_sto_file(newMOT,[savedir '\' coordinates '.mot']);
 cd(savedir)
-run_muscleanalyis([savedir fp 'MA_setup_FAI.xml'],coordinates,['.\' scaledFAI '.osim'])
+run_muscleanalyis([savedir fp 'MA_setup_FAI.xml'],coordinates,[savedir fp scaledFAI '.osim'])
 cd(savedir)
-run_muscleanalyis([savedir fp 'MA_setup_FAI.xml'],coordinates,['.\' scaledOriginal '.osim'])
+run_muscleanalyis([savedir fp 'MA_setup_FAI.xml'],coordinates,[savedir fp scaledOriginal '.osim'])
 
 function run_muscleanalyis(templateSetupMA,trial,modeldir)
 %% 
 import org.opensim.modeling.*
 osimModel = Model(modeldir);
-modelName = strrep(modeldir,'.\','');
-modelName = strrep(modelName,'.osim','');
+[~, modelName] = fileparts(modeldir);
 ResultsDir = ['.\' trial '_' modelName];
 mkdir(ResultsDir); cd(ResultsDir)
 
