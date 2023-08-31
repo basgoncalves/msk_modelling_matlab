@@ -10,6 +10,7 @@ msk_dir  = fileparts(activeFile);
 try
     isbopsactive;    % check if the pipeline is in the path
     addpath(genpath([msk_dir fp 'src' fp 'OpenSim']));
+    cd(msk_dir)
     disp([msk_dir ' is already in the path'])
 catch
 
@@ -21,6 +22,7 @@ catch
     DirOpenSim = ['C:' fp 'OpenSim ' num2str(bops.osimVersion) fp 'Resources\Code\Matlab'];
     addpath(genpath(DirOpenSim));
 
+    cd(msk_dir)
     disp([DirOpenSim ' activated'])
 
 end
