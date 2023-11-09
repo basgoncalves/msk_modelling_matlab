@@ -62,7 +62,7 @@ for k=1:length(c3dFiles)
     %correction of the name --> after uniformation it should not be necessary
     trialsName{k} = regexprep(regexprep((regexprep(c3dFiles(k).name, ' ' , '')), '-',''), '.c3d', '');
     
-    if ~contains(TrialList,trialsName{k})
+    if ~contains(trialsName{k},TrialList)
         continue
     end
     
