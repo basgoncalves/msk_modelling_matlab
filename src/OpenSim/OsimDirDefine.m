@@ -148,7 +148,7 @@ end
         if contains(DirOpenSim,'OpenSim 3.')
             DirOpenSimMatlab = [DirOpenSim fp 'Scripts\Matlab'];
         elseif contains(DirOpenSim,'OpenSim 4.')
-            DirOpenSimMatlab = [DirOpenSim fp 'Resources\Code\Matlab'];
+            DirOpenSimMatlab = [fileparts(userpath) fp 'OpenSim' fp osimVersionBops fp 'Code\Matlab'];
             
             if ~isfolder(DirOpenSimMatlab)
                 msg = msgbox ('Matlab OpenSim folder not found! Please ensure there is a folder ''Resources\Code\Matlab'' add to OPENSIM_INSTALL_DIR');

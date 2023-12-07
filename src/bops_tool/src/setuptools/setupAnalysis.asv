@@ -85,10 +85,6 @@ else
     pause(2)
     msg = msgbox(['Please confirm the rotations of the forceplates']);
     uiwait(msg)
-    
-    RotationViewer
-
-
     prompt = '';
     definput = '';
     for i = 1:length(ForcePlatformInfo)
