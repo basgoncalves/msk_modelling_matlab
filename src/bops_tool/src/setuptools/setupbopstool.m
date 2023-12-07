@@ -140,7 +140,7 @@ Dir.eventsCSV           = [Dir.mainData  fp 'events.csv'];
 Dir.modelsCSV           = [Dir.mainData  fp 'Models.csv'];
 Dir.CEINMSexe           = [DirUp(Dir.bops,2) fp 'src\Ceinms\CEINMS_2'];                                             % add CEINMS 2 directory
 Dir.InputData           = [Dir.mainData fp 'InputData'];
-Dir.ElaboratedData      = [Dir.mainData fp 'ElaboratedData'];
+Dir.ElaboratedData      = [Dir.main Data fp 'ElaboratedData'];
 
 Dir.Results = [Dir.mainData fp 'Results'];
 
