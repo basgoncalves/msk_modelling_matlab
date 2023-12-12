@@ -35,6 +35,9 @@ DataStartFrame=time(1)*VideoFrameRate+1;
 %add frame column
 frameArray=[(time(1)*VideoFrameRate+1):round(time(end)*VideoFrameRate+1)]';
 
+while length(frameArray) < size(markers,1)
+    frameArray(end+1) = frameArray(end)+1;
+end
 
 markers=[frameArray markers];
 

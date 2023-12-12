@@ -144,7 +144,7 @@ Dir.CEINMSexe           = [DirUp(Dir.bops,2) fp 'src/Ceinms/CEINMS_2'];         
 
 Dir.simulations         = [Dir.mainData fp 'simulations'];
 Dir.InputData           = [Dir.mainData fp 'InputData'];
-Dir.ElaboratedData      = [Dir.mainData fp 'ElaboratedData'];
+Dir.ElaboratedData      = [Dir.main Data fp 'ElaboratedData'];
 
 Dir.Results = [Dir.mainData fp 'Results'];
 
