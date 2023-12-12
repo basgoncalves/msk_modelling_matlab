@@ -1,2 +1,2 @@
 function f = fp
-f = filesep;
+f = '/';

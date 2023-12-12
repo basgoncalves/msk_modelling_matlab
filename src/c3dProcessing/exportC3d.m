@@ -12,6 +12,9 @@ function exportC3d(c3dFilePath,EMGLabels,bandPassFilter,lowPassFilter)
 trialFolderConverted = [parentFolder fp trialName];
 if ~isfolder(trialFolderConverted); mkdir(trialFolderConverted); end
 
+% copy c3d file
+copyfile(c3dFilePath,[trialFolderConverted fp 'c3dfile.c3d']);
+
 % Load OpenSim libs
 import org.opensim.modeling.*
 
@@ -29,10 +32,12 @@ catch
     warning([c3dFilePath ' does not contain markers'])
 end
 
-% Write marker data to trc file.
+% Write grf to mot file
 try
-    c3d.convertMillimeters2Meters();    % Convert COP (mm to m) and Moments (Nmm to Nm)
+    c3d.convertMillimeters2Meters();                    % Convert COP (mm to m) and Moments (Nmm to Nm)
     c3d.writeMOT([trialFolderConverted fp 'grf.mot']);
+
+    replaceWithNaN([trialFolderConverted fp 'grf.mot']);         % replace %Name with NaN
 catch
     warning([c3dFilePath ' does not contain grf'])
 end
@@ -49,3 +54,51 @@ try
 catch
     warning(([c3dFilePath ' does not contain emg data']))
 end
+
+% create xml file for grf
+[data,C,tableData] =  readMOTSTOTRCfiles([trialFolderConverted '\'],'grf.mot');
+numPlates = c3d.getNumForces;
+
+XML = struct;
+XML.ATTRIBUTE.Version = 40000;
+
+XML.ExternalLoads = struct;
+XML.ExternalLoads.objects = struct;
+XML.ExternalLoads.objects.ExternalForce = struct;
+
+for i = 1:numPlates
+    XML.ExternalLoads.objects.ExternalForce(i).COMMENT = '';
+    XML.ExternalLoads.objects.ExternalForce(i).applied_to_body = 'calcn_r';
+    XML.ExternalLoads.objects.ExternalForce(i).force_expressed_in_body = 'ground';
+    XML.ExternalLoads.objects.ExternalForce(i).point_expressed_in_body = 'ground';
+    XML.ExternalLoads.objects.ExternalForce(i).force_identifier = ['ground_force_' num2str(i) '_v'];
+    XML.ExternalLoads.objects.ExternalForce(i).point_identifier = ['ground_force_' num2str(i) '_p'];
+    XML.ExternalLoads.objects.ExternalForce(i).torque_identifier = ['ground_moment_' num2str(i) '_m'];
+    XML.ExternalLoads.objects.ExternalForce(i).data_source_name = [];
+    XML.ExternalLoads.objects.ExternalForce(i).ATTRIBUTTE = struct;
+end
+
+
+
+footOnForcePlate = detectFootOnForcePlate(verticalGRF, markerCoordinates, threshold)
+
+
+xml2 = xml_read('C:\Users\Biomech\ucloud\Shared\Data_CEINMS\setupFiles\grf.xml')
+
+function replaceWithNaN(file_path)
+
+% Read the file content
+fid = fopen(file_path, 'r');
+content = fread(fid, '*char')';
+fclose(fid);
+
+% Replace "#NAME?" with "NaN"
+content = strrep(content, '-nan(ind)', 'NaN'); 
+
+% Write the modified content back to the file
+fid = fopen(file_path, 'w');
+fprintf(fid, '%s', content);
+fclose(fid);
+
+disp(['File ''' file_path ''' updated.']);
+

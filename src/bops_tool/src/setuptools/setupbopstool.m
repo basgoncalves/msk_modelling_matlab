@@ -67,7 +67,7 @@ addpath(genpath(masterDir))                                                     
 try
     steps = fields(bops.ProcessingSteps);
 catch
-    og_bops = xml_read([bops.directories.bops fp 'Templates\bopsSettings.xml']);
+    og_bops = xml_read([bops.directories.bops fp 'Templates/bopsSettings.xml']);
     bops.ProcessingSteps = og_bops.ProcessingSteps;
     steps = fields(bops.ProcessingSteps);
 end
@@ -133,12 +133,16 @@ copyfile(source,destin)
 function bops_settings = define_bops_directories(bops_settings)
 
 Dir = bops_settings.directories;
-Dir.osimMatlab          = ['C:' fp 'OpenSim ' num2str(bops_settings.osimVersion) fp 'Resources\Code\Matlab\Utilities'];
+userPath = fileparts(fileparts(userpath));
+
+Dir.osimMatlab          = [userPath '/OpenSim/' num2str(bops_settings.osimVersion) '/Code/Matlab/Utilities'];
 Dir.mainData            = fileparts(Dir.setupbopsXML);
 Dir.subjectInfoCSV      = [Dir.mainData fp 'subjectinfo.csv'];
 Dir.eventsCSV           = [Dir.mainData  fp 'events.csv'];
 Dir.modelsCSV           = [Dir.mainData  fp 'Models.csv'];
-Dir.CEINMSexe           = [DirUp(Dir.bops,2) fp 'src\Ceinms\CEINMS_2'];                                             % add CEINMS 2 directory
+Dir.CEINMSexe           = [DirUp(Dir.bops,2) fp 'src/Ceinms/CEINMS_2'];                                             % add CEINMS 2 directory
+
+Dir.simulations         = [Dir.mainData fp 'simulations'];
 Dir.InputData           = [Dir.mainData fp 'InputData'];
 Dir.ElaboratedData      = [Dir.mainData fp 'ElaboratedData'];
 
