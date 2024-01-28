@@ -7,7 +7,7 @@ pwd = fileparts(fileparts(fileparts(fileparts(tmp.Filename))));
 MasterDir = [pwd fp 'msk_modelling_matlab']; 
 addpath(genpath(MasterDir));                                                                                        % rmpath(genpath(MasterDir)); 
 cd(MasterDir)
-
+%% 
 % Organise Data
 setupdirFAI
 OsimDirDefine                                                                                                       % check if OpenSim is set up
