@@ -1,6 +1,6 @@
 %-------------------------------------------------------------------------%
 % Copyright (c) 2021 % Kirsten Veerkamp, Hans Kainz, Bryce A. Killen,     %
-%    Hulda Jónasdóttir, Marjolein M. van der Krogt     		              %
+%    Hulda Jï¿½nasdï¿½ttir, Marjolein M. van der Krogt     		              %
 %                                                                         %
 % Licensed under the Apache License, Version 2.0 (the "License");         %
 % you may not use this file except in compliance with the License.        %
@@ -13,7 +13,7 @@
 % implied. See the License for the specific language governing            %
 % permissions and limitations under the License.                          %
 %                                                                         %
-%    Authors: Hulda Jónasdóttir & Kirsten Veerkamp                        %
+%    Authors: Hulda Jï¿½nasdï¿½ttir & Kirsten Veerkamp                        %
 %                            February 2021                                %
 %    email:    k.veerkamp@amsterdamumc.nl                                 % 
 % ----------------------------------------------------------------------- %

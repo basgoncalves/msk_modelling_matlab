@@ -3,7 +3,7 @@
 %
 %
 
-function [StanceOnFP,event_frames] = findGaitCycle_Events(c3dFilePathAndName,trialName,rightFootMarkers,leftFootMarkers)
+function [StanceOnFP,event_frames] = findGaitCycle_Events(c3dFilePathAndName,rightFootMarkers,leftFootMarkers)
 
 c3dData     = btk_loadc3d(c3dFilePathAndName);
 fs_grf      = c3dData.fp_data.Info(1).frequency;
